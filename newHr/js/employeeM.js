@@ -901,7 +901,7 @@ $(function () {
                             btn: '确定',
                             yes: function(index){
                                 layer.close(index);
-                                tmpObject.focus();
+                                inputObject.focus();
                             }
                         });
                         $(this).addClass('errorShow');

@@ -19,7 +19,7 @@ $(function () {
         type: "POST",
         dataType:"json",
         data: JSON.stringify({
-           // userCode:"5a4c42422384751673a1134d"
+           // userCode:"5a52e58b23847552239cfde3"
             userCode:userCode
         }),
         success: function (data) {
@@ -160,7 +160,7 @@ $(function () {
             basicInfo[itemName] = itemVal;
         });
         basicInfo.userCode = userCode;
-       // basicInfo.userCode ="5a4c42422384751673a1134d";
+       // basicInfo.userCode ="5a52e58b23847552239cfde3";
             $.ajax({
             url:'https://apix.funinhr.com/api/get/latest/resume',
             type: "POST",

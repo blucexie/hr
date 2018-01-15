@@ -60,6 +60,7 @@ $(function () {
 
     var userCode = sessionStorage.userCode;
     var resumeStr = sessionStorage.resumeArray;
+    console.log(resumeStr);
     if(typeof(resumeStr)!="undefined"){
       
         resumeArray = JSON.parse(resumeStr);
@@ -910,13 +911,13 @@ $(function () {
                     }
                 }else if (itemName == 'colleagueMobile'){
                     /*校验证明人电话*/
-                    if(itemVal ==basicInfo['resumeMobile']){
+                    if(itemVal ==basicAll['resumeMobile']){
                         layer.open({
                             content: '证明人电话不能与候选人电话相同',
                             btn: '确定',
                             yes: function(index){
                                 layer.close(index);
-                                tmpObject.focus();
+                                inputObject.focus();
                             }
                         });
                         $(this).addClass('errorShow');
