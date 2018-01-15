@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Microsoft YaHei";
+  font-size: 0.28rem;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#registrationForm,
+.notes {
+  text-align: center;
+}
+h1 {
+  margin: 0.2rem 0;
+}
+td {
+  height: 0.8rem !important;
+}
+.basic,
+.educate,
+.work,
+.change {
+  width: 15rem;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+.basic .t1 {
+  width: 1.44rem;
+}
+.t2 {
+  width: 2.32rem;
+}
+.phone {
+  width: 2.6rem;
+}
+.educate,
+.work {
+  border-top: 0;
+}
+.declare {
+  width: 15rem;
+  border: 1px solid #666;
+  border-top: none;
+  padding-top: 1rem;
+  margin: 0 auto;
+  text-align: left;
+  padding-bottom: 1rem;
+}
+.declare > span {
+  margin-left: 0.4rem;
+}
+.declare > p {
+  margin-left: 1rem;
+}
+.signature {
+  float: right;
+  margin-top: 0.6rem;
+  margin-right: 4rem;
+}
+hr {
+  height: 0.4rem;
+  background: #ebf0f3;
+  border: none;
+  margin: 1rem 0;
+}

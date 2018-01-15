@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>授权申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css/checkIndex.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+     <script type="text/javascript" src="js/checkIndex.js"></script>
+    <script type="text/javascript" src="layer_mobile/layer.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript">
+        !function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        }()
+    </script>
+</head>
+<body>
+    <div id="header">
+        <div class="company" >
+            <p class="companyName">亲爱的<span id="colleagueName"></span>，</p>
+            <p class="font">【易职信】受<span id="enterpriseName"></span>委托对<span id="verifyName"></span>经历进行核验</p>
+            <p class="ma-t font"> 请你对以下信息进行确认：</p>
+        </div>
+    </div>
+    <div class="interval"></div>
+    <div class="formValidation">
+        <form id="deForm" action="">
+            <label >
+                <span >公司名称</span>
+                <span id="inpName" class="companyName"></span>
+            </label><br>
+            <label for="inpJob">
+                <span >职位</span>
+                <span id="inpJob" class="verifyJob"></span>
+            </label><br>
+            <label for="inpEntry">
+                <span >入职时间</span>
+                <span id="inpEntry" class="jobStartTime"></span>
+            </label><br>
+            <label for="inpQuit">
+                <span >入职时间</span>
+                <span id="inpQuit" class="jobEndTime"></span>
+            </label><br>
+            <label  for="inpId">身份证号码
+                <input id="inpId" type="text" name="inpId" placeholder="请输入您的身份证号码" maxlength="18">
+            </label><br>
+        </form>
+    </div>
+    <div class="tijiao">
+        <span class="real" id="">真实</span>
+        <span class="false">虚假</span>
+    </div>
+    <div class="hint"></div>
+    <div class="mask">
+        <div class="mask-bai">
+            <span class="mask-sub">请选择虚假项</span>
+            <span class="mask-line"></span>
+
+              <div class=" progress-t" style="flex-flow: row wrap;">
+                  <label class="ling-wei">
+                      <input type="checkbox"  class="di-x"  name="checkbox" appearance="none" >
+                  </label>
+                  <span class="progress-z">公司名称</span>
+              </div>
+
+            <div class=" progress-t" style="flex-flow: row wrap;">
+                <label class="ling-wei">
+                    <input type="checkbox"  class="di-x"  name="checkbox" appearance="none" >
+                </label>
+                <span class="progress-z">职&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位</span>
+            </div>
+            <div class=" progress-t" style="flex-flow: row wrap;">
+                <label class="ling-wei">
+                    <input type="checkbox"  class="di-x"  name="checkbox" appearance="none" >
+                </label>
+                <span class="progress-z">入职时间</span>
+            </div>
+            <div class=" progress-t" style="flex-flow: row wrap;">
+                <label class="ling-wei">
+                    <input type="checkbox"  class="di-x"  name="checkbox" appearance="none" >
+                </label>
+                <span class="progress-z">离职时间</span>
+            </div>
+            <div class="mask-w">
+                完成
+            </div>
+        </div>
+        <div class="mask-cancel"></div>
+    </div>
+    <!--遮罩-->
+    <div class="zhezhao"></div>
+    <div class="zhezhaoL"></div>
+    <div id="loading" class="loader-inner line-scale">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.report{
+    width: 700px;
+    margin:  0 auto;
+}
+
+h2{
+    font-weight: 400;
+    text-align: center;
+}
+.attention1{
+    margin-top: 20px;
+    font-size: 12px;
+}
+.attention1 img{
+    width:3px;
+}
+.attention1 span{
+    font-size: 16px;
+}
+.attention2{
+    padding-left: 40px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+.edu,.work,.colleague,.skill,.reputation{
+    border: 1px dashed #999;
+    border-radius: 0 0 10px 10px;
+    border-top: none;
+}
+.basic{
+    margin-bottom: 10px;
+    margin-top: 20px;
+    border: 1px dashed #999;
+    border-radius: 10px;
+}
+.basic p,.edu p,.work p,.colleague p,.skill p{
+    line-height: 30px;
+    font-size: 14px;
+}
+
+.basic p span:nth-of-type(1),.edu p span:nth-of-type(1),
+.education>p span,.workExperience>p span,.work p span:nth-of-type(1),
+.colleagueProof>p span,.colleague p span:nth-of-type(1),
+.skillInformation>p span,.skill p span:nth-of-type(1),.creditVerification>p span{
+    margin-left: 50px;
+    color: #000;
+}
+
+.basic p span:nth-of-type(1){
+    color: #000;
+}
+.name,.job{
+    margin-left: 86px;
+}
+.phone{
+    margin-left: 70px;
+}
+.idCard{
+    margin-left: 56px;
+}
+/*教育*/
+.education{
+    margin-bottom: 10px;
+}
+.education>p span,.workExperience>p span,
+.colleagueProof>p span, .skillInformation>p span,
+.creditVerification>p,.creditVerification>p span{
+    font-size: 20px;
+    color: #000;
+}
+.education .resultImg,.workExperience .resultImg,
+.colleagueProof .resultImg,.skillInformation .resultImg{
+   display: inline-block;
+    width: 80px;
+    height: 30px;
+    line-height:30px;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color:#e34f37;
+    color: #fff;
+    text-align: center;
+    margin-left: 450px;
+}
+.education>p img,.workExperience>p img,.colleagueProof>p img,.skillInformation>p img{
+    float: right;
+   /* vertical-align: -8px;*/
+    margin-top: 14px;
+    margin-right: 35px;
+}
+.education>p,.workExperience>p,
+.colleagueProof>p,.skillInformation>p,.creditVerification>p{
+    height: 58px;
+    line-height: 58px;
+    border: 1px dashed #999;
+    margin-top: 0;
+    border-radius: 10px 10px 0 0 ;
+}
+.edu{
+    padding: 15px 0;
+}
+.edu p span:nth-of-type(2){
+    color: #000;
+}
+.school,.major,.grade{
+    margin-left: 84px;
+}
+.startTime,.endTime{
+    margin-left: 54px;
+}
+.edu p img{
+    float: right;
+    margin-right: 45px;
+   /* margin-top: 10px;*/
+    margin-top: 4px;
+}
+
+.work p img,.colleague p img,.skill p img{
+    float: right;
+    margin-right: 45px;
+    margin-top: 4px;
+}
+/*工作*/
+.workExperience{
+    margin-bottom: 10px;
+}
+.firm,.entryTime,.outTime{
+    margin-left: 52px;
+}
+.salary{
+    margin-left: 79px;
+}
+.workExperience .resultImg{
+    background: #02cda0;
+}
+/*同事*/
+.colleagueProof{
+    margin-bottom: 10px;
+}
+.colleagueName,.skillName,
+.colleaguePhone,.colleaguePhone,.skillCode{
+    margin-left: 51px;
+}
+.colleagueResult{
+    float: right;
+    margin-right: 35px;
+    color: #e04a4a;
+
+}
+.colleagueProof .resultImg{
+    background: #999;
+}
+/*技能*/
+.skillInformation{
+    margin-bottom: 10px;
+}
+.skill{
+    padding: 10px 0;
+}
+.skill div{
+    margin-bottom: 10px;
+}
+.skill div span:nth-of-type(1){
+    margin-left: 50px;
+}
+.skillResult{
+    margin-left: 462px;
+    color: #e04a4a;
+    font-size: 14px;
+}
+.skillName,.skillCode{
+    color: #000;
+}
+/*信誉*/
+.reputation{
+    height: 80px;
+    line-height:80px;
+}
+.reputation p{
+    margin-left: 50px;
+}
+.reputation p span{
+    font-size: 22px;
+}
+.active{
+    color: #fa0606!important;
+}

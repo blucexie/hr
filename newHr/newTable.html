@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面试人员登记表</title>
+    <style>
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #registrationForm,.notes{
+            text-align: center;
+        }
+        h1{
+            margin: 10px 0;
+        }
+        tr{
+            height: 40px;
+        }
+        .basic,.educate,.work,.change{
+            width: 950px;border-collapse:collapse;margin:0 auto;
+        }
+        .t2{
+            width: 116px;
+        }
+        .phone{
+            width: 130px;
+        }
+
+        .educate,.work{
+            border-top: 0;
+         }
+        .declare {
+            width: 950px;
+            border: 1px solid #666;
+            border-top: none;
+            padding-top: 50px;
+            margin: 0 auto;
+            text-align: left;
+            padding-bottom: 50px;
+        }
+        .declare>span{
+            margin-left: 20px;
+        }
+        .declare>p{
+            margin-left: 50px;
+        }
+        .signature{
+            float: right;
+           margin-top: 30px;
+            margin-right: 200px;
+        }
+        hr{
+
+            height: 20px;
+            background: #ebf0f3;
+            border: none;
+            margin: 50px 0 ;
+        }
+    </style>
+</head>
+<body>
+    <div id="registrationForm">
+        <h1 >面试人员登记表</h1>
+        <table class="basic" border="1" >
+            <tr>
+                <td colspan="10">基本信息</td>
+            </tr>
+            <tr>
+                <td class="t1">姓名</td>
+                <td class="t2" ></td>
+                <td class="t1">性别</td>
+                <td class="t2"></td>
+                <td class="t1">出生年月</td>
+                <td class="t2" ></td>
+                <td class="t1">籍贯</td>
+                <td class="t2"></td>
+                <td rowspan="4" class="phone">
+                    <img src="hr/images/a2.png" alt="">
+
+                </td>
+            </tr>
+            <tr >
+                <td class="t1">联系方式</td>
+                <td colspan="2">131247717172</td>
+                <td colspan="2" class="t1">身份证号码</td>
+                <td colspan="3">140223198903242311</td>
+
+            </tr>
+            <tr>
+                <td class="t1">最高学历</td>
+                <td></td>
+                <td class="t1">专业</td>
+                <td></td>
+                <td class="t1">毕业学校</td>
+                <td colspan="3">北京科技大学北京科技大学</td>
+            </tr>
+            <tr>
+                <td class="t1">面试职位</td>
+                <td class="t2" ></td>
+                <td class="t1">目前薪资</td>
+                <td class="t2" ></td>
+                <td class="t1">期望薪资</td>
+                <td class="t2" ></td>
+                <td class="t1">是否离职</td>
+                <td class="t2" ></td>
+            </tr>
+        </table >
+        <table class="educate"  border="1">
+            <tr>
+                <td colspan="4">教育信息</td>
+            </tr>
+            <tr >
+                <td >学校名称</td>
+                <td>学历</td>
+                <td class="major" >专业</td>
+                <td>起止时间</td>
+            </tr>
+            <tr>
+                <td>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</td>
+                <td>博士后</td>
+                <td >啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3">技能特长及爱好</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td  colspan="3"></td>
+            </tr>
+        </table>
+        <table class="work"  border="1" >
+            <tr>
+                <td colspan="6">工作经历</td>
+            </tr>
+            <tr>
+                <td >公司名称</td>
+                <td >工作岗位</td>
+                <td>就职时间</td>
+                <td >离职原因</td>
+                <td>证明人姓名</td>
+                <td>证明人电话</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr >
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="declare clearfix">
+            <span>授权说明：</span>
+            <p>授权用人单位及其第三方代表对表格中的各项信息进行背景调查。并免除因此产生的一切责任。</p>
+            <span>个人申明</span>
+            <p>以上内容真实无误，若有不实处，愿无条件接受公司处罚甚至辞退，且不要求任何补偿。</p>
+            <div class="signature">
+               <!-- <div class="sName" style="float: left;margin-right: 100px;">
+                    <span >签名:</span>
+                    <div class="nameSpace" style="display: inline-block; width: 200px;height: 50px;">
+                        <img style="width: 200px; height: 50px;" src="qianm.png" alt="">
+                    </div>
+                </div>
+                <div class="signatureData" style="float: left;">
+                    <span >日期:2017.12.21</span><div class="dataSpace" style="display: inline-block;width: 200px;height: 50px;"></div>
+                </div>-->
+
+                    <span >签名:</span>
+                    <img style="width: 200px; height: 50px;" src="qianm.png" alt="">
+                    <span >日期: </span>  <span>2017.12.21</span>
+
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="notes">
+        <h1>修订记录</h1>
+
+        <table class="change" border="1">
+           <thead>
+           <tr>
+               <th>修改时间</th>
+               <th>修改项</th>
+               <th>原内容</th>
+               <th>更改为</th>
+           </tr>
+           </thead>
+            <tbody>
+                <tr>
+                    <td>2017.12.25 15:25</td>
+                    <td>学校名称</td>
+                    <td>北京大学</td>
+                    <td>南京大学</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

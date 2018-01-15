@@ -1,0 +1,246 @@
+@r:50rem;
+*{margin: 0;padding: 0}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+body{
+  font-family:"Microsoft YaHei";
+  position: relative;
+}
+input:focus{
+  color:#574e5f;
+  caret-color:#574e5f;
+}
+input{
+   caret-color:#574e5f;
+   -webkit-appearance: none;
+    background:none;
+    outline:none;
+    border:none;
+  line-height: normal;
+}
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#header{
+  width: 750/@r;
+  height: 250/@r;
+  background: url("../images/head-bg.png")no-repeat;
+  background-size: 750/@r 250/@r;
+
+}
+#logo{
+  float: left;
+  /*display: inline-block;*/
+  width: 44/@r;
+  height: 53/@r;
+  margin-left: 30/@r;
+  margin-top: 50/@r;
+}
+#logo img{
+  width: 44/@r;
+  height: 53/@r;
+}
+.company{
+  display: inline-block;
+  width: 570/@r;
+  padding-top: 38/@r;
+  margin-left: 28/@r;
+}
+.company .companyName{
+  font-size: 34/@r;
+  height:56/@r ;
+}
+.company p {
+  font-size: 32/@r;
+  color: #574e5e;
+  line-height: 57/@r;
+
+}
+.warn{
+  margin-left: 102/@r;
+  margin-top: 14/@r;
+}
+.warn p{
+  color: #fc0522;
+  font-size: 28/@r;
+  height: 38/@r;
+  line-height: 38/@r;
+}
+.warn p img{
+  width: 12/@r;
+  height: 12/@r;
+  vertical-align: 4/@r;
+}
+.interval{
+  height: 22/@r;
+  background: #ebf0f2;
+}
+/*····················*/
+.licensedContent h2{
+  font-size: 32/@r;
+  font-weight: 400;
+  color: #333;
+  margin-top: 24/@r;
+  margin-left: 30/@r;
+}
+.licensedContent ul li{
+  float: left;
+  width: 33.33%;
+  text-align: center;
+  margin-top: 44/@r;
+}
+.licensedContent ul li img {
+  width: 86/@r;
+  height: 86/@r;
+}
+.licensedContent ul li p{
+  font-size: 30/@r;
+  color: #333;
+}
+.interval2{
+  margin-top: 56/@r;
+}
+/*··············*/
+.formValidation label{
+  width: 720/@r;
+  font-size: 32/@r;
+  color: #573e5f;
+  margin-left: 30/@r;
+  height: 120/@r;
+  line-height: 120/@r;
+  display: inline-block;
+  border-bottom: 1px solid #d4d4d4;
+}
+#inpName{
+  margin-left: 116/@r;
+}
+#inpJob{
+  margin-left: 116/@r;
+}
+#inpPhone{
+  margin-left: 50/@r;
+}
+#inpId{
+  margin-left: 20/@r;
+}
+#inpNum{
+  margin-left: 80/@r;
+}
+#inpNum2{
+  margin-left: 80/@r;
+  width: 240/@r;
+}
+.formValidation .mesBtn{
+  display: inline-block;
+  width: 186/@r;
+  height: 58/@r;
+  line-height: 58/@r;
+  margin-left: 8/@r;
+  border: 1px solid #bf974d;
+  border-radius: 10/@r;
+  color: #bf974d;
+  font-size: 26/@r;
+  background: #fff;
+}
+.formValidation label input{
+  border: none;
+  height: 80/@r;
+  outline: none;
+  font-size: 30/@r;
+  color: #666;
+}
+::-webkit-input-placeholder{
+  font-size: 30/@r;
+  opacity: 0.6;
+}
+/*·········*/
+.footer{
+  margin-top: 66/@r;
+  text-align: center;
+}
+.footer .read{
+  font-size: 28/@r;
+  color: #999;
+  padding-bottom: 10/@r;
+}
+.footer .agreement{
+  font-size: 28/@r;
+  color: #574e5f;
+}
+.input_check{
+  visibility: hidden;
+}
+.checkS{
+  vertical-align: -4/@r;
+}
+.input_check+label{
+  display: inline-block;
+  width: 29/@r;
+  height: 29/@r;
+  background: url("../images/checkedN.png")no-repeat;
+  background-size: 29/@r 29/@r;
+
+}
+.input_check:checked+label{
+  display: inline-block;
+  width: 29/@r;
+  height: 29/@r;
+  background: url("../images/checkedY.png")no-repeat;
+  background-size: 29/@r 29/@r;
+}
+/*.checkedY{
+  display: inline-block;
+  width: 29/@r;
+  height: 29/@r;
+  background: url("../images/checkedY.png")no-repeat;
+  background-size: 29/@r 29/@r;
+  vertical-align: middle;
+}
+.checkedN{
+  display: inline-block;
+  width: 29/@r;
+  height: 29/@r;
+  background: url("../images/checkedN.png")no-repeat;
+  background-size: 29/@r 29/@r;
+  vertical-align: middle;
+}*/
+
+#submit{
+  width: 690/@r;
+  height: 88/@r;
+  background: #574e5f;
+  font-size: 34/@r;
+  color: #fff;
+  border: none;
+  border-radius: 10/@r;
+  margin-top: 52/@r;
+  margin-bottom: 80/@r;
+  outline: none;
+}
+
+.st-error,.hint{
+  width: 340/@r;
+  padding: 0 80/@r;
+  height: 80/@r;
+  line-height: 80/@r;
+  border-radius: 200/@r;
+  text-align: center;
+  background: #000;
+  opacity: 0.7;
+  color: #fff;
+  font-size: 30/@r;
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -250/@r;
+  top: 49%;
+  right: 0;
+  bottom: 0;
+}

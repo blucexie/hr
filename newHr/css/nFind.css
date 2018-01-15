@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.nFind {
+  text-align: center;
+  border-top: 1px solid #adadaf;
+}
+.nFind img {
+  margin-top: 2.6rem;
+  width: 6.62rem;
+  height: 5.16rem;
+}
+.nFind p {
+  font-size: 0.56rem;
+  color: #999;
+  margin-top: 1.2rem;
+  margin-bottom: 1.48rem;
+}
+.nFind button {
+  width: 6.92rem;
+  height: 1.76rem;
+  border: none;
+  background: #574e5f;
+  border-radius: 0.2rem;
+  color: #Fff;
+  font-size: 0.68rem;
+  outline: none;
+}

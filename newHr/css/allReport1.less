@@ -1,0 +1,505 @@
+@r:50rem;
+*{margin: 0;padding: 0}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+body{
+  font-family:"Microsoft YaHei";
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#header{
+  text-align: right;
+  border-bottom: 20/@r solid #ebf0f2;
+ /* height:394/@r;*/
+}
+.headerBg{
+  position: relative;
+  width: 720/@r;
+  height: 374/@r;
+  margin: 20/@r auto 0;
+}
+.headerBg img{
+  width: 720/@r;
+  height: 374/@r;
+}
+#header p{
+  font-size: 30/@r;
+  color: #fff;
+}
+#header p:nth-of-type(1){
+  position:absolute;
+  top: 48/@r;
+  left: 197/@r;
+
+}
+#header p:nth-of-type(2){
+  position:absolute;
+  left: 197/@r;
+  top: 122/@r;
+}
+#header p:nth-of-type(3){
+  position:absolute;
+  padding-top: 40/@r;
+  left: 197/@r;
+  top: 162/@r;
+}
+#header p:nth-of-type(4){
+  position:absolute;
+  padding-top: 34/@r;
+  left: 197/@r;
+  top: 240/@r;
+}
+.generateTime{
+  padding-right: 30/@r;
+  padding-bottom: 20/@r;
+}
+.generateTime span{
+  font-size: 20/@r;
+  color: #999;
+}
+.verification-results{
+  position: relative;
+  text-align: center;
+  border-bottom: 20/@r solid #ebf0f2;
+}
+
+.verification-results div img{
+  float: left;
+  width:306/@r ;
+  height: 56/@r;
+  margin: 28/@r 0;
+}
+.verification-results .result{
+float: right;
+  width: 110/@r;
+  height: 42/@r;
+  margin: 35/@r 30/@r  35/@r 0;
+
+}
+
+.verification-results p{
+  font-size: 26/@r;
+  color: #999;
+  margin-bottom: 45/@r;
+}
+.basic,.education,.work,.colleague, .skill,.badness,.explain{
+  padding-bottom: 20/@r;
+  border-bottom: 20/@r solid #ebf0f2;
+}
+
+.basic-header,.education-header, .work-header,
+.colleague-header,.skill-header,.badness-header{
+  border-bottom: 1px solid #d4d4d4;
+}
+.basic-header img,.education-header img, .work-header img,
+.colleague-header img,.skill-header img,.badness-header img{
+  float: left;
+  width: 298/@r;
+  height: 48/@r;
+  margin: 24/@r 0 24/@r 26/@r;
+}
+.basic-header .new,.education-header .new, .work-header .new,
+.colleague-header .new,.skill-header .new,.badness-header .new{
+  width: 59/@r;
+  height: 30/@r;
+  margin: 0;
+}
+.basic-header .new,.education-header .new,.work-header .new,
+.colleague-header .new,.skill-header .new{
+  margin-left: -70/@r;
+  margin-top: 14/@r;
+}
+.badness-header .new{
+  margin-top: 14/@r;
+  margin-left: -20/@r;
+}
+.basic-header span,.education-header span, .work-header span,
+.colleague-header span,.skill-header span,.badness-header span{
+  float: right;
+  line-height:48/@r;
+  font-size: 30/@r;
+ margin: 24/@r 34/@r 24/@r 0;
+}
+.basic-left{
+  position: relative;
+  padding-left: 28/@r;
+}
+.basic-left p span:nth-of-type(1),.eduTable p span:nth-of-type(1),
+.eduExplain span:nth-of-type(1), .workTable p span:nth-of-type(1),
+.workExplain span, .colleagueTable p span:nth-of-type(1),.colleagueExplain span,
+.skillTable p span:nth-of-type(1),.skillExplain span,
+.badnessTable div span:nth-of-type(1),.skillTable-noResult div span:nth-of-type(1) {
+  display: inline-block;
+  width: 190/@r;
+  font-size: 26/@r;
+  color: #999;
+}
+.basic-left p span:nth-of-type(2),.eduTable p span:nth-of-type(2),
+.workTable p span:nth-of-type(2),.colleagueTable p span:nth-of-type(2),
+.skillTable p span:nth-of-type(2),.badnessTable div p{
+  font-size: 26/@r;
+  color: #574e5f;
+}
+
+.basic-left .accord{
+  position: absolute;
+  top: 60%;
+  left: 530/@r;
+}
+
+.basic-right img{
+  width: 136/@r;
+  height: 119/@r;
+  margin-top: 250/@r;
+  margin-right: 35/@r;
+}
+.identityCard{
+  float: left;
+  width: 100%;
+  height: 270/@r;
+  line-height:270/@r;
+}
+.identityCard>span{
+  float: left;
+  width: 190/@r;
+  font-size: 26/@r;
+  color: #999;
+}
+.identityCardPhoto{
+  float: left;
+  width: 179/@r;
+  height: 212/@r;
+  margin-top: 36/@r;
+  margin-left: 20/@r;
+  border:1px  dashed #d4d4d4;
+}
+.identityCardPhoto img{
+  width: 179/@r;
+  height: 212/@r;
+}
+/*教育*/
+.eduTable,.workTable,.colleagueTable,.skillTable{
+  padding-left: 28/@r;
+  border-bottom: 1px solid #d4d4d4;
+  padding-bottom: 20/@r;
+}
+.eduTable h3, .workTable h3,.colleagueTable h3,.skillTable h3{
+  margin-top: 26/@r;
+  margin-bottom: 26/@r;
+  font-size: 28/@r;
+  color: #222;
+  font-weight: normal;
+}
+.eduTable h3 i,.workTable h3 i,.colleagueTable h3 i{
+  display: inline-block;
+  background:#00adb4 ;
+  width: 13/@r;
+  height: 13/@r;
+  margin-right: 13/@r;
+  vertical-align: 2px;
+}
+.eduTable h3 span,.workTable h3 span,.colleagueTable h3 span{
+  float: right;
+  margin-right: 30/@r!important;
+}
+
+.eduTable-left .schoolTitle{
+  float: left;
+  /*margin-right: 14/@r;*/
+}
+.eduTable-left .schoolName{
+  float: left;
+  width: 420/@r!important;
+}
+.eduTable-left{
+  position: relative;
+ /* float: left;*/
+}
+.eduTable-left .queryStyle{
+  width: 13/@r;
+  height: 21/@r;
+
+}
+.eduTable-left p{
+  line-height:60/@r;
+}
+.eduTable-left p img,.workTable-left p img,.colleagueTable-left p img{
+  float: right;
+  width: 5/@r;
+  height: 24/@r;
+  margin-top: 24/@r;
+  margin-right: 30/@r;
+}
+.eduTable-right p{
+  line-height:68/@r;
+
+}
+.eduTable-left .accord{
+  position: absolute;
+  top: 50%;
+  margin-top: -60/@r;
+  left: 530/@r;
+
+}
+
+.accord img{
+  width: 136/@r;
+  height: 119/@r;
+}
+.eduExplain,.workExplain,.colleagueExplain,.skillExplain{
+  padding-left: 28/@r;
+ padding-top: 20/@r;
+}
+.eduExplain span,.workExplain span,.colleagueExplain span,.skillExplain span{
+  float: left;
+  margin-top: 14/@r;
+}
+.eduExplain div,.workExplain div,.colleagueExplain div,.skillExplain div{
+  display: inline-block;
+  width: 500/@r;
+  height:88/@r;
+  color: #fa0606;
+}
+.eduExplain div p,.workExplain div p,.colleagueExplain div p,.skillExplain div p{
+  font-size: 18/@r;
+  line-height:1.8;
+  color: #999;
+  margin-top: 10/@r;
+}
+
+/*工作*/
+.workTable-left{
+  position: relative;
+}
+.workTable-left p{
+  line-height:60/@r;
+}
+.workTable-left p img{
+ /* width: 13/@r;
+  height: 21/@r;*/
+  float: right;
+  margin-top: 30/@r;
+  margin-right: 30/@r;
+}
+.workTable-left .accord{
+  position: absolute;
+  top: 50%;
+  margin-top: -60/@r;
+  left: 530/@r;
+}
+.workTable-left .accord img{
+  width: 136/@r;
+  height: 119/@r;
+}
+.workTable-left .companyTitle{
+  float: left;
+  /*margin-right: 14/@r;*/
+}
+.workTable-left .companyName{
+  float: left;
+  width: 420/@r;
+}
+/*同事*/
+.colleagueTable-left{
+  position: relative;
+  line-height:60/@r;
+}
+.colleagueTable-left .companyTitle{
+  float: left;
+  margin-right: 14/@r;
+}
+.colleagueTable-left .companyName{
+  float: left;
+  width: 420/@r;
+}
+.colleagueTable-left .accord{
+  position: absolute;
+  top: 50%;
+  margin-top: -60/@r;
+  left: 530/@r;
+}
+.colleagueTable-left p{
+  line-height:60/@r
+}
+.skillTable p{
+  line-height:60/@r;
+}
+.skillTable-noResult {
+  padding-left: 28/@r;
+  padding-bottom: 20/@r;
+  border-bottom: 1px solid #d4d4d4;
+}
+.skillTable .certificationTitle{
+  float: left;
+}
+.skillTable .certification-unit{
+  float: left;
+  width: 420/@r!important;
+}
+.badnessTable{
+  padding-bottom: 20/@r;
+ }
+.badnessTable div p,
+.skillTable-noResult div p{
+  font-size: 28/@r;
+  color: #574e5f;
+  padding-left: 100/@r;
+  padding-top: 20/@r;
+}
+.badnessTable p{
+  font-size: 28/@r;
+  color: #574e5f;
+  text-align: center;
+  margin-top: 40/@r;
+}
+.explain{
+  margin-top: 30/@r;
+}
+.explain p{
+  height: 54/@r;
+  padding-left: 28/@r;
+  margin-bottom: 10/@r;
+}
+
+
+.explain p:nth-of-type(1) img{
+  width: 5/@r;
+  height: 24/@r;
+}
+.explain p:nth-of-type(2) img{
+  width: 11/@r;
+  height: 21/@r;
+}
+.explain p label{
+  display: inline-block;
+  width: 200/@r;
+  font-size: 18/@r;
+  margin-right: 46/@r;
+
+}
+.explain p span{
+  font-size: 20/@r;
+  color: #999;
+
+}
+/*核验记录*/
+.check-record{
+  border-bottom: 20/@r solid #ebf0f2;
+}
+.check-record .record-header{
+  height:98/@r;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 0;
+}
+
+.check-record img{
+  width:306/@r;
+  height: 56/@r;
+}
+.check-record h2{
+  font-size: 32/@r;
+  font-weight: 400;
+  text-align: center;
+  margin: 26/@r 0;
+}
+.check-record div{
+  padding-left: 32/@r;
+  border-top: 1px solid #eee;
+
+}
+.check-record div span{
+  float: left;
+  font-size: 24/@r;
+  margin: 34/@r 0;
+}
+.check-record div span:nth-of-type(1){
+  width: 144/@r;
+  margin-right: 42/@r;
+  color: #999;
+}
+.check-record div span:nth-of-type(2){
+  font-size: 22/@r;
+  margin-right: 35/@r;
+  color: #999;
+}
+.check-record div span:nth-of-type(3){
+  width: 204/@r;
+}
+.check-record div button{
+  float: left;
+  width: 116/@r;
+  height: 42/@r;
+  line-height:42/@r;
+  border:2/@r solid #00adb4;
+  border-radius: 6/@r;
+  background: #fff;
+  color: #00adb4;
+  font-size: 24/@r;
+  text-align: center;
+  margin: 29/@r 0;
+}
+/*footer*/
+.footer{
+  margin-bottom: 30/@r;
+  padding-bottom: 30/@r;
+}
+.footer h3{
+  font-size: 30/@r;
+  color: #666;
+  text-align: center;
+  margin:36/@r 0;
+  font-weight: 400;
+}
+.footer input{
+  border-radius: 0;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #999;
+  color: #333;
+  font-size: 0.56rem;
+  -webkit-appearance: none;
+  background: none;
+  line-height: normal;
+ text-align: center;
+}
+.footer p span{
+  display: inline-block;
+  min-width: 200/@r;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  padding: 0 20/@r;
+  text-indent: 0;
+  vertical-align: 5/@r;
+}
+.footer p{
+  font-size: 26/@r;
+  color: #999;
+  line-height:1.9;
+  padding: 0 30/@r;
+  text-indent: 2em;
+}
+
+.footer p:nth-of-type(2){
+  margin-top: 20/@r;
+}
+.accordance{
+  color: #01cda1!important;
+}
+.inconformity{
+  color: #fa0606!important;
+}
+.waitColor{
+  color: #f6a129!important;
+}
+.discordFontColor{
+  color: #fc6363!important;
+}

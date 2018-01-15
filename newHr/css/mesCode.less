@@ -1,0 +1,199 @@
+@r:50rem;
+*{margin: 0;padding: 0}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.header{
+  height: 128/@r;
+  line-height: 128/@r;
+  background: #f8f8f8;
+  border-top:1px solid #aeaeae ;
+  border-bottom:1px solid #aeaeae  ;
+}
+.back img{
+  width: 21/@r;
+  height: 35/@r;
+  vertical-align: middle;
+  margin-left: 30/@r;
+}
+h1{
+  font-size: 38/@r;
+  color: #222;
+  text-align: center;
+  font-weight: 400;
+}
+.content{
+  margin: 84/@r auto 0;
+}
+.content label{
+  width: 14.4rem;
+  font-size: 30/@r;
+  color: #573e5f;
+  margin-left: 0.6rem;
+  height: 2.4rem;
+  line-height: 2.4rem;
+  display: inline-block;
+  border-bottom: 1px solid #d4d4d4;
+  margin-top: 62px;
+}
+#inpId {
+  margin-left: 16px;
+  width: 7.8rem;
+  border: none;
+  font-size: 15px;
+  color: #666;
+  height: 1.6rem;
+  padding-left: 10px;
+}
+.accredit{
+  float: left;
+  width: 36/@r;
+  height: 42/@r;
+  margin: 14/@r 32/@r 0 30/@r;
+}
+.content h2{
+  display: inline-block;
+  width: 544/@r;
+  font-size: 34/@r;
+  color:  #574e5f;
+  line-height: 60/@r;
+  font-weight: 400;
+}
+.content p{
+  font-size: 32/@r;
+  color: #574e5f;
+  margin-left: 30/@r;
+  margin-top: 120/@r;
+}
+.codes{
+  margin-left: 24/@r;
+  margin-top: 40/@r;
+}
+.codes input{
+  float: left;
+  width: 95/@r;
+  height: 100/@r;
+  border: 2px solid #bf974d;
+  border-right:none;
+  color: #574e5f;
+  font-size: 42/@r;
+  text-align: center;
+}
+.codes input:last-child{
+  border-right: 2px solid  #bf974d;
+}
+.btn{
+  display: block;
+  width: 430/@r;
+  height: 90/@r;
+  border: none;
+  background: #00adb4;
+  color: #fff;
+  text-align: center;
+  font-size: 34/@r;
+  border-radius: 60/@r;
+  margin:  86/@r auto 0;
+  outline: none;
+}
+.hint{
+  width: 340/@r;
+  padding: 0 80/@r;
+  height: 80/@r;
+  line-height: 80/@r;
+  border-radius: 200/@r;
+  text-align: center;
+  background: #000;
+  opacity: 0.7;
+  color: #fff;
+  font-size: 30/@r;
+  display: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -250/@r;
+  top: 49%;
+  right: 0;
+  bottom: 0;
+}
+/*loading*/
+#loading{
+  position:fixed;
+  top: 40%;
+  left:50%;
+  margin-left:-36px;
+  z-index: 99999;
+  display: none;
+}
+
+@-webkit-keyframes line-scale {
+  0% {
+    -webkit-transform: scaley(1);
+    transform: scaley(1); }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    transform: scaley(0.4); }
+
+  100% {
+    -webkit-transform: scaley(1);
+    transform: scaley(1); } }
+@keyframes line-scale {
+  0% {
+    -webkit-transform: scaley(1);
+    transform: scaley(1); }
+
+  50% {
+    -webkit-transform: scaley(0.4);
+    transform: scaley(0.4); }
+
+  100% {
+    -webkit-transform: scaley(1);
+    transform: scaley(1); } }
+
+.line-scale > div:nth-child(1) {
+  -webkit-animation: line-scale 1s 0.1s infinite cubic-bezier(.2, .68, .18, 1.08);
+  animation: line-scale 1s 0.1s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(2) {
+  -webkit-animation: line-scale 1s 0.2s infinite cubic-bezier(.2, .68, .18, 1.08);
+  animation: line-scale 1s 0.2s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(3) {
+  -webkit-animation: line-scale 1s 0.3s infinite cubic-bezier(.2, .68, .18, 1.08);
+  animation: line-scale 1s 0.3s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(4) {
+  -webkit-animation: line-scale 1s 0.4s infinite cubic-bezier(.2, .68, .18, 1.08);
+  animation: line-scale 1s 0.4s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div:nth-child(5) {
+  -webkit-animation: line-scale 1s 0.5s infinite cubic-bezier(.2, .68, .18, 1.08);
+  animation: line-scale 1s 0.5s infinite cubic-bezier(.2, .68, .18, 1.08); }
+.line-scale > div {
+  background-color: #019fe6;
+  width: 4px;
+  height: 35px;
+  border-radius: 2px;
+  margin: 2px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  display: inline-block;}
+
+/*遮罩*/
+.zhezhaoL{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#000;
+  opacity:0.6;
+  display: none;
+  z-index: 9000;
+}
+.zhezhaoL{
+  opacity:0.2;
+}

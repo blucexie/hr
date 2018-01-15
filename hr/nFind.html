@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css/nFind.css">
+     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        !function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        }()
+    </script>
+</head>
+<body>
+    <div class="nFind">
+        <img src="images/404.png" alt="">
+        <p>出了点意外，暂时无法打开网页</p>
+        <button class="rBtn">刷新页面</button>
+    </div>
+    <script type="text/javascript">
+        $('.rBtn').click(function () {
+            $(this).css('background','#463e4c');
+            window.history.back(-1);
+        })
+    </script>
+</body>
+</html>
