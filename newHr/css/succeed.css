@@ -5,14 +5,14 @@
 .succeed {
   text-align: center;
   border-top: 1px solid #adadaf;
-  padding-top: 3.62rem;
+  padding-top: 4rem;
 }
 .succeed img {
-  width: 2.36rem;
-  height: 2.36rem;
+  width: 7.44rem;
+  height: 6.16rem;
 }
 .succeed p {
   font-size: 0.68rem;
-  color: #574e5f;
+  color: #666666;
   margin-top: 1.12rem;
 }

@@ -55,14 +55,14 @@ input {
   margin-left: 0.56rem;
 }
 .company .companyName {
-  font-size: 17px;
+  font-size: 0.6rem;
   height: 1.12rem;
 }
 .ma-t{
-  margin-top: 21px;
+  margin-top: 0.5rem;
 }
 #header div .font{
-  font-size: 16px;
+  font-size: 0.56rem;
 }
 
 .company p {
@@ -136,7 +136,7 @@ input {
   display: inline-block;
   font-size: 18px;
   color: #574e5f;
-   margin-top: 21px;
+  margin-top: 21px;
   margin-left: 18px;
 }
 .mask-line{
@@ -147,7 +147,7 @@ input {
 .ling-wei{
    width: 21px;
    height: 21px;
-   background: url(../../hr/images/weixuanzhong.png) no-repeat;
+   background: url(../../newHr/images/weixuanzhong.png) no-repeat;
    background-size: 100% 100%;
    float: left;
    margin: 15px 0px;
@@ -157,7 +157,7 @@ input {
 .ling-xuan{
   width: 21px;
   height: 21px;
-  background: url(../../hr/images/xuanzhong.png) no-repeat;
+  background: url(../../newHr/images/xuanzhong.png) no-repeat;
   background-size: 100% 100%;
   float: left;
   margin: 15px 0px;
@@ -175,15 +175,15 @@ input {
   margin-left: 14px;
 }
 .mask-w {
-  width: 143px;
+  width: 5.12rem;
   font-size: 17px;
-  color: #fff;
-  background: #574e5f;
-  border-radius: 0.2rem;
-  line-height: 44px;
+  color: #00adb4;
+  border-radius: 1rem;
+  line-height: 1.76rem;
   text-align: center;
   margin: 0 auto;
-  margin-top: 37px;
+  border:0.04rem solid  #00adb4;;
+  margin-top: 0.8rem;
 }
 .mask-cancel{
   width: 35px;
@@ -196,11 +196,11 @@ input {
 /*··············*/
 .formValidation label {
   width: 14.4rem;
-  font-size: 16px;
+  font-size: 0.56rem;
   color: #573e5f;
   margin-left: 0.6rem;
-  height: 2.4rem;
-  line-height: 2.4rem;
+  height: 1.88rem;
+  line-height: 1.88rem;
   display: inline-block;
   border-bottom: 1px solid #d4d4d4;
 }
@@ -244,13 +244,13 @@ input {
 }
 .formValidation label input {
   border:none;
-  /*height: 1.6rem;*/
+  height: 1.6rem;
   outline: none;
-  font-size: 15px;
+  font-size: 0.56rem;
   color: #666;
 }
 ::-webkit-input-placeholder {
-  font-size: 15px;
+  font-size: 0.56rem;
   opacity: 0.6;
 }
 .tijiao{
@@ -259,12 +259,12 @@ input {
 }
 .tijiao span{
   display: inline-block;
-  width: 5rem;
+  width: 5.12rem;
   font-size: 17px;
-  color: #fff;
-  background: #574e5f;
-  border-radius: 0.2rem;
-  line-height: 44px;
+  color: #00adb4;
+  border-radius: 1rem;
+  border:0.04rem solid #00adb4;
+  line-height: 1.8rem;
   text-align: center;
 }
 .tijiao .real{
@@ -282,11 +282,11 @@ input {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 16px;
+  font-size: 0.56rem;
 }
 .formValidation #deForm label span:last-child{
   width: 7.8rem;
-  font-size: 15px;
+  font-size: 0.56rem;
 }
 .footer {
   margin-top: 1.32rem;

@@ -14,7 +14,7 @@
     line-height:30px;
 }
 .cover{
-    width: 700px;
+    width: 900px;
     margin: 0 auto;
 }
 .cover .main{
@@ -50,7 +50,7 @@
     line-height:30px;
 }
 .wrap{
-    width: 700px;
+    width: 900px;
     margin: 0 auto;
 }
 .header h1{
@@ -59,14 +59,14 @@
     margin-bottom: 30px;
 }
 table{
-    width: 700px;
+    width: 900px;
     border-collapse:collapse;margin:0 auto;
     text-align: center;
     margin-bottom: 20px;
 
 }
 table tr{
-    height: 40px;
+    height: 60px;
 }
 ul{
    margin: 10px 0;
@@ -100,3 +100,15 @@ table tr td:nth-of-type(4),table tr th:nth-of-type(4){
     width: 30%;
 }
 */
+.explain p{
+    font-size: 13px;
+    padding: 0 10px;
+    line-height:24px;
+}
+.explain p:nth-of-type(1){
+    margin-bottom: 10px;
+}
+.explain p>img{
+    width: 6px;
+    margin-right: 6px;
+}
