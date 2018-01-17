@@ -145,11 +145,12 @@ $(function () {
                     }
                 },
                 error: function (XMLHttpRequest, textStatus) {
-                    layer.open({
+                    window.location.replace("netless.html");
+                   /* layer.open({
                         content: '网络异常，请稍后重试'
                         ,btn: '确定'
                     });
-                    hideLoader();
+                    hideLoader();*/
                 }
             });
     });
@@ -295,12 +296,13 @@ $(function () {
                     hideLoader();
                 }
             },
-            error: function (XMLHttpRequest, textStatus) {
-                layer.open({
+            error: function () {
+                window.location.replace("netless.html");
+              /*  layer.open({
                     content: '网络异常，请稍后重试'
                     ,btn: '确定'
                 });
-                hideLoader();
+                hideLoader();*/
             }
         });
     });

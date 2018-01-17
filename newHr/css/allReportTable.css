@@ -14,7 +14,7 @@
     line-height:30px;
 }
 .cover{
-    width: 900px;
+    width: 700px;
     margin: 0 auto;
 }
 .cover .main{
@@ -22,7 +22,7 @@
     margin-top: 200px;
 }
 .cover .main h2{
-    width: 105px;
+    width: 145px;
     height: 44px;
     line-height:44px;
     font-size: 20px;
@@ -50,7 +50,7 @@
     line-height:30px;
 }
 .wrap{
-    width: 900px;
+    width: 700px;
     margin: 0 auto;
 }
 .header h1{
@@ -59,11 +59,10 @@
     margin-bottom: 30px;
 }
 table{
-    width: 900px;
+    width: 700px;
     border-collapse:collapse;margin:0 auto;
     text-align: center;
     margin-bottom: 20px;
-
 }
 table tr{
     height: 60px;
