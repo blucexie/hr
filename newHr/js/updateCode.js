@@ -42,7 +42,7 @@ $(function () {
                 sessionStorage.setItem("verifyCode", verifyCode);
                 sessionStorage.setItem("authenCode", code);
                 if(result===1001){
-                    window.location.replace("/hr/employeeH.html");
+                    window.location.replace("/hr/newHr/employeeH.html");
                 }else {
                     layer.open({
                         content: resultInfo

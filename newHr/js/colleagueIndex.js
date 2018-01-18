@@ -21,7 +21,7 @@ $(function () {
             dataType:"json",
             data:"{\"authenCode\":\""+code+"\"}",
             success: function (data) {
-             /*   console.log(data);*/
+               /* console.log(data);*/
                 var jsonData = eval("data="+data['plaintext']);
                 var verifyName = jsonData.item.verifyName;/*姓名*/
                 var companyName = jsonData.item.companyName;/*公司名称*/
@@ -44,7 +44,7 @@ $(function () {
                 sessionStorage.setItem("enterpriseName", enterpriseName);/*核验人面试的公司*/
                 if(result===1001){
                     sessionStorage.setItem("code", code);/*授权码*/
-                    window.location.href = '../checkIndex.html';
+                    window.location.href = 'newHr/checkIndex.html';
                 }else {
                     layer.open({
                         content: resultInfo

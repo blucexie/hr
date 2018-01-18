@@ -3,7 +3,7 @@
  */
 $(function () {
     /*获取userCode*/
-    function GetQueryString(name)
+ /*   function GetQueryString(name)
     {
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
@@ -20,16 +20,16 @@ $(function () {
         success: function (data) {
             var jsonData = JSON.parse(data['plaintext']);
 
-            var verifyName = jsonData.item.verifyName;/*姓名*/
-            var companyName = jsonData.item.companyName;/*公司名称*/
-            var enterpriseName = jsonData.item.enterpriseName;/*核验人面试的公司*/
-            var verifyJob = jsonData.item.verifyJob;/*上家职位*/
-            var jobStartTime = jsonData.item.jobStartTime;/*入职时间*/
-            var jobEndTime = jsonData.item.jobEndTime;/*离职时间*/
-             colleagueCode = jsonData.item.colleagueCode;/*同事编码*/
-            var colleagueName = jsonData.item.colleagueName;/*同事名字*/
-            var result = jsonData.result;/*返回结果*/
-            var resultInfo = jsonData.item.resultInfo;/*返回结果*/
+            var verifyName = jsonData.item.verifyName;/!*姓名*!/
+            var companyName = jsonData.item.companyName;/!*公司名称*!/
+            var enterpriseName = jsonData.item.enterpriseName;/!*核验人面试的公司*!/
+            var verifyJob = jsonData.item.verifyJob;/!*上家职位*!/
+            var jobStartTime = jsonData.item.jobStartTime;/!*入职时间*!/
+            var jobEndTime = jsonData.item.jobEndTime;/!*离职时间*!/
+             colleagueCode = jsonData.item.colleagueCode;/!*同事编码*!/
+            var colleagueName = jsonData.item.colleagueName;/!*同事名字*!/
+            var result = jsonData.result;/!*返回结果*!/
+            var resultInfo = jsonData.item.resultInfo;/!*返回结果*!/
             if(result===1001){
                 $("#verifyName").html(verifyName);
                 $("#inpName").html(companyName);
@@ -55,46 +55,32 @@ $(function () {
             $('.btn').removeAttr('disabled','disabled');
             hideLoader();
         }
-    });
-
-
-
-
-
-
-  /*  var verifyName= sessionStorage.getItem("verifyName");/!*姓名*!/
+    });*/
+    var verifyName= sessionStorage.getItem("verifyName");/*姓名*/
     $("#verifyName").html(verifyName);
-    var companyName= sessionStorage.getItem("companyName");/!*公司名称*!/
+    var companyName= sessionStorage.getItem("companyName");/*公司名称*/
     $("#inpName").html(companyName);
 
-    var verifyJob= sessionStorage.getItem("verifyJob");/!*上家职位*!/
+    var verifyJob= sessionStorage.getItem("verifyJob");/*上家职位*/
     $(".verifyJob").html(verifyJob);
-    var jobStartTime= sessionStorage.getItem("jobStartTime");/!*入职时间*!/
+    var jobStartTime= sessionStorage.getItem("jobStartTime");/*入职时间*/
     $(".jobStartTime").html(jobStartTime);
-    var jobEndTime= sessionStorage.getItem("jobEndTime");/!*入职时间*!/
+    var jobEndTime= sessionStorage.getItem("jobEndTime");/*入职时间*/
     $(".jobEndTime").html(jobEndTime);
-    var colleagueName= sessionStorage.getItem("colleagueName");/!*同事名字*!/
+    var colleagueName= sessionStorage.getItem("colleagueName");/*同事名字*/
     $("#colleagueName").html(colleagueName);
-    var enterpriseName= sessionStorage.getItem("enterpriseName");/!*核验人面试公司*!/
+    var enterpriseName= sessionStorage.getItem("enterpriseName");/*核验人面试公司*/
     $("#enterpriseName").html(enterpriseName);
-    var colleagueCode= sessionStorage.getItem("colleagueCode");/!*同事编码*!/
+    var colleagueCode= sessionStorage.getItem("colleagueCode");/*同事编码*/
 
-    var code= sessionStorage.getItem("code");/!*授权码*!/*/
+    var code= sessionStorage.getItem("code");/*授权码*/
 
     /*确认核验*/
     var basicPass = true;
     $('.real').click(function () {
         showLoader();
         var colleagueResult=1;
-       /* $(this).css('background','#463e4c');
-        var $cbk = $('#check1');
-            if($cbk.is(':checked')){
-                send()
-            }else{
-                return false
-            }*/
 
-     /*   function send() {*/
             var colleagueIdcard = $("#inpId").val();
             if (colleagueIdcard.length !=18) {
                 layer.open({
@@ -114,7 +100,7 @@ $(function () {
             "colleagueCode":colleagueCode,
             "colleagueIdcard":colleagueIdcard,
             "colleagueResult":colleagueResult,
-            "authenCode":authenCode,
+            "authenCode":code,
             "colleagueResultInfo":{
                 "colleagueName":"1",
                 "verifyJob":"1",
@@ -129,7 +115,7 @@ $(function () {
                 dataType:"json",
                 data:jsonstring,
                 success: function (data) {
-                    console.log(data);
+                   /* console.log(data);*/
                     hideLoader();
                     var jsonData = JSON.parse(data['plaintext']);
                     var result = jsonData.item.result;
@@ -267,7 +253,7 @@ $(function () {
             "colleagueCode":colleagueCode,
             "colleagueIdcard":colleagueIdcard,
             "colleagueResult":colleagueResult,
-            "authenCode":authenCode,
+            "authenCode":code,
             "colleagueResultInfo":{
                 "colleagueName":colleagueName,
                 "verifyJob":verifyJob,
