@@ -241,14 +241,13 @@ $(function () {
     var showBankDom = document.querySelector('.edu');
 
     var data = [
-        {'id': '10001', 'value': '中专'},
-        {'id': '10002', 'value': '专科'},
-        {'id': '10003', 'value': '本科'},
-        {'id': '10004', 'value': 'EMBA'},
-        {'id': '10005', 'value': '研究生'},
-        {'id': '10006', 'value': '博士'},
-        {'id': '10007', 'value': '博士后'}
-
+        {'id': '10001', 'value': '专科'},
+        {'id': '10002', 'value': '本科'},
+        {'id': '10003', 'value': 'EMBA'},
+        {'id': '10004', 'value': '硕士'},
+        {'id': '10005', 'value': '博士'},
+        {'id': '10006', 'value': '博士后'},
+        {'id': '10007', 'value': '其他'}
     ];
 
     window.eduFn = function (dom) {
