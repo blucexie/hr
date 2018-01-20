@@ -52,9 +52,13 @@ $(function () {
                 }else if(backData.item.resumeIsDissmion == 0){
                     $('#nDimission').attr('checked',true);
                     $('#yDimission').removeAttr("checked")
-                }else if(backData.item.isNewGraduate ==1){
+                }
+                if(backData.item.isNewGraduate ==1){
                     $('#graduatingStudents').attr('checked',true);
-                    $('#previousStudents').removeAttr("checked")
+                    $('#previousStudents').removeAttr("checked");
+                    $('.work').hide();
+                    $('.workExperience').hide();
+                    $('.upWorkExperience').hide();
                 }else if(backData.item.isNewGraduate ==0){
                     $('#previousStudents').attr('checked',true);
                     $('#graduatingStudents').removeAttr("checked")
@@ -131,72 +135,71 @@ $(function () {
                     }
                 }
 
+                if(backData.item.isNewGraduate !=="1"){
+                    /*工作*/
+                    var workJson = JSON.parse(backData.item.resumeWorkArray);
+                    workLength =workJson.length;
 
+                    //  console.log(workLength);
+                    for(var i = 0;i<workLength-1;i++){
+                        var entclass = 'entryTime';
+                        var outclass = 'outTime';
+                        var leaveClass = 'leaveCause';
+                        var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
+                        '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
+                        '<div> <span>岗位工资</span><input class="workBalance"  type="number" name="workBalance" placeholder="请输入岗位工资" ></div>' +
+                        '<div><span>入职时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择入职时间" placeholder="请选择入职时间"></div>' +
+                        '<div> <span>离职时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择离职时间" placeholder="请选择离职时间"></div>' +
+                        '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
+                        '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名"></div>' +
+                        '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" data-attribute="请输入证明人电话" placeholder="请输入证明人电话" maxlength="11"></div></form>');
 
-                /*工作*/
-                var workJson = JSON.parse(backData.item.resumeWorkArray);
-                workLength =workJson.length;
+                        $('.upWorkExperience').before($work);
 
-              //  console.log(workLength);
-                for(var i = 0;i<workLength-1;i++){
-                    var entclass = 'entryTime';
-                    var outclass = 'outTime';
-                    var leaveClass = 'leaveCause';
-                    var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
-                    '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
-                    '<div> <span>岗位工资</span><input class="workBalance"  type="number" name="workBalance" placeholder="请输入岗位工资" ></div>' +
-                    '<div><span>入职时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择入职时间" placeholder="请选择入职时间"></div>' +
-                    '<div> <span>离职时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择离职时间" placeholder="请选择离职时间"></div>' +
-                    '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
-                    '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名"></div>' +
-                    '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" data-attribute="请输入证明人电话" placeholder="请输入证明人电话" maxlength="11"></div></form>');
+                        new datePicker().init({
+                            'trigger': '.entryTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
+                            'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                            'minDate':'1900-1-1',/*最小日期*/
+                            'maxDate':'2100-12-31',/*最大日期*/
+                            'onSubmit':function(){/*确认时触发事件*/
+                                var theSelectData=calendar.value;
+                            },
+                            'onClose':function(){/*取消时触发事件*/
+                            }
+                        });
+                        new datePicker().init({
+                            'trigger': '.outTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
+                            'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                            'minDate':'1900-1-1',/*最小日期*/
+                            'maxDate':'2100-12-31',/*最大日期*/
+                            'onSubmit':function(){/*确认时触发事件*/
+                                var theSelectData=calendar.value;
+                            },
+                            'onClose':function(){/*取消时触发事件*/
+                            }
+                        });
 
-                    $('.upWorkExperience').before($work);
-
-                    new datePicker().init({
-                        'trigger': '.entryTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
-                        'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
-                        'minDate':'1900-1-1',/*最小日期*/
-                        'maxDate':'2100-12-31',/*最大日期*/
-                        'onSubmit':function(){/*确认时触发事件*/
-                            var theSelectData=calendar.value;
-                        },
-                        'onClose':function(){/*取消时触发事件*/
-                        }
-                    });
-                    new datePicker().init({
-                        'trigger': '.outTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
-                        'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
-                        'minDate':'1900-1-1',/*最小日期*/
-                        'maxDate':'2100-12-31',/*最大日期*/
-                        'onSubmit':function(){/*确认时触发事件*/
-                            var theSelectData=calendar.value;
-                        },
-                        'onClose':function(){/*取消时触发事件*/
-                        }
-                    });
-
-                    workFn1($('.'+leaveClass+(i+2))[0]);
+                        workFn1($('.'+leaveClass+(i+2))[0]);
+                    }
+                    for(var i = 0;i<workJson.length;i++){
+                        $('.work:eq('+i+') .firm').val(workJson[i].workEnterpriseName);
+                        $('.work:eq('+i+') .job').val(workJson[i].verifyJob);
+                        var sT = workJson[i].workStartTime.split(""),
+                            arrST =sT.splice(4,0,'-'),
+                            workStartTime = sT.join('');
+                        var eT = workJson[i].workEndTime.split(""),
+                            arrEt = eT.splice(4,0,'-'),
+                            workEndTime = eT.join('');
+                        $('.work:eq('+i+') .workBalance').val(workJson[i].workBalance);
+                        $(".work:eq("+i+") input[name='workStartTime']").val(workStartTime);
+                        $(".work:eq("+i+") input[name='workEndTime']").val(workEndTime);
+                        $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
+                        $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
+                        $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                    }
                 }
-                for(var i = 0;i<workJson.length;i++){
-                    $('.work:eq('+i+') .firm').val(workJson[i].workEnterpriseName);
-                    $('.work:eq('+i+') .job').val(workJson[i].verifyJob);
-                    var sT = workJson[i].workStartTime.split(""),
-                        arrST =sT.splice(4,0,'-'),
-                        workStartTime = sT.join('');
-                    var eT = workJson[i].workEndTime.split(""),
-                        arrEt = eT.splice(4,0,'-'),
-                        workEndTime = eT.join('');
-                    $('.work:eq('+i+') .workBalance').val(workJson[i].workBalance);
-                    $(".work:eq("+i+") input[name='workStartTime']").val(workStartTime);
-                    $(".work:eq("+i+") input[name='workEndTime']").val(workEndTime);
-                    $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
-                    $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
-                    $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
 
-                   // eduFn1($('.leaveCause2')[0])
 
-                }
 
             }
         },
@@ -602,13 +605,16 @@ $(function () {
 
     /*点击协议*/
     $('.agreement').click(function () {
-        var uName = $('#resumeName').val();
-        var uId =  $('#resumeIdCard').val();
-        var uCompanyName = $('.companyName').text();
-        document.cookie = 'name='+escape(uName);
+        var vName = $('#resumeName').val();
+        var verifyIdCard =  $('#resumeIdCard').val();
+        var enterpriseName = $('.companyName').text();
+       /* document.cookie = 'name='+escape(uName);
         document.cookie = 'id='+escape(uId);
-        document.cookie = 'companyName='+escape(uCompanyName);
-        window.location.href = "../agreement.html"
+        document.cookie = 'companyName='+escape(uCompanyName);*/
+        sessionStorage.verifyIdCard = verifyIdCard;
+        sessionStorage.verifyName = vName;
+        sessionStorage.enterpriseName = enterpriseName;
+        window.location.href = "agreement.html"
     });
 
     $('#submit').click(function () {

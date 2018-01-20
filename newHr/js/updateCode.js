@@ -5,7 +5,6 @@ $(function () {
 
     /*短信验证*/
     $('.btn').click(function () {
-        $(this).css('background','#463e4c');
         $(this).attr('disabled','disabled');
         showLoader();
         var code=$("#inpId").val();

@@ -16,8 +16,9 @@ $(function () {
     $('#jobInterview').val(verifyJob);
 
 
+
     /*发送验证码*/
-    $('#mesBtn').click(function () {
+   /* $('#mesBtn').click(function () {
         if($('#mesBtn').attr('disabled')=='disabled'){
             return;
         }
@@ -79,9 +80,10 @@ $(function () {
 
             }
         }
-    });
-
+    });*/
+    /*下一步*/
     $('.nextStep button').click(function () {
+        var verifyIdCard = $('#resumeIdCard').val();
         showLoader();
         var basicInfo = {};
         var basicPass = true;
@@ -160,6 +162,7 @@ $(function () {
                 if(result===1001){
                     if(resumeStatus==0){
                         sessionStorage.basicInfo = basicStr;
+                        sessionStorage.verifyIdCard = verifyIdCard;
                         window.location.replace("employeeM.html");
                     }else if(resumeStatus==1){
                         layer.open({
@@ -168,9 +171,11 @@ $(function () {
                             ,yes: function(index){
                                 sessionStorage.basicInfo = basicStr;
                                 sessionStorage.resumeArray = resumeStr;
+                                sessionStorage.verifyIdCard = verifyIdCard;
                                 window.location.replace("employeeM.html");
                             },no: function () {
                                 sessionStorage.basicInfo = basicStr;
+                                sessionStorage.verifyIdCard = verifyIdCard;
                                 window.location.replace("employeeM.html");
                             }
                         });

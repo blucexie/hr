@@ -110,6 +110,7 @@ $(function () {
     });
 
     $('.nextStep button').click(function () {
+        var verifyIdCard = $('#resumeIdCard').val();
         showLoader();
         var basicInfo = {};
         var basicPass = true;
@@ -188,6 +189,7 @@ $(function () {
                 if(result===1001){
                     if(resumeStatus==0){
                         sessionStorage.basicInfo = basicStr;
+                        sessionStorage.verifyIdCard = verifyIdCard;
                         window.location.replace("employee.html");
                     }else if(resumeStatus==1){
                         layer.open({
@@ -196,9 +198,11 @@ $(function () {
                             ,yes: function(index){
                                 sessionStorage.basicInfo = basicStr;
                                 sessionStorage.resumeArray = resumeStr;
+                                sessionStorage.verifyIdCard = verifyIdCard;
                                 window.location.replace("employee.html");
                             },no: function () {
                                 sessionStorage.basicInfo = basicStr;
+                                sessionStorage.verifyIdCard = verifyIdCard;
                                 window.location.replace("employee.html");
                             }
                         });

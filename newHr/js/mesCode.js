@@ -6,7 +6,6 @@ $(function () {
 
     /*短信验证*/
     $('.btn').click(function () {
-        $(this).css('background','#463e4c');
         $(this).attr('disabled','disabled');
         showLoader();
         var code=$("#inpId").val();
@@ -48,7 +47,7 @@ $(function () {
                 sessionStorage.setItem("userCode", userCode);
                 sessionStorage.setItem("authenCode", code);
                 if(result===1001){
-                    window.location.replace("hr1/verifyPre.html");
+                    window.location.replace("/hr/newHr/verifyPre.html");
                 }else {
                     layer.open({
                         content: resultInfo
