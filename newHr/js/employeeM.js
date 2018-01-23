@@ -902,7 +902,7 @@ $(function () {
                     }
                 }else if (itemName == 'colleagueMobile'){
                     /*校验证明人电话*/
-                    if(itemVal ==basicInfo['resumeMobile']){
+                    if(itemVal ==basicAll['resumeMobile']){
                         layer.open({
                             content: '证明人电话不能与候选人电话相同',
                             btn: '确定',
