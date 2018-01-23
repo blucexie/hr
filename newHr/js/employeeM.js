@@ -656,12 +656,6 @@ $(function () {
 
     /*点击协议*/
     $('.agreement').click(function () {
-        var uName = $('#resumeName').val();
-        var uId =  $('#resumeIdCard').val();
-        var uCompanyName = $('.companyName').text();
-        document.cookie = 'name='+escape(uName);
-        document.cookie = 'id='+escape(uId);
-        document.cookie = 'companyName='+escape(uCompanyName);
         window.location.href = "/hr/newHr/agreement.html"
     });
 

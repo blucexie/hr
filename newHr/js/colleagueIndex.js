@@ -3,7 +3,6 @@ $(function () {
 /*短信验证*/
     $('.btn').click(function () {
         $(this).attr('disabled','disabled');
-        $(this).css('background','#463e4c');
         showLoader();
          var code=$("#inpId").val();
         if(code =="" || code.length!=7){

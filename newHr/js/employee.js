@@ -654,13 +654,7 @@ $(function () {
 
     /*点击协议*/
     $('.agreement').click(function () {
-        var uName = $('#resumeName').val();
-        var uId =  $('#resumeIdCard').val();
-        var uCompanyName = $('.companyName').text();
-        sessionStorage.setItem("name", uName);
-        sessionStorage.setItem("id", uId);
-        sessionStorage.setItem("companyName", uCompanyName);
-        window.location.href = "../agreement.html"
+        window.location.href = "agreement.html"
     });
 
 

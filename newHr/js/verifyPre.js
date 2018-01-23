@@ -3,15 +3,14 @@
  */
 $(function () {
     var enterpriseName = sessionStorage.getItem("enterpriseName");
-    var  vName = sessionStorage.getItem("verifyName");
+    var  verifyName = sessionStorage.getItem("verifyName");
     var  vMobile = sessionStorage.getItem("verifyMobile");
     var  verifyCode = sessionStorage.getItem("verifyCode");
     var verifyJob = sessionStorage.getItem("verifyJob");
     var authenCode = sessionStorage.getItem("authenCode");
     var userCode = sessionStorage.getItem("userCode");
     $('.companyName').text(enterpriseName);
-    $('#resumeName').val(vName);
-
+    $('#resumeName').val(verifyName);
     $('#resumeMobile').val(vMobile);
     $('#jobInterview').val(verifyJob);
 

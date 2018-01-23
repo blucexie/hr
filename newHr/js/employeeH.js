@@ -605,14 +605,11 @@ $(function () {
 
     /*点击协议*/
     $('.agreement').click(function () {
-        var vName = $('#resumeName').val();
+        var verifyName = $('#resumeName').val();
         var verifyIdCard =  $('#resumeIdCard').val();
         var enterpriseName = $('.companyName').text();
-       /* document.cookie = 'name='+escape(uName);
-        document.cookie = 'id='+escape(uId);
-        document.cookie = 'companyName='+escape(uCompanyName);*/
         sessionStorage.verifyIdCard = verifyIdCard;
-        sessionStorage.verifyName = vName;
+        sessionStorage.verifyName = verifyName;
         sessionStorage.enterpriseName = enterpriseName;
         window.location.href = "agreement.html"
     });

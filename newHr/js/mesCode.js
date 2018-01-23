@@ -57,7 +57,7 @@ $(function () {
                     hideLoader();
                 }
             },
-            error: function (XMLHttpRequest, textStatus) {
+            error: function (XMLHttpRequest, textStatus){
                 layer.open({
                     content: '网络异常，请稍后重试'
                     ,btn: '确定'
