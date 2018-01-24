@@ -147,7 +147,7 @@ $(function () {
                         var leaveClass = 'leaveCause';
                         var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
                         '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
-                        '<div> <span>岗位工资</span><input class="workBalance"  type="number" name="workBalance" placeholder="请输入岗位工资" ></div>' +
+                        '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
                         '<div><span>入职时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择入职时间" placeholder="请选择入职时间"></div>' +
                         '<div> <span>离职时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择离职时间" placeholder="请选择离职时间"></div>' +
                         '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -217,10 +217,10 @@ $(function () {
     var onOffB = true;
 
     $('.upBasic').click(function () {
-        var sName = $('#resumeName').val();
+        var sJob = $('#jobInterview').val();
         if(onOffB){
             $('#deForm').css('display','none');
-            var $name = $('<div class="upB"><span class="upName">姓名</span><span class="upNames">'+sName+'</span></div>');
+            var $name = $('<div class="upB"><span class="upName">职位</span><span class="upNames">'+sJob+'</span></div>');
             ($('.basic')).after($name);
             $('.upBasic p').text('展开基本信息');
             $('.upBasic img').removeAttr("src").attr("src","images/downArrows.png");
@@ -423,7 +423,7 @@ $(function () {
             leaveClass+=workLength;
             var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
             '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位"></div>' +
-            '<div> <span>岗位工资</span><input class="workBalance"  type="number" name="workBalance" placeholder="请输入岗位工资" ></div>' +
+            '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
             '<div><span>入职时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择入职时间"></div>' +
             '<div> <span>离职时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择离职时间"></div>' +
             '<div> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +

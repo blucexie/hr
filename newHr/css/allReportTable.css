@@ -13,6 +13,9 @@
     margin-bottom: 10px;
     line-height:30px;
 }
+h2{
+    font-size: 18px;
+}
 .cover{
     width: 700px;
     margin: 0 auto;
@@ -110,4 +113,14 @@ table tr td:nth-of-type(4),table tr th:nth-of-type(4){
 .explain p>img{
     width: 6px;
     margin-right: 6px;
+}
+.button-style button{
+    width: 90px;
+    height: 30px;
+    background: #00adb4;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    outline: none;
 }
