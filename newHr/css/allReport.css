@@ -122,8 +122,15 @@ body {
 .skillExplain h4 {
   margin: 0.8rem 0 0.6rem 0;
 }
+.no-verification p {
+  line-height: 1.2rem;
+  font-size: 0;
+}
 .no-verification p span {
   color: #ccc!important;
+}
+.no-verification h4 {
+  margin-bottom: 0.4rem;
 }
 .basic,
 .education,
@@ -216,6 +223,7 @@ body {
   width: 3.8rem;
   font-size: 0.52rem;
   color: #999;
+  padding: 0.08rem 0;
 }
 .basic-left p span:nth-of-type(2),
 .eduTable p span:nth-of-type(2),
@@ -319,6 +327,7 @@ body {
 }
 .eduTable-left p {
   line-height: 1.2rem;
+  font-size: 0;
 }
 .eduTable-left p img,
 .workTable-left p img,
@@ -326,7 +335,7 @@ body {
   float: right;
   width: 0.1rem;
   height: 0.48rem;
-  margin-top: 0.48rem;
+  margin-top: 0.4rem;
   margin-right: 0.6rem;
 }
 .eduTable-right p {
@@ -334,7 +343,7 @@ body {
 }
 .eduTable-left .accord {
   position: absolute;
-  top: 50%;
+  top: 30%;
   margin-top: -1.2rem;
   left: 10.6rem;
 }
@@ -387,12 +396,13 @@ body {
 }
 .workTable-left p {
   line-height: 1.2rem;
+  font-size: 0;
 }
 .workTable-left p img {
   /* width: 13/@r;
   height: 21/@r;*/
   float: right;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
   margin-right: 0.6rem;
 }
 .workTable-left .accord {
@@ -420,7 +430,6 @@ body {
 }
 .colleagueTable-left .companyTitle {
   float: left;
-  margin-right: 0.28rem;
 }
 .colleagueTable-left .companyName {
   float: left;
@@ -434,9 +443,11 @@ body {
 }
 .colleagueTable-left p {
   line-height: 1.2rem;
+  font-size: 0;
 }
 .skillTable p {
   line-height: 1.2rem;
+  font-size: 0;
 }
 .skillTable-noResult {
   padding-left: 0.56rem;

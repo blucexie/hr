@@ -5,9 +5,9 @@ $(function () {
     var  verifyName = sessionStorage.getItem("verifyName");
     var enterpriseName = sessionStorage.getItem("enterpriseName");
     var verifyIdCard = sessionStorage.getItem("verifyIdCard");
-    $('.inpNameA').val(verifyName);
-    $('.inpNumA').val(verifyIdCard);
-    $('.inpCompanyA').val(enterpriseName);
+    $('.inpNameA').text(verifyName);
+    $('.inpNumA').text(verifyIdCard);
+    $('.inpCompanyA').text(enterpriseName);
 
     /*················*/
 

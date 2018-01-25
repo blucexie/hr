@@ -2,12 +2,8 @@
   margin: 0;
   padding: 0;
 }
-input{
-  outline: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-}
-ul, li {
+ul,
+li {
   list-style: none;
 }
 a {
@@ -42,6 +38,14 @@ h1 {
 .content .firstL {
   margin-top: 1.32rem;
 }
+.content .firstL span {
+  display: inline-block;
+  min-width: 2rem;
+  border-bottom: 1px solid #999;
+  text-align: center;
+  padding: 0 0.1rem;
+  text-indent: 0;
+}
 .content .secondL {
   font-weight: bold;
 }
@@ -61,19 +65,4 @@ h1 {
   -webkit-appearance: none;
   background: none;
   line-height: normal;
-}
-.inpNameA {
-  width: 2.64rem;
-  text-indent: 0.14rem;
-}
-.inpNumA {
-  width: 5.84rem;
-  text-indent: 0.14rem;
-}
-.inpCompanyA {
-  width: 7.16rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  text-indent: 0.14rem;
 }

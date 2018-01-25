@@ -8,11 +8,13 @@ $(function () {
         $('.work').hide();
         $('.workExperience').hide();
         $('.upWorkExperience').hide();
+        $('.isDimission').hide();
     });
     $('.previousStudents').click(function () {
         $('.work').show();
         $('.workExperience').show();
         $('.upWorkExperience').show();
+        $('.isDimission').show();
     });
     /*发送回填请求*/
     var  resumeName = sessionStorage.getItem("verifyName");
@@ -148,8 +150,8 @@ $(function () {
                         var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
                         '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
                         '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
-                        '<div><span>入职时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择入职时间" placeholder="请选择入职时间"></div>' +
-                        '<div> <span>离职时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择离职时间" placeholder="请选择离职时间"></div>' +
+                        '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
+                        '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
                         '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
                         '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名"></div>' +
                         '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" data-attribute="请输入证明人电话" placeholder="请输入证明人电话" maxlength="11"></div></form>');
@@ -265,9 +267,13 @@ $(function () {
 
 
     $('.addEducation').click(function () {
+        $('.educate').css('display','block');
         eduLength++;
         if(eduLength>3){
             return ;
+        }
+        if(eduLength==3){
+            $('.addEducation').hide();
         }
             var starClass = 'StartTime';
             var endClass = 'EndTime';
@@ -277,6 +283,7 @@ $(function () {
             endClass+=eduLength;
             eduClass+=eduLength;
             var $school = ('<form class="educationTable" action="">' +
+            '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息'+eduLength+'</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
             '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
             '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
             '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
@@ -309,6 +316,21 @@ $(function () {
             eduFn($('.'+eduClass)[0]);
 
     });
+
+    $('body').on('click','.deleteBtn', function () {
+        
+        var nowEindex = $(this).parents('.educateS').attr("data-value");
+        if(nowEindex==2 && eduLength==3){
+            $("[data-value='3']").children('span').text('教育信息'+nowEindex);
+            $("[data-value='3']").attr('data-value',nowEindex);
+        }
+        $(this).parents('.educationTable').remove();
+        eduLength--;
+        if(eduLength<3){
+            $('.addEducation').show();
+        }
+    });
+
     /*收起教育信息*/
     var onOffE = true;
     $('.upEducation p').click(function () {
@@ -345,6 +367,9 @@ $(function () {
            if(skillLength>3){
                return
            }
+           if(skillLength==3){
+            $('.addSkill').hide();
+        }
             var skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
             '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称"></div></form>');
 
@@ -411,9 +436,13 @@ $(function () {
     workFn1($('.leaveCause')[0]);
 
     $('.addWork').click(function (){
+        $('.workTitle').css('display','block');
         workLength++;
         if(workLength>3){
             return
+        }
+        if(workLength==3){
+            $('.addWork').hide();
         }
             var entclass = 'entryTime';
             var outclass = 'outTime';
@@ -421,11 +450,13 @@ $(function () {
             entclass+=workLength;
             outclass+=workLength;
             leaveClass+=workLength;
-            var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
+            var $work = ('<form class="work">'+
+            '<p data-value='+workLength+' class="workTitleS clearfix"><i></i><span>工作经历'+workLength+'</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
+            '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
             '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位"></div>' +
             '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
-            '<div><span>入职时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择入职时间"></div>' +
-            '<div> <span>离职时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择离职时间"></div>' +
+            '<div><span>开始时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择开始时间"></div>' +
+            '<div> <span>结束时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择结束时间"></div>' +
             '<div> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
             '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName" placeholder="请输入证明人姓名"></div>' +
             '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div></form>');
@@ -457,6 +488,18 @@ $(function () {
         workFn1($('.'+leaveClass)[0]);
     });
 
+    $('body').on('click','.deleteBtnW', function () {
+        var nowJindex = $(this).parents('.workTitleS').attr("data-value");
+        if(nowJindex==2 && workLength==3){
+            $("[data-value='3']").children('span').text('工作经历'+nowJindex);
+            $("[data-value='3']").attr('data-value',nowJindex);
+        }
+        $(this).parents('.work').remove();
+        workLength--;
+        if(workLength<3){
+            $('.addWork').show();
+        }
+    });
     /*收起工作信息*/
     var onOffW = true;
 
@@ -816,7 +859,7 @@ $(function () {
                 if (itemName == 'workEndTime'){
                     if(workItem['workStartTime']>=itemVal){
                         layer.open({
-                            content: '离职时间需大于入职时间'
+                            content: '结束时间需大于开始时间'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
@@ -828,7 +871,7 @@ $(function () {
                         return false;
                     }else if(itemVal>nowTime){
                         layer.open({
-                            content: '离职时间需小于当前时间'
+                            content: '结束时间需小于当前时间'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
@@ -842,7 +885,7 @@ $(function () {
                 }else if (itemName == 'workStartTime'){
                     if(itemVal>nowTime){
                         layer.open({
-                            content: '入职时间需小于当前时间'
+                            content: '开始时间需小于当前时间'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
