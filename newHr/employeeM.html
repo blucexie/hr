@@ -85,7 +85,7 @@
          </div>
 
         <form class="educationTable educationTable1 " action="">
-            <p class="educate clearfix"><i></i><span>教育信息1</span></p>
+            <p class="educate clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>
             <div class="schoolMsg">
                 <span>学校名称</span>
                 <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea>
@@ -137,7 +137,7 @@
             <strong>请从最近一份工作填写</strong>
         </div>
         <form class="work work1">
-            <p class="workTitle workTitleS clearfix"><i></i><span>工作经历1</span></p>
+            <p class="workTitle workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtn">删除此条记录</button></p>
             <div class="firmMsg">
                 <span>公司名称</span>
                 <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2" data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea>
@@ -148,7 +148,7 @@
             </div>
             <div>
                 <span>岗位工资</span>
-                <input class="workBalance"  type="text" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资" onkeyup="value=value.replace(/[^\d]/g,'') " maxlength="6">
+                <input class="workBalance"  type="text" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\d]/g,'') " maxlength="6">
             </div>
             <div>
                 <span>开始时间</span>

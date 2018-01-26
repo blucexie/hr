@@ -97,6 +97,43 @@ body {
 .verification-results p {
   padding-left: 0.6rem;
 }
+.verified-result {
+  margin-left: 0.38rem;
+}
+.verified-result > div {
+  float: left;
+  width: 4.52rem;
+  height: 2.8rem;
+  text-align: center;
+  margin-right: 0.32rem;
+  margin-bottom: 0.52rem;
+  box-shadow: 0.04rem 0.04rem 0.02rem 0.02rem rgba(39, 142, 146, 0.1);
+}
+.verified-result > div > img {
+  width: 1rem;
+  height: 0.92rem;
+  float: none;
+  margin: 0.2rem 0 0 0;
+}
+.verified-result > div h5 {
+  width: 2.76rem;
+  font-size: 0.28rem;
+  line-height: 0.28rem;
+  padding: 0.2rem 0;
+  font-weight: none;
+  color: #fff;
+  text-align: center;
+  border-top-left-radius: 0.12rem;
+  border-bottom-right-radius: 0.36rem;
+}
+.verified-result > div p {
+  font-size: 0.48rem;
+  color: #333;
+  margin-bottom: 0;
+  margin-top: -0.16rem;
+  padding: 0;
+  text-align: center;
+}
 .verification-results p > img,
 .eduExplain p > img,
 .wageExplain p > img,
@@ -613,4 +650,13 @@ body {
 }
 .discordFontColor {
   color: #fc6363!important;
+}
+.accordanceBg {
+  background-color: #27d4af;
+}
+.waitColoBg {
+  background-color: #e69a36;
+}
+.inconformitBg {
+  background-color: #fe4646;
 }

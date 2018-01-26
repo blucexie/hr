@@ -162,7 +162,7 @@ $(function () {
                 var leaveClass = 'leaveCause';
                 var $work = ('<div class="lineSpacingW"></div><form class="work"><div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
                 '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
-                '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资"  onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
+                '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资，如10000"  onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
                 '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
                 '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
                 '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -226,7 +226,7 @@ $(function () {
 
     }
 
-    console.log(basicArr);
+    //console.log(basicArr);
 
 
 
@@ -306,7 +306,7 @@ $(function () {
             endClass+=eIndex;
             eduClass+=eIndex;
             var $school = ('<form class="educationTable" action="">' +
-            '<p data-value='+eIndex+' class="educateS clearfix"><i></i><span>教育信息'+eIndex+'</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
+            '<p data-value='+eIndex+' class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
             '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
             '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
             '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
@@ -341,16 +341,41 @@ $(function () {
 
     });
     $('body').on('click','.deleteBtn', function () {
-        var nowEindex = $(this).parents('.educateS').attr("data-value");
-        if(nowEindex==2 && eIndex==3){
-            $("[data-value='3']").children('span').text('教育信息'+nowEindex);
-            $("[data-value='3']").attr('data-value',nowEindex);
-        }
-        $(this).parents('.educationTable').remove();
+      
         eIndex--;
         if(eIndex<3){
             $('.addEducation').show();
         }
+        if(eIndex<1){
+            layer.open({
+                content: '必须保留一条记录'
+                ,btn: '确定',
+                yes: function(index){
+                    layer.close(index);
+                
+                }
+            });
+            eIndex=1;
+            return false;
+        }
+
+        $(this).parents('.educationTable').remove();
+
+        var eduFormInf = $('.educationTable');
+        eduFormInf.each(function(index,element){
+            var educationStartTime = $(eduFormInf[index]).find("input[name='educationStartTime']");
+            var educationEndTime = $(eduFormInf[index]).find("input[name='educationEndTime']");
+            var educationGrade = $(eduFormInf[index]).find("input[name='educationGrade']");
+            if(index==0){
+                $(educationStartTime).attr('class','StartTime ');
+                $(educationEndTime).attr('class','EndTime');
+                $(educationGrade).attr('class','eduS');
+            }else{
+                $(educationStartTime).attr('class','StartTime'+(index+1));
+                $(educationEndTime).attr('class','EndTime'+(index+1));
+                $(educationGrade).attr('class','eduS'+(index+1));
+            }
+        });
     });
 
      var onOffE = true;
@@ -481,11 +506,11 @@ $(function () {
             entclass+=jIndex;
             outclass+=jIndex;
             leaveClass+=jIndex;
-            var $work = ('<form class="work">' +
-            '<p data-value='+jIndex+' class="workTitleS clearfix"><i></i><span>工作经历'+jIndex+'</span><<button type="button" class="deleteBtnW">删除此条记录</button></p>'+
+            var $work = ('<form data-value='+jIndex+' class="work">' +
+            '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
             '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
             '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位"></div>' +
-            '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
+            '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
             '<div><span>开始时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择开始时间"></div>' +
             '<div> <span>结束时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择结束时间"></div>' +
             '<div> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -521,16 +546,40 @@ $(function () {
 
     });
     $('body').on('click','.deleteBtnW', function () {
-        var nowJindex = $(this).parents('.workTitleS').attr("data-value");
-        if(nowJindex==2&&jIndex==3){
-            $("[data-value='3']").children('span').text('工作经历'+nowJindex);
-            $("[data-value='3']").attr('data-value',nowJindex);
-        }
-        $(this).parents('.work').remove();
+       
         jIndex--;
         if(jIndex<3){
             $('.addWork').show();
         }
+        if(jIndex<1){
+            layer.open({
+                content: '必须保留一条记录'
+                ,btn: '确定',
+                yes: function(index){
+                    layer.close(index);
+                
+                }
+            });
+            jIndex=1;
+            return false;
+        }
+        $(this).parents('.work').remove();
+       
+        var workFormInf = $('.work');
+        workFormInf.each(function(index,element){
+            var workStartTime = $(workFormInf[index]).find("input[name='workStartTime']");
+            var workEndTime = $(workFormInf[index]).find("input[name='workEndTime']");
+            var resumeDissmionReason = $(workFormInf[index]).find("input[name='resumeDissmionReason']");
+            if(index==0){
+                $(workStartTime).attr('class','entryTime workTime');
+                $(workEndTime).attr('class','outTime');
+                $(resumeDissmionReason).attr('class','leaveCause');
+            }else{
+                $(workStartTime).attr('class','entryTime'+(index+1)+ ' workTime');
+                $(workEndTime).attr('class','outTime'+(index+1));
+                $(resumeDissmionReason).attr('class','leaveCause'+(index+1));
+            }
+        });
     });
     var onOffW = true;
     /*收起工作信息*/
