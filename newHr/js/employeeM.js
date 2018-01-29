@@ -54,6 +54,12 @@ $(function () {
 
     $('#jobInterview').val(verifyJob);
 
+    if($('#graduatingStudents').is(':checked')){
+        $('.isDimission').hide();
+        $('.work').hide();
+        $('.workExperience').hide();
+        $('.upWorkExperience').hide();
+    };
     /*应届生往届生选择*/
     $('.graduatingStudents').click(function (){
         $('.work').hide();
@@ -88,6 +94,7 @@ $(function () {
             $('.work').hide();
             $('.workExperience').hide();
             $('.upWorkExperience').hide();
+            $('.isDimission').hide();
         }else if(resumeArray.isNewGraduate ==0){
             $('#previousStudents').attr('checked',true);
             $('#graduatingStudents').removeAttr("checked")

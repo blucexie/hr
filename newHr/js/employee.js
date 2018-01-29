@@ -1,10 +1,6 @@
 /**
  * Created by blucexie on 2017/10/31.
  */
-/**
- * Created by blucexie on 2017/10/18.
- */
-
 
 $(function () {
 
@@ -45,8 +41,12 @@ $(function () {
         });
     };
 
-
-
+    if($('#graduatingStudents').is(':checked')){
+        $('.isDimission').hide();
+        $('.work').hide();
+        $('.workExperience').hide();
+        $('.upWorkExperience').hide();
+    };
     $('.graduatingStudents').click(function () {
         $('.work').hide();
         $('.workExperience').hide();
@@ -82,6 +82,7 @@ $(function () {
             $('.work').hide();
             $('.workExperience').hide();
             $('.upWorkExperience').hide();
+            $('.isDimission').hide();
         }else if(resumeArray.isNewGraduate ==0){
             $('#previousStudents').attr('checked',true);
             $('#graduatingStudents').removeAttr("checked")

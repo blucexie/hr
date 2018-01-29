@@ -3,6 +3,14 @@
  */
 
 $(function () {
+
+    if($('#graduatingStudents').is(':checked')){
+        $('.isDimission').hide();
+        $('.work').hide();
+        $('.workExperience').hide();
+        $('.upWorkExperience').hide();
+    };
+
     /*应届生往届生选择*/
     $('.graduatingStudents').click(function (){
         $('.work').hide();
@@ -61,6 +69,7 @@ $(function () {
                     $('.work').hide();
                     $('.workExperience').hide();
                     $('.upWorkExperience').hide();
+                    $('.isDimission').hide();
                 }else if(backData.item.isNewGraduate ==0){
                     $('#previousStudents').attr('checked',true);
                     $('#graduatingStudents').removeAttr("checked")
@@ -76,6 +85,7 @@ $(function () {
                     var endClass = 'EndTime';
                     var eduClass = 'eduS';
                     var $school = ('<form class="educationTable" action="">' +
+                    '<p data-value='+eIndex+' class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
                     '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
                     '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+(eduClass+(i+2))+'  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历"></div>'+
                     '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
@@ -115,8 +125,12 @@ $(function () {
                     $(".educationTable:eq("+i+") input[name='educationStartTime']").val(eduJson[i].educationStartTime);
                     $(".educationTable:eq("+i+") input[name='educationEndTime']").val(eduJson[i].educationEndTime);
                 }
-
-
+                if(eduLength>1){
+                    $('.workTitle').show();
+                }
+                if(eduLength==3){
+                    $('.addEducation').hide();
+                }
 
 
                 /*技能*/
@@ -147,7 +161,9 @@ $(function () {
                         var entclass = 'entryTime';
                         var outclass = 'outTime';
                         var leaveClass = 'leaveCause';
-                        var $work = ('<form class="work"><div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
+                        var $work = ('<form class="work">'+
+                        '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
+                        '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
                         '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
                         '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
                         '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
@@ -198,6 +214,12 @@ $(function () {
                         $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
                         $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
                         $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                    }
+                    if(workLength>1){
+                        $('.workTitle').show();
+                    }
+                    if(workLength==3){
+                        $('.addWork').hide();
                     }
                 }
 
@@ -479,7 +501,7 @@ $(function () {
             outclass+=workLength;
             leaveClass+=workLength;
             var $work = ('<form class="work">'+
-            '<p data-value='+workLength+' class="workTitleS clearfix"><i></i><span>工作经历'+workLength+'</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
+            '<p data-value='+workLength+' class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
             '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
             '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位"></div>' +
             '<div> <span>岗位工资</span><input class="workBalance"  type="text" name="workBalance" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') "  maxlength="6"></div>' +
