@@ -370,19 +370,17 @@ input {
   bottom: 0;
 }
 .zhezhaoL {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   background: #000;
-  opacity: 0.6;
+  opacity: 0.2;
   display: none;
   z-index: 9000;
 }
-.zhezhaoL {
-  opacity: 0.2;
-}
+
 
 /*loading*/
 #loading {

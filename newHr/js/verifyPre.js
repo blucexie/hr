@@ -14,7 +14,7 @@ $(function () {
     $('#resumeMobile').val(vMobile);
     $('#jobInterview').val(verifyJob);
 
-
+    
 
     /*下一步*/
     $('.nextStep button').click(function () {   

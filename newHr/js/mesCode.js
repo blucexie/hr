@@ -33,21 +33,28 @@ $(function () {
                 var verifyMobile = jsonData.item.verifyMobile;
                 var verifyJob = jsonData.item.verifyJob;
                 var verifyCode = jsonData.item.verifyCode;
-               // var verifyIdCard = jsonData.item.verifyIdCard;
                 var userCode = jsonData.item.userCode;
                 var result = jsonData.item.result;
                 var resultInfo = jsonData.item.resultInfo;
-                sessionStorage.clear();
-                sessionStorage.setItem("verifyName", verifyName);
-                sessionStorage.setItem("verifyMobile", verifyMobile);
-                sessionStorage.setItem("verifyJob", verifyJob);
-                sessionStorage.setItem("verifyCode", verifyCode);
-                sessionStorage.setItem("enterpriseName", enterpriseName);
-               // sessionStorage.setItem("verifyIdCard", verifyIdCard);
-                sessionStorage.setItem("userCode", userCode);
-                sessionStorage.setItem("authenCode", code);
+                try {
+                    sessionStorage.clear();
+                    sessionStorage.setItem("verifyName", verifyName);
+                    sessionStorage.setItem("verifyMobile", verifyMobile);
+                    sessionStorage.setItem("verifyJob", verifyJob);
+                    sessionStorage.setItem("verifyCode", verifyCode);
+                    sessionStorage.setItem("enterpriseName", enterpriseName);
+                    sessionStorage.setItem("userCode", userCode);
+                    sessionStorage.setItem("authenCode", code);
+                } catch(e) {
+                    layer.open({
+                        content: "请关闭无痕模式重新尝试"
+                        ,btn: '确定'
+                    });
+            
+                }
+                
                 if(result===1001){
-                    window.location.replace("/hr/newHr/verifyPre.html");
+                    window.location.replace("verifyPre.html");
                 }else {
                     layer.open({
                         content: resultInfo
