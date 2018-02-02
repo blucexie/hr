@@ -7,13 +7,20 @@
     display: block;
     clear: both;
 }
+@media print {
+    .pageBreak {
+      page-break-after: always;
+    }
+    .noPrint {
+      display: none;
+    }
+  }
 h2{
     font-size: 16px;
 }
 .cover{
     width: 700px;
-    margin: 0 auto;
-    
+    margin: 0 auto;   
 }
 .cover .title{
     float: right;
@@ -103,7 +110,7 @@ table{
     margin-bottom: 20px;
 }
 table tr{
-    height: 60px;
+    height: 46px;
 }
 th {
 	text-align: center;
