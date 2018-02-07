@@ -19,8 +19,7 @@ body {
 }
 #header {
   text-align: right;
-  border-bottom: 0.4rem solid #ebf0f2;
-  /* height:394/@r;*/
+  border-bottom: 0.4rem solid #f8f8f8;
 }
 .headerBg {
   position: relative;
@@ -60,7 +59,8 @@ body {
 }
 .generateTime {
   padding-right: 0.6rem;
-  padding-bottom: 0.4rem;
+  padding-bottom: 0.36rem;
+  margin-top: -0.32rem;
 }
 .generateTime span {
   font-size: 0.4rem;
@@ -68,7 +68,16 @@ body {
 }
 .verification-results {
   position: relative;
-  border-bottom: 0.4rem solid #ebf0f2;
+  border-bottom: 0.4rem solid #f8f8f8;
+}
+.verification-results > p:nth-of-type(1) {
+  border-top: 1px solid #e7e7e7;
+  padding-top: 0.6rem;
+  margin-top: 0.2rem;
+}
+.verification-results > div:nth-of-type(1) {
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 0.4rem;
 }
 .verification-results div img {
   float: left;
@@ -78,9 +87,9 @@ body {
 }
 .verification-results .result {
   float: right;
-  width: 2.2rem;
   height: 0.84rem;
-  margin: 0.7rem 0.6rem 0.7rem 0;
+  margin: 0.7rem 0.68rem 0.7rem 0;
+  font-size: 0.56rem;
 }
 .verification-results p,
 .eduExplain p,
@@ -88,7 +97,7 @@ body {
 .colleagueExplain p,
 .workExplain p,
 .skillExplain p {
-  font-size: 0.52rem;
+  font-size: 0.44rem;
   color: #999;
   margin-bottom: 0.52rem;
   line-height: 0.88rem;
@@ -99,6 +108,7 @@ body {
 }
 .verified-result {
   margin-left: 0.38rem;
+  padding-top: 0.5rem;
 }
 .verified-result > div {
   float: left;
@@ -107,7 +117,7 @@ body {
   text-align: center;
   margin-right: 0.32rem;
   margin-bottom: 0.52rem;
-  box-shadow: 0.04rem 0.04rem 0.02rem 0.02rem rgba(39, 142, 146, 0.1);
+  box-shadow: 0.04rem 0.04rem 0.4rem 0.04rem rgba(39, 142, 146, 0.2);
 }
 .verified-result > div > img {
   width: 1rem;
@@ -119,16 +129,16 @@ body {
   width: 2.76rem;
   font-size: 0.28rem;
   line-height: 0.28rem;
-  padding: 0.2rem 0;
+  padding: 0.1rem 0;
   font-weight: none;
   color: #fff;
   text-align: center;
   border-top-left-radius: 0.12rem;
-  border-bottom-right-radius: 0.36rem;
+  border-bottom-right-radius: 0.28rem;
 }
 .verified-result > div p {
   font-size: 0.48rem;
-  color: #333;
+  color: #444;
   margin-bottom: 0;
   margin-top: -0.16rem;
   padding: 0;
@@ -178,7 +188,7 @@ body {
 .explain,
 .predictedWage {
   padding-bottom: 0.4rem;
-  border-bottom: 0.4rem solid #ebf0f2;
+  border-bottom: 0.4rem solid #f8f8f8;
 }
 .basic-header,
 .education-header,
@@ -187,7 +197,7 @@ body {
 .skill-header,
 .badness-header,
 .wage-header {
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
 }
 .basic-header img,
 .education-header img,
@@ -237,7 +247,7 @@ body {
 .wage-header span {
   float: right;
   line-height: 0.96rem;
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   margin: 0.48rem 0.68rem 0.48rem 0;
 }
 .basic-left {
@@ -400,7 +410,7 @@ body {
 .skillExplain,
 .wageExplain {
   padding-left: 0.56rem;
-  border-top: 1px solid #d1d1d1;
+  border-top: 1px solid #e7e7e7;
   margin-top: -1px;
 }
 .eduExplain span,
@@ -655,7 +665,7 @@ body {
   background-color: #27d4af;
 }
 .waitColoBg {
-  background-color: #e69a36;
+  background-color: #f6a129;
 }
 .inconformitBg {
   background-color: #fe4646;

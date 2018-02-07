@@ -16,8 +16,7 @@ body{
 }
 #header{
   text-align: right;
-  border-bottom: 20/@r solid #ebf0f2;
- /* height:394/@r;*/
+  border-bottom: 20/@r solid #f8f8f8;
 }
 .headerBg{
   position: relative;
@@ -58,7 +57,8 @@ body{
 }
 .generateTime{
   padding-right: 30/@r;
-  padding-bottom: 20/@r;
+  padding-bottom: 18/@r;
+  margin-top: -16/@r;
 }
 .generateTime span{
   font-size: 20/@r;
@@ -66,9 +66,17 @@ body{
 }
 .verification-results{
   position: relative;
-  border-bottom: 20/@r solid #ebf0f2;
+  border-bottom: 20/@r solid #f8f8f8;
 }
-
+.verification-results>p:nth-of-type(1){
+  border-top: 1px solid #e7e7e7;
+  padding-top: 30/@r;
+  margin-top: 10/@r;
+}
+.verification-results>div:nth-of-type(1){
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 20/@r;
+}
 .verification-results div img{
   float: left;
   width:306/@r ;
@@ -76,28 +84,27 @@ body{
   margin: 28/@r 0;
 }
 .verification-results .result{
-float: right;
-  width: 110/@r;
+  float: right;
   height: 42/@r;
-  margin: 35/@r 30/@r  35/@r 0;
-
+  margin: 35/@r 34/@r  35/@r 0;
+  font-size: 28/@r;
 }
 
 .verification-results p,.eduExplain p,.wageExplain p,
 .colleagueExplain p,.workExplain p,.skillExplain p{
-  font-size: 26/@r;
+  font-size: 22/@r;
   color: #999;
   margin-bottom: 26/@r;
   line-height:44/@r;
   padding-right: 20/@r;
 }
 .verification-results p{
-  padding-left:30/@r ;
-
+  padding-left:30/@r;
 }
 
 .verified-result{
   margin-left: 19/@r;
+  padding-top: 0.5rem;
 }
 .verified-result>div{
   float: left;
@@ -106,7 +113,7 @@ float: right;
   text-align: center;
   margin-right: 16/@r;
   margin-bottom: 26/@r;
-  box-shadow: 2/@r 2/@r 1/@r 1/@r rgba(39, 142, 146, 0.1);
+  box-shadow: 2/@r 2/@r 20/@r 2/@r rgba(39, 142, 146, 0.2);
 
 }
  .verified-result>div>img{
@@ -119,16 +126,16 @@ float: right;
   width: 138/@r;
   font-size: 14/@r;
   line-height: 14/@r;
-  padding: 10/@r 0;
+  padding: 5/@r 0;
   font-weight: none;
   color: #fff;
   text-align: center;
   border-top-left-radius:6/@r;
-  border-bottom-right-radius:18/@r;
+  border-bottom-right-radius:14/@r;
 }
 .verified-result>div p{
   font-size: 24/@r;
-  color: #333;
+  color: #444;
   margin-bottom: 0;
   margin-top: -8/@r;
   padding: 0;
@@ -162,12 +169,12 @@ float: right;
 }
 .basic,.education,.work,.colleague, .skill,.badness,.explain,.predictedWage{
   padding-bottom: 20/@r;
-  border-bottom: 20/@r solid #ebf0f2;
+  border-bottom: 20/@r solid #f8f8f8;
 }
 
 .basic-header,.education-header, .work-header,
 .colleague-header,.skill-header,.badness-header,.wage-header{
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
 }
 .basic-header img,.education-header img, .work-header img,
 .colleague-header img,.skill-header img,.badness-header img,.wage-header img{
@@ -199,7 +206,7 @@ float: right;
 .colleague-header span,.skill-header span,.badness-header span,.wage-header span{
   float: right;
   line-height:48/@r;
-  font-size: 30/@r;
+  font-size: 28/@r;
  margin: 24/@r 34/@r 24/@r 0;
 }
 .basic-left{
@@ -342,7 +349,7 @@ float: right;
 }
 .eduExplain,.workExplain,.colleagueExplain,.skillExplain,.wageExplain{
   padding-left: 28/@r;
-  border-top: 1px solid #d1d1d1;
+  border-top: 1px solid #e7e7e7;
   margin-top: -1px;
 }
 .eduExplain span,.workExplain span,.colleagueExplain span,.skillExplain span{
@@ -594,12 +601,11 @@ float: right;
 .discordFontColor{
   color: #fc6363!important;
 }
-
 .accordanceBg{
   background-color: #27d4af;
 }
 .waitColoBg{
-  background-color:#e69a36;
+  background-color:#f6a129;
 }
 .inconformitBg{
   background-color:#fe4646;
