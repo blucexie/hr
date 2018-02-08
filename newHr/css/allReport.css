@@ -117,7 +117,7 @@ body {
   text-align: center;
   margin-right: 0.32rem;
   margin-bottom: 0.52rem;
-  box-shadow: 0.04rem 0.04rem 0.4rem 0.04rem rgba(39, 142, 146, 0.2);
+  box-shadow: 0.04rem 0.04rem 0.2rem 0.04rem rgba(39, 142, 146, 0.2);
 }
 .verified-result > div > img {
   width: 1rem;
