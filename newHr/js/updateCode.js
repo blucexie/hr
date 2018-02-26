@@ -5,7 +5,6 @@ $(function () {
 
     /*短信验证*/
     $('.btn').click(function () {
-        $(this).css('background','#463e4c');
         $(this).attr('disabled','disabled');
         showLoader();
         var code=$("#inpId").val();
@@ -34,15 +33,23 @@ $(function () {
                 var verifyCode = jsonData.item.verifyCode;
                 var result = jsonData.item.result;
                 var resultInfo = jsonData.item.resultInfo;
-                sessionStorage.clear();
-                sessionStorage.setItem("verifyName", verifyName);
-                sessionStorage.setItem("verifyIdCard", verifyIdCard);
-                sessionStorage.setItem("userCode", userCode);
-                sessionStorage.setItem("enterpriseName", enterpriseName);
-                sessionStorage.setItem("verifyCode", verifyCode);
-                sessionStorage.setItem("authenCode", code);
+                try{
+                    sessionStorage.clear();
+                    sessionStorage.setItem("verifyName", verifyName);
+                    sessionStorage.setItem("verifyIdCard", verifyIdCard);
+                    sessionStorage.setItem("userCode", userCode);
+                    sessionStorage.setItem("enterpriseName", enterpriseName);
+                    sessionStorage.setItem("verifyCode", verifyCode);
+                    sessionStorage.setItem("authenCode", code);
+                }catch(e){
+                    layer.open({
+                        content: "请关闭无痕模式重新尝试"
+                        ,btn: '确定'
+                    });
+                }
+               
                 if(result===1001){
-                    window.location.replace("/hr/employeeH.html");
+                    window.location.replace("employeeH.html");
                 }else {
                     layer.open({
                         content: resultInfo

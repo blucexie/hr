@@ -3,86 +3,22 @@
  */
 $(function () {
     var enterpriseName = sessionStorage.getItem("enterpriseName");
-    var  vName = sessionStorage.getItem("verifyName");
+    var  verifyName = sessionStorage.getItem("verifyName");
     var  vMobile = sessionStorage.getItem("verifyMobile");
     var  verifyCode = sessionStorage.getItem("verifyCode");
     var verifyJob = sessionStorage.getItem("verifyJob");
     var authenCode = sessionStorage.getItem("authenCode");
     var userCode = sessionStorage.getItem("userCode");
     $('.companyName').text(enterpriseName);
-    $('#resumeName').val(vName);
-
+    $('#resumeName').val(verifyName);
     $('#resumeMobile').val(vMobile);
     $('#jobInterview').val(verifyJob);
 
+    
 
-    /*发送验证码*/
-    $('#mesBtn').click(function () {
-        if($('#mesBtn').attr('disabled')=='disabled'){
-            return;
-        }
-        var mobile = $('#resumeMobile').val();
-        if(mobile ==""){
-            layer.open({
-                content: '手机号不能为空'
-                ,btn: '确定'
-            });
-
-        }
-        else{
-            if (isValidPhone(mobile)) {
-                showLoader();
-                $.ajax({
-                    url:'https://apix.funinhr.com/api/send/qr/verify/SMS',
-                    type: "POST",
-                    timeout:5000,
-                    dataType:"json",
-                    data:"{\"mobile\":\""+mobile+"\"}",
-                    success: function (data) {
-                        hideLoader();
-                        var jsonData = eval("data="+data['plaintext']);
-                        if (jsonData == undefined || jsonData.item == undefined){
-                            layer.open({
-                                content: '网络异常，请稍后重试'
-                                ,btn: '确定'
-                            });
-                            return;
-                        }
-                        var result = jsonData.item.result;
-                        var resultInfo = jsonData.item.resultInfo;
-                        if(result===2001){
-                            layer.open({
-                                content: '短信发送成功'
-                                ,btn: '确定'
-                            });
-                            timer =  setInterval( countDown,1000);
-                        }else {
-                            layer.open({
-                                content: resultInfo
-                                ,btn: '确定'
-                            });
-                        }
-                    },
-                    error: function (XMLHttpRequest, textStatus) {
-                        layer.open({
-                            content: '网络异常，请稍后重试'
-                            ,btn: '确定'
-                        });
-                        hideLoader();
-                    }
-                });
-            } else {
-                layer.open({
-                    content: '请输入正确的手机号码'
-                    ,btn: '确定'
-                });
-
-            }
-        }
-    });
-
-    $('.nextStep button').click(function () {
-        showLoader();
+    /*下一步*/
+    $('.nextStep button').click(function () {   
+        var verifyIdCard = $('#resumeIdCard').val();
         var basicInfo = {};
         var basicPass = true;
         var inputObject;
@@ -131,10 +67,16 @@ $(function () {
             $(this).removeClass('errorShow');
             basicInfo[itemName] = itemVal;
         });
+          //有任何未校验通过的直接退出
+          if (!basicPass) return false;
+        // 增加传参  
         basicInfo.userCode = userCode;
-       // basicInfo.userCode ="5a4c42422384751673a1134d";
+        basicInfo.verifyCode = verifyCode;
+        basicInfo.authenCode = authenCode;
+        // 显示遮罩
+        showLoader();
             $.ajax({
-            url:'https://apix.funinhr.com/api/get/latest/resume',
+            url:'https://apix.funinhr.com/api/get/pre/resume',
             type: "POST",
             timeout:5000,
             dataType:"json",
@@ -160,6 +102,7 @@ $(function () {
                 if(result===1001){
                     if(resumeStatus==0){
                         sessionStorage.basicInfo = basicStr;
+                        sessionStorage.verifyIdCard = verifyIdCard;
                         window.location.replace("employeeM.html");
                     }else if(resumeStatus==1){
                         layer.open({
@@ -168,9 +111,11 @@ $(function () {
                             ,yes: function(index){
                                 sessionStorage.basicInfo = basicStr;
                                 sessionStorage.resumeArray = resumeStr;
+                                sessionStorage.verifyIdCard = verifyIdCard;
                                 window.location.replace("employeeM.html");
                             },no: function () {
                                 sessionStorage.basicInfo = basicStr;
+                                sessionStorage.verifyIdCard = verifyIdCard;
                                 window.location.replace("employeeM.html");
                             }
                         });

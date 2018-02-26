@@ -3,7 +3,6 @@ $(function () {
 /*短信验证*/
     $('.btn').click(function () {
         $(this).attr('disabled','disabled');
-        $(this).css('background','#463e4c');
         showLoader();
          var code=$("#inpId").val();
         if(code =="" || code.length!=7){
@@ -21,7 +20,7 @@ $(function () {
             dataType:"json",
             data:"{\"authenCode\":\""+code+"\"}",
             success: function (data) {
-             /*   console.log(data);*/
+               /* console.log(data);*/
                 var jsonData = eval("data="+data['plaintext']);
                 var verifyName = jsonData.item.verifyName;/*姓名*/
                 var companyName = jsonData.item.companyName;/*公司名称*/
@@ -33,18 +32,26 @@ $(function () {
                 var colleagueName = jsonData.item.colleagueName;/*同事名字*/
                 var result = jsonData.result;/*返回结果*/
                 var resultInfo = jsonData.item.resultInfo;/*返回结果*/
-                sessionStorage.clear();
-                sessionStorage.setItem("verifyName", verifyName);/*姓名*/
-                sessionStorage.setItem("companyName", companyName);/*公司名称*/
-                sessionStorage.setItem("verifyJob", verifyJob);/*上家职位*/
-                sessionStorage.setItem("jobStartTime", jobStartTime);/*入职时间*/
-                sessionStorage.setItem("jobEndTime", jobEndTime);/*离职时间*/
-                sessionStorage.setItem("colleagueCode", colleagueCode);/*同事编码*/
-                sessionStorage.setItem("colleagueName", colleagueName);/*同事名字*/
-                sessionStorage.setItem("enterpriseName", enterpriseName);/*核验人面试的公司*/
+                try{
+                    sessionStorage.clear();
+                    sessionStorage.setItem("verifyName", verifyName);/*姓名*/
+                    sessionStorage.setItem("companyName", companyName);/*公司名称*/
+                    sessionStorage.setItem("verifyJob", verifyJob);/*上家职位*/
+                    sessionStorage.setItem("jobStartTime", jobStartTime);/*入职时间*/
+                    sessionStorage.setItem("jobEndTime", jobEndTime);/*离职时间*/
+                    sessionStorage.setItem("colleagueCode", colleagueCode);/*同事编码*/
+                    sessionStorage.setItem("colleagueName", colleagueName);/*同事名字*/
+                    sessionStorage.setItem("enterpriseName", enterpriseName);/*核验人面试的公司*/
+                }catch(e){
+                    layer.open({
+                        content: "请关闭无痕模式重新尝试"
+                        ,btn: '确定'
+                    });
+                }
+               
                 if(result===1001){
                     sessionStorage.setItem("code", code);/*授权码*/
-                    window.location.href = '../checkIndex.html';
+                    window.location.href = 'checkIndex.html';
                 }else {
                     layer.open({
                         content: resultInfo

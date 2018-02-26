@@ -51,3 +51,9 @@ function checkCode(validateCode){
     }
     return true;
 }
+
+//校验工资
+function checkBalance(balance){
+    var isNum = /^[0-9]*$/;
+    return isNum.test(balance);
+}

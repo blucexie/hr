@@ -19,7 +19,7 @@ $(function () {
         type: "POST",
         dataType:"json",
         data: JSON.stringify({
-           // userCode:"5a52e58b23847552239cfde3"
+           // userCode:"5a52e5cc23847552239cfe2c"
             userCode:userCode
         }),
         success: function (data) {
@@ -110,6 +110,9 @@ $(function () {
     });
 
     $('.nextStep button').click(function () {
+        var verifyIdCard = $('#resumeIdCard').val();
+        var verifyName = $('#resumeName').val();
+        var enterpriseName = $('.companyName').text();
         showLoader();
         var basicInfo = {};
         var basicPass = true;
@@ -160,7 +163,6 @@ $(function () {
             basicInfo[itemName] = itemVal;
         });
         basicInfo.userCode = userCode;
-       // basicInfo.userCode ="5a52e58b23847552239cfde3";
             $.ajax({
             url:'https://apix.funinhr.com/api/get/latest/resume',
             type: "POST",
@@ -187,19 +189,50 @@ $(function () {
                 sessionStorage.userCode =userCode;
                 if(result===1001){
                     if(resumeStatus==0){
-                        sessionStorage.basicInfo = basicStr;
-                        window.location.replace("employee.html");
+                        try{
+                            sessionStorage.basicInfo = basicStr;
+                            sessionStorage.verifyIdCard = verifyIdCard;
+                            sessionStorage.verifyName = verifyName;
+                            sessionStorage.enterpriseName = enterpriseName;
+                            window.location.replace("employee.html");
+                        }catch(e){
+                            layer.open({
+                                content: "请关闭无痕模式重新尝试"
+                                ,btn: '确定'
+                            });
+                        }
+                        
                     }else if(resumeStatus==1){
                         layer.open({
                             content: '发现您曾经在易职信上传过简历，是否使用以前简历'
                             ,btn: ['使用旧简历', '创建新简历']
                             ,yes: function(index){
-                                sessionStorage.basicInfo = basicStr;
-                                sessionStorage.resumeArray = resumeStr;
-                                window.location.replace("employee.html");
+                                try{
+                                    sessionStorage.basicInfo = basicStr;
+                                    sessionStorage.resumeArray = resumeStr;
+                                    sessionStorage.verifyIdCard = verifyIdCard;
+                                    sessionStorage.verifyName = verifyName;
+                                    sessionStorage.enterpriseName = enterpriseName;
+                                    window.location.replace("employee.html");
+                                }catch(e){
+                                    layer.open({
+                                        content: "请关闭无痕模式重新尝试"
+                                        ,btn: '确定'
+                                    });
+                                }
                             },no: function () {
-                                sessionStorage.basicInfo = basicStr;
-                                window.location.replace("employee.html");
+                                try{
+                                    sessionStorage.basicInfo = basicStr;
+                                    sessionStorage.verifyIdCard = verifyIdCard;
+                                    sessionStorage.verifyName = verifyName;
+                                    sessionStorage.enterpriseName = enterpriseName;
+                                    window.location.replace("employee.html");
+                                }catch(e){
+                                    layer.open({
+                                        content: "请关闭无痕模式重新尝试"
+                                        ,btn: '确定'
+                                    });
+                                }
                             }
                         });
                     }

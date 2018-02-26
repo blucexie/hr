@@ -16,22 +16,21 @@ body{
 }
 #header{
   text-align: right;
-  border-bottom: 20/@r solid #ebf0f2;
- /* height:394/@r;*/
+  border-bottom: 20/@r solid #f8f8f8;
 }
 .headerBg{
   position: relative;
-  width: 720/@r;
-  height: 374/@r;
-  margin: 20/@r auto 0;
+  width: 740/@r;
+  height: 394/@r;
+  margin: 4/@r auto 0;
 }
 .headerBg img{
-  width: 720/@r;
-  height: 374/@r;
+  width: 740/@r;
+  height: 394/@r;
 }
 #header p{
   font-size: 30/@r;
-  color: #fff;
+  color: #574e5f;
 }
 #header p:nth-of-type(1){
   position:absolute;
@@ -58,7 +57,8 @@ body{
 }
 .generateTime{
   padding-right: 30/@r;
-  padding-bottom: 20/@r;
+  padding-bottom: 18/@r;
+  margin-top: -16/@r;
 }
 .generateTime span{
   font-size: 20/@r;
@@ -66,10 +66,17 @@ body{
 }
 .verification-results{
   position: relative;
-  text-align: center;
-  border-bottom: 20/@r solid #ebf0f2;
+  border-bottom: 20/@r solid #f8f8f8;
 }
-
+.verification-results>p:nth-of-type(1){
+  border-top: 1px solid #e7e7e7;
+  padding-top: 30/@r;
+  margin-top: 10/@r;
+}
+.verification-results>div:nth-of-type(1){
+  border-bottom: 1px solid #e7e7e7;
+  margin-bottom: 20/@r;
+}
 .verification-results div img{
   float: left;
   width:306/@r ;
@@ -77,36 +84,107 @@ body{
   margin: 28/@r 0;
 }
 .verification-results .result{
-float: right;
-  width: 110/@r;
+  float: right;
   height: 42/@r;
-  margin: 35/@r 30/@r  35/@r 0;
-
+  margin: 35/@r 34/@r  35/@r 0;
+  font-size: 28/@r;
 }
 
+.verification-results p,.eduExplain p,.wageExplain p,
+.colleagueExplain p,.workExplain p,.skillExplain p{
+  font-size: 22/@r;
+  color: #999;
+  margin-bottom: 26/@r;
+  line-height:44/@r;
+  padding-right: 20/@r;
+}
 .verification-results p{
+  padding-left:30/@r;
+}
+
+.verified-result{
+  margin-left: 19/@r;
+  padding-top: 0.5rem;
+}
+.verified-result>div{
+  float: left;
+  width: 226/@r;
+  height: 140/@r;
+  text-align: center;
+  margin-right: 16/@r;
+  margin-bottom: 26/@r;
+  box-shadow: 2/@r 2/@r 10/@r 2/@r rgba(39, 142, 146, 0.2);
+
+}
+ .verified-result>div>img{
+  width: 50/@r;
+  height: 46/@r;
+  float: none;
+  margin: 10/@r 0 0 0;
+}
+ .verified-result>div h5{
+  width: 138/@r;
+  font-size: 14/@r;
+  line-height: 14/@r;
+  padding: 5/@r 0;
+  font-weight: none;
+  color: #fff;
+  text-align: center;
+  border-top-left-radius:6/@r;
+  border-bottom-right-radius:14/@r;
+}
+.verified-result>div p{
+  font-size: 24/@r;
+  color: #444;
+  margin-bottom: 0;
+  margin-top: -8/@r;
+  padding: 0;
+  text-align: center;
+}
+
+.verification-results p>img,.eduExplain p>img,
+.wageExplain p>img,.colleagueExplain p>img,
+.workExplain p>img,.skillExplain p>img{
+  width: 12/@r;
+  margin-right: 15/@r;
+}
+.no-verification h4,.eduExplain h4,.wageExplain h4,
+.colleagueExplain h4,.workExplain h4,.skillExplain h4{
   font-size: 26/@r;
   color: #999;
-  margin-bottom: 45/@r;
 }
-.basic,.education,.work,.colleague, .skill,.badness,.explain{
+.eduExplain h4,.wageExplain h4,.colleagueExplain h4,
+.workExplain h4,.skillExplain h4{
+  margin: 40/@r 0 30/@r 0;
+}
+.no-verification p{
+  line-height: 60/@r;
+  font-size: 0;
+}
+.no-verification p span{
+  color: #ccc!important;
+}
+.no-verification h4{
+  margin-bottom: 20/@r;
+}
+.basic,.education,.work,.colleague, .skill,.badness,.explain,.predictedWage{
   padding-bottom: 20/@r;
-  border-bottom: 20/@r solid #ebf0f2;
+  border-bottom: 20/@r solid #f8f8f8;
 }
 
 .basic-header,.education-header, .work-header,
-.colleague-header,.skill-header,.badness-header{
-  border-bottom: 1px solid #d4d4d4;
+.colleague-header,.skill-header,.badness-header,.wage-header{
+  border-bottom: 1px solid #e7e7e7;
 }
 .basic-header img,.education-header img, .work-header img,
-.colleague-header img,.skill-header img,.badness-header img{
+.colleague-header img,.skill-header img,.badness-header img,.wage-header img{
   float: left;
   width: 298/@r;
   height: 48/@r;
   margin: 24/@r 0 24/@r 26/@r;
 }
 .basic-header .new,.education-header .new, .work-header .new,
-.colleague-header .new,.skill-header .new,.badness-header .new{
+.colleague-header .new,.skill-header .new,.badness-header .new,.wage-header .new{
   width: 59/@r;
   height: 30/@r;
   margin: 0;
@@ -120,11 +198,15 @@ float: right;
   margin-top: 14/@r;
   margin-left: -20/@r;
 }
+.wage-header .new{
+  margin-top: 14/@r;
+  margin-left: -130/@r;
+ }
 .basic-header span,.education-header span, .work-header span,
-.colleague-header span,.skill-header span,.badness-header span{
+.colleague-header span,.skill-header span,.badness-header span,.wage-header span{
   float: right;
   line-height:48/@r;
-  font-size: 30/@r;
+  font-size: 28/@r;
  margin: 24/@r 34/@r 24/@r 0;
 }
 .basic-left{
@@ -135,15 +217,18 @@ float: right;
 .eduExplain span:nth-of-type(1), .workTable p span:nth-of-type(1),
 .workExplain span, .colleagueTable p span:nth-of-type(1),.colleagueExplain span,
 .skillTable p span:nth-of-type(1),.skillExplain span,
-.badnessTable div span:nth-of-type(1),.skillTable-noResult div span:nth-of-type(1) {
+.badnessTable div span:nth-of-type(1),.skillTable-noResult div span:nth-of-type(1),
+.wageTable div span:nth-of-type(1){
   display: inline-block;
   width: 190/@r;
   font-size: 26/@r;
   color: #999;
+  padding: 4/@r 0;
+
 }
 .basic-left p span:nth-of-type(2),.eduTable p span:nth-of-type(2),
 .workTable p span:nth-of-type(2),.colleagueTable p span:nth-of-type(2),
-.skillTable p span:nth-of-type(2),.badnessTable div p{
+.skillTable p span:nth-of-type(2),.badnessTable div p,.wageTable p span:nth-of-type(2){
   font-size: 26/@r;
   color: #574e5f;
 }
@@ -185,19 +270,21 @@ float: right;
   height: 212/@r;
 }
 /*教育*/
-.eduTable,.workTable,.colleagueTable,.skillTable{
+.eduTable,.workTable,.colleagueTable,.skillTable,.wageTable{
   padding-left: 28/@r;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px dotted #d4d4d4;
   padding-bottom: 20/@r;
 }
-.eduTable h3, .workTable h3,.colleagueTable h3,.skillTable h3{
+
+
+.eduTable h3, .workTable h3,.colleagueTable h3,.skillTable h3,.wageTable h3{
   margin-top: 26/@r;
   margin-bottom: 26/@r;
   font-size: 28/@r;
   color: #222;
   font-weight: normal;
 }
-.eduTable h3 i,.workTable h3 i,.colleagueTable h3 i{
+.eduTable h3 i,.workTable h3 i,.colleagueTable h3 i,.wageTable h3 i{
   display: inline-block;
   background:#00adb4 ;
   width: 13/@r;
@@ -205,7 +292,7 @@ float: right;
   margin-right: 13/@r;
   vertical-align: 2px;
 }
-.eduTable h3 span,.workTable h3 span,.colleagueTable h3 span{
+.eduTable h3 span,.workTable h3 span,.colleagueTable h3 span,.wageTable h3 span{
   float: right;
   margin-right: 30/@r!important;
 }
@@ -229,12 +316,13 @@ float: right;
 }
 .eduTable-left p{
   line-height:60/@r;
+  font-size: 0;
 }
 .eduTable-left p img,.workTable-left p img,.colleagueTable-left p img{
   float: right;
   width: 5/@r;
   height: 24/@r;
-  margin-top: 24/@r;
+  margin-top: 20/@r;
   margin-right: 30/@r;
 }
 .eduTable-right p{
@@ -243,25 +331,32 @@ float: right;
 }
 .eduTable-left .accord{
   position: absolute;
-  top: 50%;
+  top: 30%;
   margin-top: -60/@r;
   left: 530/@r;
 
 }
+.eduTable hr{
+  height:1px;
+  border:none;
+  border-top:1px solid #e5e5e5;
 
+  margin: 26/@r 0 30/@r -30/@r;
+}
 .accord img{
   width: 136/@r;
   height: 119/@r;
 }
-.eduExplain,.workExplain,.colleagueExplain,.skillExplain{
+.eduExplain,.workExplain,.colleagueExplain,.skillExplain,.wageExplain{
   padding-left: 28/@r;
- padding-top: 20/@r;
+  border-top: 1px solid #e7e7e7;
+  margin-top: -1px;
 }
 .eduExplain span,.workExplain span,.colleagueExplain span,.skillExplain span{
   float: left;
   margin-top: 14/@r;
 }
-.eduExplain div,.workExplain div,.colleagueExplain div,.skillExplain div{
+.workExplain div,.colleagueExplain div,.skillExplain div{
   display: inline-block;
   width: 500/@r;
   height:88/@r;
@@ -280,12 +375,13 @@ float: right;
 }
 .workTable-left p{
   line-height:60/@r;
+  font-size: 0;
 }
 .workTable-left p img{
  /* width: 13/@r;
   height: 21/@r;*/
   float: right;
-  margin-top: 30/@r;
+  margin-top: 20/@r;
   margin-right: 30/@r;
 }
 .workTable-left .accord{
@@ -313,7 +409,7 @@ float: right;
 }
 .colleagueTable-left .companyTitle{
   float: left;
-  margin-right: 14/@r;
+  
 }
 .colleagueTable-left .companyName{
   float: left;
@@ -326,10 +422,12 @@ float: right;
   left: 530/@r;
 }
 .colleagueTable-left p{
-  line-height:60/@r
+  line-height:60/@r;
+  font-size: 0;
 }
 .skillTable p{
   line-height:60/@r;
+  font-size: 0;
 }
 .skillTable-noResult {
   padding-left: 28/@r;
@@ -502,4 +600,13 @@ float: right;
 }
 .discordFontColor{
   color: #fc6363!important;
+}
+.accordanceBg{
+  background-color: #27d4af;
+}
+.waitColoBg{
+  background-color:#f6a129;
+}
+.inconformitBg{
+  background-color:#fe4646;
 }
