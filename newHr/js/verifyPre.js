@@ -2,19 +2,60 @@
  * Created by blucexie on 2017/12/16.
  */
 $(function () {
-    var enterpriseName = sessionStorage.getItem("enterpriseName");
-    var  verifyName = sessionStorage.getItem("verifyName");
-    var  vMobile = sessionStorage.getItem("verifyMobile");
-    var  verifyCode = sessionStorage.getItem("verifyCode");
-    var verifyJob = sessionStorage.getItem("verifyJob");
-    var authenCode = sessionStorage.getItem("authenCode");
-    var userCode = sessionStorage.getItem("userCode");
-    $('.companyName').text(enterpriseName);
-    $('#resumeName').val(verifyName);
-    $('#resumeMobile').val(vMobile);
-    $('#jobInterview').val(verifyJob);
 
-    
+    /*获取authenCode*/
+    function getQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)
+            return  unescape(r[2]);
+        return null;
+    }
+    var authenCode = getQueryString("authenCode");
+
+    $.ajax({
+        url:'https://apix.funinhr.com/api/agree/verify/before',
+        type: "POST",
+        timeout:5000,
+        dataType:"json",
+        data:"{\"authenCode\":\""+authenCode+"\"}",
+        success: function (data) {
+            console.log(data);
+            var jsonData = eval("data="+data['plaintext']);
+            var verifyName = jsonData.item.verifyName;
+            var enterpriseName = jsonData.item.enterpriseName;
+            var verifyMobile = jsonData.item.verifyMobile;
+            var verifyJob = jsonData.item.verifyJob;
+            verifyCode = jsonData.item.verifyCode;
+            userCode = jsonData.item.userCode;
+            var result = jsonData.item.result;
+            var resultInfo = jsonData.item.resultInfo;
+              
+            if(result===1001){
+                $('.companyName').text(enterpriseName);
+                $('#resumeName').val(verifyName);
+                $('#resumeMobile').val(verifyMobile);
+                $('#jobInterview').val(verifyJob);
+            }else {
+                layer.open({
+                    content: resultInfo
+                    ,btn: '确定'
+                });
+                $('.btn').removeAttr('disabled','disabled');
+                hideLoader();
+            }
+        },
+        error: function (XMLHttpRequest, textStatus){
+            layer.open({
+                content: '网络异常，请稍后重试'
+                ,btn: '确定'
+            });
+            $('.btn').removeAttr('disabled','disabled');
+            hideLoader();
+        }
+    });
+
 
     /*下一步*/
     $('.nextStep button').click(function () {   
