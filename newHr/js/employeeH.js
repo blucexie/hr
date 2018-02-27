@@ -20,7 +20,7 @@ $(function () {
     var workLength =1;
     
     $.ajax({
-        url:'http://192.168.1.164:8080/funinhr-app/api/agree/verify/before',
+        url:'https://apix.funinhr.com/api/agree/verify/before',
         type: "POST",
         timeout:5000,
         dataType:"json",

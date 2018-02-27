@@ -2,7 +2,7 @@
  * Created by blucexie on 2017/9/26.
  */
 $(function () {
- /*authenCode*/
+ /*获取authenCode*/
  function getQueryString(name)
  {
      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -19,7 +19,7 @@ $(function () {
     dataType:"json",
     data:"{\"authenCode\":\""+authenCode+"\"}",
     success: function (data) {
-       /* console.log(data);*/
+        console.log(data);
         var jsonData = eval("data="+data['plaintext']);
         var verifyName = jsonData.item.verifyName;/*姓名*/
         var companyName = jsonData.item.companyName;/*公司名称*/
@@ -34,7 +34,7 @@ $(function () {
        
        
         if(result===1001){
-            sessionStorage.setItem("code", code);/*授权码*/
+           // sessionStorage.setItem("code", code);/*授权码*/
             $("#verifyName").html(verifyName);
             $("#inpName").html(companyName);
             $(".verifyJob").html(verifyJob);
@@ -42,51 +42,13 @@ $(function () {
             $(".jobEndTime").html(jobEndTime);
             $("#colleagueName").html(colleagueName);
             $("#enterpriseName").html(enterpriseName);
-        }else {
-            layer.open({
-                content: resultInfo
-                ,btn: '确定'
-            });
-            $('.btn').removeAttr('disabled','disabled');
-            hideLoader();
-        }
-    },
-    error: function (XMLHttpRequest, textStatus) {
-        layer.open({
-            content: '网络异常，请稍后重试'
-            ,btn: '确定'
-        });
-        $('.btn').removeAttr('disabled','disabled');
-        hideLoader();
-    }
-});
-
-
-    var verifyName= sessionStorage.getItem("verifyName");/*姓名*/
-    $("#verifyName").html(verifyName);
-    var companyName= sessionStorage.getItem("companyName");/*公司名称*/
-    $("#inpName").html(companyName);
-
-    var verifyJob= sessionStorage.getItem("verifyJob");/*上家职位*/
-    $(".verifyJob").html(verifyJob);
-    var jobStartTime= sessionStorage.getItem("jobStartTime");/*入职时间*/
-    $(".jobStartTime").html(jobStartTime);
-    var jobEndTime= sessionStorage.getItem("jobEndTime");/*入职时间*/
-    $(".jobEndTime").html(jobEndTime);
-    var colleagueName= sessionStorage.getItem("colleagueName");/*同事名字*/
-    $("#colleagueName").html(colleagueName);
-    var enterpriseName= sessionStorage.getItem("enterpriseName");/*核验人面试公司*/
-    $("#enterpriseName").html(enterpriseName);
-    var colleagueCode= sessionStorage.getItem("colleagueCode");/*同事编码*/
-
-    var code= sessionStorage.getItem("code");/*授权码*/
 
     /*确认核验*/
     var basicPass = true;
     $('.real').click(function () {
         showLoader();
         var colleagueResult=1;
-
+            
             var colleagueIdcard = $("#inpId").val();
             if (colleagueIdcard.length !=18) {
                 layer.open({
@@ -106,7 +68,7 @@ $(function () {
             "colleagueCode":colleagueCode,
             "colleagueIdcard":colleagueIdcard,
             "colleagueResult":colleagueResult,
-            "authenCode":code,
+            "authenCode":authenCode,
             "colleagueResultInfo":{
                 "colleagueName":"1",
                 "verifyJob":"1",
@@ -137,7 +99,7 @@ $(function () {
                 },
                 error: function (XMLHttpRequest, textStatus) {
                     window.location.replace("netless.html");
-                   /* layer.open({
+                    /* layer.open({
                         content: '网络异常，请稍后重试'
                         ,btn: '确定'
                     });
@@ -145,7 +107,6 @@ $(function () {
                 }
             });
     });
-
 
     /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
@@ -170,32 +131,32 @@ $(function () {
         }
     });
 
-    /*11111111111111111111111111111111111111*/
-    var colleagueIdcard;
-    $(".false").click(function () {
-        colleagueIdcard = $("#inpId").val();
-        if (colleagueIdcard.length !=18) {
-            layer.open({
-                content: '请输入有效的证件号',
-                btn: '确定',
-                yes: function(index){
-                    layer.close(index);
-                }
-            });
-            hideLoader();
-           basicPass = false;
-            return false;
-        }
+     /*11111111111111111111111111111111111111*/
+     var colleagueIdcard;
+     $(".false").click(function () {
+         colleagueIdcard = $("#inpId").val();
+         if (colleagueIdcard.length !=18) {
+             layer.open({
+                 content: '请输入有效的证件号',
+                 btn: '确定',
+                 yes: function(index){
+                     layer.close(index);
+                 }
+             });
+             hideLoader();
+            basicPass = false;
+             return false;
+         }
+ 
+             $(".mask").show();
+     });
+     if (!basicPass) return false;
+ 
+     $(".mask-cancel").click(function () {
+         $(".mask").hide();
+     });
 
-            $(".mask").show();
-    });
-    if (!basicPass) return false;
-
-    $(".mask-cancel").click(function () {
-        $(".mask").hide();
-    });
-
-    $(".mask-w").click(function(){
+     $(".mask-w").click(function(){
         showLoader();
         var colleagueName;
         var verifyJob;
@@ -258,7 +219,7 @@ $(function () {
             "colleagueCode":colleagueCode,
             "colleagueIdcard":colleagueIdcard,
             "colleagueResult":colleagueResult,
-            "authenCode":code,
+            "authenCode":authenCode,
             "colleagueResultInfo":{
                 "colleagueName":colleagueName,
                 "verifyJob":verifyJob,
@@ -297,4 +258,50 @@ $(function () {
             }
         });
     });
+        }else {
+            layer.open({
+                content: resultInfo
+                ,btn: '确定'
+            });
+            $('.btn').removeAttr('disabled','disabled');
+            hideLoader();
+        }
+    },
+    error: function (XMLHttpRequest, textStatus) {
+        layer.open({
+            content: '网络异常，请稍后重试'
+            ,btn: '确定'
+        });
+        $('.btn').removeAttr('disabled','disabled');
+        hideLoader();
+    }
+});
+
+
+    // var verifyName= sessionStorage.getItem("verifyName");/*姓名*/
+    // $("#verifyName").html(verifyName);
+    // var companyName= sessionStorage.getItem("companyName");/*公司名称*/
+    // $("#inpName").html(companyName);
+
+    // var verifyJob= sessionStorage.getItem("verifyJob");/*上家职位*/
+    // $(".verifyJob").html(verifyJob);
+    // var jobStartTime= sessionStorage.getItem("jobStartTime");/*入职时间*/
+    // $(".jobStartTime").html(jobStartTime);
+    // var jobEndTime= sessionStorage.getItem("jobEndTime");/*入职时间*/
+    // $(".jobEndTime").html(jobEndTime);
+    // var colleagueName= sessionStorage.getItem("colleagueName");/*同事名字*/
+    // $("#colleagueName").html(colleagueName);
+    // var enterpriseName= sessionStorage.getItem("enterpriseName");/*核验人面试公司*/
+    // $("#enterpriseName").html(enterpriseName);
+    // var colleagueCode= sessionStorage.getItem("colleagueCode");/*同事编码*/
+
+   // var code= sessionStorage.getItem("code");/*授权码*/
+
+   
+
+
+    
+   
+
+    
 });
