@@ -2,16 +2,16 @@
  * Created by blucexie on 2017/9/26.
  */
 $(function () {
- /*获取authenCode*/
- function getQueryString(name)
- {
-     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-     var r = window.location.search.substr(1).match(reg);
-     if(r!=null)
-         return  unescape(r[2]);
-     return null;
- }
- var authenCode = getQueryString("authenCode");
+  /*获取authenCode*/
+  function getQueryString() {
+    var url = window.location.href;
+    var index = url.lastIndexOf("\/");
+    code = url.substring(index + 1, url.length);
+    if (code != null)
+        return code;
+    return null;
+}
+var authenCode = getQueryString();
 
  $.ajax({
     url:'https://apix.funinhr.com/api/agree/colleague/verify/before',
@@ -48,7 +48,7 @@ $(function () {
     $('.real').click(function () {
         showLoader();
         var colleagueResult=1;
-            
+
             var colleagueIdcard = $("#inpId").val();
             if (colleagueIdcard.length !=18) {
                 layer.open({

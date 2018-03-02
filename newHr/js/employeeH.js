@@ -3,17 +3,17 @@
  */
 
 $(function () {
-    var userCode = "";
-    /*获取authenCode*/
-    function getQueryString(name)
-    {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)
-            return  unescape(r[2]);
+   
+     /*获取authenCode*/
+     function getQueryString() {
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        code = url.substring(index + 1, url.length);
+        if (code != null)
+            return code;
         return null;
     }
-    var authenCode = getQueryString("authenCode");
+    var authenCode = getQueryString();
 
     var eduLength =1;
     var skillLength =1;
@@ -29,9 +29,9 @@ $(function () {
             var jsonData = eval("data="+data['plaintext']);
             var resumeName = jsonData.item.verifyName;
             var resumeIdCard = jsonData.item.verifyIdCard;
-            var userCode = jsonData.item.userCode;
+             userCode = jsonData.item.userCode;
             var enterpriseName = jsonData.item.enterpriseName;
-            var verifyCode = jsonData.item.verifyCode;
+             verifyCode = jsonData.item.verifyCode;
             var result = jsonData.item.result;
             var resultInfo = jsonData.item.resultInfo;
            

@@ -4,15 +4,15 @@
 $(function () {
 
     /*获取authenCode*/
-    function getQueryString(name)
-    {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)
-            return  unescape(r[2]);
+    function getQueryString() {
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        code = url.substring(index + 1, url.length);
+        if (code != null)
+            return code;
         return null;
     }
-    var authenCode = getQueryString("authenCode");
+    var authenCode = getQueryString();
 
     $.ajax({
         url:'https://apix.funinhr.com/api/agree/verify/before',
@@ -27,8 +27,8 @@ $(function () {
             var enterpriseName = jsonData.item.enterpriseName;
             var verifyMobile = jsonData.item.verifyMobile;
             var verifyJob = jsonData.item.verifyJob;
-            verifyCode = jsonData.item.verifyCode;
-            userCode = jsonData.item.userCode;
+             verifyCode = jsonData.item.verifyCode;
+             userCode = jsonData.item.userCode;
             var result = jsonData.item.result;
             var resultInfo = jsonData.item.resultInfo;
               
@@ -37,6 +37,15 @@ $(function () {
                 $('#resumeName').val(verifyName);
                 $('#resumeMobile').val(verifyMobile);
                 $('#jobInterview').val(verifyJob);
+                try{
+                    sessionStorage.verifyCode = verifyCode;
+                    sessionStorage.authenCode = authenCode;
+                }catch(e){
+                    layer.open({
+                        content: "请关闭无痕模式重新尝试"
+                        ,btn: '确定'
+                    });
+                }
             }else {
                 layer.open({
                     content: resultInfo

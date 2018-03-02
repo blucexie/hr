@@ -277,6 +277,37 @@ $(function () {
     });
     /*增加教育信息*/
 
+    var educationSchoolName ;
+    $(document).on('input propertychange','.schoolName',function (e) {
+        educationSchoolName= $('.schoolName').val();
+    });
+    var schoolArray=[];
+    $( ".schoolName" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax( {
+          url: 'https://apix.funinhr.com/api/get/school/search',
+          type: "POST",
+            dataType:"json",
+            data:"{\"educationSchoolName\":\""+educationSchoolName+"\"}",
+          success: function( data ) {
+                var jsonData = eval("data="+data['plaintext']);
+                schoolArray = jsonData.item.educationArray;
+                console.log(schoolArray)
+                response( schoolArray );
+          }
+        } );
+      },
+      minLength: 2,
+      open: function(event, ui) {
+    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+ }
+      
+   
+    } );
+
+
+
+
     /*底部滑动select*/
 
       var data = [
