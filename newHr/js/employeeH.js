@@ -312,8 +312,30 @@ $(function () {
         }
     });
     /*增加教育信息*/
-    /*选择学历select*/
 
+    var educationSchoolName ;
+    $(document).on('input propertychange','.schoolName',function (e) {
+        educationSchoolName= $(this).val();
+        autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+    });
+
+    autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+
+  
+
+       //专业模糊查询
+      var educationMajor;
+       $(document).on('input propertychange', '.specialty', function (e) {
+        educationMajor = $(this).val();
+        autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+       });
+
+       autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+
+
+
+
+    /*选择学历select*/
     var data = [
         {'id': '10001', 'value': '专科'},
         {'id': '10002', 'value': '本科'},
@@ -390,6 +412,12 @@ $(function () {
                 }
             });
             eduFn($('.'+eduClass)[0]);
+
+            var schoolNameArray = $(".schoolName");
+            for (var i = 0; i < schoolNameArray.length; i++) {
+                autoFinish(schoolNameArray.eq(i),educationSchoolName,'educationArray','educationSchoolName','school');
+                autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+            }
 
     });
 

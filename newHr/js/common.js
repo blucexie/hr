@@ -57,3 +57,35 @@ function checkBalance(balance){
     var isNum = /^[0-9]*$/;
     return isNum.test(balance);
 }
+
+  /**
+     *  模糊查询方法
+     * @param {*} doc 元素 
+     * @param {*} name 参数
+     * @param {*} selectName .后面的名称
+     * @param {*} parmName 参数名称
+     * @param {*} apiName 接口名称
+     */
+    function autoFinish(doc, name, selectName, parmName, apiName) {
+        doc.autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: 'https://apix.funinhr.com/api/get/' + apiName + '/search',
+                    type: "POST",
+                    dataType: "json",
+                    data: "{\"" + parmName + "\":\"" + name + "\"}",
+                    success: function (data) {
+                        var jsonData = eval("data=" + data['plaintext']);
+                        var newArray = [];
+                        newArray = jsonData.item[selectName];
+                        response(newArray);
+                    }
+                });
+            },
+            minLength: 2,
+            open: function (event, ui) {
+                $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
+            }
+
+        });
+    }

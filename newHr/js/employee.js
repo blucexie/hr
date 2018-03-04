@@ -279,32 +279,22 @@ $(function () {
 
     var educationSchoolName ;
     $(document).on('input propertychange','.schoolName',function (e) {
-        educationSchoolName= $('.schoolName').val();
+        educationSchoolName= $(this).val();
+        autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
     });
-    var schoolArray=[];
-    $( ".schoolName" ).autocomplete({
-      source: function( request, response ) {
-        $.ajax( {
-          url: 'https://apix.funinhr.com/api/get/school/search',
-          type: "POST",
-            dataType:"json",
-            data:"{\"educationSchoolName\":\""+educationSchoolName+"\"}",
-          success: function( data ) {
-                var jsonData = eval("data="+data['plaintext']);
-                schoolArray = jsonData.item.educationArray;
-                console.log(schoolArray)
-                response( schoolArray );
-          }
-        } );
-      },
-      minLength: 2,
-      open: function(event, ui) {
-    $('.ui-autocomplete').off('menufocus hover mouseover mouseenter');
- }
-      
-   
-    } );
 
+    autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+
+  
+
+       //专业模糊查询
+      var educationMajor;
+       $(document).on('input propertychange', '.specialty', function (e) {
+        educationMajor = $(this).val();
+        autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+       });
+
+       autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
 
 
 
@@ -391,6 +381,12 @@ $(function () {
             });
 
             eduFn($('.'+eduClass)[0]);
+
+            var schoolNameArray = $(".schoolName");
+            for (var i = 0; i < schoolNameArray.length; i++) {
+                autoFinish(schoolNameArray.eq(i),educationSchoolName,'educationArray','educationSchoolName','school');
+                autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+            }
 
     });
     $('body').on('click','.deleteBtn', function () {
