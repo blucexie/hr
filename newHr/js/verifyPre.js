@@ -67,7 +67,7 @@ $(function () {
 
 
     /*下一步*/
-    $('.nextStep button').click(function () {   
+    $('.nextStep button').click(function () {  
         var verifyIdCard = $('#resumeIdCard').val();
         var basicInfo = {};
         var basicPass = true;
