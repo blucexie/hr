@@ -238,7 +238,10 @@ $(function () {
                     }
             
                 });
-            }else {
+            }else if(result===2005){
+                window.location.href ='invalid.html'
+            }
+            else {
                 layer.open({
                     content: resultInfo
                     ,btn: '确定'

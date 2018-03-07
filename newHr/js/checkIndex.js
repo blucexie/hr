@@ -29,7 +29,7 @@ var authenCode = getQueryString();
         var jobEndTime = jsonData.item.jobEndTime;/*离职时间*/
         var colleagueCode = jsonData.item.colleagueCode;/*同事编码*/
         var colleagueName = jsonData.item.colleagueName;/*同事名字*/
-        var result = jsonData.result;/*返回结果*/
+        var result = jsonData.item.result;/*返回结果*/
         var resultInfo = jsonData.item.resultInfo;/*返回结果*/
        
        
@@ -258,6 +258,8 @@ var authenCode = getQueryString();
             }
         });
     });
+        }else if(result===2005){
+            window.location.href ='invalid.html'
         }else {
             layer.open({
                 content: resultInfo

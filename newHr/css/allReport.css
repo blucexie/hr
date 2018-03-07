@@ -670,3 +670,43 @@ body {
 .inconformitBg {
   background-color: #fe4646;
 }
+#main {
+  float: left;
+  width: 4rem;
+  height: 4rem;
+  margin-left: 1rem;
+  margin-right: 3.2rem;
+}
+.proportionExplain {
+  float: left;
+}
+.proportionExplain > div {
+  margin-bottom: 0.4rem;
+}
+.proportionExplain > div span {
+  font-size: 0.4rem;
+  color: #666;
+}
+.proportionExplain > div span:nth-of-type(1) {
+  float: left;
+  width: 0.36rem;
+  height: 0.36rem;
+}
+.proportionExplain > div span {
+  float: left;
+  margin: 0.2rem 0;
+}
+.agreementIcon {
+  background: #27d4af;
+}
+.atypismIcon {
+  background: #fe4646;
+}
+.noIcon {
+  background: #feb957;
+}
+.agreementIcon,
+.atypismIcon,
+.noIcon {
+  margin: 0.3rem 0.2rem 0.3rem 0 !important;
+}

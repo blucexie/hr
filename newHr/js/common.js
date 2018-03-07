@@ -9,7 +9,11 @@ function isValidPhone(mobile){
     var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|19[0-9]|14[57])[0-9]{8}$/;
     return re.test(mobile);
 }
-
+// 校验固话
+function istel(mobile){
+   var tel = /^(400|800)([0-9\\-]{7,10})|(([0-9]{4}|[0-9]{3})(-| )?)?([0-9]{7,8})((-| |转)*([0-9]{1,4}))?$/;
+   return tel.test(mobile);
+}
 /**
  * 隐藏loader
  * @return {[type]} [description]
@@ -58,7 +62,7 @@ function checkBalance(balance){
     return isNum.test(balance);
 }
 
-  /**
+     /**
      *  模糊查询方法
      * @param {*} doc 元素 
      * @param {*} name 参数
@@ -75,6 +79,7 @@ function checkBalance(balance){
                     dataType: "json",
                     data: "{\"" + parmName + "\":\"" + name + "\"}",
                     success: function (data) {
+                        console.log(data)
                         var jsonData = eval("data=" + data['plaintext']);
                         var newArray = [];
                         newArray = jsonData.item[selectName];

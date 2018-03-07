@@ -46,6 +46,8 @@ $(function () {
                         ,btn: '确定'
                     });
                 }
+            }else if(result===2005){
+                window.location.href ='invalid.html'
             }else {
                 layer.open({
                     content: resultInfo

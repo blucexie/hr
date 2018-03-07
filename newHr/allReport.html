@@ -5,6 +5,8 @@
     <title>全面核查报告</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/allReport.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/echarts.simple.min.js"></script>
     <script type="text/javascript">
         !function () {
             var html = document.documentElement;
@@ -31,6 +33,23 @@
     <div class="clearfix">
         <img src="images/verification.png" alt="">
         <span class="result inconformity">不一致</span>
+    </div>
+    <div class="proportion clearfix">
+        <div id="main"></div>
+        <div class="proportionExplain">
+            <div class="clearfix">
+                <span class="agreementIcon"></span>
+                <span>一致</span>
+            </div>    
+            <div class="clearfix">
+                <span class="atypismIcon"></span>
+                <span>不一致</span>
+            </div>    
+            <div class="clearfix">
+                <span class="noIcon"></span>
+                <span>未查得对应数据</span>
+            </div>    
+        </div>
     </div>
     <div class="verified-result clearfix">
         <div >
@@ -417,5 +436,59 @@
     <p>应 <span>北京风影职信科技有限公司</span>（以下简称“公司”）的委托,以降低招聘风险为目标,按照应聘候选人提供的信息,通过大数据及专业核验流程, 北京风影职信科技有限公司（以下简称“风影职信”）为公司提供应聘候选人<span>陈秋君</span>的核验报告。以上核验信息均通过符合法律法规的途径获得,报告内容不代表风影职信及其任何员工的主观意见。</p>
     <p>本报告不得用于法律诉讼依据，仅供招聘决策参考之用。在任何情况下，对由于使用本报告所造成的损失，本公司不承担任何责任。且未经本公司许可，本报告内容不得向任何第三方透露。</p>
 </div>
+
+<script>
+     // 基于准备好的dom，初始化echarts实例
+     var myChart = echarts.init(document.getElementById('main'));
+    var data = [{
+        value: 70,
+
+    }, {
+        value: 10,
+
+    }, {
+        value: 20,
+
+    }];
+    option = {
+
+        backgroundColor: 'rgba(255,255,255,0)',
+        tooltip: {
+            show: false,
+            trigger: 'item',
+            formatter: "{b}: {c} ({d}%)"
+        },
+       
+        series: [{
+            type: 'pie',
+            selectedMode: 'single',
+            clockwise:false,
+            radius: ['40%', '80%'],
+            color: ['#27d4af', '#fe4646', '#feb957'],
+            silent:true,
+            label: {
+                normal: {
+                    position: 'inner',
+                    formatter: '{d}%',
+                    textStyle: {
+                        color: '#fff',
+                        fontWeight: 'bold',
+                        fontSize: 10,
+                        align:'center'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data: data
+        }]
+    };
+
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
 </body>
 </html>
