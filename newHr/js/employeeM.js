@@ -509,6 +509,14 @@ $(function () {
 
     /*增加工作信息*/
 
+     //公司名称查询
+     var workEnterpriseName;
+     $(document).on('input propertychange', '.firm', function (e) {
+       workEnterpriseName = $(this).val();
+      autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+     });
+     autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+     
     /*底部滑动select*/
 
     var data1 = [
@@ -592,7 +600,10 @@ $(function () {
                 'onClose':function(){/*取消时触发事件*/
                 }
             });
-        workFn1($('.'+leaveClass)[0])
+        workFn1($('.'+leaveClass)[0]);
+
+        autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+
     });
     $('body').on('click','.deleteBtnW', function () {
         workLength--;

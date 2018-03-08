@@ -250,16 +250,16 @@ var authenCode = getQueryString();
             },
             error: function () {
                 window.location.replace("netless.html");
-              /*  layer.open({
-                    content: '网络异常，请稍后重试'
-                    ,btn: '确定'
-                });
-                hideLoader();*/
+                /*  layer.open({
+                        content: '网络异常，请稍后重试'
+                        ,btn: '确定'
+                    });
+                    hideLoader();*/
             }
         });
     });
         }else if(result===2005){
-            window.location.href ='invalid.html'
+            window.location.replace('invalid.html');
         }else {
             layer.open({
                 content: resultInfo

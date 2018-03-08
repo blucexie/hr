@@ -47,7 +47,7 @@ $(function () {
                     });
                 }
             }else if(result===2005){
-                window.location.href ='invalid.html'
+                window.location.replace('invalid.html');
             }else {
                 layer.open({
                     content: resultInfo

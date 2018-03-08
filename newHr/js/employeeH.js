@@ -239,7 +239,7 @@ $(function () {
             
                 });
             }else if(result===2005){
-                window.location.href ='invalid.html'
+                window.location.replace('invalid.html');
             }
             else {
                 layer.open({
@@ -322,7 +322,7 @@ $(function () {
         autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
     });
 
-    autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+   autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
 
   
 
@@ -543,6 +543,14 @@ $(function () {
 
     /*增加工作信息*/
 
+      //公司名称查询
+      var workEnterpriseName;
+      $(document).on('input propertychange', '.firm', function (e) {
+        workEnterpriseName = $(this).val();
+       autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+      });
+      autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+
     /*工作底部滑动select*/
     var data1 = [
         {'id': '10001', 'value': '个人发展'},
@@ -621,6 +629,8 @@ $(function () {
             });
 
         workFn1($('.'+leaveClass)[0]);
+
+        autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
     });
 
     $('body').on('click','.deleteBtnW', function () {
