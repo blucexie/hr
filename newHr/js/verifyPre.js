@@ -21,7 +21,6 @@ $(function () {
         dataType:"json",
         data:"{\"authenCode\":\""+authenCode+"\"}",
         success: function (data) {
-            console.log(data);
             var jsonData = eval("data="+data['plaintext']);
             var verifyName = jsonData.item.verifyName;
             var enterpriseName = jsonData.item.enterpriseName;
@@ -31,7 +30,7 @@ $(function () {
              userCode = jsonData.item.userCode;
             var result = jsonData.item.result;
             var resultInfo = jsonData.item.resultInfo;
-              
+                
             if(result===1001){
                 $('.companyName').text(enterpriseName);
                 $('#resumeName').val(verifyName);
