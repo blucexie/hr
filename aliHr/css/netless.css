@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.netless {
+  text-align: center;
+  border-top: 1px solid #adadaf;
+}
+.netless img {
+  margin-top: 2.6rem;
+  width: 6.62rem;
+  height: 5.16rem;
+}
+.netless p {
+  font-size: 0.6rem;
+  color: #666;
+  margin-top: 1.2rem;
+  margin-bottom: 1.48rem;
+}
+.netless button {
+  width: 5.08rem;
+  height: 1.48rem;
+  border-radius: 1rem;
+  color: #00adb4;
+  border: 1px solid #00adb4;
+  background: rgba(0, 0, 0, 0);
+  font-size: 0.68rem;
+  outline: none;
+}

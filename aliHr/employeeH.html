@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>授权申请</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <link rel="stylesheet" href="css/employeeH.css">
+    <link rel="stylesheet" href="css/iosSelect.css">
+    <link rel="stylesheet" type="text/css" href="scss/default.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="layer_mobile/layer.js"></script>
+     <script type="text/javascript" src="js/datePicker.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script src="selectjs/iscroll.js"></script>
+    <script src="selectjs/iosSelect.js"></script>
+    <script src="sjs/jq-signature.js"></script>
+    <script type="text/javascript" src="js/employeeH.js"></script>
+    <style>
+        .lcalendar_finish{
+            color: #dab67f;
+        }
+        .lcalendar_cancel{
+            color: #999;
+        }
+        .date_ctrl{
+            background: #fff;
+        }
+        .ym_roll>div, .date_roll>div, .datetime_roll>div, .time_roll>div{
+            font-size: 2.2em;
+        }
+        .ym_roll, .date_roll, .datetime_roll, .time_roll{
+            font-weight: normal;
+        }
+        .ui-widget{
+            font-size: 16px;
+            background: #f9f7f6;
+            border-radius: 5px;
+        }
+    </style>
+    <script type="text/javascript">
+        !function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        }()
+    </script>
+</head>
+<body>
+    <div id="header">
+        <div id="logo" >
+            <img src="images/shou.png" alt="">
+        </div>
+        <div class="company" >
+            <p class="companyName"></p>
+            <p>请如实填写人员基本信息，以便企业进行职业背景核验，请授权</p>
+        </div>
+        <div class="warn">
+            <p><img src="images/xing2.png" alt=""> 请注意此公司是否与您进行过求职沟通</p>
+        </div>
+    </div>
+    <div class="interval"></div>
+    <div class="licensedContent">
+        <h2>将授权的内容包括：</h2>
+        <ul class="clearfix">
+            <li>
+                <img src="images/a1.png" alt="">
+                <p>身份信息核验</p>
+            </li>
+            <li>
+                <img src="images/a2.png" alt="">
+                <p>教育信息核验</p>
+            </li>
+            <li>
+                <img src="images/a3.png" alt="">
+                <p>工作经历核验</p>
+            </li>
+            <li>
+                <img src="images/a4.png" alt="">
+                <p>同事证明核验</p>
+            </li>
+            <li>
+                <img src="images/a5.png" alt="">
+                <p>公共治安信息核验</p>
+            </li>
+            <li>
+                <img src="images/a6.png" alt="">
+                <p>职业技能核验</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="formValidation">
+        <div class="septal-line"></div>
+        <div class="basic clearfix">
+            <img src="images/basicBG.png" alt="">
+        </div>
+        <form id="deForm" class="basicForm" action="">
+            <label for="resumeName">
+                <span>姓名</span>
+                <input  id="resumeName"  type="text" name="resumeName" placeholder="请输入您的姓名" disabled="disabled">
+            </label><br>
+            <label for="resumeMobile">
+                <span class="inpTel">联系方式</span>
+                <input id="resumeMobile"  type="text" name="resumeMobile" placeholder="请输入您的联系方式" maxlength="11" disabled="disabled">
+            </label><br>
+            <label for="resumeIdCard">
+                <span class="inpId">身份证号码</span>
+                <input id="resumeIdCard" type="text" name="resumeIdCard" placeholder="请输入身份证号码" maxlength="18" disabled="disabled">
+            </label><br>
+            <label  for="jobInterview">
+                <span class="jobInterview">面试职位</span>
+                <input id="jobInterview" type="text" name="resumeJob" placeholder="请输入面试职位" >
+            </label><br>
+            <label  for="salary">
+                <span class="salary">期望薪资</span>
+                <input id="salary" type="text" name="resumeExpectSalary" placeholder="请输入期望薪资，如10K">
+            </label><br>
+            <div class="identity">
+                <span>身份</span>
+                <input  type="radio" id="graduatingStudents"  name="isNewGraduate" value="1" >
+                <label class="graduatingStudents" for="graduatingStudents"> &nbsp;应届生</label>
+                <input  type="radio" id="previousStudents"  name="isNewGraduate" value="0" checked="checked">
+                <label class="previousStudents"  for="previousStudents"> &nbsp;往届生</label>
+            </div>
+            <div class="isDimission">
+                <span class="radioS">
+                   是否离职</span>
+                <input  type="radio" id="yDimission" name="dimission"  value="1" checked="checked">
+                <label for="yDimission"> &nbsp;是</label>
+                <input type="radio" id="nDimission" name="dimission" value="0">
+                <label for="nDimission"> &nbsp; 否</label>
+            </div>
+        </form>
+        <div class="upBasic">
+            <p>收起基本信息 </p><img src="images/upArrows.png" alt="">
+        </div>
+        <div class="septal-line"></div>
+        <!--教育信息-->
+        <div class="education clearfix">
+            <img src="images/educationBg.png" alt="">
+            <strong>请填写最高教育信息</strong>
+        </div>
+
+        <form class="educationTable educationTable1 " action="">
+            <p class="educate clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>
+            <div class="schoolMsg">
+                <span>学校名称</span>
+                <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea>
+            </div>
+            <div>
+                <span class="edu">学历</span>
+                <input onfocus='this.blur();' class="eduS"  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历">
+            </div>
+            <div>
+                <span class="specialty">专业</span>
+                <input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称">
+            </div>
+            <div>
+                <span>入学时间</span>
+                <input  onfocus='this.blur();'  class="StartTime"  type="text" name="educationStartTime" data-attribute="请选择入学时间"  placeholder="请选择入学时间" >
+            </div>
+            <div>
+                <span>毕业时间</span>
+                <input onfocus='this.blur();' class="EndTime"  type="text" name="educationEndTime"  data-attribute="请选择毕业时间"  placeholder="请选择毕业时间" >
+            </div>
+        </form>
+        <div class="upEducation">
+            <img class="addEducation" src="images/addEducation.png" alt="">
+            <p>收起教育信息 <img src="images/upArrows.png" alt=""></p>
+        </div>
+        <div class="septal-line"></div>
+        <!--技能信息-->
+        <div class="skillInformation clearfix">
+            <img src="images/skillBg.png" alt="">
+        </div>
+        <form class="skill" action="">
+            <div>
+                <span>证书名称</span>
+                <input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称">
+            </div>
+        </form>
+        <div class="upSkill">
+            <img class="addSkill" src="images/addSkill.png" alt="">
+            <p>收起技能信息 <img src="images/upArrows.png" alt=""></p>
+        </div>
+        <div class="septal-line"></div>
+        <!--工作经历-->
+        <div class="workExperience clearfix">
+            <img src="images/workBg.png" alt="">
+            <strong>请从最近一份工作填写</strong>
+        </div>
+        <form class="work work1">
+            <p class="workTitle workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>
+            <div class="firmMsg">
+                <span>公司名称</span>
+                <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2" data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea>
+            </div>
+            <div>
+                <span>工作岗位</span>
+                <input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位">
+            </div>
+            <div>
+                <span>岗位工资</span>
+                <input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\d]/g,'') "  pattern="[0-9]*" maxlength="6" >
+            </div>
+            <div>
+                <span>开始时间</span>
+                <input onfocus='this.blur();' class="entryTime workTime"  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间">
+            </div>
+            <div>
+                <span>结束时间</span>
+                <input onfocus='this.blur();' class="outTime workTime"  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间">
+            </div>
+            <div>
+                <span class="leaveOffice">离职原因</span>
+                <input onfocus='this.blur();' class="leaveCause"  type="text" name="resumeDissmionReason" data-attribute="请选择离职原因" placeholder="请选择离职原因">
+            </div>
+            <div>
+                <span class="certifierName">证明人姓名</span>
+                <input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名">
+            </div>
+            <div>
+                <span class="certifierTel">证明人电话</span>
+                <input class="referenceTel"  type="text" name="colleagueMobile"  data-attribute="请输入证明人电话" placeholder="请输入证明人电话" maxlength="11">
+            </div>
+        </form>
+        <div class="upWorkExperience">
+            <img class="addWork" src="images/addWork.png" alt="">
+            <p>收起工作经历 <img src="images/upArrows.png" alt=""></p>
+            <div class="cuttingLine"></div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <span class="checkS"><input type="checkbox" class="input_check" id="check1" checked="checked"><label for="check1"></label></span>
+        <span class="read">我已阅读并同意</span><a href="javascript:;"><span class="agreement">《易职信免责协议》</span></a><br>
+        <span class="st-error" id="err6"></span>
+        <div class="declare">
+            <p class="sDeclare">本人声明：</p>
+            <p>本人在表中所填写内容均属实及正确，并授权贵公司调查上述资料的真实性。</p>
+        </div>
+        <div class="signature clearfix">
+            <div class="sName">
+            <span >签名:</span><div class="nameSpace"></div>
+            </div>
+            <div class="signatureData">
+                <span >日期:</span><div class="dataSpace"></div>
+            </div>
+        </div>
+
+        <input id="submit" class="submitM" type="submit" value="提交">
+        <div class="footerDeclare">
+            <p>以上信息由北京风影职信科技有限公司技术支持</p>
+            <p>如遇问题请拨打：010-52830585</p>
+        </div>
+    </div>
+    <div class="hint"></div>
+    <!--签名-->
+    <div class="htmleaf-container" >
+
+        <div class="container">
+
+            <div class="js-signature" style="display:none"></div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="js-signature"  data-width="600"  data-height="200" data-border="1px solid black" data-line-color="#bc0000" data-auto-fit="true"></div>
+                    <p>
+                        <button id="clearBtn" class="btn btn-default" >重写</button>&nbsp;
+                        <button id="closeBtn" class="btn btn-default">关闭</button>&nbsp;
+                        <button id="saveBtn" class="btn btn-default"  disabled>保存</button></p>
+                    <div id="signature">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--遮罩-->
+    <div class="zhezhao"></div>
+    <div class="zhezhaoL"></div>
+    <div id="loading" class="loader-inner line-scale">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</body>
+</html>
