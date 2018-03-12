@@ -2,6 +2,7 @@
  * Created by blucexie on 2017/12/16.
  */
 $(function () {
+<<<<<<< HEAD
     var enterpriseName = sessionStorage.getItem("enterpriseName");
     var  verifyName = sessionStorage.getItem("verifyName");
     var  vMobile = sessionStorage.getItem("verifyMobile");
@@ -18,6 +19,75 @@ $(function () {
 
     /*下一步*/
     $('.nextStep button').click(function () {   
+=======
+
+    /*获取authenCode*/
+    function getQueryString() {
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        code = url.substring(index + 1, url.length);
+        if (code != null)
+            return code;
+        return null;
+    }
+    var authenCode = getQueryString();
+
+    $.ajax({
+        url:'https://apix.funinhr.com/api/agree/verify/before',
+        type: "POST",
+        timeout:5000,
+        dataType:"json",
+        data:"{\"authenCode\":\""+authenCode+"\"}",
+        success: function (data) {
+            var jsonData = eval("data="+data['plaintext']);
+            var verifyName = jsonData.item.verifyName;
+            var enterpriseName = jsonData.item.enterpriseName;
+            var verifyMobile = jsonData.item.verifyMobile;
+            var verifyJob = jsonData.item.verifyJob;
+             verifyCode = jsonData.item.verifyCode;
+             userCode = jsonData.item.userCode;
+            var result = jsonData.item.result;
+            var resultInfo = jsonData.item.resultInfo;
+                
+            if(result===1001){
+                $('.companyName').text(enterpriseName);
+                $('#resumeName').val(verifyName);
+                $('#resumeMobile').val(verifyMobile);
+                $('#jobInterview').val(verifyJob);
+                try{
+                    sessionStorage.verifyCode = verifyCode;
+                    sessionStorage.authenCode = authenCode;
+                }catch(e){
+                    layer.open({
+                        content: "请关闭无痕模式重新尝试"
+                        ,btn: '确定'
+                    });
+                }
+            }else if(result===2005){
+                window.location.replace('invalid.html');
+            }else {
+                layer.open({
+                    content: resultInfo
+                    ,btn: '确定'
+                });
+                $('.btn').removeAttr('disabled','disabled');
+                hideLoader();
+            }
+        },
+        error: function (XMLHttpRequest, textStatus){
+            layer.open({
+                content: '网络异常，请稍后重试'
+                ,btn: '确定'
+            });
+            $('.btn').removeAttr('disabled','disabled');
+            hideLoader();
+        }
+    });
+
+
+    /*下一步*/
+    $('.nextStep button').click(function () {  
+>>>>>>> develop
         var verifyIdCard = $('#resumeIdCard').val();
         var basicInfo = {};
         var basicPass = true;

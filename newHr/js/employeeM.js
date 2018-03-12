@@ -66,6 +66,10 @@ $(function () {
         $('.workExperience').hide();
         $('.upWorkExperience').hide();
         $('.isDimission').hide();
+<<<<<<< HEAD
+=======
+        $('.upW').hide();
+>>>>>>> develop
     });
     $('.previousStudents').click(function () {
         $('.work').show();
@@ -277,6 +281,27 @@ $(function () {
     });
     /*增加教育信息*/
 
+    
+    var educationSchoolName ;
+    $(document).on('input propertychange','.schoolName',function (e) {
+        educationSchoolName= $(this).val();
+        autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+    });
+
+    autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+
+  
+
+       //专业模糊查询
+      var educationMajor;
+       $(document).on('input propertychange', '.specialty', function (e) {
+        educationMajor = $(this).val();
+        autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+       });
+
+       autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+
+
     /*底部滑动select*/
     var showBankDom = document.querySelector('.edu');
 
@@ -361,7 +386,13 @@ $(function () {
                 'onClose':function(){/*取消时触发事件*/
                 }
             });
-            eduFn($('.'+eduClass)[0])
+            eduFn($('.'+eduClass)[0]);
+
+            var schoolNameArray = $(".schoolName");
+            for (var i = 0; i < schoolNameArray.length; i++) {
+                autoFinish(schoolNameArray.eq(i),educationSchoolName,'educationArray','educationSchoolName','school');
+                autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+            }
     });
 
     $('body').on('click','.deleteBtn', function () {
@@ -481,6 +512,14 @@ $(function () {
 
     /*增加工作信息*/
 
+     //公司名称查询
+     var workEnterpriseName;
+     $(document).on('input propertychange', '.firm', function (e) {
+       workEnterpriseName = $(this).val();
+      autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+     });
+     autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+     
     /*底部滑动select*/
 
     var data1 = [
@@ -564,7 +603,10 @@ $(function () {
                 'onClose':function(){/*取消时触发事件*/
                 }
             });
-        workFn1($('.'+leaveClass)[0])
+        workFn1($('.'+leaveClass)[0]);
+
+        autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+
     });
     $('body').on('click','.deleteBtnW', function () {
         workLength--;

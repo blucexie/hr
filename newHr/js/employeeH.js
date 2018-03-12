@@ -3,6 +3,7 @@
  */
 
 $(function () {
+<<<<<<< HEAD
 
     if($('#graduatingStudents').is(':checked')){
         $('.isDimission').hide();
@@ -37,20 +38,42 @@ $(function () {
         resumeName: resumeName,
         resumeIdCard:resumeIdCard
     };
+=======
+   
+     /*获取authenCode*/
+     function getQueryString() {
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        code = url.substring(index + 1, url.length);
+        if (code != null)
+            return code;
+        return null;
+    }
+    var authenCode = getQueryString();
+
+>>>>>>> develop
     var eduLength =1;
     var skillLength =1;
     var workLength =1;
+    
     $.ajax({
-        url:'https://apix.funinhr.com/api/get/resume/info',
+        url:'https://apix.funinhr.com/api/agree/verify/before',
         type: "POST",
         timeout:5000,
         dataType:"json",
-        data:JSON.stringify(setJson),
+        data:"{\"authenCode\":\""+authenCode+"\"}",
         success: function (data) {
-            console.log(data);
-            var backData = eval("data="+data['plaintext']);
-            var result = backData.result;
+            var jsonData = eval("data="+data['plaintext']);
+            var resumeName = jsonData.item.verifyName;
+            var resumeIdCard = jsonData.item.verifyIdCard;
+             userCode = jsonData.item.userCode;
+            var enterpriseName = jsonData.item.enterpriseName;
+             verifyCode = jsonData.item.verifyCode;
+            var result = jsonData.item.result;
+            var resultInfo = jsonData.item.resultInfo;
+           
             if(result===1001){
+<<<<<<< HEAD
                 $('#resumeName').val(backData.item.resumeName);
                 $('#resumeMobile').val(backData.item.resumeMobile);
                 $('#resumeIdCard').val(backData.item.resumeIdCard);
@@ -225,6 +248,219 @@ $(function () {
 
 
 
+=======
+                $('.companyName').text(enterpriseName);
+                
+                var setJson ={
+                    userCode:userCode,
+                    resumeName: resumeName,
+                    resumeIdCard:resumeIdCard
+                };
+                $.ajax({
+                    url:'https://apix.funinhr.com/api/get/resume/info',
+                    type: "POST",
+                    timeout:5000,
+                    dataType:"json",
+                    data:JSON.stringify(setJson),
+                    success: function (data) {
+                        console.log(data);
+                        var backData = eval("data="+data['plaintext']);
+                        var result = backData.result;
+                        if(result===1001){
+                            $('#resumeName').val(backData.item.resumeName);
+                            $('#resumeMobile').val(backData.item.resumeMobile);
+                            $('#resumeIdCard').val(backData.item.resumeIdCard);
+                            $('#jobInterview').val(backData.item.resumeJob);
+                            $('#salary').val(backData.item.resumeExpectSalary);
+                            if(backData.item.resumeIsDissmion ==1){
+                                $('#yDimission').attr('checked',true);
+                                $('#nDimission').removeAttr("checked")
+                            }else if(backData.item.resumeIsDissmion == 0){
+                                $('#nDimission').attr('checked',true);
+                                $('#yDimission').removeAttr("checked")
+                            }
+                            if(backData.item.isNewGraduate ==1){
+                                $('#graduatingStudents').attr('checked',true);
+                                $('#previousStudents').removeAttr("checked");
+                                $('.work').hide();
+                                $('.workExperience').hide();
+                                $('.upWorkExperience').hide();
+                                $('.isDimission').hide();
+                            }else if(backData.item.isNewGraduate ==0){
+                                $('#previousStudents').attr('checked',true);
+                                $('#graduatingStudents').removeAttr("checked")
+                            }
+                            var eduJson = JSON.parse(backData.item.resumeEducationArray);
+                          
+                            eduLength = eduJson.length;
+            
+                            for(var i = 0;i<eduLength-1;i++){
+                                /*学历底部滑动select*/
+            
+                                var starClass = 'StartTime';
+                                var endClass = 'EndTime';
+                                var eduClass = 'eduS';
+                                var $school = ('<form class="educationTable" action="">' +
+                                '<p class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
+                                '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
+                                '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+(eduClass+(i+2))+'  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历"></div>'+
+                                '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
+                                '<div><span>入学时间</span><input onfocus="this.blur();" class='+(starClass+(i+2))+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
+                                '<div><span>毕业时间</span><input onfocus="this.blur();" class='+(endClass+(i+2))+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
+            
+                                $('.upEducation').before($school);
+            
+                                new datePicker().init({
+                                    'trigger': '.StartTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
+                                    'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                                    'minDate':'1900-1-1',/*最小日期*/
+                                    'maxDate':'2100-12-31',/*最大日期*/
+                                    'onSubmit':function(){/*确认时触发事件*/
+                                        var theSelectData=calendar.value;
+                                    },
+                                    'onClose':function(){/*取消时触发事件*/
+                                    }
+                                });
+                                new datePicker().init({
+                                    'trigger': '.EndTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
+                                    'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                                    'minDate':'1900-1-1',/*最小日期*/
+                                    'maxDate':'2100-12-31',/*最大日期*/
+                                    'onSubmit':function(){/*确认时触发事件*/
+                                        var theSelectData=calendar.value;
+                                    },
+                                    'onClose':function(){/*取消时触发事件*/
+                                    }
+                                });
+                                eduFn($('.'+eduClass+(i+2))[0]);
+                            }
+                            for(var i = 0;i<eduLength;i++){
+                                $('.educationTable:eq('+i+') .schoolName').val(eduJson[i].educationSchoolName);
+                                $(".educationTable:eq("+i+") input[name='educationGrade']").val(eduJson[i].educationGrade);
+                                $('.educationTable:eq('+i+') .specialty').val(eduJson[i].educationMajor);
+                                $(".educationTable:eq("+i+") input[name='educationStartTime']").val(eduJson[i].educationStartTime);
+                                $(".educationTable:eq("+i+") input[name='educationEndTime']").val(eduJson[i].educationEndTime);
+                            }
+                            if(eduLength>1){
+                                $('.workTitle').show();
+                            }
+                            if(eduLength==3){
+                                $('.addEducation').hide();
+                            }
+            
+            
+                            /*技能*/
+            
+                            var skillJson = backData.item.resumeSkillArray;
+                            if(skillJson){
+                                skillJson = JSON.parse(skillJson);
+                                skillLength = skillJson.length;
+                                for(var i = 0;i<skillLength-1;i++){
+                                    var $skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
+                                    '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称"></div></form>');
+            
+                                    $('.upSkill').before($skill);
+                                }
+            
+                                for(var i = 0;i<skillLength;i++){
+                                    $('.skill:eq('+i+') .certificateName').val(skillJson[i].skillName);
+                                }
+                            }
+            
+                            if(backData.item.isNewGraduate !=="1"){
+                                /*工作*/
+                                var workJson = JSON.parse(backData.item.resumeWorkArray);
+                                workLength =workJson.length;
+            
+                                //  console.log(workLength);
+                                for(var i = 0;i<workLength-1;i++){
+                                    var entclass = 'entryTime';
+                                    var outclass = 'outTime';
+                                    var leaveClass = 'leaveCause';
+                                    var $work = ('<form class="work">'+
+                                    '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
+                                    '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
+                                    '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
+                                    '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
+                                    '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
+                                    '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
+                                    '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
+                                    '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名"></div>' +
+                                    '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" data-attribute="请输入证明人电话" placeholder="请输入证明人电话" maxlength="11"></div></form>');
+            
+                                    $('.upWorkExperience').before($work);
+            
+                                    new datePicker().init({
+                                        'trigger': '.entryTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
+                                        'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                                        'minDate':'1900-1-1',/*最小日期*/
+                                        'maxDate':'2100-12-31',/*最大日期*/
+                                        'onSubmit':function(){/*确认时触发事件*/
+                                            var theSelectData=calendar.value;
+                                        },
+                                        'onClose':function(){/*取消时触发事件*/
+                                        }
+                                    });
+                                    new datePicker().init({
+                                        'trigger': '.outTime'+(i+2), /*按钮选择器，用于触发弹出插件*/
+                                        'type': 'ym',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                                        'minDate':'1900-1-1',/*最小日期*/
+                                        'maxDate':'2100-12-31',/*最大日期*/
+                                        'onSubmit':function(){/*确认时触发事件*/
+                                            var theSelectData=calendar.value;
+                                        },
+                                        'onClose':function(){/*取消时触发事件*/
+                                        }
+                                    });
+            
+                                    workFn1($('.'+leaveClass+(i+2))[0]);
+                                }
+                                for(var i = 0;i<workJson.length;i++){
+                                    $('.work:eq('+i+') .firm').val(workJson[i].workEnterpriseName);
+                                    $('.work:eq('+i+') .job').val(workJson[i].verifyJob);
+                                    var sT = workJson[i].workStartTime.split(""),
+                                        arrST =sT.splice(4,0,'-'),
+                                        workStartTime = sT.join('');
+                                    var eT = workJson[i].workEndTime.split(""),
+                                        arrEt = eT.splice(4,0,'-'),
+                                        workEndTime = eT.join('');
+                                    $('.work:eq('+i+') .workBalance').val(workJson[i].workBalance);
+                                    $(".work:eq("+i+") input[name='workStartTime']").val(workStartTime);
+                                    $(".work:eq("+i+") input[name='workEndTime']").val(workEndTime);
+                                    $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
+                                    $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
+                                    $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                                }
+                                if(workLength>1){
+                                    $('.workTitle').show();
+                                }
+                                if(workLength==3){
+                                    $('.addWork').hide();
+                                }
+                            }
+            
+            
+            
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus) {
+                        layer.open({
+                            content: '网络异常，请稍后重试'
+                            ,btn: '确定'
+                        });
+                    }
+            
+                });
+            }else if(result===2005){
+                window.location.replace('invalid.html');
+            }
+            else {
+                layer.open({
+                    content: resultInfo
+                    ,btn: '确定'
+                });
+                hideLoader();
+>>>>>>> develop
             }
         },
         error: function (XMLHttpRequest, textStatus) {
@@ -232,10 +468,48 @@ $(function () {
                 content: '网络异常，请稍后重试'
                 ,btn: '确定'
             });
+            $('.btn').removeAttr('disabled','disabled');
+            hideLoader();
         }
-
     });
 
+<<<<<<< HEAD
+=======
+
+    if($('#graduatingStudents').is(':checked')){
+        $('.isDimission').hide();
+        $('.work').hide();
+        $('.workExperience').hide();
+        $('.upWorkExperience').hide();
+    };
+
+    /*应届生往届生选择*/
+    $('.graduatingStudents').click(function (){
+        $('.work').hide();
+        $('.workExperience').hide();
+        $('.upWorkExperience').hide();
+        $('.isDimission').hide();
+        $('.upW').hide();
+    });
+    $('.previousStudents').click(function (){
+        $('.work').show();
+        $('.workExperience').show();
+        $('.upWorkExperience').show();
+        $('.isDimission').show();
+    });
+    /*发送回填请求*/
+    // var  resumeName = sessionStorage.getItem("verifyName");
+    // var resumeIdCard = sessionStorage.getItem("verifyIdCard");
+    // var userCode = sessionStorage.getItem("userCode");
+    // var enterpriseName = sessionStorage.getItem("enterpriseName");
+    // var  verifyCode = sessionStorage.getItem("verifyCode");
+    // var authenCode = sessionStorage.getItem("authenCode");
+   
+   
+    
+   
+
+>>>>>>> develop
     /*收起基本信息*/
 
     var onOffB = true;
@@ -258,8 +532,30 @@ $(function () {
         }
     });
     /*增加教育信息*/
-    /*选择学历select*/
 
+    var educationSchoolName ;
+    $(document).on('input propertychange','.schoolName',function (e) {
+        educationSchoolName= $(this).val();
+        autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+    });
+
+   autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+
+  
+
+       //专业模糊查询
+      var educationMajor;
+       $(document).on('input propertychange', '.specialty', function (e) {
+        educationMajor = $(this).val();
+        autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+       });
+
+       autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+
+
+
+
+    /*选择学历select*/
     var data = [
         {'id': '10001', 'value': '专科'},
         {'id': '10002', 'value': '本科'},
@@ -336,6 +632,12 @@ $(function () {
                 }
             });
             eduFn($('.'+eduClass)[0]);
+
+            var schoolNameArray = $(".schoolName");
+            for (var i = 0; i < schoolNameArray.length; i++) {
+                autoFinish(schoolNameArray.eq(i),educationSchoolName,'educationArray','educationSchoolName','school');
+                autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
+            }
 
     });
 
@@ -458,6 +760,14 @@ $(function () {
 
     /*增加工作信息*/
 
+      //公司名称查询
+      var workEnterpriseName;
+      $(document).on('input propertychange', '.firm', function (e) {
+        workEnterpriseName = $(this).val();
+       autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+      });
+      autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
+
     /*工作底部滑动select*/
     var data1 = [
         {'id': '10001', 'value': '个人发展'},
@@ -536,6 +846,8 @@ $(function () {
             });
 
         workFn1($('.'+leaveClass)[0]);
+
+        autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
     });
 
     $('body').on('click','.deleteBtnW', function () {

@@ -7,6 +7,13 @@
     display: block;
     clear: both;
 }
+<<<<<<< HEAD
+=======
+body{
+    font-family:"Microsoft YaHei";
+    font-size: 16px;
+}
+>>>>>>> develop
 @media print {
     .pageBreak {
       page-break-after: always;
@@ -34,6 +41,7 @@ h2{
     vertical-align: -8px;
 }
 .cover .title p span{
+<<<<<<< HEAD
     line-height: 22px;;
     font-size: 22px;
     font-weight: 500;
@@ -46,6 +54,20 @@ h2{
 .column h1{
     font-weight: 500;
 }
+=======
+    line-height: 22px;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 6px 0;
+}
+.cover .column{
+    padding-top: 200px;
+    margin-left: 50px;
+}
+.column h1{
+    font-weight: 500;
+}
+>>>>>>> develop
 .column h1,.column p{
     color: #00adb4;
 }
@@ -118,21 +140,45 @@ th {
 ul{
    margin: 10px 0;
 }
+.identityCardPhoto img{
+    width: 80px;
+}
 table tr td,table tr th{
     border: 1px solid #333;
 }
-table tr td:nth-of-type(1),table tr th:nth-of-type(1){
-    width: 20%;
+/* .edu tr td:nth-of-type(1),.wage tr td:nth-of-type(1),
+.work tr td:nth-of-type(1),.colleague tr td:nth-of-type(1)
+{
+    width: 150px;
 }
-table tr td:nth-of-type(2),table tr th:nth-of-type(2){
-    width: 30%;
+.edu tr td:nth-of-type(2),.wage tr td:nth-of-type(2),
+.work tr td:nth-of-type(2),.colleague tr td:nth-of-type(2){
+    width: 188px;
 }
-table tr td:nth-of-type(3),table tr th:nth-of-type(3){
-    width: 15%;
+.edu tr td:nth-of-type(3),.wage tr td:nth-of-type(3),
+.work tr td:nth-of-type(3),.colleague tr td:nth-of-type(3){
+    width: 105px;
 }
-table tr td:nth-of-type(4),table tr th:nth-of-type(4){
-    width: 35%;
+.edu tr td:nth-of-type(4),.wage tr td:nth-of-type(4),
+.work tr td:nth-of-type(4),.colleague tr td:nth-of-type(4){
+    width: 244px;
+} */
+
+.cell1{
+    width: 150px; 
 }
+.cell2{
+    width: 188px;
+}
+.cell3{
+    width: 105px;
+}
+.cell4{
+    width: 244px;
+}
+
+
+
 .brief tr td:nth-last-child(1){
     width: 244px;
 }
