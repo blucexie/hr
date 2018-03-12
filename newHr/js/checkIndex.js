@@ -2,26 +2,6 @@
  * Created by blucexie on 2017/9/26.
  */
 $(function () {
-<<<<<<< HEAD
-    var verifyName= sessionStorage.getItem("verifyName");/*姓名*/
-    $("#verifyName").html(verifyName);
-    var companyName= sessionStorage.getItem("companyName");/*公司名称*/
-    $("#inpName").html(companyName);
-
-    var verifyJob= sessionStorage.getItem("verifyJob");/*上家职位*/
-    $(".verifyJob").html(verifyJob);
-    var jobStartTime= sessionStorage.getItem("jobStartTime");/*入职时间*/
-    $(".jobStartTime").html(jobStartTime);
-    var jobEndTime= sessionStorage.getItem("jobEndTime");/*入职时间*/
-    $(".jobEndTime").html(jobEndTime);
-    var colleagueName= sessionStorage.getItem("colleagueName");/*同事名字*/
-    $("#colleagueName").html(colleagueName);
-    var enterpriseName= sessionStorage.getItem("enterpriseName");/*核验人面试公司*/
-    $("#enterpriseName").html(enterpriseName);
-    var colleagueCode= sessionStorage.getItem("colleagueCode");/*同事编码*/
-
-    var code= sessionStorage.getItem("code");/*授权码*/
-=======
   /*获取authenCode*/
   function getQueryString() {
     var url = window.location.href;
@@ -62,7 +42,6 @@ var authenCode = getQueryString();
             $(".jobEndTime").html(jobEndTime);
             $("#colleagueName").html(colleagueName);
             $("#enterpriseName").html(enterpriseName);
->>>>>>> develop
 
     /*确认核验*/
     var basicPass = true;

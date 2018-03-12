@@ -2,24 +2,6 @@
  * Created by blucexie on 2017/12/16.
  */
 $(function () {
-<<<<<<< HEAD
-    var enterpriseName = sessionStorage.getItem("enterpriseName");
-    var  verifyName = sessionStorage.getItem("verifyName");
-    var  vMobile = sessionStorage.getItem("verifyMobile");
-    var  verifyCode = sessionStorage.getItem("verifyCode");
-    var verifyJob = sessionStorage.getItem("verifyJob");
-    var authenCode = sessionStorage.getItem("authenCode");
-    var userCode = sessionStorage.getItem("userCode");
-    $('.companyName').text(enterpriseName);
-    $('#resumeName').val(verifyName);
-    $('#resumeMobile').val(vMobile);
-    $('#jobInterview').val(verifyJob);
-
-    
-
-    /*下一步*/
-    $('.nextStep button').click(function () {   
-=======
 
     /*获取authenCode*/
     function getQueryString() {
@@ -87,7 +69,6 @@ $(function () {
 
     /*下一步*/
     $('.nextStep button').click(function () {  
->>>>>>> develop
         var verifyIdCard = $('#resumeIdCard').val();
         var basicInfo = {};
         var basicPass = true;

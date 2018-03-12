@@ -60,9 +60,6 @@ function checkCode(validateCode){
 function checkBalance(balance){
     var isNum = /^[0-9]*$/;
     return isNum.test(balance);
-<<<<<<< HEAD
-}
-=======
 }
 
      /**
@@ -97,4 +94,3 @@ function checkBalance(balance){
 
         });
     }
->>>>>>> develop

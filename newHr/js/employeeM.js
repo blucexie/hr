@@ -66,10 +66,7 @@ $(function () {
         $('.workExperience').hide();
         $('.upWorkExperience').hide();
         $('.isDimission').hide();
-<<<<<<< HEAD
-=======
         $('.upW').hide();
->>>>>>> develop
     });
     $('.previousStudents').click(function () {
         $('.work').show();
