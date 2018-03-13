@@ -17,6 +17,7 @@ var authenCode = getQueryString();
     url:'https://apix.funinhr.com/api/agree/colleague/verify/before',
     type: "POST",
     dataType:"json",
+    timeout:5000,
     data:"{\"authenCode\":\""+authenCode+"\"}",
     success: function (data) {
         console.log(data);

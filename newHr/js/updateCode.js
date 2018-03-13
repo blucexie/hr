@@ -15,6 +15,7 @@ $(function () {
                 ,btn: '确定'
             });
             hideLoader();
+            $('.btn').removeAttr('disabled','disabled');
             return;
         }
 
