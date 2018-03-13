@@ -16,6 +16,7 @@ var authenCode = getQueryString();
  $.ajax({
     url:'https://apix.funinhr.com/api/agree/colleague/verify/before',
     type: "POST",
+    timeout:5000,
     dataType:"json",
     data:"{\"authenCode\":\""+authenCode+"\"}",
     success: function (data) {
@@ -31,8 +32,6 @@ var authenCode = getQueryString();
         var colleagueName = jsonData.item.colleagueName;/*同事名字*/
         var result = jsonData.item.result;/*返回结果*/
         var resultInfo = jsonData.item.resultInfo;/*返回结果*/
-       
-       
         if(result===1001){
            // sessionStorage.setItem("code", code);/*授权码*/
             $("#verifyName").html(verifyName);
@@ -99,11 +98,7 @@ var authenCode = getQueryString();
                 },
                 error: function (XMLHttpRequest, textStatus) {
                     window.location.replace("netless.html");
-<<<<<<< HEAD
-                   /* layer.open({
-=======
                     /* layer.open({
->>>>>>> develop
                         content: '网络异常，请稍后重试'
                         ,btn: '确定'
                     });
@@ -254,19 +249,11 @@ var authenCode = getQueryString();
             },
             error: function () {
                 window.location.replace("netless.html");
-<<<<<<< HEAD
-              /*  layer.open({
-                    content: '网络异常，请稍后重试'
-                    ,btn: '确定'
-                });
-                hideLoader();*/
-=======
                 /*  layer.open({
                         content: '网络异常，请稍后重试'
                         ,btn: '确定'
                     });
                     hideLoader();*/
->>>>>>> develop
             }
         });
     });
@@ -290,32 +277,5 @@ var authenCode = getQueryString();
         hideLoader();
     }
 });
-
-
-    // var verifyName= sessionStorage.getItem("verifyName");/*姓名*/
-    // $("#verifyName").html(verifyName);
-    // var companyName= sessionStorage.getItem("companyName");/*公司名称*/
-    // $("#inpName").html(companyName);
-
-    // var verifyJob= sessionStorage.getItem("verifyJob");/*上家职位*/
-    // $(".verifyJob").html(verifyJob);
-    // var jobStartTime= sessionStorage.getItem("jobStartTime");/*入职时间*/
-    // $(".jobStartTime").html(jobStartTime);
-    // var jobEndTime= sessionStorage.getItem("jobEndTime");/*入职时间*/
-    // $(".jobEndTime").html(jobEndTime);
-    // var colleagueName= sessionStorage.getItem("colleagueName");/*同事名字*/
-    // $("#colleagueName").html(colleagueName);
-    // var enterpriseName= sessionStorage.getItem("enterpriseName");/*核验人面试公司*/
-    // $("#enterpriseName").html(enterpriseName);
-    // var colleagueCode= sessionStorage.getItem("colleagueCode");/*同事编码*/
-
-   // var code= sessionStorage.getItem("code");/*授权码*/
-
-   
-
-
-    
-   
-
     
 });
