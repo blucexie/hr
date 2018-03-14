@@ -96,6 +96,7 @@ body {
 .wageExplain p,
 .colleagueExplain p,
 .workExplain p,
+.workAbilityExplain p,
 .skillExplain p {
   font-size: 0.44rem;
   color: #999;
@@ -148,6 +149,7 @@ body {
 .eduExplain p > img,
 .wageExplain p > img,
 .colleagueExplain p > img,
+.workAbilityExplain p > img,
 .workExplain p > img,
 .skillExplain p > img {
   width: 0.24rem;
@@ -158,6 +160,7 @@ body {
 .wageExplain h4,
 .colleagueExplain h4,
 .workExplain h4,
+.workAbilityExplain h4,
 .skillExplain h4 {
   font-size: 0.52rem;
   color: #999;
@@ -166,7 +169,8 @@ body {
 .wageExplain h4,
 .colleagueExplain h4,
 .workExplain h4,
-.skillExplain h4 {
+.skillExplain h4,
+.workAbilityExplain h4 {
   margin: 0.8rem 0 0.6rem 0;
 }
 .no-verification p {
@@ -183,6 +187,7 @@ body {
 .education,
 .work,
 .colleague,
+.workAbility,
 .skill,
 .badness,
 .explain,
@@ -196,6 +201,7 @@ body {
 .colleague-header,
 .skill-header,
 .badness-header,
+.workAbility-header,
 .wage-header {
   border-bottom: 1px solid #e7e7e7;
 }
@@ -205,6 +211,7 @@ body {
 .colleague-header img,
 .skill-header img,
 .badness-header img,
+.workAbility-header img,
 .wage-header img {
   float: left;
   width: 5.96rem;
@@ -217,6 +224,7 @@ body {
 .colleague-header .new,
 .skill-header .new,
 .badness-header .new,
+.workAbility-header .new,
 .wage-header .new {
   width: 1.18rem;
   height: 0.6rem;
@@ -244,6 +252,7 @@ body {
 .colleague-header span,
 .skill-header span,
 .badness-header span,
+.workAbility-header span,
 .wage-header span {
   float: right;
   line-height: 0.96rem;
@@ -263,6 +272,7 @@ body {
 .colleagueExplain span,
 .skillTable p span:nth-of-type(1),
 .skillExplain span,
+.workAbilityTable p span:nth-of-type(1),
 .badnessTable div span:nth-of-type(1),
 .skillTable-noResult div span:nth-of-type(1),
 .wageTable div span:nth-of-type(1) {
@@ -321,6 +331,7 @@ body {
 .eduTable,
 .workTable,
 .colleagueTable,
+.workAbilityTable,
 .skillTable,
 .wageTable {
   padding-left: 0.56rem;
@@ -341,7 +352,8 @@ body {
 .eduTable h3 i,
 .workTable h3 i,
 .colleagueTable h3 i,
-.wageTable h3 i {
+.wageTable h3 i,
+.skillTable h3 i {
   display: inline-block;
   background: #00adb4 ;
   width: 0.26rem;
@@ -408,6 +420,7 @@ body {
 .workExplain,
 .colleagueExplain,
 .skillExplain,
+.workAbilityExplain,
 .wageExplain {
   padding-left: 0.56rem;
   border-top: 1px solid #e7e7e7;
@@ -469,6 +482,42 @@ body {
 .workTable-left .companyName {
   float: left;
   width: 8.4rem;
+}
+.workAbilityTable p {
+  line-height: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.workAbilityTable p span:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+}
+.workAbilityTable p span:nth-of-type(2) img {
+  width: 0.62rem;
+  height: 0.58rem;
+  margin-right: 0.28rem;
+}
+.workAbilityTable p span:nth-of-type(3) {
+  display: inline-block;
+  font-size: 0.52rem;
+  color: #f7b319;
+  margin-left: 0.6rem;
+  padding: 0.08rem 0;
+}
+.workAbilityTable .workLabel span:nth-of-type(2) {
+  display: flex;
+  justify-content: center;
+}
+.workAbilityTable .workLabel span:nth-of-type(2),
+.workAbilityTable .workLabel span:nth-of-type(3) {
+  float: left;
+  width: 2.72rem;
+  font-size: 0.48rem;
+  line-height: 0.48rem;
+  text-align: center;
+  color: #00adb4;
+  border: 1px solid #00adb4;
+  padding: 0.24rem 0;
 }
 /*同事*/
 .colleagueTable-left {
