@@ -18,6 +18,7 @@ var authenCode = getQueryString();
     type: "POST",
     timeout:5000,
     dataType:"json",
+    timeout:5000,
     data:"{\"authenCode\":\""+authenCode+"\"}",
     success: function (data) {
         console.log(data);
