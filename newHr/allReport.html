@@ -32,7 +32,7 @@
 <div class="verification-results">
     <div class="clearfix">
         <img src="images/verification.png" alt="">
-        <span class="result inconformity">不一致</span>
+        <span class="result inconformity">匹配度60%</span>
     </div>
     <div class="proportion clearfix">
         <div id="main"></div>
@@ -48,6 +48,10 @@
             <div class="clearfix">
                 <span class="noIcon"></span>
                 <span>未查得对应数据</span>
+            </div>   
+            <div class="clearfix">
+                <span class="wartIcon"></span>
+                <span>正在等待同事反馈</span>
             </div>    
         </div>
     </div>
@@ -289,6 +293,47 @@
             <p><img src="images/diamond-icon.png" alt="">公司名称为简称时无法核验</p>
     </div>
 </div>
+<div class="workAbility">
+    <div class="workAbility-header clearfix">
+        <img src="images/workAbility-bg.png" alt="">
+        <!-- <img class="new" src="images/new.png" alt=""> -->
+        <span class="accordance">良好</span>
+    </div>
+    <div class="workAbilityTable">
+        <p>
+            <span>工作能力</span>
+            <span>
+                <img src="./images/star-icon.png" alt="">
+                <img src="./images/star-icon.png" alt="">
+                <img src="./images/star1-icon.png" alt="">
+                <img src="./images/star1-icon.png" alt="">
+                <img src="./images/star1-icon.png" alt="">
+            </span>
+            <span>一般</span>
+        </p>
+        <p>
+            <span>工作表现</span>
+            <span>
+                <img src="./images/star-icon.png" alt="">
+                <img src="./images/star-icon.png" alt="">
+                <img src="./images/star-icon.png" alt="">
+                <img src="./images/star-icon.png" alt="">
+                <img src="./images/star-icon.png" alt="">
+            </span>
+            <span>优秀</span>
+        </p>
+        <p class="workLabel">
+            <span>工作标签</span>
+            <span>专业</span>
+            <span>勤奋</span>
+        </p>        
+    </div>
+    <div class="workAbilityExplain">
+        <h4>数据说明</h4>
+        <p><img src="images/diamond-icon.png" alt="">1-3颗星为表现一般；4颗星为表现良好，5颗星为表现优秀</p>
+
+    </div>
+</div>
 <div class="colleague">
     <div class="colleague-header clearfix">
         <img src="images/colleague-bg.png" alt="">
@@ -337,7 +382,7 @@
         <span class="accordance">一项职业资格证书</span>
     </div>
     <div class="skillTable">
-
+        <h3><i></i>职业资格证书</h3>
         <p>
             <span>证书编号</span>
             <span>232732794632786432864</span>
@@ -492,10 +537,13 @@
      // 基于准备好的dom，初始化echarts实例
      var myChart = echarts.init(document.getElementById('main'));
     var data = [{
-        value: 70,
+        value: 50,
 
     }, {
         value: 10,
+
+    }, {
+        value: 20,
 
     }, {
         value: 20,
@@ -515,7 +563,7 @@
             selectedMode: 'single',
             clockwise:false,
             radius: ['40%', '80%'],
-            color: ['#27d4af', '#fe4646', '#feb957'],
+            color: ['#27d4af','#feb957', '#fe4646',  '#fccb07'],
             silent:true,
             label: {
                 normal: {

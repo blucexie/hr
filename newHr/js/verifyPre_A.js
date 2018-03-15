@@ -2,75 +2,22 @@
  * Created by blucexie on 2017/12/16.
  */
 $(function () {
-
-    var userCode = "";
-    /*获取authenCode*/
-    function getQueryString(name)
-    {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)
-            return  unescape(r[2]);
-        return null;
-    }
-    var authenCode = getQueryString("authenCode");
-
-    $.ajax({
-        url:'https://apix.funinhr.com/api/agree/verify/before',
-        type: "POST",
-        timeout:5000,
-        dataType:"json",
-        data:"{\"authenCode\":\""+authenCode+"\"}",
-        success: function (data) {
-            var jsonData = eval("data="+data['plaintext']);
-            var verifyName = jsonData.item.verifyName;
-            var enterpriseName = jsonData.item.enterpriseName;
-            var verifyMobile = jsonData.item.verifyMobile;
-            var verifyJob = jsonData.item.verifyJob;
-             verifyCode = jsonData.item.verifyCode;
-             userCode = jsonData.item.userCode;
-            var result = jsonData.item.result;
-            var resultInfo = jsonData.item.resultInfo;
-                
-            if(result===1001){
-                $('.companyName').text(enterpriseName);
-                $('#resumeName').val(verifyName);
-                $('#resumeMobile').val(verifyMobile);
-                $('#jobInterview').val(verifyJob);
-                try{
-                    sessionStorage.verifyCode = verifyCode;
-                    sessionStorage.authenCode = authenCode;
-                }catch(e){
-                    layer.open({
-                        content: "请关闭无痕模式重新尝试"
-                        ,btn: '确定'
-                    });
-                }
-            }else if(result===2005){
-                window.location.replace('invalid.html');
-            }else {
-                layer.open({
-                    content: resultInfo
-                    ,btn: '确定'
-                });
-                $('.btn').removeAttr('disabled','disabled');
-                hideLoader();
-            }
-        },
-        error: function (XMLHttpRequest, textStatus){
-            layer.open({
-                content: '网络异常，请稍后重试'
-                ,btn: '确定'
-            });
-            $('.btn').removeAttr('disabled','disabled');
-            hideLoader();
-        }
-    });
-
+    var enterpriseName = sessionStorage.getItem("enterpriseName");
+    var  verifyName = sessionStorage.getItem("verifyName");
+    var  vMobile = sessionStorage.getItem("verifyMobile");
+    var  verifyCode = sessionStorage.getItem("verifyCode");
+    var verifyJob = sessionStorage.getItem("verifyJob");
+    var authenCode = sessionStorage.getItem("authenCode");
+    var userCode = sessionStorage.getItem("userCode");
+    $('.companyName').text(enterpriseName);
+    $('#resumeName').val(verifyName);
+    $('#resumeMobile').val(vMobile);
+    $('#jobInterview').val(verifyJob);
 
     /*下一步*/
-    $('.nextStep button').click(function () {  
+    $('.nextStep button').click(function () {
         var verifyIdCard = $('#resumeIdCard').val();
+        showLoader();
         var basicInfo = {};
         var basicPass = true;
         var inputObject;
@@ -119,14 +66,10 @@ $(function () {
             $(this).removeClass('errorShow');
             basicInfo[itemName] = itemVal;
         });
-          //有任何未校验通过的直接退出
-          if (!basicPass) return false;
-        // 增加传参  
         basicInfo.userCode = userCode;
         basicInfo.verifyCode = verifyCode;
         basicInfo.authenCode = authenCode;
-        // 显示遮罩
-        showLoader();
+       // basicInfo.userCode ="5a4c42422384751673a1134d";
             $.ajax({
             url:'https://apix.funinhr.com/api/get/pre/resume',
             type: "POST",
