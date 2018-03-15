@@ -729,9 +729,6 @@ body {
 .proportionExplain {
   float: left;
 }
-.proportionExplain > div {
-  margin-bottom: 0.4rem;
-}
 .proportionExplain > div span {
   font-size: 0.4rem;
   color: #666;
@@ -754,8 +751,12 @@ body {
 .noIcon {
   background: #feb957;
 }
+.wartIcon {
+  background: #fccb07;
+}
 .agreementIcon,
 .atypismIcon,
-.noIcon {
+.noIcon,
+.wartIcon {
   margin: 0.3rem 0.2rem 0.3rem 0 !important;
 }
