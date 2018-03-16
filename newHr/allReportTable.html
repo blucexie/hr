@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>报告</title>
     <link rel="stylesheet" href="css/allReportTable.css">
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/echarts.simple.min.js"></script>
 </head>
 <body>
 <div class="cover clearfix">
@@ -61,6 +63,9 @@
                 </tr>
                 <tr >
                     <td>
+                        <div class="evaluationRatio">
+                            <div id="main"></div>
+                        </div>
                         <ul>
                             <li>1.身份核验符合</li>
                             <li>2.教育信息可能存在疑问</li>
@@ -372,7 +377,6 @@
                 <td class="cell1">工作标签</td>
                 <td >专业，勤奋</td>
                 <td></td>
-
             </tr>
         </table >
         <table class="colleague" border="1" >
@@ -429,11 +433,7 @@
                 <th>说明</th>
             </tr>
             <tr>
-<<<<<<< HEAD
-                <td >违法记录</td>
-=======
                 <td>违法记录</td>
->>>>>>> develop
                 <td >0项不良记录</td>
                 <td>
                     <img src="images/allRight.png" alt="">

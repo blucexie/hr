@@ -369,7 +369,6 @@ body {
   margin-right: 0.6rem !important;
 }
 .eduTable-left .schoolTitle {
-<<<<<<< HEAD
   float: left;
   /*margin-right: 14/@r;*/
 }
@@ -389,27 +388,6 @@ body {
   line-height: 1.2rem;
   font-size: 0;
 }
-=======
-  float: left;
-  /*margin-right: 14/@r;*/
-}
-.eduTable-left .schoolName {
-  float: left;
-  width: 8.4rem !important;
-}
-.eduTable-left {
-  position: relative;
-  /* float: left;*/
-}
-.eduTable-left .queryStyle {
-  width: 0.26rem;
-  height: 0.42rem;
-}
-.eduTable-left p {
-  line-height: 1.2rem;
-  font-size: 0;
-}
->>>>>>> develop
 .eduTable-left p img,
 .workTable-left p img,
 .colleagueTable-left p img {
@@ -619,7 +597,6 @@ body {
 }
 .explain p span {
   font-size: 0.4rem;
-<<<<<<< HEAD
   color: #999;
 }
 /*核验记录*/
@@ -657,45 +634,6 @@ body {
   margin-right: 0.84rem;
   color: #999;
 }
-=======
-  color: #999;
-}
-/*核验记录*/
-.check-record {
-  border-bottom: 0.4rem solid #ebf0f2;
-}
-.check-record .record-header {
-  height: 1.96rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 0;
-}
-.check-record img {
-  width: 6.12rem;
-  height: 1.12rem;
-}
-.check-record h2 {
-  font-size: 0.64rem;
-  font-weight: 400;
-  text-align: center;
-  margin: 0.52rem 0;
-}
-.check-record div {
-  padding-left: 0.64rem;
-  border-top: 1px solid #eee;
-}
-.check-record div span {
-  float: left;
-  font-size: 0.48rem;
-  margin: 0.68rem 0;
-}
-.check-record div span:nth-of-type(1) {
-  width: 2.88rem;
-  margin-right: 0.84rem;
-  color: #999;
-}
->>>>>>> develop
 .check-record div span:nth-of-type(2) {
   font-size: 0.44rem;
   margin-right: 0.7rem;
@@ -781,8 +719,6 @@ body {
 .inconformitBg {
   background-color: #fe4646;
 }
-<<<<<<< HEAD
-=======
 #main {
   float: left;
   width: 4rem;
@@ -824,4 +760,3 @@ body {
 .wartIcon {
   margin: 0.3rem 0.2rem 0.3rem 0 !important;
 }
->>>>>>> develop

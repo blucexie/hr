@@ -7,13 +7,10 @@
     display: block;
     clear: both;
 }
-<<<<<<< HEAD
-=======
 body{
     font-family:"Microsoft YaHei";
     font-size: 16px;
 }
->>>>>>> develop
 @media print {
     .pageBreak {
       page-break-after: always;
@@ -41,20 +38,6 @@ h2{
     vertical-align: -8px;
 }
 .cover .title p span{
-<<<<<<< HEAD
-    line-height: 22px;;
-    font-size: 22px;
-    font-weight: 500;
-    padding: 6px 0;
-}
-.cover .column{
-    padding-top: 200px;
-    margin-left: 50px;
-}
-.column h1{
-    font-weight: 500;
-}
-=======
     line-height: 22px;
     font-size: 22px;
     font-weight: 500;
@@ -67,7 +50,6 @@ h2{
 .column h1{
     font-weight: 500;
 }
->>>>>>> develop
 .column h1,.column p{
     color: #00adb4;
 }
