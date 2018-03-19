@@ -721,13 +721,14 @@ body {
 }
 #main {
   float: left;
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height: 6rem;
   margin-left: 1rem;
-  margin-right: 3.2rem;
+  margin-right: 2.8rem;
 }
 .proportionExplain {
   float: left;
+  margin-top: 1.2rem;
 }
 .proportionExplain > div span {
   font-size: 0.4rem;

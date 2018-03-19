@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>报告</title>
     <link rel="stylesheet" href="css/allReportTable.css">
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> -->
     <script type="text/javascript" src="js/echarts.simple.min.js"></script>
 </head>
 <body>
@@ -64,17 +64,22 @@
                 <tr >
                     <td>
                         <div class="evaluationRatio">
-                            <div id="main"></div>
+                            <div id="main" ></div>
                         </div>
-                        <ul>
-                            <li>1.身份核验符合</li>
-                            <li>2.教育信息可能存在疑问</li>
-                            <li>3.近一年工资范围19000-20000</li>
-                            <li>4.工作经历核查情况属实</li>
-                            <li>5.同事证明情况属实</li>
-                            <li>6.1项职业资格证书</li>
-                            <li>7.无不良社会记录</li>
-                        </ul>
+                        <div class="line"></div>
+                        <div class="evaluationResults">
+                            <p>总体匹配度60%</p>
+                            <ul>
+                                <li>1.身份核验符合</li>
+                                <li>2.教育信息可能存在疑问</li>
+                                <li>3.近一年工资范围19000-20000</li>
+                                <li>4.工作经历核查情况属实</li>
+                                <li>5.同事证明情况属实</li>
+                                <li>6.1项职业资格证书</li>
+                                <li>7.无不良社会记录</li>
+                            </ul>
+                        </div>
+                        
                     </td>
                 </tr>
             </table >
@@ -445,5 +450,215 @@
 
       
     </div>
+    <script>
+        var myChart = echarts.init(document.getElementById('main'));
+        option = {
+
+            backgroundColor: "#fff",
+            color: ['#ffd285', '#ff733f', '#ec4863'],
+            grid: {
+                left: '1%',
+                right: '35%',
+                top: '16%',
+                bottom: '6%',
+                containLabel: true
+            },
+            series: [{
+                    type: 'pie',
+                    silent: true,
+                    avoidLabelOverlap: false,
+                    center: ['25%', '25%'],
+                    radius: ['15%', '25%'],
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data: [{
+                        value: 1,
+                          // name: '优秀',
+                        itemStyle: {
+                            normal: {
+                                color: '#27d4af'
+                            }
+                        },
+
+                        label: {
+                            normal: {
+                                formatter: '{d} %',
+                                textStyle: {
+                                    color: '#f1ca11',
+                                    fontSize: 14
+                                }
+                            }
+                        }
+                    }, {
+                        value: 1,
+                        // name: '优秀',
+                        itemStyle: {
+                            normal: {
+                                color: '#f7f7f7',
+                                position: 'outside'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#f1ca11',
+                                    position: 'outside'
+                                },
+                              //  formatter: '优秀'
+                            }
+                        }
+                    }, ]
+                },
+                {
+                    type: 'pie',
+                    silent: true,
+                    avoidLabelOverlap: false,
+                    center: ['75%', '25%'],
+                    radius: ['15%', '25%'],
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data: [{
+                        value: 100,
+                       //  name: '明厨亮灶实施',
+                        itemStyle: {
+                            normal: {
+                                color: '#fe5656'
+
+
+                            }
+                        },
+                        label: {
+                            normal: {
+                                formatter: '{d} %',
+                                position: 'center',
+                                textStyle: {
+                                    color: '#05c83c',
+                                    fontSize: 14
+                                }
+                            }
+                        }
+                    }, {
+                        value: 435,
+                        // name: '明厨亮灶实施',
+                        itemStyle: {
+                            normal: {
+                                color: '#f7f7f7'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#000',
+                                },
+                                // formatter: '\n明厨亮灶实施'
+                            }
+                        }
+                    }, ]
+                }, {
+                    type: 'pie',
+                    silent: true,
+                    avoidLabelOverlap: false,
+                    center: ['25%', '75%'],
+                    radius: ['15%', '25%'],
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data: [{
+                        value: 100,
+                      //  name: '色标管理未开展',
+                        itemStyle: {
+                            normal: {
+                                color: '#f6a129'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                formatter: '{d} %',
+                                textStyle: {
+                                    color: '#0fcff5',
+                                    fontSize: 14
+
+                                }
+
+                            }
+                        }
+                    }, {
+                        value: 435,
+                      //  name: '色标管理未开展',
+                        itemStyle: {
+                            normal: {
+                                color: '#f7f7f7'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#0fcff5',
+                                },
+                               //  formatter: '\n色标管理未开展'
+                            }
+                        }
+                    }, ]
+                }, {
+                    type: 'pie',
+                    silent: true,
+                    avoidLabelOverlap: false,
+                    center: ['75%', '75%'],
+                    radius: ['15%', '25%'],
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data: [{
+                        value: 100,
+                     //   name: '色标管理未开展',
+                        itemStyle: {
+                            normal: {
+                                color: '#fed221'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                formatter: '{d} %',
+                                textStyle: {
+                                    color: '#0fcff5',
+                                    fontSize: 14
+
+                                }
+
+                            }
+                        }
+                    }, {
+                        value: 435,
+                       //  name: '色标管理未开展',
+                        itemStyle: {
+                            normal: {
+                                color: '#f7f7f7'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#0fcff5',
+                                },
+                              //   formatter: '\n色标管理未开展'
+                            }
+                        }
+                    }, ]
+                }
+            ]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
 </body>
 </html>

@@ -5,8 +5,8 @@
     <title>全面核查报告</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/allReport.css">
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/echarts.simple.min.js"></script>
+     <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> -->
+   <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript">
         !function () {
             var html = document.documentElement;
@@ -496,16 +496,16 @@
      // 基于准备好的dom，初始化echarts实例
      var myChart = echarts.init(document.getElementById('main'));
     var data = [{
-        value: 50,
+        value: 4,
 
     }, {
-        value: 10,
+        value: 0,
 
     }, {
-        value: 20,
+        value: 2,
 
     }, {
-        value: 20,
+        value: 1,
 
     }];
     option = {
@@ -521,30 +521,31 @@
             type: 'pie',
             selectedMode: 'single',
             clockwise:false,
-            radius: ['40%', '80%'],
+            stillShowZeroSum:false,
+            radius: ['20%', '50%'],
             color: ['#27d4af','#feb957', '#fe4646',  '#fccb07'],
             silent:true,
             label: {
                 normal: {
-                    position: 'inner',
+                    position: 'outside',
                     formatter: '{d}%',
                     textStyle: {
-                        color: '#fff',
                         fontWeight: 'bold',
-                        fontSize: 10,
-                        align:'center'
+                        fontSize: 8,
                     }
                 }
             },
             labelLine: {
                 normal: {
-                    show: false
+                    show: true,
+                    length:6,
+                    length2:3
                 }
             },
             data: data
         }]
     };
-
+    
     // 使用刚指定的配置项和数据显示图表。
     myChart.setOption(option);
 </script>

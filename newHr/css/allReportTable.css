@@ -119,32 +119,15 @@ table tr{
 th {
 	text-align: center;
 }
-ul{
+/* ul{
    margin: 10px 0;
-}
+} */
 .identityCardPhoto img{
     width: 80px;
 }
 table tr td,table tr th{
     border: 1px solid #333;
 }
-/* .edu tr td:nth-of-type(1),.wage tr td:nth-of-type(1),
-.work tr td:nth-of-type(1),.colleague tr td:nth-of-type(1)
-{
-    width: 150px;
-}
-.edu tr td:nth-of-type(2),.wage tr td:nth-of-type(2),
-.work tr td:nth-of-type(2),.colleague tr td:nth-of-type(2){
-    width: 188px;
-}
-.edu tr td:nth-of-type(3),.wage tr td:nth-of-type(3),
-.work tr td:nth-of-type(3),.colleague tr td:nth-of-type(3){
-    width: 105px;
-}
-.edu tr td:nth-of-type(4),.wage tr td:nth-of-type(4),
-.work tr td:nth-of-type(4),.colleague tr td:nth-of-type(4){
-    width: 244px;
-} */
 
 .cell1{
     width: 150px; 
@@ -158,8 +141,6 @@ table tr td,table tr th{
 .cell4{
     width: 244px;
 }
-
-
 
 .brief tr td:nth-last-child(1){
     width: 244px;
@@ -190,4 +171,29 @@ table tr td,table tr th{
     border: none;
     border-radius: 20px;
     outline: none;
+}
+#main{
+    width: 350px;
+    height: 300px;
+}
+.evaluationRatio,.line,.evaluationResults{
+    float: left;
+}
+.line{
+    width: 1px;
+    height: 60px;
+    background: #666;
+    margin-top: 116px;
+}
+.evaluationResults{
+    padding-top: 20px;
+    padding-left: 50px;
+}
+.evaluationResults p{
+    text-align: left;
+    font-weight: bold; 
+    margin-bottom: 10px;
+}
+.evaluationResults ul{
+    padding: 0;
 }
