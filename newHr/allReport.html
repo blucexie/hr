@@ -5,7 +5,7 @@
     <title>全面核查报告</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="css/allReport.css">
-     <!-- <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script> -->
+     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
    <script type="text/javascript" src="js/echarts.min.js"></script>
     <script type="text/javascript">
         !function () {
@@ -13,7 +13,11 @@
             var hWidth = html.getBoundingClientRect().width;
             html.style.fontSize=hWidth/15+'px';
         }();
-
+        window.addEventListener('resize',(e)=>{
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        })
     </script>
 </head>
 <body>
@@ -32,7 +36,7 @@
 <div class="verification-results">
     <div class="clearfix">
         <img src="images/verification.png" alt="">
-        <span class="result inconformity">匹配度60%</span>
+        <span id="percent" class="result inconformity">匹配度60%</span>
     </div>
     <div class="proportion clearfix">
         <div id="main"></div>
@@ -493,7 +497,7 @@
 </div>
 
 <script>
-     // 基于准备好的dom，初始化echarts实例
+    /*  基于准备好的dom，初始化echarts实例 */
      var myChart = echarts.init(document.getElementById('main'));
     var data = [{
         value: 4,
@@ -507,7 +511,7 @@
     }, {
         value: 1,
 
-    }];
+    },];
     option = {
 
         backgroundColor: 'rgba(255,255,255,0)',
@@ -525,8 +529,9 @@
             radius: ['20%', '50%'],
             color: ['#27d4af','#feb957', '#fe4646',  '#fccb07'],
             silent:true,
-            label: {
+            label: { 
                 normal: {
+                    show:true,
                     position: 'outside',
                     formatter: '{d}%',
                     textStyle: {
@@ -545,9 +550,11 @@
             data: data
         }]
     };
-    
-    // 使用刚指定的配置项和数据显示图表。
+  
+     /* 使用刚指定的配置项和数据显示图表。 */
     myChart.setOption(option);
+    var resultPercent = Math.round(data[0].value / (data[0].value + data[1].value + data[2].value + data[3].value) * 10000) / 100;
+        document.getElementById("percent").innerHTML = '匹配度'+resultPercent + "%";
 </script>
 </body>
 </html>
