@@ -11,12 +11,21 @@
             var hWidth = html.getBoundingClientRect().width;
             html.style.fontSize=hWidth/15+'px';
         }()
+        window.addEventListener('resize',(e)=>{
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        })
     </script>
 </head>
 <body>
 <div class="succeed">
     <img src="images/success.png" alt="">
-    <p>提交成功，感谢您的配合！</p>
+    <p>提交成功，感谢您的配合!</p>
+    <p>（如需修改,请与HR取得联系）</p>
+</div>
+<div class="footer">
+    <img src="./images/succeed_footer.png" alt="">
 </div>
 
 <script type="text/javascript">
