@@ -12,7 +12,7 @@ $(function () {
 
         if(code =="" || code.length!=7){
             layer.open({
-                content: '请正确输入授权码'
+                content: '请输入7位授权码'
                 ,btn: '确定'
             });
             $(this).removeAttr('disabled','disabled');

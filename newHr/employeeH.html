@@ -114,7 +114,7 @@
             </label><br>
             <label  for="jobInterview">
                 <span class="jobInterview">面试职位</span>
-                <input id="jobInterview" type="text" name="resumeJob" placeholder="请输入面试职位" >
+                <input id="jobInterview" type="text" name="resumeJob" placeholder="请输入面试职位" maxlength="20" onkeyup="value=value.replace(/[\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))">
             </label><br>
             <label  for="salary">
                 <span class="salary">期望薪资</span>
@@ -150,23 +150,23 @@
             <p class="educate clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>
             <div class="schoolMsg">
                 <span>学校名称</span>
-                <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea>
+                <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')" maxlength="30"></textarea>
             </div>
             <div>
                 <span class="edu">学历</span>
-                <input onfocus='this.blur();' class="eduS"  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历">
+                <input onfocus="this.blur();" class="eduS"  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历">
             </div>
             <div>
                 <span class="specialty">专业</span>
-                <input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称">
+                <input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18">
             </div>
             <div>
                 <span>入学时间</span>
-                <input  onfocus='this.blur();'  class="StartTime"  type="text" name="educationStartTime" data-attribute="请选择入学时间"  placeholder="请选择入学时间" >
+                <input   onfocus="this.blur();"  class="StartTime"  type="text" name="educationStartTime" data-attribute="请选择入学时间"  placeholder="请选择入学时间" >
             </div>
             <div>
                 <span>毕业时间</span>
-                <input onfocus='this.blur();' class="EndTime"  type="text" name="educationEndTime"  data-attribute="请选择毕业时间"  placeholder="请选择毕业时间" >
+                <input  onfocus="this.blur();" class="EndTime"  type="text" name="educationEndTime"  data-attribute="请选择毕业时间"  placeholder="请选择毕业时间" >
             </div>
         </form>
         <div class="upEducation">
@@ -179,9 +179,10 @@
             <img src="images/skillBg.png" alt="">
         </div>
         <form class="skill" action="">
+            <p class="skillTitle clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>
             <div>
                 <span>证书名称</span>
-                <input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称">
+                <input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30">
             </div>
         </form>
         <div class="upSkill">
@@ -198,27 +199,27 @@
             <p class="workTitle workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>
             <div class="firmMsg">
                 <span>公司名称</span>
-                <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2" data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea>
+                <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2" data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea>
             </div>
             <div>
                 <span>工作岗位</span>
-                <input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位">
+                <input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))">
             </div>
             <div>
                 <span>岗位工资</span>
-                <input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\d]/g,'') "  pattern="[0-9]*" maxlength="6" >
+                <input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\d]/g,'') "  pattern="[0-9]*" maxlength="7" >
             </div>
             <div>
                 <span>开始时间</span>
-                <input onfocus='this.blur();' class="entryTime workTime"  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间">
+                <input onfocus="this.blur();" class="entryTime workTime"  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间">
             </div>
             <div>
                 <span>结束时间</span>
-                <input onfocus='this.blur();' class="outTime workTime"  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间">
+                <input onfocus="this.blur();" class="outTime workTime"  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间">
             </div>
             <div>
                 <span class="leaveOffice">离职原因</span>
-                <input onfocus='this.blur();' class="leaveCause"  type="text" name="resumeDissmionReason" data-attribute="请选择离职原因" placeholder="请选择离职原因">
+                <input onfocus="this.blur();" class="leaveCause"  type="text" name="resumeDissmionReason" data-attribute="请选择离职原因" placeholder="请选择离职原因">
             </div>
             <div>
                 <span class="certifierName">证明人姓名</span>

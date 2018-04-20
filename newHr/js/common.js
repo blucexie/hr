@@ -6,7 +6,8 @@
  */
 function isValidPhone(mobile){
 /*校验手机号码*/
-    var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|19[0-9]|14[57])[0-9]{8}$/;
+   // var re = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|19[0-9]|14[57])[0-9]{8}$/;
+    var re = /^1([358][0-9]|4[579]|66|7[0135678]|9[89])[0-9]{8}$/;
     return re.test(mobile);
 }
 // 校验固话
@@ -44,10 +45,12 @@ function checkUserFullName(name){
 }
 
 function checkICCard(resumeIdCard){
-	if(resumeIdCard.length!==18){
+    var idCard = /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/;
+    return idCard.test(resumeIdCard);
+	/* if(resumeIdCard.length!==18){
              return false;
     }
-    return true;
+    return true; */
 }
 function checkCode(validateCode){
     if(validateCode.length!==7){

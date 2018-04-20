@@ -40,7 +40,7 @@
     <ul class="clearfix">
         <li>
             <img src="images/a1.png" alt="">
-            <p>身份信息核验</p>
+            <p>身份信息核验</p> 
         </li>
         <li>
             <img src="images/a2.png" alt="">
@@ -81,16 +81,8 @@
     </label><br>
     <label for="resumeIdCard">
         <span class="inpId">身份证号码</span>
-        <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" maxlength="18">
+        <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" onkeyup="value=value.replace(/[\W]/g,'')" maxlength="18">
     </label><br>
-
-    <!--<div style="border-bottom: 1px solid #d4d4d4">
-        <label for="validateCode" id="mesCodeLabel">
-            <span class="msCode">短信验证码</span>
-            <input id="validateCode"  type="text" name="validateCode" data-attribute="请填写正确的验证码" placeholder="请输入7位验证码" maxlength="7">
-        </label>
-        <button type="button" id="mesBtn" class="mesBtn">获取验证码</button><br>
-    </div>-->
 </form>
 <div class="nextStep">
     <button>下一步</button>

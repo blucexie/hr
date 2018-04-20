@@ -133,6 +133,7 @@ $(function () {
                 basicPass = false;
                 return false;
             }
+            if (!basicPass) return;
             var itemPass = true;
             var itemVal = $(this).val();
             var itemName = $(this).attr('name');
@@ -162,6 +163,8 @@ $(function () {
             $(this).removeClass('errorShow');
             basicInfo[itemName] = itemVal;
         });
+        hideLoader()
+        if (!basicPass) return;
         basicInfo.userCode = userCode;
             $.ajax({
             url:'https://apix.funinhr.com/api/get/latest/resume',

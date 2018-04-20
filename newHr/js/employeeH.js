@@ -89,9 +89,9 @@ $(function () {
                                 var eduClass = 'eduS';
                                 var $school = ('<form class="educationTable" action="">' +
                                 '<p class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
-                                '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
+                                '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
                                 '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+(eduClass+(i+2))+'  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历"></div>'+
-                                '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
+                                '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18"></div>' +
                                 '<div><span>入学时间</span><input onfocus="this.blur();" class='+(starClass+(i+2))+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
                                 '<div><span>毕业时间</span><input onfocus="this.blur();" class='+(endClass+(i+2))+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
             
@@ -142,10 +142,14 @@ $(function () {
                             if(skillJson){
                                 skillJson = JSON.parse(skillJson);
                                 skillLength = skillJson.length;
+                                if(skillLength>1){
+                                    $('.skillTitle').css('display','block');
+                                }
                                 for(var i = 0;i<skillLength-1;i++){
-                                    var $skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
-                                    '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称"></div></form>');
-            
+                                    var $skill = ('<form class="skill" action="">' +
+                                    '<p class="skillTitleS clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>'+
+                                    '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
+                    
                                     $('.upSkill').before($skill);
                                 }
             
@@ -166,9 +170,9 @@ $(function () {
                                     var leaveClass = 'leaveCause';
                                     var $work = ('<form class="work">'+
                                     '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
-                                    '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
-                                    '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
-                                    '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
+                                    '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea></div>' +
+                                    '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\\d]/g,\'\') " onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/[\\d]/g,\'\')) "></div>' +
+                                    '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="7"></div>' +
                                     '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
                                     '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
                                     '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -385,9 +389,9 @@ $(function () {
             eduClass+=eduLength;
             var $school = ('<form class="educationTable" action="">' +
             '<p class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
-            '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
+            '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
             '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
-            '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
+            '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18"></div>' +
             '<div><span>入学时间</span><input onfocus="this.blur();" class='+starClass+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
             '<div><span>毕业时间</span><input onfocus="this.blur();" class='+endClass+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
@@ -497,6 +501,7 @@ $(function () {
     /*增加技能信息*/
 
     $('.addSkill').click(function () {
+        $('.skillTitle').css('display','block');
            skillLength++;
            if(skillLength>3){
                return
@@ -504,10 +509,11 @@ $(function () {
            if(skillLength==3){
             $('.addSkill').hide();
         }
-            var skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
-            '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称"></div></form>');
+        var skill = ('<form class="skill" action="">' +
+        '<p class="skillTitleS clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>'+
+        '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
-            $('.upSkill').before(skill);
+        $('.upSkill').before(skill);
 
     });
     /*收起技能信息*/
@@ -521,10 +527,9 @@ $(function () {
         }
         if(onOffS){
             $('.skill').css('display','none');
-            $('.lineSpacingS').css('display','none');
             var $skP="";
             for(var j = 0;j<certificateArr.length;j++){
-                $skP+='<p><span class="sk">技能信息'+(j+1)+'</span><span class="skName">'+certificateArr[j]+'</span></p>'
+                $skP+='<p><span class="sk">技能信息</span><span class="skName">'+certificateArr[j]+'</span></p>'
             }
             var $skE = ('<div class="upS">'+$skP+'</div>');
             $('.skillInformation').after($skE);
@@ -533,14 +538,33 @@ $(function () {
             onOffS = false;
         }else{
             $('.skill').css('display','block');
-            $('.lineSpacingS').css('display','block');
             $('.upS').css('display','none');
             $('.upSkill p').html('收起技能信息'+'<img src="images/downArrows.png" alt="">');
             $('.upSkill p img').removeAttr("src").attr("src","images/upArrows.png");
             onOffS = true;
         }
     });
-
+    $('body').on('click','.deleteBtnJ', function () {
+       
+        skillLength--;
+        if(skillLength<3){
+            $('.addSkill').show();
+        }
+        if(skillLength<1){
+            layer.open({
+                content: '必须保留一条记录'
+                ,btn: '确定',
+                yes: function(index){
+                    layer.close(index);
+                
+                }
+            });
+            skillLength=1;
+            return false;
+        }
+        $(this).parents('.skill').remove();
+       
+    });
     /*增加工作信息*/
 
       //公司名称查询
@@ -595,9 +619,9 @@ $(function () {
             leaveClass+=workLength;
             var $work = ('<form class="work">'+
             '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
-            '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
+            '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea></div>' +
             '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位"></div>' +
-            '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
+            '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="7"></div>' +
             '<div><span>开始时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择开始时间"></div>' +
             '<div> <span>结束时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择结束时间"></div>' +
             '<div> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -1063,11 +1087,37 @@ $(function () {
                         $(this).addClass('errorShow');
                         basicPass = false;
                         return false;
+                    }else if(itemVal>1700000){
+                        layer.open({
+                            content: '岗位工资需小于1700000'
+                            ,btn: '确定',
+                            yes: function(index){
+                                layer.close(index);
+                                inputObject.focus();
+                            }
+                        });
+                        $(this).addClass('errorShow');
+                        basicPass = false;
+                        return false;
                     }
                 }else if (itemName == 'workStartTime'){
                     if(itemVal>nowTime){
                         layer.open({
                             content: '开始时间需小于当前时间'
+                            ,btn: '确定',
+                            yes: function(index){
+                                layer.close(index);
+                                inputObject.focus();
+                            }
+                        });
+                        $(this).addClass('errorShow');
+                        basicPass = false;
+                        return false;
+                    }
+                }else if (itemName == 'colleagueName'){
+                    if(itemVal==basicAll['resumeName']){
+                        layer.open({
+                            content: '证明人姓名不能候选人姓名相同'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);

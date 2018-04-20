@@ -110,9 +110,9 @@ $(function () {
             var eduClass = 'eduS';
             var $school = ('<form class="educationTable" action="">' +
             '<p class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
-            '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
+            '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
             '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+(eduClass+(i+2))+'  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历"></div>'+
-            '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
+            '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18"></div>' +
             '<div><span>入学时间</span><input onfocus="this.blur();" class='+(starClass+(i+2))+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
             '<div><span>毕业时间</span><input onfocus="this.blur();" class='+(endClass+(i+2))+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
@@ -155,9 +155,14 @@ $(function () {
         if(skillJson){
             skillJson = JSON.parse(skillJson);
             skillLength = skillJson.length;
+           
+            if(skillLength>1){
+                $('.skillTitle').css('display','block');
+            }
             for(var i = 0;i<skillLength-1;i++){
-                var $skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
-                '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称"></div></form>');
+                var $skill = ('<form class="skill" action="">' +
+                '<p class="skillTitleS clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>'+
+                '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
                 $('.upSkill').before($skill);
             }
@@ -182,9 +187,9 @@ $(function () {
                 var leaveClass = 'leaveCause';
                 var $work = ('<form class="work">'+
                 '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
-                '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
-                '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位"></div>' +
-                '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写工作岗位"  placeholder="请输入岗位工资，如10000"  onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*"  maxlength="6"></div>' +
+                '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea></div>' +
+                '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\\d]/g,\'\') " onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/[\\d]/g,\'\')) "></div>' +
+                '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写岗位工资"  placeholder="请输入岗位工资，如10000"  onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*"  maxlength="7"></div>' +
                 '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
                 '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
                 '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -331,7 +336,6 @@ $(function () {
     };
     eduFn($('.eduS')[0]);
 
-    //var eIndex = 1;
     $('.addEducation').click(function () {
         $('.educate').css('display','block');
         eduLength++;
@@ -350,9 +354,9 @@ $(function () {
             eduClass+=eduLength;
             var $school = ('<form class="educationTable" action="">' +
             '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
-            '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称"></textarea></div>' +
+            '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
             '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
-            '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"></div>' +
+            '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18"></div>' +
             '<div><span>入学时间</span><input onfocus="this.blur();" class='+starClass+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
             '<div><span>毕业时间</span><input onfocus="this.blur();" class='+endClass+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
@@ -438,7 +442,6 @@ $(function () {
         }
         if(onOffE){
             $('.educationTable').css('display','none');
-            $('.lineSpacingE').css('display','none');
             var $epE = "";
             for(var i = 0;i<schoolArr.length;i++){
                 $epE+='<p><span class="ed">教育信息</span><span class="schName">'+schoolArr[i]+'</span></p>';
@@ -450,7 +453,6 @@ $(function () {
             onOffE = false;
         }else{
             $('.educationTable').css('display','block');
-            $('.lineSpacingE').css('display','block');
             $('.upE').css('display','none');
             $('.upEducation p').html('收起教育信息'+'<img src="images/downArrows.png" alt="">');
             $('.upEducation p img').removeAttr("src").attr("src","images/upArrows.png");
@@ -461,6 +463,7 @@ $(function () {
     /*增加技能信息*/
    // var t = 1;
     $('.addSkill').click(function () {
+        $('.skillTitle').css('display','block');
         skillLength++;
         if(skillLength>3){
            return false;
@@ -469,8 +472,9 @@ $(function () {
             $('.addSkill').hide();
         }
 
-        var skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
-        '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称"></div></form>');
+        var skill = ('<form class="skill" action="">' +
+        '<p class="skillTitleS clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>'+
+        '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
         $('.upSkill').before(skill);
 
@@ -485,10 +489,9 @@ $(function () {
         }
         if(onOffS){
             $('.skill').css('display','none');
-            $('.lineSpacingS').css('display','none');
             var $skP="";
             for(var j = 0;j<certificateArr.length;j++){
-                $skP+='<p><span class="sk">技能信息'+(j+1)+'</span><span class="skName">'+certificateArr[j]+'</span></p>'
+                $skP+='<p><span class="sk">技能信息</span><span class="skName">'+certificateArr[j]+'</span></p>'
             }
             var $skE = ('<div class="upS">'+$skP+'</div>');
             $('.skillInformation').after($skE);
@@ -497,14 +500,33 @@ $(function () {
             onOffS = false;
         }else{
             $('.skill').css('display','block');
-            $('.lineSpacingS').css('display','block');
             $('.upS').css('display','none');
             $('.upSkill p').html('收起技能信息'+'<img src="images/downArrows.png" alt="">');
             $('.upSkill p img').removeAttr("src").attr("src","images/upArrows.png");
             onOffS = true;
         }
     });
-
+    $('body').on('click','.deleteBtnJ', function () {
+       
+        skillLength--;
+        if(skillLength<3){
+            $('.addSkill').show();
+        }
+        if(skillLength<1){
+            layer.open({
+                content: '必须保留一条记录'
+                ,btn: '确定',
+                yes: function(index){
+                    layer.close(index);
+                
+                }
+            });
+            skillLength=1;
+            return false;
+        }
+        $(this).parents('.skill').remove();
+       
+    });
     /*增加工作信息*/
 
       //公司名称查询
@@ -565,9 +587,9 @@ $(function () {
             leaveClass+=workLength;
             var $work = ('<form data-value='+workLength+' class="work">' +
             '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
-            '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="40"></textarea></div>' +
-            '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位"></div>' +
-            '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写工作岗位" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
+            '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea></div>' +
+            '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob"  data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\\d]/g,\'\') " onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/[\\d]/g,\'\')) "></div>' +
+            '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
             '<div><span>开始时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择开始时间"></div>' +
             '<div> <span>结束时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择结束时间"></div>' +
             '<div> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
@@ -651,12 +673,10 @@ $(function () {
         }
         if(onOffW){
             $('.work').css('display','none');
-            $('.lineSpacingW').css('display','none');
             var $wkP="";
             for(var j = 0;j<firmArr.length;j++){
                 $wkP+='<p><span class="wk">工作经历</span><span class="wkName">'+firmArr[j]+'</span></p>'
             }
-            //var $wkE = ('<div class="upW"><p><span class="wk">工作经历</span><span class="wkName">北京天然科技领袖股份有限公司</span></p></div>');
             var $wkE = ('<div class="upW">'+$wkP+'</div>');
             $('.workExperience').after($wkE);
             $('.upWorkExperience p').html('展开工作经历'+'<img src="images/upArrows.png" alt="">');
@@ -664,7 +684,6 @@ $(function () {
             onOffW = false;
         }else{
             $('.work').css('display','block');
-            $('.lineSpacingW').css('display','block');
             $('.upW').css('display','none');
             $('.upWorkExperience p').html('收起工作经历'+'<img src="images/downArrows.png" alt="">');
             $('.upWorkExperience p img').removeAttr("src").attr("src","images/upArrows.png");
@@ -737,7 +756,6 @@ $(function () {
     }
     /*清除签名*/
     function clearCanvas() {
-        //$('#signature').html('<p><em>Your signature will appear here when you click "Save Signature"</em></p>');
         $('.js-signature').eq(1).jqSignature('clearCanvas');
         $('#saveBtn').attr('disabled', true);
     }
@@ -760,7 +778,6 @@ $(function () {
         if(img){
             var imgT = $('<img>').attr('src', img);
             $('.nameSpace').append(imgT);
-            //var resumeSignURL = img.slice(22);
         }
     }
     $('#saveBtn').click(function () {
@@ -906,9 +923,6 @@ $(function () {
                 var itemVal = $(this).val();
                 var itemName = $(this).attr('name');
                 if (itemName == 'educationEndTime') {
-                   // educationItem['educationStartTime'] = educationItem['educationStartTime'].slice(0, 4);
-
-
                     if (educationItem['educationStartTime'] >= itemVal) {
                         inputObject = $(this);
                         layer.open({
@@ -973,6 +987,8 @@ $(function () {
             return false;
         }
         if (!basicPass) return;
+
+
 
         //处理工作经历
         var workInfo =[];
@@ -1052,11 +1068,37 @@ $(function () {
                         $(this).addClass('errorShow');
                         basicPass = false;
                         return false;
+                    }else if(itemVal>1700000){
+                        layer.open({
+                            content: '岗位工资需小于1700000'
+                            ,btn: '确定',
+                            yes: function(index){
+                                layer.close(index);
+                                inputObject.focus();
+                            }
+                        });
+                        $(this).addClass('errorShow');
+                        basicPass = false;
+                        return false;
                     }
                 }else if (itemName == 'workStartTime'){
                     if(itemVal>nowTime){
                         layer.open({
                             content: '开始时间需小于当前时间'
+                            ,btn: '确定',
+                            yes: function(index){
+                                layer.close(index);
+                                inputObject.focus();
+                            }
+                        });
+                        $(this).addClass('errorShow');
+                        basicPass = false;
+                        return false;
+                    }
+                }else if (itemName == 'colleagueName'){
+                    if(itemVal==basicAll['resumeName']){
+                        layer.open({
+                            content: '证明人姓名不能候选人姓名相同'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
@@ -1158,7 +1200,38 @@ $(function () {
             /*技能*/
 
             var  skillInfo = [];
-            var skill = document.getElementsByClassName('skill');
+
+            $('.skill').each(function(){
+                basicPass = true;
+                $(this).find('input').each(function () {
+                    inputObject = $(this);
+                    if( $(this).val()== ''){
+                        skillInfo="";
+                    }
+                    var itemPass = true;
+                    var itemVal = $(this).val();
+                    var itemName = $(this).attr('name');
+
+                    if (itemName == 'certificateName' ){
+                        if(itemVal!=="" && itemVal.length<3 ){
+                            layer.open({
+                                content: '证书名称最少为3个字符'
+                                ,btn: '确定',
+                                yes: function(index){
+                                    layer.close(index);
+                                    inputObject.focus();
+                                }
+                            });
+                            $(this).addClass('errorShow');
+                            basicPass = false;
+                            return false;
+                        }
+                    }
+                })
+                
+            })
+            if (!basicPass) return;
+            /* var skill = document.getElementsByClassName('skill');
             for(var i = 0;i<skill.length;i++){
                 var skFn = function () {
                     var sInps = skill[i].getElementsByTagName('input');
@@ -1168,13 +1241,13 @@ $(function () {
                     })
                 };
                 skFn();
-            }
-            var $skInputs = $('.skill input');
+            } */
+           /*  var $skInputs = $('.skill input');
             for(var i = 0;i<$skInputs.length;i++){
                 if($skInputs[i].value==""){
                     skillInfo="";
                 }
-            }
+            } */
 
             /*获取签名字符串*/
             var resumeSignURL;

@@ -226,13 +226,16 @@ input {
   background: #ebf0f2;
 }
 .educate,
-.workTitle {
+.workTitle,
+.skillTitle {
   display: none;
 }
 .educate,
 .educateS,
 .workTitle,
-.workTitleS {
+.workTitleS,
+.skillTitle,
+.skillTitleS {
   margin-left: 0.6rem;
   font-size: 0.64rem;
   margin-top: 0.2rem;
@@ -240,7 +243,9 @@ input {
 .educate i,
 .educateS i,
 .workTitle i,
-.workTitleS i {
+.workTitleS i,
+.skillTitle i,
+.skillTitleS i {
   float: left;
   background: #00adb4 ;
   width: 0.28rem;
@@ -250,13 +255,16 @@ input {
 .educate span,
 .educateS span,
 .workTitle span,
-.workTitleS span {
+.workTitleS span,
+.skillTitle span,
+.skillTitleS span {
   float: left;
   margin: 0.48rem 0;
   line-height: 0.64rem;
 }
 .deleteBtn,
-.deleteBtnW {
+.deleteBtnW,
+.deleteBtnJ {
   float: right;
   width: 3.72rem;
   height: 1.16rem;
@@ -277,7 +285,8 @@ input {
   margin-right: 2.24rem;
 }
 .educationTable,
-.work {
+.work,
+.skill {
   border-top: 0.44rem solid #ebf0f2;
 }
 .educationTable1,
