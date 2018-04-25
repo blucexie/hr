@@ -39,7 +39,6 @@ function showLoader(){
  * @return {[type]}      [description]
  */
 function checkUserFullName(name){
-	//var jName = /^[\u4e00-\u9fa5]{2,15}$|^[a-zA-Z]{3,30}$/;
 	var jName = /(^[\u4e00-\u9fa5]{1}[\u4e00-\u9fa5\.·。]{0,8}[\u4e00-\u9fa5]{1}$)|(^[a-zA-Z]{1}[a-zA-Z\s]{0,8}[a-zA-Z]{1}$)/;
 	return jName.test(name);
 }

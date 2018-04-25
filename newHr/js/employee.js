@@ -188,7 +188,7 @@ $(function () {
                 var $work = ('<form class="work">'+
                 '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
                 '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea></div>' +
-                '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\\d]/g,\'\') " onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/[\\d]/g,\'\')) "></div>' +
+                '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
                 '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写岗位工资"  placeholder="请输入岗位工资，如10000"  onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*"  maxlength="7"></div>' +
                 '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
                 '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
@@ -444,7 +444,7 @@ $(function () {
             $('.educationTable').css('display','none');
             var $epE = "";
             for(var i = 0;i<schoolArr.length;i++){
-                $epE+='<p><span class="ed">教育信息</span><span class="schName">'+schoolArr[i]+'</span></p>';
+                $epE+='<p class="clearfix"><span class="ed">教育信息</span><span class="schName">'+schoolArr[i]+'</span></p>';
             }
             var $epF = ('<div class="upE">'+$epE+'</div>');
             $('.education').after($epF);
@@ -453,7 +453,7 @@ $(function () {
             onOffE = false;
         }else{
             $('.educationTable').css('display','block');
-            $('.upE').css('display','none');
+            $('.upE').remove();
             $('.upEducation p').html('收起教育信息'+'<img src="images/downArrows.png" alt="">');
             $('.upEducation p img').removeAttr("src").attr("src","images/upArrows.png");
             onOffE = true;
@@ -491,7 +491,7 @@ $(function () {
             $('.skill').css('display','none');
             var $skP="";
             for(var j = 0;j<certificateArr.length;j++){
-                $skP+='<p><span class="sk">技能信息</span><span class="skName">'+certificateArr[j]+'</span></p>'
+                $skP+='<p class="clearfix"><span class="sk">技能信息</span><span class="skName">'+certificateArr[j]+'</span></p>'
             }
             var $skE = ('<div class="upS">'+$skP+'</div>');
             $('.skillInformation').after($skE);
@@ -500,7 +500,7 @@ $(function () {
             onOffS = false;
         }else{
             $('.skill').css('display','block');
-            $('.upS').css('display','none');
+            $('.upS').remove();
             $('.upSkill p').html('收起技能信息'+'<img src="images/downArrows.png" alt="">');
             $('.upSkill p img').removeAttr("src").attr("src","images/upArrows.png");
             onOffS = true;
@@ -512,7 +512,7 @@ $(function () {
         if(skillLength<3){
             $('.addSkill').show();
         }
-        if(skillLength<1){
+       /*  if(skillLength<1){
             layer.open({
                 content: '必须保留一条记录'
                 ,btn: '确定',
@@ -523,7 +523,7 @@ $(function () {
             });
             skillLength=1;
             return false;
-        }
+        } */
         $(this).parents('.skill').remove();
        
     });
@@ -588,7 +588,7 @@ $(function () {
             var $work = ('<form data-value='+workLength+' class="work">' +
             '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
             '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea></div>' +
-            '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob"  data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\\d]/g,\'\') " onbeforepaste="clipboardData.setData(\'text\',clipboardData.getData(\'text\').replace(/[\\d]/g,\'\')) "></div>' +
+            '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob"  data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
             '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
             '<div><span>开始时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择开始时间"></div>' +
             '<div> <span>结束时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择结束时间"></div>' +
@@ -675,7 +675,7 @@ $(function () {
             $('.work').css('display','none');
             var $wkP="";
             for(var j = 0;j<firmArr.length;j++){
-                $wkP+='<p><span class="wk">工作经历</span><span class="wkName">'+firmArr[j]+'</span></p>'
+                $wkP+='<p class="clearfix"><span class="wk">工作经历</span><span class="wkName">'+firmArr[j]+'</span></p>'
             }
             var $wkE = ('<div class="upW">'+$wkP+'</div>');
             $('.workExperience').after($wkE);
@@ -684,7 +684,7 @@ $(function () {
             onOffW = false;
         }else{
             $('.work').css('display','block');
-            $('.upW').css('display','none');
+            $('.upW').remove();
             $('.upWorkExperience p').html('收起工作经历'+'<img src="images/downArrows.png" alt="">');
             $('.upWorkExperience p img').removeAttr("src").attr("src","images/upArrows.png");
             onOffW = true;

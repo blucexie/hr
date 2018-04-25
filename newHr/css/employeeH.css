@@ -389,12 +389,16 @@ input {
   padding-top: 0.8rem;
 }
 .upE .ed {
+  float: left;
+  width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
   margin-left: 0.6rem;
   margin-right: 1.08rem;
 }
 .upE .schName {
+  float: left;
+  width: 8rem;
   font-size: 0.6rem;
   color: #666;
 }
@@ -443,14 +447,22 @@ textarea {
   border: none;
   padding-top: 0.4rem;
   font-family: Arial;
+  resize: none;
 }
 /*收起时工作经历*/
 .upW,
 .upS {
   padding-top: 0.8rem;
 }
+.upE > p,
+.upW > p,
+.upS > p {
+  margin-bottom: 0.2rem;
+}
 .upW .wk,
 .upS .sk {
+  float: left;
+  width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
   margin-left: 0.6rem;
@@ -458,6 +470,8 @@ textarea {
 }
 .upW .wkName,
 .upS .skName {
+  float: left;
+  width: 8rem;
   font-size: 0.6rem;
   color: #666;
 }

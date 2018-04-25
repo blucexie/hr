@@ -118,7 +118,7 @@
             </label><br>
             <label  for="salary">
                 <span class="salary">期望薪资</span>
-                <input id="salary" type="text" name="resumeExpectSalary" placeholder="请输入期望薪资，如10K">
+                <input id="salary" type="tel" name="resumeExpectSalary" placeholder="请输入期望薪资，需填写纯数字" onkeyup="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
             </label><br>
             <div class="identity">
                 <span>身份</span>
@@ -130,9 +130,9 @@
             <div class="isDimission">
                 <span class="radioS">
                    是否离职</span>
-                <input  type="radio" id="yDimission" name="dimission"  value="1" checked="checked">
+                <input  type="radio" id="yDimission" name="dimission"  value="1" >
                 <label for="yDimission"> &nbsp;是</label>
-                <input type="radio" id="nDimission" name="dimission" value="0">
+                <input type="radio" id="nDimission" name="dimission" value="0" checked="checked">
                 <label for="nDimission"> &nbsp; 否</label>
             </div>
         </form>
@@ -203,7 +203,7 @@
             </div>
             <div>
                 <span>工作岗位</span>
-                <input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))">
+                <input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </div>
             <div>
                 <span>岗位工资</span>
