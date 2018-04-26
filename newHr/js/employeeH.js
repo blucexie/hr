@@ -995,7 +995,6 @@ $(function () {
                         ,btn: '确定',
                         yes: function(index){
                             layer.close(index);
-                            inputObject.focus();
                         }
 
                     });
@@ -1221,7 +1220,6 @@ $(function () {
                         btn: '确定',
                         yes: function (index) {
                             layer.close(index);
-                            inputObject.focus();
                         }
 
                     });

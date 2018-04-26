@@ -827,9 +827,11 @@ $(function () {
                         ,btn: '确定',
                         yes: function(index){
                             layer.close(index);
-                            inputObject.focus();
+                            $("#salary").focus();
                         }
                     });
+                    basicPass = false;
+                    return false;
                 }
             }
 
@@ -938,7 +940,6 @@ $(function () {
                         ,btn: '确定',
                         yes: function(index){
                             layer.close(index);
-                            inputObject.focus();
                         }
 
                     });
@@ -1165,7 +1166,6 @@ $(function () {
                         btn: '确定',
                         yes: function (index) {
                             layer.close(index);
-                            inputObject.focus();
                         }
 
                     });
