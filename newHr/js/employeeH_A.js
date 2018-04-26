@@ -820,6 +820,17 @@ $(function () {
                 itemPass = checkUserFullName(itemVal);
             }else if(itemName == 'resumeMobile'){
                 itemPass = isValidPhone(itemVal);
+            }else if(itemName == 'resumeExpectSalary'){
+                if(itemVal>1700000){
+                    layer.open({
+                        content: "期望薪资需小于1700000"
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                            inputObject.focus();
+                        }
+                    });
+                }
             }
 
             if (!itemPass){
@@ -849,6 +860,8 @@ $(function () {
 
         //处理教育经历
         var educationInfo = [];
+        var eduBeginTime = [];
+        var eduOverTime = [];
         $('.educationTable').each(function () {
             basicPass = true;
             var formEmpty = true;
@@ -908,6 +921,32 @@ $(function () {
                 educationItem[$(this).attr('name')] = $(this).val();
             });
 
+            /* 校验教育时间交叉 */
+           
+            $(this).find('input[name="educationStartTime"]').each(function () {
+                eduBeginTime.push($(this).val())
+            })
+            $(this).find('input[name="educationEndTime"]').each(function () {
+                eduOverTime.push($(this).val())
+             })
+            eduBeginTime = eduBeginTime.sort();
+            eduOverTime = eduOverTime.sort();
+            for (i = 1; i < eduBeginTime.length; i++) {
+                if (eduBeginTime[i] < eduOverTime[i - 1]) {
+                    layer.open({
+                        content: "教育时间不能有交叉"
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                            inputObject.focus();
+                        }
+
+                    });
+                    basicPass = false;
+                    return false;
+                }
+            }    
+
             $(this).find('textarea').each(function () {
                 if( $(this).val()== ''){
                     inputObject = $(this);
@@ -955,6 +994,8 @@ $(function () {
 
         //处理工作经历
         var workInfo =[];
+        var workBeginTime = [];
+        var workOverTime = [];
         $('.work').each(function () {
             basicPass = true;
             var formEmpty = true;
@@ -1106,6 +1147,32 @@ $(function () {
                 $(this).removeClass('errorShow');
                 workItem[$(this).attr('name')] = $(this).val();
             });
+
+              /* 校验工作时间交叉 */
+
+              $(this).find('input[name="workStartTime"]').each(function () {
+                workBeginTime.push($(this).val())
+            })
+            $(this).find('input[name="workEndTime"]').each(function () {
+                workOverTime.push($(this).val())
+            })
+            workBeginTime = workBeginTime.sort();
+            workOverTime = workOverTime.sort();
+            for (i = 1; i < workBeginTime.length; i++) {
+                if (workBeginTime[i] < workOverTime[i - 1]) {
+                    layer.open({
+                        content: "工作时间不能有交叉",
+                        btn: '确定',
+                        yes: function (index) {
+                            layer.close(index);
+                            inputObject.focus();
+                        }
+
+                    });
+                    basicPass = false;
+                    return false;
+                }
+            }
             if (!basicPass) return false;
 
             $(this).find('textarea').each(function () {

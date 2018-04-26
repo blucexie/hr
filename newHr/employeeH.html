@@ -114,7 +114,7 @@
             </label><br>
             <label  for="jobInterview">
                 <span class="jobInterview">面试职位</span>
-                <input id="jobInterview" type="text" name="resumeJob" placeholder="请输入面试职位" maxlength="20" onkeyup="value=value.replace(/[\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[\d]/g,''))">
+                <input id="jobInterview" type="text" name="resumeJob" placeholder="请输入面试职位" maxlength="20" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </label><br>
             <label  for="salary">
                 <span class="salary">期望薪资</span>
