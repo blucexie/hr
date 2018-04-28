@@ -893,8 +893,8 @@ $(function () {
 
         //处理教育经历
         var educationInfo = [];
-        var eduBeginTime = [];
-        var eduOverTime = [];
+       /*  var eduBeginTime = [];
+        var eduOverTime = []; */
         $('.educationTable').each(function () {
             basicPass = true;
             var formEmpty = true;
@@ -954,7 +954,7 @@ $(function () {
             });
             /* 校验教育时间交叉 */
                     
-            $(this).find('input[name="educationStartTime"]').each(function () {
+         /*    $(this).find('input[name="educationStartTime"]').each(function () {
                 eduBeginTime.push($(this).val())
             })
             $(this).find('input[name="educationEndTime"]').each(function () {
@@ -976,7 +976,7 @@ $(function () {
                     return false;
                 }
             }
-
+ */
             $(this).find('textarea').each(function () {
                 if( $(this).val()== ''){
                     inputObject = $(this);
@@ -1024,8 +1024,8 @@ $(function () {
 
         //处理工作经历
         var workInfo =[];
-        var workBeginTime = [];
-        var workOverTime = [];
+       /*  var workBeginTime = [];
+        var workOverTime = []; */
         $('.work').each(function () {
             basicPass = true;
             var formEmpty = true;
@@ -1181,7 +1181,7 @@ $(function () {
             });
             /* 校验工作时间交叉 */
 
-            $(this).find('input[name="workStartTime"]').each(function () {
+           /*  $(this).find('input[name="workStartTime"]').each(function () {
                 workBeginTime.push($(this).val())
             })
             $(this).find('input[name="workEndTime"]').each(function () {
@@ -1202,7 +1202,7 @@ $(function () {
                     basicPass = false;
                     return false;
                 }
-            }
+            } */
 
             if (!basicPass) return false;
 
