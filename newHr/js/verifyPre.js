@@ -89,6 +89,7 @@ $(function () {
                 basicPass = false;
                 return false;
             }
+            if (!basicPass) return false;
             var itemPass = true;
             var itemVal = $(this).val();
             var itemName = $(this).attr('name');
@@ -133,7 +134,6 @@ $(function () {
             dataType:"json",
             data:JSON.stringify(basicInfo),
             success: function (data){
-                console.log(data);
                 hideLoader();
                 var jsonData = JSON.parse(data['plaintext']);
                 if (jsonData == undefined || jsonData.item == undefined){
