@@ -28,7 +28,6 @@ textarea{
 input{
   border-radius: 0;
   caret-color:#574e5f;
-  -webkit-appearance: none;
   background:none;
   outline:none;
   border: none;
@@ -44,11 +43,9 @@ input{
 
 #header{
   width: 750/@r;
- /* height: 300/@r;*/
+  height: 388/@r;
   background: url("../images/header-bg.png")no-repeat;
-  background-size: 316/@r 158/@r;
-  background-position: right bottom;
-  padding-bottom: 38/@r;
+  background-size: 750/@r 346/@r;
 }
 #logo{
   float: left;
@@ -72,7 +69,7 @@ input{
 }
 .company p {
   font-size: 30/@r;
-  color: #574e5e;
+  color: #fff;
   line-height: 54/@r;
 }
 .company p:nth-of-type(2){
@@ -84,7 +81,7 @@ input{
   margin-top: 14/@r;
 }
 .warn p{
-  color: #fd511c;
+  color: #feee5f; 
   font-size: 28/@r;
   height: 38/@r;
   line-height: 38/@r;
@@ -95,21 +92,39 @@ input{
   height: 12/@r;
   vertical-align: 4/@r;
 }
-.interval{
+/* .interval{
   height: 22/@r;
   background: #ebf0f2;
-}
+} */
 /*····················*/
 .licensedContent{
+  width: 694/@r;
   padding-bottom: 26/@r;
+  margin: 0 auto;
+  margin-top: -110/@r;
+  background: #fff;
+  border-radius: 5/@r;
+  margin-bottom: 22/@r;
 }
-.licensedContent h2{
-  font-size: 32/@r;
+.licensedContentTitle{
+  display: flex;
+  align-items: center;
+  padding-top: 18/@r;
+}
+.licensedContentTitle h2{
+  font-size: 30/@r;
   font-weight: 400;
   color: #333;
-  margin-top: 24/@r;
-  margin-left: 30/@r;
+  
 }
+.licensedContentTitle>img{
+  float: left;
+  width: 5/@r;
+  height: 31/@r;
+  margin: 0 12/@r;
+}
+
+
 .licensedContent ul li{
   float: left;
   width: 33.33%;
@@ -128,6 +143,12 @@ input{
   margin-top: 56/@r;
 }
 /*基本信息*/
+.formValidation{
+  width: 694/@r;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 28/@r;
+}
 .formValidation h2{
   font-size: 32/@r;
   font-weight: 400;
@@ -137,24 +158,25 @@ input{
   margin-bottom: 35/@r;
 }
 .formValidation label,.educationTable div, .work div, .skill div{
-  width: 720/@r;
+  width: 694/@r;
   font-size: 30/@r;
   color: #573e5f;
-  margin-left: 30/@r;
-  height: 88/@r;
-  line-height: 88/@r;
+  height: 100/@r;
+  line-height: 100/@r;
   display: inline-block;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
 }
 .basic, .education,.workExperience,.skillInformation{
-  border-bottom:1px solid #d4d4d4;
+ text-align: center;
+ padding-top: 27/@r;
 }
-
-.basic img,.education img,.workExperience img,.skillInformation img{
-  float: left;
-  width: 364/@r;
-  height: 55/@r;
-  margin: 16/@r 0;
+.basic img,.skillInformation img{
+  width: 268/@r;
+  height: 58/@r;
+}
+.education img,.workExperience img{
+  width: 268/@r;
+  height: 80/@r;
 }
 .education strong,.workExperience strong{
   float: right;
@@ -217,18 +239,22 @@ input{
   line-height: 88/@r;
   font-size: 32/@r;
   color: #573e5f;
-  margin-left: 30/@r;
   height: 88/@r;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
 }
-/*.isDimission{
-  display: none;
-}*/
+.isDimission{
+  height: 130/@r;
+  border-bottom:none;
+  padding-bottom: 30/@r;
+}
 .isDimission .radioS{
   margin-right: 50/@r;
 }
 .identity span{
   margin-right: 100/@r;
+}
+.identity{
+  height: 100/@r;
 }
 .isDimission label{
   width: 110/@r;
@@ -239,9 +265,12 @@ input{
   display: inline-block;
   border-bottom: none;
 }
+.isDimission label:nth-of-type(1){
+  margin-right: 50/@r;
+}
 .identity label{
   width: 150/@r;
-  height: 60/@r;
+  height: 100/@r;
   color: #573e5f;
   margin-left: 0;
   line-height: 0;
@@ -253,24 +282,32 @@ input{
 }
 .isDimission input[type=radio]+label:before,.identity input[type=radio]+label:before{
   display: inline-block;
-  width: 31/@r;
-  height: 31/@r;
+  width: 26/@r;
+  height: 26/@r;
   content: '';
   background: url("../images/radion.png")no-repeat;
-  background-size: 31/@r 30/@r;
+  background-size: 26/@r 26/@r;
 }
 .isDimission input[type=radio]:checked+label:before,.identity input[type=radio]:checked+label:before{
   content:' ';
   background: url("../images/radio.png")no-repeat;
-  background-size: 31/@r 30/@r;
+  background-size: 26/@r 26/@r;
 }
-.upBasic{
-  line-height: 102/@r;
-  /*border-bottom: 1px solid #d4d4d4 ;*/
-  font-size: 30/@r;
-  color: #bfbfbf;
-  text-align: center;
-  padding-top: 20/@r;
+#deForm label,#deForm>div,.educationTable>div,.skill>div,.work>div{
+  display: flex;
+  float: left;
+  align-items: center;
+}
+#deForm div{
+  width: 694/@r;
+}
+#deForm label i,#deForm div i,
+.educationTable>div i,.skill>div i,.work>div i{
+  float: left;
+  width: 8/@r;
+  height: 8/@r;
+  border-radius: 50%;
+  margin: 0 22/@r 0 14/@r;
 }
 /*基本信息收起时*/
 .upB{
@@ -290,8 +327,7 @@ input{
 /*教育信息*/
 .lineSpacingE,.lineSpacingS,.lineSpacingW,.septal-line{
   height: 22/@r;
-  background: #ebf0f2;
- /* border-top: 1px solid #d4d4d4;*/
+  background: #f8f8f8;
 }
 .educate,.workTitle,.skillTitle{
   display: none;
@@ -306,31 +342,50 @@ input{
 }
 .educate span,.educateS span,.workTitle span,
 .workTitleS span,.skillTitle span,.skillTitleS span{
+  width: 162/@r;
+  height: 42/@r;
   float: left;
+  text-align: center;
+  margin: 24/@r 0;
+  line-height:42/@r;
+  background: url("../images/title-bg.png") no-repeat;
+  background-size: 162/@r 42/@r;
+  color: #fff;
+  font-size: 28/@r;
 }
-.deleteBtn,.deleteBtnW,.deleteBtnJ{
-  width: 186/@r;
+.educationTable .deleteBtn,.deleteBtnW,.deleteBtnJ{
+  float: right;
+  display: flex;
+  align-items: center;
   height: 58/@r;
   line-height: 58/@r;
-  margin-left: 350/@r;
-  border: 1px solid #03aaad;
-  border-radius: 10/@r;
-  color: #03aaad;
   font-size: 26/@r;
-  background: #fff;
+  margin: 16/@r 30/@r 16/@r 0;
+  font-style: normal;
+  color: #bfbfbf;
+}
+.educationTable .deleteBtn img,
+.deleteBtnW img,.deleteBtnJ img{
+  width: 28/@r;
+  height: 28/@r;
+  margin-right: 8/@r;
 }
 .educationTable div span{
-  margin-right: 50/@r;
+  margin-right: 50/@r!important;
 }
-.educationTable .career, .educationTable .edu,.educationTable .specialty{
+/* .educationTable .career, .educationTable .edu,.educationTable .specialty{
   margin-right: 112/@r;
-}
-.educationTable,.work,.skill{
+} */
+/* .educationTable,.work,.skill{
   border-top:22/@r solid #ebf0f2 ;
-}
+} */
 .educationTable1,.work1{
   border-top:none;
 }
+.educationTable .edu,.educationTable .career {
+  margin-right: 110/@r !important;
+}
+
 .upEducation,.upSkill{
   line-height: 102/@r;
  /* border-bottom: 1px solid #d4d4d4 ;*/
@@ -341,8 +396,8 @@ input{
 }
 
 .upEducation img, .upWorkExperience img,.upSkill img{
-  width: 236/@r;
-  height: 31/@r;
+  width: 292/@r;
+  height: 68/@r;
 }
 /*收起时教育信息*/
 .upE{
@@ -389,12 +444,16 @@ input{
 .work .certifierName,.work .certifierTel{
   margin-right: 20/@r;
 }
+.work .relation{
+  margin-right: 110/@r;
+}
 .schoolMsg,.firmMsg{
   height: 110/@r!important;
   line-height:110/@r!important;
 }
 textarea{
-  background: #f9f7f6;
+  width: 450/@r;
+  background: #fff;
   outline: none;
   font-size: 30/@r;
   vertical-align: middle;
@@ -424,12 +483,12 @@ textarea{
   font-size: 30/@r;
   color: #666;
 }
-.cuttingLine{
+/* .cuttingLine{
   height: 22/@r;
-  background: #ebf0f2;
+  background: #f8f8f8;
   border-top: 1px solid #d4d4d4;
   border-bottom: 1px solid #d4d4d4;
-}
+} */
 /*·········*/
 .declare{
   margin-top: 80/@r;
@@ -531,14 +590,16 @@ textarea{
 }
 .footerDeclare{
   height: 300/@r;
-  background: #ebf0f2;
+  background: #fff;
+  text-align: center;
 }
 .footerDeclare p{
-  float: left;
   font-size: 26/@r;
   color: #999;
   padding-top: 26/@r;
-  padding-left: 130/@r;
+}
+.footerDeclare p span{
+  color: #00adb4;
 }
 
 .hint{
@@ -707,4 +768,22 @@ textarea{
 }
 .errorShow{
   border-bottom: 1px solid #00adb4!important;
+}
+.yellowBg{
+  background: #feaf3f;
+}
+.blueBg{
+  background: #00a0e9;
+}
+.purpleBg{
+  background: #f528c7;
+}
+.greenBg{
+  background: #00adb4;
+}
+.orangeBg{
+  background: #f07227;
+}
+.darkGreenBg{
+  background: #00b44c;
 }

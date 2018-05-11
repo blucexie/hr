@@ -1,3 +1,4 @@
+@r:50rem;
 * {
   margin: 0;
   padding: 0;
@@ -32,10 +33,10 @@ input {
   clear: both;
 }
 #header {
-  width: 15rem;
-  height: 7.76rem;
-  background: url("../images/header-bg.png") no-repeat;
-  background-size: 15rem 6.92rem;
+  width: 750/@r;
+  height: 388/@r;
+  background: url("../images/header-bg.png")no-repeat;
+  background-size: 750/@r 346/@r;
 }
 #logo {
   float: left;
@@ -57,14 +58,15 @@ input {
 }
 .company .companyName {
   font-size: 0.6rem;
-  /*   height: 1.12rem; */
+/*   height: 1.12rem; */
 }
-.ma-t {
+.ma-t{
   margin-top: 0.5rem;
 }
-#header div .font {
+#header div .font{
   font-size: 0.56rem;
 }
+
 .company p {
   font-size: 0.64rem;
   color: #fff;
@@ -114,7 +116,7 @@ input {
 .interval2 {
   margin-top: 1.12rem;
 }
-.mask {
+.mask{
   display: none;
   width: 100%;
   height: 100%;
@@ -132,28 +134,28 @@ input {
   margin: 0 auto;
   margin-top: 78px;
 }
-.mask-sub {
+.mask-sub{
   display: inline-block;
   font-size: 18px;
   color: #574e5f;
   margin-top: 21px;
   margin-left: 18px;
 }
-.mask-line {
+.mask-line{
   display: inline-block;
   width: 100%;
   border-bottom: 1px solid #d4d4d4;
 }
-.ling-wei {
-  width: 21px;
-  height: 21px;
-  background: url(../../newHr/images/weixuanzhong.png) no-repeat;
-  background-size: 100% 100%;
-  float: left;
-  margin: 15px 0px;
-  margin-left: 18px;
-}
-.ling-xuan {
+.ling-wei{
+   width: 21px;
+   height: 21px;
+   background: url(../../newHr/images/weixuanzhong.png) no-repeat;
+   background-size: 100% 100%;
+   float:left;
+   margin: 15px 0px;
+   margin-left: 18px;
+ }
+.ling-xuan{
   width: 21px;
   height: 21px;
   background: url(../../newHr/images/xuanzhong.png) no-repeat;
@@ -162,10 +164,10 @@ input {
   margin: 15px 0px;
   margin-left: 18px;
 }
-.progress-t {
+.progress-t{
   overflow: hidden;
 }
-.progress-z {
+.progress-z{
   font-size: 17px;
   color: #574e5f;
   margin-top: 13px;
@@ -183,28 +185,28 @@ input {
   margin-top: 0.8rem;
   background: #00aeb4;
 }
-.mask-cancel {
+.mask-cancel{
   width: 35px;
   height: 35px;
   background: url(../../newHr/images/mask-cancel.png) no-repeat;
   background-size: 100% 100%;
   margin: 0 auto;
-  margin-top: 31px;
+ margin-top: 31px;
 }
 /*··············*/
-.formValidation {
-  width: 13.88rem;
-  margin: -2.2rem auto 0;
+.formValidation{
+  width: 694/@r;
+  margin: -110/@r auto 0;
   background: #fff;
-  border-radius: 0.1rem;
-  /* margin-top: 28/@r; */
+  border-radius: 5/@r;
+ /* margin-top: 28/@r; */
 }
 .formValidation label {
-  width: 13.88rem;
+  width: 694/@r;
   font-size: 0.56rem;
   color: #573e5f;
-  height: 2rem;
-  line-height: 2rem;
+  height: 100/@r;
+  line-height:100/@r;
   display: inline-block;
   border-bottom: 1px solid #e7e7e7;
 }
@@ -214,20 +216,20 @@ input {
 #inpJob {
   margin-left: 63px;
 }
-#inpEntry {
+#inpEntry{
   margin-left: 31px;
 }
-#inpQuit {
-  margin-left: 31px;
+#inpQuit{
+  margin-left:31px;
 }
 #inpPhone {
   margin-left: 1rem;
 }
-#inpId,
-#relation {
+#inpId,#relation {
   margin-left: 16px;
   width: 7.8rem;
 }
+
 #inpNum {
   margin-left: 1.6rem;
 }
@@ -248,7 +250,7 @@ input {
   background: #fff;
 }
 .formValidation label input {
-  border: none;
+  border:none;
   height: 1.6rem;
   outline: none;
   font-size: 0.56rem;
@@ -258,11 +260,11 @@ input {
   font-size: 0.56rem;
   opacity: 0.6;
 }
-.tijiao {
+.tijiao{
   overflow: hidden;
   margin-top: 42px;
 }
-.tijiao span {
+.tijiao span{
   display: inline-block;
   width: 5.12rem;
   font-size: 17px;
@@ -272,31 +274,31 @@ input {
   text-align: center;
   background: #00aeb4;
 }
-.tijiao .real {
+.tijiao .real{
   float: left;
   margin-left: 28px;
 }
-.tijiao .false {
+.tijiao .false{
   float: right;
   margin-right: 28px;
 }
 /*·········*/
-#deForm {
-  padding-top: 0.8rem;
+ #deForm {
+  padding-top: 40/@r;
 }
-#deForm > label {
+#deForm>label{
   float: left;
   display: flex;
   align-items: center;
 }
-#deForm > label i {
+#deForm>label i{
   float: left;
-  width: 0.16rem;
-  height: 0.16rem;
+  width: 8/@r;
+  height: 8/@r;
   border-radius: 50%;
-  margin: 0 0.44rem 0 0.28rem;
+  margin: 0 22/@r 0 14/@r;
 }
-.formValidation #deForm label span {
+.formValidation #deForm label span{
   display: inline-block;
   /* background: red; */
   overflow: hidden;
@@ -304,7 +306,7 @@ input {
   white-space: nowrap;
   font-size: 0.56rem;
 }
-.formValidation #deForm label span:last-child {
+.formValidation #deForm label span:last-child{
   width: 7.8rem;
   font-size: 0.56rem;
 }
@@ -400,6 +402,8 @@ input {
   display: none;
   z-index: 9000;
 }
+
+
 /*loading*/
 #loading {
   position: fixed;
@@ -467,21 +471,21 @@ input {
   animation-fill-mode: both;
   display: inline-block;
 }
-.yellowBg {
+.yellowBg{
   background: #feaf3f;
 }
-.blueBg {
+.blueBg{
   background: #00a0e9;
 }
-.purpleBg {
+.purpleBg{
   background: #f528c7;
 }
-.greenBg {
+.greenBg{
   background: #00adb4;
 }
-.orangeBg {
+.orangeBg{
   background: #f07227;
 }
-.darkGreenBg {
+.darkGreenBg{
   background: #00b44c;
 }

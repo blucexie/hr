@@ -81,7 +81,6 @@ function checkBalance(balance){
                     dataType: "json",
                     data: "{\"" + parmName + "\":\"" + name + "\"}",
                     success: function (data) {
-                        console.log(data)
                         var jsonData = eval("data=" + data['plaintext']);
                         var newArray = [];
                         newArray = jsonData.item[selectName];

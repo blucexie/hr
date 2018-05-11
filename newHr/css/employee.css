@@ -55,32 +55,33 @@ input {
   margin-bottom: 0.7rem;
 }
 .formValidation label,
-.educationTable div,
-.work div,
-.skill div {
-  width: 14.4rem;
+.educationTable > div,
+.work > div,
+.skill > div {
+  width: 13.88rem;
   font-size: 0.6rem;
   color: #573e5f;
-  margin-left: 0.6rem;
-  height: 1.76rem;
-  line-height: 1.76rem;
+  height: 2rem;
+  line-height: 2rem;
   display: inline-block;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
 }
 .basic,
 .education,
 .workExperience,
 .skillInformation {
-  border-bottom: 1px solid #d4d4d4;
+  text-align: center;
+  padding-top: 0.54rem;
 }
 .basic img,
-.education img,
-.workExperience img,
 .skillInformation img {
-  float: left;
-  width: 7.28rem;
-  height: 1.1rem;
-  margin: 0.32rem 0;
+  width: 5.36rem;
+  height: 1.16rem;
+}
+.education img,
+.workExperience img {
+  width: 5.36rem;
+  height: 1.6rem;
 }
 .education strong,
 .workExperience strong {
@@ -94,6 +95,12 @@ input {
   width: 9.3rem;
   border-bottom: none;
 }
+.formValidation {
+  width: 13.88rem;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 0.56rem;
+}
 .formValidation form label span {
   margin-right: 2.32rem;
 }
@@ -104,13 +111,38 @@ input {
   margin-right: 1rem !important;
 }
 .salary,
+.nowSalary,
 .atSalary,
 .jobInterview,
+.workingLife,
 .inpTel {
   margin-right: 1rem !important;
 }
 #validateCode {
   width: 4.8rem;
+}
+#deForm > div {
+  width: 13.88rem;
+}
+#deForm > div,
+#deForm > label,
+.educationTable > div,
+.skill > div,
+.work > div {
+  float: left;
+  display: flex;
+  align-items: center;
+}
+#deForm > div i,
+#deForm > label i,
+.educationTable > div i,
+.skill > div i,
+.work > div i {
+  float: left;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 50%;
+  margin: 0 0.28rem 0 0.44rem;
 }
 #deForm .msCode {
   margin-right: 0.4rem;
@@ -144,35 +176,39 @@ input {
   line-height: 1.76rem;
   font-size: 0.64rem;
   color: #573e5f;
-  margin-left: 0.6rem;
   height: 1.76rem;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
 }
-/*.isDimission{
-  display: none;
-}*/
+.isDimission {
+  height: 2.6rem;
+  border-bottom: none;
+  padding-bottom: 0.6rem;
+}
 .isDimission .radioS {
   margin-right: 1rem;
+}
+.identity {
+  height: 2rem;
 }
 .identity span {
   margin-right: 2rem;
 }
 .isDimission label {
-  width: 2.2rem;
-  height: 1.2rem;
+  width: 2rem;
+  height: 2rem;
   color: #573e5f;
   margin-left: 0;
-  line-height: 0;
   display: inline-block;
   border-bottom: none;
 }
+.isDimission label:nth-of-type(1) {
+  margin-right: 1rem;
+}
 .identity label {
   width: 3rem;
-  height: 1.2rem;
+  height: 2rem;
   color: #573e5f;
   margin-left: 0;
-  line-height: 0;
-  display: inline-block;
   border-bottom: none;
 }
 .isDimission input,
@@ -183,25 +219,25 @@ input {
 .isDimission input[type=radio] + label:before,
 .identity input[type=radio] + label:before {
   display: inline-block;
-  width: 0.62rem;
-  height: 0.62rem;
+  width: 0.52rem;
+  height: 0.52rem;
   content: '';
   background: url("../images/radion.png") no-repeat;
-  background-size: 0.62rem 0.6rem;
+  background-size: 0.52rem 0.52rem;
 }
 .isDimission input[type=radio]:checked + label:before,
 .identity input[type=radio]:checked + label:before {
   content: ' ';
   background: url("../images/radio.png") no-repeat;
-  background-size: 0.62rem 0.6rem;
+  background-size: 0.52rem 0.52rem;
 }
-.upBasic {
-  line-height: 2.04rem;
-  font-size: 0.6rem;
+/* .upBasic{
+  line-height: 102/@r;
+  font-size: 30/@r;
   color: #bfbfbf;
   text-align: center;
-  padding-top: 0.4rem;
-}
+  padding-top: 20/@r;
+} */
 /*基本信息收起时*/
 .upB {
   line-height: 1.56rem;
@@ -223,7 +259,7 @@ input {
 .lineSpacingW,
 .septal-line {
   height: 0.44rem;
-  background: #ebf0f2;
+  background: #f8f8f8;
 }
 .educate,
 .workTitle,
@@ -240,58 +276,57 @@ input {
   font-size: 0.64rem;
   margin-top: 0.2rem;
 }
-.educate i,
-.educateS i,
-.workTitle i,
-.workTitleS i,
-.skillTitle i,
-.skillTitleS i {
-  float: left;
-  background: #00adb4 ;
-  width: 0.28rem;
-  height: 0.28rem;
-  margin: 0.66rem 0.24rem 0.66rem 0;
-}
 .educate span,
 .educateS span,
 .workTitle span,
+.educateUp span,
 .workTitleS span,
 .skillTitle span,
 .skillTitleS span {
+  width: 3.24rem;
+  height: 0.84rem;
   float: left;
+  text-align: center;
   margin: 0.48rem 0;
-  line-height: 0.64rem;
+  line-height: 0.84rem;
+  background: url("../images/title-bg.png") no-repeat;
+  background-size: 3.24rem 0.84rem;
+  color: #fff;
+  font-size: 0.56rem;
 }
 .deleteBtn,
 .deleteBtnW,
 .deleteBtnJ {
   float: right;
-  width: 3.72rem;
+  display: flex;
+  align-items: center;
   height: 1.16rem;
   line-height: 1.16rem;
-  border: 1px solid #03aaad;
-  border-radius: 0.2rem;
-  color: #03aaad;
   font-size: 0.52rem;
-  background: #fff;
   margin: 0.32rem 0.6rem 0.32rem 0;
+  font-style: normal;
+  color: #bfbfbf;
+}
+.deleteBtn img,
+.deleteBtnW img,
+.deleteBtnJ img {
+  width: 0.56rem;
+  height: 0.56rem;
+  margin-right: 0.16rem;
 }
 .educationTable div span {
-  margin-right: 1rem;
+  margin-right: 1rem !important;
 }
-.educationTable .career,
-.educationTable .edu,
-.educationTable .specialty {
-  margin-right: 2.24rem;
-}
-.educationTable,
-.work,
-.skill {
-  border-top: 0.44rem solid #ebf0f2;
-}
+/* .educationTable,.work,.skill{
+  border-top:12/@r solid #f8f8f8 ;
+} */
 .educationTable1,
 .work1 {
   border-top: none;
+}
+.educationTable .edu,
+.educationTable .career {
+  margin-right: 2.2rem !important;
 }
 .upEducation,
 .upSkill {
@@ -305,8 +340,8 @@ input {
 .upEducation img,
 .upWorkExperience img,
 .upSkill img {
-  width: 4.72rem;
-  height: 0.62rem;
+  width: 5.84rem;
+  height: 1.36rem;
 }
 /*收起时教育信息*/
 .upE {
@@ -360,11 +395,16 @@ input {
 }
 .schoolMsg,
 .firmMsg {
-  height: 2.2rem !important;
-  line-height: 2.2rem !important;
+  height: 2rem !important;
+  line-height: 2rem !important;
+}
+.schoolMsg > span {
+  width: 2.6rem;
+  height: 2rem;
 }
 textarea {
-  background: #f9f7f6;
+  width: 9rem;
+  background: #fff;
   outline: none;
   font-size: 0.6rem;
   vertical-align: middle;
@@ -372,6 +412,9 @@ textarea {
   padding-top: 0.4rem;
   font-family: Arial;
   resize: none;
+}
+.work .relation {
+  margin-right: 2.2rem;
 }
 /*收起时工作经历*/
 .upW,
@@ -399,12 +442,11 @@ textarea {
   font-size: 0.6rem;
   color: #666;
 }
-.cuttingLine {
-  height: 0.44rem;
-  background: #ebf0f2;
-  border-top: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
-}
+/* .cuttingLine{
+  height: 22/@r;
+  background: #f8f8f8;
+  
+} */
 /*·········*/
 .declare {
   margin-top: 0.8rem;
@@ -412,7 +454,7 @@ textarea {
 .declare p {
   text-align: left;
   padding-left: 0.6rem;
-  color: #574e5f;
+  color: #333;
   line-height: 1.16rem;
 }
 .declare p:nth-of-type(2) {
@@ -475,7 +517,7 @@ textarea {
 .signatureData {
   float: left;
   font-size: 0.64rem;
-  color: #574e5f;
+  color: #333;
   text-align: left;
 }
 .sName {
@@ -504,14 +546,16 @@ textarea {
 }
 .footerDeclare {
   height: 6rem;
-  background: #ebf0f2;
+  background: #fff;
+  text-align: center;
 }
 .footerDeclare p {
-  float: left;
   font-size: 0.52rem;
   color: #999;
   padding-top: 0.52rem;
-  padding-left: 2.6rem;
+}
+.footerDeclare p span {
+  color: #00adb4;
 }
 .hint {
   width: 10.8rem;
@@ -683,4 +727,22 @@ textarea {
 }
 .errorShow {
   border-bottom: 1px solid #00adb4!important;
+}
+.yellowBg {
+  background: #feaf3f;
+}
+.blueBg {
+  background: #00a0e9;
+}
+.purpleBg {
+  background: #f528c7;
+}
+.greenBg {
+  background: #00adb4;
+}
+.orangeBg {
+  background: #f07227;
+}
+.darkGreenBg {
+  background: #00b44c;
 }

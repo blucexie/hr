@@ -259,7 +259,7 @@ var authenCode = getQueryString();
         });
     });
         }else if(result===2005){
-            window.location.replace('invalid.html');
+           // window.location.replace('invalid.html');
         }else {
             layer.open({
                 content: resultInfo

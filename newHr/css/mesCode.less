@@ -12,11 +12,26 @@ a{
   clear: both;
 }
 .header{
-  height: 128/@r;
-  line-height: 128/@r;
-  background: #f8f8f8;
-  border-top:1px solid #aeaeae ;
-  border-bottom:1px solid #aeaeae  ;
+  height: 267/@r;
+  background: url("../images/codeHeaderBg.png")no-repeat;
+  background-size: 100%;
+
+}
+.header>div{
+  padding-top: 80/@r;
+}
+.header>div>img{
+  float: left;
+  width: 32/@r;
+  height: 37/@r;
+  margin: 15/@r 12/@r 0 35/@r;
+}
+.header>div>p{
+  float: left;
+  width: 626/@r;
+  color: #fff;
+  font-size: 30/@r;
+  line-height: 2;
 }
 .back img{
   width: 21/@r;
@@ -31,7 +46,11 @@ h1{
   font-weight: 400;
 }
 .content{
-  margin: 84/@r auto 0;
+  margin: 70/@r auto 0;
+}
+.content>p{
+  font-size: 28/@r;
+  color: #666;
 }
 .content label{
   width: 14.4rem;
@@ -44,20 +63,38 @@ h1{
   border-bottom: 1px solid #d4d4d4;
   margin-top: 62px;
 }
-#inpId {
-  margin-left: 16px;
-  width: 7.8rem;
-  border: none;
-  font-size: 15px;
-  color: #666;
-  height: 1.6rem;
-  padding-left: 10px;
+.entryBox{
+  text-align: center;
+  margin-top: 120/@r;
 }
-.accredit{
+#inpId {
+  width: 648/@r;
+  border: none;
+  font-size: 48/@r;
+  color: #333;
+  height: 1.6rem;
+  text-align: center;
+}
+.passInput{
+  width: 648/@r;
+  margin: 122/@r auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+.inputCont {
   float: left;
-  width: 36/@r;
-  height: 42/@r;
-  margin: 14/@r 32/@r 0 30/@r;
+  width: 70/@r;
+  height: 40px;
+  margin: 0 9/@r;
+  z-index: 2;
+  font-size: 30px;
+  color: #333;
+  line-height: 40px;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e1e1e1;
+  border-radius: 0;
 }
 .content h2{
   display: inline-block;
@@ -100,7 +137,7 @@ h1{
   text-align: center;
   font-size: 34/@r;
   border-radius: 60/@r;
-  margin:  86/@r auto 0;
+  margin:  166/@r auto 0;
   outline: none;
 }
 .hint{

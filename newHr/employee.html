@@ -60,23 +60,37 @@
         <div class="basic clearfix">
             <img src="images/careerObjective.png" alt="">
         </div>
-        <form id="deForm" class="basicForm" action="">
+        <form id="deForm" class="basicForm clearfix" action="">
+            <div class="identity">
+                <i class="yellowBg"></i>
+                <span>身份</span>
+                <input type="radio" id="graduatingStudents" name="isNewGraduate" value="1">
+                <label class="graduatingStudents" for="graduatingStudents"> &nbsp;应届生</label>
+                <input type="radio" id="previousStudents" name="isNewGraduate" value="0" checked="checked">
+                <label class="previousStudents" for="previousStudents"> &nbsp;往届生</label>
+            </div>
             <label  for="jobInterview">
+                <i class="blueBg"></i>
                 <span class="jobInterview">面试职位</span>
-                <input id="jobInterview" type="text" name="resumeJob" data-attribute="请填写正确的面试职位" placeholder="请输入面试职位" maxlength="20" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
+                <input id="jobInterview" type="text" name="resumeJob" data-attribute="请填写正确的面试职位" placeholder="请输入面试职位" maxlength="20" onchange="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" >
+            </label><br>
+            <label  for="nowSalary">
+                <i class="purpleBg"></i>
+                <span class="nowSalary">目前薪资</span>
+                <input id="nowSalary" type="tel" name="currentSalary" placeholder="请输入目前薪资，需填写纯数字" onkeyup="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
             </label><br>
             <label  for="salary">
+                <i class="greenBg"></i>
                 <span class="salary">期望薪资</span>
                 <input id="salary" type="tel" name="resumeExpectSalary" placeholder="请输入期望薪资，需填写纯数字" onkeyup="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
             </label><br>
-            <div class="identity">
-                <span>身份</span>
-                <input  type="radio" id="graduatingStudents"  name="isNewGraduate" value="1">
-                <label class="graduatingStudents" for="graduatingStudents"> &nbsp;应届生</label>
-                <input  type="radio" id="previousStudents"  name="isNewGraduate" value="0" checked="checked">
-                <label class="previousStudents"  for="previousStudents"> &nbsp;往届生</label>
-            </div>
+            <label  for="workingLife">
+                <i class="orangeBg"></i>
+                <span class="workingLife">工作年限</span>
+                <input id="workingLife" type="tel" name="workingLife" placeholder="请输入工作年限" onkeyup="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
+            </label><br>
             <div class="isDimission">
+                <i class="darkGreenBg"></i>
                 <span class="radioS">
                    是否离职</span>
                 <input  type="radio" id="yDimission" name="dimission" value="1">
@@ -85,36 +99,45 @@
                 <label for="nDimission"> &nbsp; 否</label>
             </div>
         </form>
-        <div class="upBasic">
+      <!--   <div class="upBasic">
             <p>收起基本信息 </p> <img src="images/upArrows.png" alt="">
-        </div>
+        </div> -->
         <div class="septal-line"></div>
         <!--教育信息-->
         <div class="education clearfix">
             <img src="images/educationBg.png" alt="">
-            <strong>请填写最高教育信息</strong>
         </div>
 
-        <form class="educationTable educationTable1" action="">
-            <p class="educate clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>
+        <form class="educationTable educationTable1 clearfix" action="">
+            <p class="educate clearfix">
+                <span>教育信息</span>
+                <em class="deleteBtn">
+                    <img src="images/deleteIcon.png" alt=""> 删除
+                </em>
+            </p>
             <div class="schoolMsg">
+                <i class="purpleBg"></i>
                 <span>学校名称</span>
-                <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')" maxlength="30"></textarea>
+                <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\u4e00-\u9fa5]/g,'')" maxlength="30"></textarea>
             </div>
             <div>
+                <i class="yellowBg"></i>
                 <span class="edu">学历</span>
                 <input onfocus="this.blur();" class="eduS" data-at="schoolName"   type="text" name="educationGrade"  data-attribute="请选择学历" placeholder="请选择学历">
 
             </div>
             <div>
+                <i class="greenBg"></i>
                 <span  class="career">专业</span>
                 <input class="specialty"  type="text" name="educationMajor"  data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </div>
             <div>
+                <i class="orangeBg"></i>
                 <span>入学时间</span>
                 <input onfocus="this.blur();" class="StartTime" data-at="specialty" type="text" name="educationStartTime"  data-attribute="请选择入学时间"  placeholder="请选择入学时间" >
             </div>
             <div>
+                <i class="blueBg"></i>
                 <span>毕业时间</span>
                 <input onfocus="this.blur();" class="EndTime" data-at="specialty" type="text" name="educationEndTime"  data-attribute="请选择毕业时间"  placeholder="请选择毕业时间" >
             </div>
@@ -128,9 +151,15 @@
         <div class="skillInformation clearfix">
             <img src="images/skillBg.png" alt="">
         </div>
-        <form class="skill" action="">
-            <p class="skillTitle clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>
+        <form class="skill clearfix" action="">
+            <p class="skillTitle clearfix"><i></i><span>职业证书</span>
+                <em class="deleteBtnJ">
+                    <img src="images/deleteIcon.png" alt="">
+                    删除
+                </em>
+            </p>
             <div>
+                <i  class="blueBg"></i>
                 <span>证书名称</span>
                 <input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30">
             </div>
@@ -143,48 +172,65 @@
         <!--工作经历-->
         <div class="workExperience  clearfix">
             <img src="images/workBg.png" alt="">
-            <strong>请从最近一份工作填写</strong>
+           <!--  <strong>请从最近一份工作填写</strong> -->
         </div>
-        <form data-value="1" class="work work1">
-            <p class="workTitle workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>
+        <form data-value="1" class="work work1 clearfix">
+            <p class="workTitle workTitleS clearfix"><i></i><span>工作经历</span>
+                <em class="deleteBtnW">
+                    <img src="images/deleteIcon.png" alt="">
+                    删除
+                </em>
+                </p>
             <div class="firmMsg">
+                <i class="yellowBg"></i>
                 <span>公司名称</span>
                 <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')"></textarea>
             </div>
             <div>
+                <i class="blueBg"></i>
                 <span>工作岗位</span>
                 <input class="job"  type="text" name="verifyJob"  data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20"  onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </div>
             <div>
+                <i class="purpleBg"></i>
                 <span>岗位工资</span>
                 <input class="workBalance"  type="tel" name="workBalance" data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
             </div>
             <div>
+                <i class="greenBg"></i>
                 <span>开始时间</span>
                 <input onfocus="this.blur();" class="entryTime workTime"  type="text"  name="workStartTime"   data-attribute="请选择开始时间"  placeholder="请选择开始时间">
             </div>
             <div>
+                <i class="orangeBg"></i>
                 <span>结束时间</span>
                 <input onfocus="this.blur();" class="outTime workTime"  type="text" name="workEndTime"  data-attribute="请选择结束时间" placeholder="请选择结束时间">
             </div>
             <div>
+                <i class="darkGreenBg"></i>
                 <span class="leaveOffice">离职原因</span>
                 <input onfocus="this.blur();" class="leaveCause"  type="text" name="resumeDissmionReason" data-attribute="请选择离职原因" placeholder="请选择离职原因">
             </div>
             <div>
-
+                <i class="yellowBg"></i>
                 <span class="certifierName">证明人姓名</span>
                 <input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </div>
             <div>
+                <i class="blueBg"></i>
                 <span class="certifierTel">证明人电话</span>
                 <input class="referenceTel"  type="text" name="colleagueMobile"  data-attribute="请输入证明人电话" placeholder="请输入证明人电话"  maxlength="11">
+            </div>
+            <div>
+                <i class="orangeBg"></i>
+                <span class="relation">关系</span>
+                <input  onfocus="this.blur();" class="relationship"  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" >
             </div>
         </form>
         <div class="upWorkExperience">
             <img class="addWork" src="images/addWork.png" alt="">
             <p>收起工作经历 <img src="images/upArrows.png" alt=""></p>
-            <div class="cuttingLine"></div>
+           <!--  <div class="cuttingLine"></div> -->
         </div>
     </div>
 
@@ -210,7 +256,7 @@
 
         <div class="footerDeclare">
             <p>以上信息由北京风影职信科技有限公司技术支持</p>
-            <p>如遇问题请拨打：010-52830585</p>
+            <p>如遇问题请拨打：<span>010-52830585</span></p>
         </div>
     </div>
     <!--签名-->

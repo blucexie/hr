@@ -15,11 +15,25 @@ a {
   clear: both;
 }
 .header {
-  height: 2.56rem;
-  line-height: 2.56rem;
-  background: #f8f8f8;
-  border-top: 1px solid #aeaeae ;
-  border-bottom: 1px solid #aeaeae  ;
+  height: 5.34rem;
+  background: url("../images/codeHeaderBg.png") no-repeat;
+  background-size: 100%;
+}
+.header > div {
+  padding-top: 1.6rem;
+}
+.header > div > img {
+  float: left;
+  width: 0.64rem;
+  height: 0.74rem;
+  margin: 0.3rem 0.24rem 0 0.7rem;
+}
+.header > div > p {
+  float: left;
+  width: 12.52rem;
+  color: #fff;
+  font-size: 0.6rem;
+  line-height: 2;
 }
 .back img {
   width: 0.42rem;
@@ -34,7 +48,11 @@ h1 {
   font-weight: 400;
 }
 .content {
-  margin: 1.68rem auto 0;
+  margin: 1.4rem auto 0;
+}
+.content > p {
+  font-size: 0.56rem;
+  color: #666;
 }
 .content label {
   width: 14.4rem;
@@ -47,20 +65,38 @@ h1 {
   border-bottom: 1px solid #d4d4d4;
   margin-top: 62px;
 }
-#inpId {
-  margin-left: 16px;
-  width: 7.8rem;
-  border: none;
-  font-size: 15px;
-  color: #666;
-  height: 1.6rem;
-  padding-left: 10px;
+.entryBox {
+  text-align: center;
+  margin-top: 2.4rem;
 }
-.accredit {
+#inpId {
+  width: 12.96rem;
+  border: none;
+  font-size: 0.96rem;
+  color: #333;
+  height: 1.6rem;
+  text-align: center;
+}
+.passInput {
+  width: 12.96rem;
+  margin: 2.44rem auto 0;
+  display: flex;
+  justify-content: space-between;
+}
+.inputCont {
   float: left;
-  width: 0.72rem;
-  height: 0.84rem;
-  margin: 0.28rem 0.64rem 0 0.6rem;
+  width: 1.4rem;
+  height: 40px;
+  margin: 0 0.18rem;
+  z-index: 2;
+  font-size: 30px;
+  color: #333;
+  line-height: 40px;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e1e1e1;
+  border-radius: 0;
 }
 .content h2 {
   display: inline-block;
@@ -103,7 +139,7 @@ h1 {
   text-align: center;
   font-size: 0.68rem;
   border-radius: 1.2rem;
-  margin: 1.72rem auto 0;
+  margin: 3.32rem auto 0;
   outline: none;
 }
 .hint {
