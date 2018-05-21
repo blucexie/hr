@@ -211,6 +211,8 @@ input {
   margin-right: 1rem !important;
 }
 .salary,
+.nowSalary,
+.workingLife,
 .jobInterview,
 .inpTel {
   margin-right: 1rem !important;

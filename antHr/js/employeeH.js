@@ -58,6 +58,8 @@ $(function () {
                             $('#resumeMobile').val(backData.item.resumeMobile);
                             $('#resumeIdCard').val(backData.item.resumeIdCard);
                             $('#jobInterview').val(backData.item.resumeJob);
+                            $('#nowSalary').val(backData.item.currentSalary);
+                            $('#workingLife').val(backData.item.workingLife);
                             $('#salary').val(backData.item.resumeExpectSalary);
                             if(backData.item.resumeIsDissmion ==1){
                                 $('#yDimission').attr('checked',true);
@@ -224,6 +226,7 @@ $(function () {
                                     $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
                                     $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
                                     $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                                    $('.work:eq('+i+') .relationship').val(workJson[i].relationship);
                                 }
                                 if(workLength>1){
                                     $('.workTitle').show();
@@ -1395,7 +1398,7 @@ $(function () {
             ,btn: ['确定', '取消']
             ,yes: function(index){
                 showLoader();
-                $.ajax({
+               /*  $.ajax({
                     url:'https://apix.funinhr.com/api/update/resume',
                     type: "POST",
                     timeout:5000,
@@ -1421,6 +1424,33 @@ $(function () {
                                 ,btn: '确定'
                             });
                         }
+                    },
+                    error: function (XMLHttpRequest, textStatus) {
+                        layer.open({
+                            content: '网络异常，请稍后重试'
+                            ,btn: '确定'
+                        });
+                        hideLoader();
+                    }
+                }); */
+                $.ajax({
+                    url:'https://apix.funinhr.com/api/update/resume',
+                    type: "POST",
+                    timeout:5000,
+                    dataType:"json",
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    data:JSON.stringify(dataJson),
+                    success: function (jsonData) {
+                        hideLoader();
+                        var resultInfo = checkAjaxResult(jsonData);
+                        if (resultInfo != ""){
+                            layer.open({
+                                content: resultInfo
+                                ,btn: '确定'
+                            });
+                            return;
+                        }
+                        window.location.replace("succeed.html");
                     },
                     error: function (XMLHttpRequest, textStatus) {
                         layer.open({

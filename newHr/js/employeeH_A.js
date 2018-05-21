@@ -55,6 +55,8 @@ $(function () {
                 $('#resumeMobile').val(backData.item.resumeMobile);
                 $('#resumeIdCard').val(backData.item.resumeIdCard);
                 $('#jobInterview').val(backData.item.resumeJob);
+                $('#nowSalary').val(backData.item.currentSalary);
+                $('#workingLife').val(backData.item.workingLife);
                 $('#salary').val(backData.item.resumeExpectSalary);
                 if(backData.item.resumeIsDissmion ==1){
                     $('#yDimission').attr('checked',true);
@@ -222,6 +224,7 @@ $(function () {
                         $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
                         $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
                         $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                        $('.work:eq('+i+') .relationship').val(workJson[i].relationship);
                     }
                     if(workLength>1){
                         $('.workTitle').show();
@@ -1135,7 +1138,7 @@ $(function () {
                         return false;
                     }
                 }else if (itemName == 'colleagueName'){
-                    if(itemVal==basicAll['resumeName']){
+                    if(itemVal==basicInfo['resumeName']){
                         layer.open({
                             content: '证明人姓名不能候选人姓名相同'
                             ,btn: '确定',

@@ -58,6 +58,8 @@ $(function () {
                             $('#resumeMobile').val(backData.item.resumeMobile);
                             $('#resumeIdCard').val(backData.item.resumeIdCard);
                             $('#jobInterview').val(backData.item.resumeJob);
+                            $('#nowSalary').val(backData.item.currentSalary);
+                            $('#workingLife').val(backData.item.workingLife);
                             $('#salary').val(backData.item.resumeExpectSalary);
                             if(backData.item.resumeIsDissmion ==1){
                                 $('#yDimission').attr('checked',true);
@@ -224,6 +226,7 @@ $(function () {
                                     $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
                                     $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
                                     $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                                    $('.work:eq('+i+') .relationship').val(workJson[i].relationship);
                                 }
                                 if(workLength>1){
                                     $('.workTitle').show();
