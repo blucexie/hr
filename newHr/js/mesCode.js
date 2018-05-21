@@ -50,7 +50,7 @@ $(function () {
             dataType:"json",
             data:"{\"authenCode\":\""+code+"\"}",
             success: function (data) {
-                var jsonData = eval("data="+data['plaintext']);
+                var jsonData = JSON.parse(data['plaintext']);
                 var verifyName = jsonData.item.verifyName;
                 var enterpriseName = jsonData.item.enterpriseName;
                 var verifyMobile = jsonData.item.verifyMobile;

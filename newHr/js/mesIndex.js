@@ -136,7 +136,7 @@ $(function () {
                 "\"authenCode\":\""+cCode+"\"}",
                 success: function (data) {
                     console.log(data);
-                    var jsonData = eval("data="+data['plaintext']);
+                    var jsonData = JSON.parse(data['plaintext']);
                     var result = jsonData.item.result;
                     var msg = jsonData.item.msg;
                     if(result===1001){

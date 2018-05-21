@@ -1395,7 +1395,7 @@ $(function () {
             ,btn: ['确定', '取消']
             ,yes: function(index){
                 showLoader();
-                $.ajax({
+               /*  $.ajax({
                     url:'https://apix.funinhr.com/api/update/resume',
                     type: "POST",
                     timeout:5000,
@@ -1421,6 +1421,33 @@ $(function () {
                                 ,btn: '确定'
                             });
                         }
+                    },
+                    error: function (XMLHttpRequest, textStatus) {
+                        layer.open({
+                            content: '网络异常，请稍后重试'
+                            ,btn: '确定'
+                        });
+                        hideLoader();
+                    }
+                }); */
+                $.ajax({
+                    url:'https://apix.funinhr.com/api/update/resume',
+                    type: "POST",
+                    timeout:5000,
+                    dataType:"json",
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    data:JSON.stringify(dataJson),
+                    success: function (jsonData) {
+                        hideLoader();
+                        var resultInfo = checkAjaxResult(jsonData);
+                        if (resultInfo != ""){
+                            layer.open({
+                                content: resultInfo
+                                ,btn: '确定'
+                            });
+                            return;
+                        }
+                        window.location.replace("succeed.html");
                     },
                     error: function (XMLHttpRequest, textStatus) {
                         layer.open({

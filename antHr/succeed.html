@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交成功</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="css/succeed.css">
+    <script type="text/javascript">
+        !function () {
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        }()
+        window.addEventListener('resize',(e)=>{
+            var html = document.documentElement;
+            var hWidth = html.getBoundingClientRect().width;
+            html.style.fontSize=hWidth/15+'px';
+        })
+    </script>
+</head>
+<body>
+<div class="succeed">
+    <img src="images/success.png" alt="">
+    <p>提交成功，感谢您的配合!</p>
+    <p>（如需修改,请与HR取得联系）</p>
+</div>
+<div class="footer">
+    <img src="./images/succeed_footer.png" alt="">
+</div>
+
+<script type="text/javascript">
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+</script>
+</body>
+</html>

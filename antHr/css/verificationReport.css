@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.basic p,
+.edu p,
+.skill p,
+.skill div,
+.colleague p {
+  word-spacing: -6px;
+}
+.basic p span,
+.edu p span,
+.skill p span,
+.skill div span,
+.colleague p span {
+  word-spacing: 0;
+}
+.basic p:nth-of-type(1) {
+  margin-top: 0.4rem;
+}
+.basic p span:nth-of-type(1),
+.edu p span:nth-of-type(1),
+.skill p span:nth-of-type(1),
+.colleague p span:nth-of-type(1) {
+  margin-left: 0.6rem;
+  font-size: 0.6rem;
+  color: #999;
+  line-height: 1.28rem;
+}
+.basic p span:nth-of-type(2),
+.colleague p span:nth-of-type(2) {
+  font-size: 0.56rem;
+  color: #574e5f;
+}
+.name,
+.job {
+  margin-left: 2.36rem;
+}
+.phone {
+  margin-left: 1.68rem;
+}
+.idCard {
+  margin-left: 1.08rem;
+}
+.lineSpacing {
+  height: 0.44rem;
+  background: #ebf0f2;
+  border-top: 1px solid #d4d4d4;
+  border-bottom: 1px solid #d4d4d4;
+}
+/*学历*/
+.education {
+  padding-bottom: 0.84rem;
+}
+.education > p {
+  height: 2.36rem;
+  line-height: 2.36rem;
+}
+.education > p span {
+  font-size: 0.68rem;
+  color: #574e5f;
+  margin-left: 0.6rem;
+}
+.education > p img {
+  width: 2.42rem;
+  height: 1.02rem;
+  vertical-align: middle;
+  margin-left: 8.4rem;
+}
+.edu {
+  margin: 0 auto;
+  width: 13.8rem;
+  border: 2px dashed #d4d4d4;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-radius: 0.16rem;
+}
+.edu p span:nth-of-type(2) {
+  font-size: 0.56rem;
+  color: #fa0606;
+}
+.school,
+.major,
+.grade {
+  margin-left: 2.32rem;
+}
+.startTime,
+.endTime {
+  margin-left: 1.08rem;
+}
+.edu p img {
+  width: 0.1rem;
+  height: 0.46rem;
+  float: right;
+  margin-right: 0.44rem;
+  margin-top: 0.52rem;
+}
+/*技能*/
+.skillInformation {
+  padding-bottom: 0.84rem;
+}
+.skillInformation > p {
+  height: 2.36rem;
+  line-height: 2.36rem;
+}
+.skillInformation > p span {
+  font-size: 0.68rem;
+  color: #574e5f;
+  margin-left: 0.6rem;
+}
+.skillInformation > p img {
+  width: 2.42rem;
+  height: 1.02rem;
+  vertical-align: middle;
+  margin-left: 8.4rem;
+}
+.skillInformation .skill:nth-of-type(1) {
+  border-top: 2px dashed #d4d4d4;
+}
+.skill {
+  margin: 0 auto;
+  width: 13.8rem;
+  border: 2px dashed #d4d4d4;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-radius: 0.16rem;
+  border-top: none;
+}
+.skill div span:nth-of-type(1) {
+  font-size: 0.6rem;
+  color: #574e5f;
+  margin-left: 0.6rem;
+  margin-right: 6.6rem;
+}
+.skill div span:nth-of-type(2) {
+  font-size: 0.56rem;
+  color: #fa0606;
+}
+.skill p span:nth-of-type(1) {
+  margin-right: 1.08rem;
+}
+.skill p span:nth-of-type(2) {
+  font-size: 0.56rem;
+  color: #574e5f;
+}
+/*同事证明*/
+.colleagueProof {
+  padding-bottom: 0.84rem;
+}
+.colleagueProof > p {
+  height: 2.36rem;
+  line-height: 2.36rem;
+}
+.colleagueProof > p span {
+  font-size: 0.68rem;
+  color: #574e5f;
+  margin-left: 0.6rem;
+}
+.colleagueProof > p img {
+  width: 2.42rem;
+  height: 1.02rem;
+  vertical-align: middle;
+  margin-left: 8.4rem;
+}
+.colleague {
+  margin: 0 auto;
+  width: 13.8rem;
+  border: 2px dashed #d4d4d4;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  border-radius: 0.16rem;
+}
+.colleague p span:nth-of-type(1) {
+  margin-right: 1.08rem;
+}
+.colleagueJob {
+  margin-left: 1.2rem;
+}
+.colleagueResult {
+  font-size: 0.56rem;
+  color: #fa0606;
+  float: right;
+  margin-right: 0.44rem;
+  margin-top: 0.4rem;
+}
+/*信誉核验*/
+.creditVerification {
+  padding-bottom: 0.84rem;
+}
+.creditVerification > p {
+  height: 2.36rem;
+  line-height: 2.36rem;
+}
+.creditVerification > p span {
+  font-size: 0.68rem;
+  color: #574e5f;
+  margin-left: 0.6rem;
+}
+.reputation {
+  margin: 0 auto;
+  width: 13.8rem;
+  border: 2px dashed #d4d4d4;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  border-radius: 0.16rem;
+}
+.reputation p {
+  font-size: 0.56rem;
+  color: #574e5f;
+  margin-left: 0.6rem;
+}
+.reputation p span {
+  color: #c59c68 ;
+}
