@@ -1,7 +1,6 @@
 $(function () {
     //控制输入框只能输入一位并且是数字
     $(".inputCont-one").focus();
-    $(".line-one").hide()
     onload = function () {
         var txts = on.getElementsByTagName("input");
         for (var i = 0; i < txts.length; i++) {

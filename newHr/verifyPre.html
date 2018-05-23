@@ -79,16 +79,19 @@
 </div>
 <form id="deForm" class="basicForm clearfix" action="">
     <label for="resumeName">
+        <i class="icon1"></i>
         <span>姓名</span>
         <input  id="resumeName"  type="text" name="resumeName" data-attribute="请填写正确的姓名"  placeholder="请输入您的姓名" disabled="disabled">
     </label><br>
     <label for="resumeMobile">
+        <i class="icon2"></i>
         <span class="inpTel">联系方式</span>
         <input id="resumeMobile"  type="text" name="resumeMobile" data-attribute="请填写正确的联系方式" placeholder="请输入您的联系方式" maxlength="11" disabled="disabled">
     </label><br>
     <label for="resumeIdCard">
+        <i class="icon3"></i>
         <span class="inpId">身份证号码</span>
-        <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" onkeyup="value=value.replace(/[\W]/g,'')" maxlength="18">
+        <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" onchange="value=value.replace(/[\W]/g,'')" maxlength="18">
     </label><br>
 </form>
 <div class="nextStep">
