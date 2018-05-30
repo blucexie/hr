@@ -63,7 +63,6 @@
             <p><img src="images/xing2.png" alt=""> 请注意此公司是否与您进行过求职沟通</p>
         </div>
     </div>
-   <!--  <div class="interval"></div> -->
     <div class="licensedContent">
         <div class="licensedContentTitle">
             <img src="images/licensedContent-icon.png" alt="">
@@ -102,7 +101,6 @@
     </div>
 
     <div class="formValidation">
-      <!--   <div class="septal-line"></div> -->
         <div class="basic clearfix">
             <img src="images/basicBG.png" alt="">
         </div>
@@ -140,7 +138,7 @@
             <label  for="workingLife">
                 <i class="orangeBg"></i>
                 <span class="workingLife">工作年限</span>
-                <input id="workingLife" type="tel" name="workingLife" placeholder="请输入工作年限" onchange="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
+                <input onfocus="this.blur();" id="workingLife" type="tel" name="workingLife" placeholder="请输入工作年限" onchange="value=value.replace(/[^\d]/g,'') " pattern="[0-9]*"  maxlength="7">
             </label><br>
             <div class="identity">
                 <i class="darkGreenBg"></i>
@@ -160,9 +158,6 @@
                 <label for="nDimission"> &nbsp; 否</label>
             </div>
         </form>
-      <!--   <div class="upBasic">
-            <p>收起基本信息 </p><img src="images/upArrows.png" alt="">
-        </div> -->
         <div class="septal-line"></div>
         <!--教育信息-->
         <div class="education clearfix">

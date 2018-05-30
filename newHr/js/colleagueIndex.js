@@ -45,8 +45,7 @@ $(function () {
             dataType:"json",
             data:"{\"authenCode\":\""+code+"\"}",
             success: function (data) {
-               /* console.log(data);*/
-                var jsonData = eval("data="+data['plaintext']);
+               var jsonData = JSON.parse(data['plaintext']);
                 var verifyName = jsonData.item.verifyName;/*姓名*/
                 var companyName = jsonData.item.companyName;/*公司名称*/
                 var enterpriseName = jsonData.item.enterpriseName;/*核验人面试的公司*/

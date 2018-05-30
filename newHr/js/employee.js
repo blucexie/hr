@@ -64,19 +64,45 @@ $(function () {
         $('.workExperience').hide();
         $('.upWorkExperience').hide();
     };
- /*    $('.graduatingStudents').click(function () {
-        $('.work').hide();
-        $('.workExperience').hide();
-        $('.upWorkExperience').hide();
-        $('.isDimission').hide();
-        $('.upW').hide();
+    $('.graduatingStudents').click(function () {
+        $('.workExperience img').attr('src','images/workexpre.png')
     });
     $('.previousStudents').click(function () {
-        $('.work').show();
-        $('.workExperience').show();
-        $('.upWorkExperience').show();
-        $('.isDimission').show();
-    }); */
+        $('.workExperience img').attr('src','images/workBg.png')
+    });
+    /* 工作年限选择 */
+    var dataWorkingLife = [
+        {'id': '10001','value': '应届毕业生'},
+        {'id': '10002','value': '1年'},
+        {'id': '10003','value': '2年'},
+        {'id': '10004','value': '3年'},
+        {'id': '10005','value': '4年'},
+        {'id': '10006','value': '5年'},
+        {'id': '10007','value': '6年'},
+        {'id': '10008','value': '7年'},
+        {'id': '10009','value': '8年'},
+        {'id': '10010','value': '9年'},
+        {'id': '10011','value': '10年'},
+        {'id': '10012','value': '10年以上'}
+    ];
+
+    window.workingLife = function (dom) {
+        dom.addEventListener('click', function () {
+            var bankId = showBankDom.dataset['id'];
+            var bankSelect = new IosSelect(1,
+                [dataWorkingLife],
+                {
+                    itemHeight: 50,
+                    itemShowCount: 3,
+                    oneLevelId: bankId,
+                    callback: function (selectOneObj) {
+                        dom.value = selectOneObj.value;
+                    }
+                });
+        });
+    };
+
+    workingLife(document.querySelector('#workingLife'));
 
     //初始化信息条数
     var eduLength =1;
@@ -376,40 +402,49 @@ $(function () {
 
     });
     $('body').on('click','.deleteBtn', function () {
-        eduLength--;
-        if(eduLength<3){
-            $('.addEducation').show();
-        }
-        if(eduLength<1){
-            layer.open({
-                content: '必须保留一条记录'
-                ,btn: '确定',
-                yes: function(index){
-                    layer.close(index);
-                
+        var that = this;
+        layer.open({
+            content: '确定删除吗'
+            ,btn: ['删除', '不删除']
+            ,yes: function(index){
+                eduLength--;
+                if(eduLength<3){
+                    $('.addEducation').show();
                 }
-            });
-            eduLength=1;
-            return false;
-        }
-
-        $(this).parents('.educationTable').remove();
-
-        var eduFormInf = $('.educationTable');
-        eduFormInf.each(function(index,element){
-            var educationStartTime = $(eduFormInf[index]).find("input[name='educationStartTime']");
-            var educationEndTime = $(eduFormInf[index]).find("input[name='educationEndTime']");
-            var educationGrade = $(eduFormInf[index]).find("input[name='educationGrade']");
-            if(index==0){
-                $(educationStartTime).attr('class','StartTime ');
-                $(educationEndTime).attr('class','EndTime');
-                $(educationGrade).attr('class','eduS');
-            }else{
-                $(educationStartTime).attr('class','StartTime'+(index+1));
-                $(educationEndTime).attr('class','EndTime'+(index+1));
-                $(educationGrade).attr('class','eduS'+(index+1));
+                if(eduLength<1){
+                    layer.open({
+                        content: '必须保留一条记录'
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                        }
+                    });
+                    eduLength=1;
+                    return false;
+                }
+        
+                $(that).parents('.educationTable').remove();
+        
+                var eduFormInf = $('.educationTable');
+                eduFormInf.each(function(index,element){
+                    var educationStartTime = $(eduFormInf[index]).find("input[name='educationStartTime']");
+                    var educationEndTime = $(eduFormInf[index]).find("input[name='educationEndTime']");
+                    var educationGrade = $(eduFormInf[index]).find("input[name='educationGrade']");
+                    if(index==0){
+                        $(educationStartTime).attr('class','StartTime ');
+                        $(educationEndTime).attr('class','EndTime');
+                        $(educationGrade).attr('class','eduS');
+                    }else{
+                        $(educationStartTime).attr('class','StartTime'+(index+1));
+                        $(educationEndTime).attr('class','EndTime'+(index+1));
+                        $(educationGrade).attr('class','eduS'+(index+1));
+                    }
+                });
+                layer.close(index);
             }
+            
         });
+    
     });
 
      var onOffE = true;
@@ -488,12 +523,19 @@ $(function () {
         }
     });
     $('body').on('click','.deleteBtnJ', function () {
-        skillLength--;
-        if(skillLength<3){
-            $('.addSkill').show();
-        }
-        $(this).parents('.skill').remove();
-       
+        var that = this;
+        layer.open({
+            content: '确定删除吗'
+            ,btn: ['删除', '不删除']
+            ,yes: function(index){
+                skillLength--;
+                if(skillLength<3){
+                    $('.addSkill').show();
+                }
+                $(that).parents('.skill').remove();
+                layer.close(index);
+            }
+        });
     });
     /*增加工作信息*/
 
@@ -624,42 +666,50 @@ $(function () {
 
     });
     $('body').on('click','.deleteBtnW', function () {
-       
-        workLength--;
-        if(workLength<3){
-            $('.addWork').show();
-        }
-        if(workLength<1){
-            layer.open({
-                content: '必须保留一条记录'
-                ,btn: '确定',
-                yes: function(index){
-                    layer.close(index);
+        var that = this;
+        layer.open({
+            content: '确定删除吗'
+            ,btn: ['删除', '不删除']
+            ,yes: function(index){
+                workLength--;
+                if(workLength<3){
+                    $('.addWork').show();
                 }
-            });
-            workLength=1;
-            return false;
-        }
-        $(this).parents('.work').remove();
-       
-        var workFormInf = $('.work');
-        workFormInf.each(function(index,element){
-            var workStartTime = $(workFormInf[index]).find("input[name='workStartTime']");
-            var workEndTime = $(workFormInf[index]).find("input[name='workEndTime']");
-            var resumeDissmionReason = $(workFormInf[index]).find("input[name='resumeDissmionReason']");
-            var relationship = $(workFormInf[index]).find("input[name='relationship']");
-            if(index==0){
-                $(workStartTime).attr('class','entryTime workTime');
-                $(workEndTime).attr('class','outTime');
-                $(resumeDissmionReason).attr('class','leaveCause');
-                $(relationship).attr('class','relationship');
-            }else{
-                $(workStartTime).attr('class','entryTime'+(index+1)+ ' workTime');
-                $(workEndTime).attr('class','outTime'+(index+1));
-                $(resumeDissmionReason).attr('class','leaveCause'+(index+1));
-                $(relationship).attr('class','relationship'+(index+1));
+                if(workLength<1){
+                    layer.open({
+                        content: '必须保留一条记录'
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                        }
+                    });
+                    workLength=1;
+                    return false;
+                }
+                $(that).parents('.work').remove();
+               
+                var workFormInf = $('.work');
+                workFormInf.each(function(index,element){
+                    var workStartTime = $(workFormInf[index]).find("input[name='workStartTime']");
+                    var workEndTime = $(workFormInf[index]).find("input[name='workEndTime']");
+                    var resumeDissmionReason = $(workFormInf[index]).find("input[name='resumeDissmionReason']");
+                    var relationship = $(workFormInf[index]).find("input[name='relationship']");
+                    if(index==0){
+                        $(workStartTime).attr('class','entryTime workTime');
+                        $(workEndTime).attr('class','outTime');
+                        $(resumeDissmionReason).attr('class','leaveCause');
+                        $(relationship).attr('class','relationship');
+                    }else{
+                        $(workStartTime).attr('class','entryTime'+(index+1)+ ' workTime');
+                        $(workEndTime).attr('class','outTime'+(index+1));
+                        $(resumeDissmionReason).attr('class','leaveCause'+(index+1));
+                        $(relationship).attr('class','relationship'+(index+1));
+                    }
+                });
+                layer.close(index);
             }
         });
+    
     });
     var onOffW = true;
     /*收起工作信息*/
@@ -1282,7 +1332,7 @@ $(function () {
                 ,yes: function(index){
                     showLoader();
                     $.ajax({
-                        url:'https://api.funinhr.com/api/save/resume',
+                        url:'https://apix.funinhr.com/api/save/resume',
                         type: "POST",
                         timeout:5000,
                         dataType:"json",
