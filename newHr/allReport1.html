@@ -31,7 +31,9 @@
             <li>本科</li>
             <li>软件工程</li>
             <li>4年工作经验</li>
-            <li>20000</li>
+            <li>20000</li>  
+        </ul>
+        <ul>
             <li>11111000001</li>
             <li>121212121212121212</li>
         </ul>
@@ -39,6 +41,10 @@
     <div class="header_r">
         <img src="images/accordance.png" alt="">
     </div>
+    <div class="headerWave">
+        <img src="images/headerWave.png" alt="">
+    </div>
+   
 </div>
 <!-- 2、百分比图部分 -->
 <div class="verification-results">
@@ -79,7 +85,7 @@
             <p>教育背景核验</p>
         </div>
         <div >
-            <h5 class="inconformitBg">10000-20000</h5>
+            <h5 class="accordanceBg">10000-20000</h5>
             <img src="images/wages-icon.png" alt="">
             <p>预测薪资</p>
         </div>
@@ -99,12 +105,12 @@
             <p>同事证明核验</p>
         </div>
         <div >
-            <h5 class="inconformitBg">1项职业资格证书</h5>
+            <h5 class="accordanceBg">1项职业资格证书</h5>
             <img src="images/badness-icon.png" alt="">
             <p>职业资格核验</p>
         </div>
         <div >
-            <h5 class="inconformitBg">0项不良记录</h5>
+            <h5 class="accordanceBg">0项不良记录</h5>
             <img src="images/badness-icon.png" alt="">
             <p>公共治安信息核验</p>
         </div>
@@ -512,32 +518,42 @@
     <div class="skillTable">
         <div class="skill_title">北京华为科技有限公司</div>
         <div class="basic-basic">
-            <div class="basic-left">
+            <div class="basic-left hundred">
                 <div>
                     <ul>
-                        <li>
+                        <li class="right-active">
+                            <div class="li_l Pub-order-infor-l">
+                                <span>职业资格证书</span>
+                            </div>
+                            <div class="li_r right-active Pub-order-infor-l">
+                                <span>0项</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="fifteen">
                             <div class="li_l">
                                 <span>证书编号</span>
                             </div>
-                            <div class="li_r">
+                            <div class="li_r fifteen-right">
                                 <span>北京华为科技有限公司</span>
                             </div>
         
                         </li>
-                        <li>
+                        <li class="fifteen">
                             <div class="li_l">
                                 <span>入职之间</span>
                             </div>
-                            <div class="li_r">
+                            <div class="li_r fifteen-right">
                                 <span>2014.12</span>
                             </div>
         
                         </li>
-                        <li>
+                        <li class="fifteen">
                             <div class="li_l">
                                 <span>离职时间</span>
                             </div>
-                            <div class="li_r">
+                            <div class="li_r fifteen-right">
                                 <span>2017.12</span>
                             </div>
         
@@ -545,9 +561,25 @@
                     </ul>
                 </div>
             </div>
-            <div class="accord">
+            <!-- <div class="accord">
                 <img src="images/accordance.png" alt="">
-            </div>
+            </div> -->
+        </div>
+        <div class="basic-basic">
+                <div class="basic-left">
+                    <div>
+                        <ul>
+                            <li class="right-active">
+                                <div class="li_l Pub-order-infor-l">
+                                    <span>职业资格证书</span>
+                                </div>
+                                <div class="li_r right-active Pub-order-infor-l">
+                                    <span>0项</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="skillExplain">
@@ -571,10 +603,10 @@
                 <div>
                     <ul>
                         <li class="right-active">
-                            <div class="li_l">
+                            <div class="li_l Pub-order-infor-l">
                                 <span>公共治安信息</span>
                             </div>
-                            <div class="li_r right-active">
+                            <div class="li_r right-active Pub-order-infor-l">
                                 <span>0项</span>
                             </div>
                         </li>
@@ -624,7 +656,7 @@
         <span>表示数据库中查无此数据</span>
     </p>
     <p>
-        <label class="explainTitle waitColor">检测中</label>
+        <label class="explainTitle waitColor">核验中</label>
         <span>表示正在核验结果</span>
     </p>
     <p>
@@ -651,7 +683,7 @@
     /*  基于准备好的dom，初始化echarts实例 */
      var myChart = echarts.init(document.getElementById('main'));
     var data = [{
-        value: 4,
+        value: 3,
 
     }, {
         value: 3,
@@ -660,11 +692,10 @@
         value: 2,
 
     }, {
-        value: 1,
+        value: 2,
 
     },];
     option = {
-
         backgroundColor: 'rgba(255,255,255,0)',
         tooltip: {
             show: false,
@@ -678,8 +709,8 @@
             clockwise:false,
             stillShowZeroSum:false,
             radius: ['20%', '50%'],
-            // color: ['#27d4af','#feb957', '#fe4646',  '#fccb07'],
-            color:['#27d4af','#fe4646','#fccb07','#d98103'],
+            color:['#27d4af','#fe4646','#d98103','#fccb07'],
+
             silent:true,
             label: { 
                 normal: {
