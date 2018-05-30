@@ -158,7 +158,7 @@
             </div>
             <div>
                 <span class="specialty">专业</span>
-                <input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18">
+                <input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </div>
             <div>
                 <span>入学时间</span>
@@ -199,7 +199,7 @@
             <p class="workTitle workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>
             <div class="firmMsg">
                 <span>公司名称</span>
-                <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2" data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45"></textarea>
+                <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2" data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')"></textarea>
             </div>
             <div>
                 <span>工作岗位</span>
@@ -223,7 +223,7 @@
             </div>
             <div>
                 <span class="certifierName">证明人姓名</span>
-                <input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名">
+                <input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名" onkeyup="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z\u4E00-\u9FA5]/g,'')">
             </div>
             <div>
                 <span class="certifierTel">证明人电话</span>

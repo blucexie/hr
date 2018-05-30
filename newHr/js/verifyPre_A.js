@@ -17,7 +17,6 @@ $(function () {
     /*下一步*/
     $('.nextStep button').click(function () {
         var verifyIdCard = $('#resumeIdCard').val();
-        showLoader();
         var basicInfo = {};
         var basicPass = true;
         var inputObject;
@@ -37,6 +36,7 @@ $(function () {
                 basicPass = false;
                 return false;
             }
+            if (!basicPass) return false;
             var itemPass = true;
             var itemVal = $(this).val();
             var itemName = $(this).attr('name');
@@ -66,10 +66,11 @@ $(function () {
             $(this).removeClass('errorShow');
             basicInfo[itemName] = itemVal;
         });
+        if (!basicPass) return false;
         basicInfo.userCode = userCode;
         basicInfo.verifyCode = verifyCode;
         basicInfo.authenCode = authenCode;
-       // basicInfo.userCode ="5a4c42422384751673a1134d";
+        showLoader();
             $.ajax({
             url:'https://apix.funinhr.com/api/get/pre/resume',
             type: "POST",
@@ -77,7 +78,6 @@ $(function () {
             dataType:"json",
             data:JSON.stringify(basicInfo),
             success: function (data){
-                console.log(data);
                 hideLoader();
                 var jsonData = JSON.parse(data['plaintext']);
                 if (jsonData == undefined || jsonData.item == undefined){
