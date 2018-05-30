@@ -1,10 +1,34 @@
 $(function () {
+    //控制输入框只能输入一位并且是数字
+    $(".inputCont-one").focus();
+    onload = function () {
+        var txts = on.getElementsByTagName("input");
+        for (var i = 0; i < txts.length; i++) {
+            var t = txts[i];
+            t.index = i;
+            t.setAttribute("readonly", true);
+            t.onkeyup = function () {
+                if (this.value = this.value.replace(/\D/g, '')) {
+                    var next = this.index + 1;
+                    if (next > txts.length - 1) return;
+                    txts[next].removeAttribute("readonly");
+                    txts[next].focus();
+                } else {
+                    $(this).focus();
+                }
+            }
+        }
+        txts[0].removeAttribute("readonly");
+    }
 
 /*短信验证*/
     $('.btn').click(function () {
+        var code="";
+        $('.passInput input').each(function(index,element){
+            code+=$(this).val()
+        })
         $(this).attr('disabled','disabled');
         showLoader();
-         var code=$("#inpId").val();
         if(code =="" || code.length!=7){
             layer.open({
                 content: '请正确输入授权码'
@@ -21,8 +45,7 @@ $(function () {
             dataType:"json",
             data:"{\"authenCode\":\""+code+"\"}",
             success: function (data) {
-               /* console.log(data);*/
-                var jsonData = eval("data="+data['plaintext']);
+               var jsonData = JSON.parse(data['plaintext']);
                 var verifyName = jsonData.item.verifyName;/*姓名*/
                 var companyName = jsonData.item.companyName;/*公司名称*/
                 var enterpriseName = jsonData.item.enterpriseName;/*核验人面试的公司*/

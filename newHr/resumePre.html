@@ -34,9 +34,11 @@
             <p><img src="images/xing2.png" alt=""> 请注意此公司是否与您进行过求职沟通</p>
         </div>
     </div>
-    <div class="interval"></div>
     <div class="licensedContent">
-        <h2>将授权的内容包括：</h2>
+        <div class="licensedContentTitle">
+            <img src="images/licensedContent-icon.png" alt="">
+            <h2> 将授权的内容包括</h2>
+        </div>
         <ul class="clearfix">
             <li>
                 <img src="images/a1.png" alt="">
@@ -48,10 +50,14 @@
             </li>
             <li>
                 <img src="images/a3.png" alt="">
-                <p>工作经历核验</p>
+                <p>薪资预测</p>
             </li>
             <li>
                 <img src="images/a4.png" alt="">
+                <p>工作经历核验</p>
+            </li>
+            <li>
+                <img src="images/a5.png" alt="">
                 <p>同事证明核验</p>
             </li>
             <li>
@@ -59,32 +65,34 @@
                 <p>职业资格核验</p>
             </li>
             <li>
-                <img src="images/a5.png" alt="">
+                <img src="images/a7.png" alt="">
                 <p>公共治安信息核验</p>
             </li>
         </ul>
     </div>
 
-
-    <div class="septal-line"></div>
     <div class="basic">
         <img src="images/basicBG.png" alt="">
     </div>
-    <form id="deForm" class="basicForm" action="">
+    <form id="deForm" class="basicForm clearfix" action="">
         <label for="resumeName">
+            <i class="icon1"></i>
             <span>姓名</span>
             <input  id="resumeName"  type="text" name="resumeName" data-attribute="请填写正确的姓名"  placeholder="请输入您的姓名" maxlength="20">
         </label><br>
         <label for="resumeIdCard">
+            <i class="icon2"></i>
             <span class="inpId">身份证号码</span>
             <input id="resumeIdCard" type="text" name="resumeIdCard" data-attribute="请填写正确的身份证号" placeholder="请输入身份证号码" onkeyup="value=value.replace(/[\W]/g,'')" maxlength="18">
         </label><br>
         <label for="resumeMobile">
+            <i class="icon3"></i>
             <span class="inpTel">联系方式</span>
             <input id="resumeMobile"  type="text" name="resumeMobile" data-attribute="请填写正确的联系方式" placeholder="请输入您的联系方式" maxlength="11">
         </label><br>
-       <div style="border-bottom: 1px solid #d4d4d4">
+       <div>
            <label for="validateCode" id="mesCodeLabel">
+                <i class="icon4"></i>
                <span class="msCode">短信验证码</span>
                <input id="validateCode"  type="text" name="validateCode" data-attribute="请填写正确的验证码" placeholder="请输入7位验证码" maxlength="7">
            </label>

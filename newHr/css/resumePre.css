@@ -12,6 +12,7 @@ a {
 body {
   font-family: "Microsoft YaHei";
   position: relative;
+  background: #f8f8f8;
 }
 input:disabled,
 input[disabled],
@@ -50,22 +51,20 @@ input {
 }
 #header {
   width: 15rem;
-  /* height: 300/@r;*/
+  height: 7.76rem;
   background: url("../images/header-bg.png") no-repeat;
-  background-size: 6.32rem 3.16rem;
-  background-position: right bottom;
-  padding-bottom: 0.52rem;
+  background-size: 15rem 6.92rem;
 }
 #logo {
   float: left;
-  width: 0.72rem;
-  height: 0.84rem;
+  width: 0.64rem;
+  height: 0.74rem;
   margin-left: 0.6rem;
   margin-top: 0.64rem;
 }
 #logo img {
-  width: 0.72rem;
-  height: 0.84rem;
+  width: 0.64rem;
+  height: 0.74rem;
 }
 .company {
   display: inline-block;
@@ -79,7 +78,7 @@ input {
 }
 .company p {
   font-size: 0.6rem;
-  color: #574e5e;
+  color: #fff;
   line-height: 1.08rem;
 }
 .company p:nth-of-type(2) {
@@ -92,7 +91,7 @@ input {
   margin-top: 0.28rem;
 }
 .warn p {
-  color: #fd511c;
+  color: #feee5f;
   font-size: 0.52rem;
   height: 0.76rem;
   line-height: 0.76rem;
@@ -103,24 +102,30 @@ input {
   height: 0.24rem;
   vertical-align: 0.08rem;
 }
-.interval {
-  height: 0.44rem;
-  background: #ebf0f2;
-}
-.septal-line {
-  height: 0.44rem;
-  background: #ebf0f2;
-}
-/*····················*/
 .licensedContent {
+  width: 13.88rem;
   padding-bottom: 0.52rem;
+  margin: 0 auto;
+  margin-top: -2.2rem;
+  background: #fff;
+  border-radius: 0.1rem;
+  margin-bottom: 0.44rem;
 }
-.licensedContent h2 {
+.licensedContentTitle {
+  display: flex;
+  align-items: center;
+  padding-top: 0.36rem;
+}
+.licensedContentTitle h2 {
   font-size: 0.6rem;
   font-weight: 400;
   color: #333;
-  margin-top: 0.48rem;
-  margin-left: 0.6rem;
+}
+.licensedContentTitle > img {
+  float: left;
+  width: 0.1rem;
+  height: 0.62rem;
+  margin: 0 0.24rem;
 }
 .licensedContent ul li {
   float: left;
@@ -140,41 +145,65 @@ input {
   margin-top: 1.12rem;
 }
 /*基本信息*/
-.basicForm label,
-.educationTable div,
-.work div,
-.skill div {
-  width: 14.4rem;
+.basic {
+  width: 13.88rem;
+  background: #fff;
+  margin: 0 auto;
+  text-align: center;
+}
+.basicForm label {
+  width: 13.88rem;
   font-size: 0.6rem;
   color: #573e5f;
-  margin-left: 0.6rem;
-  height: 1.76rem;
-  line-height: 1.76rem;
+  height: 2rem;
+  line-height: 2rem;
   display: inline-block;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #e7e7e7;
+  background: #fff;
 }
-.basic,
-.education,
-.workExperience,
-.skillInformation {
-  display: flex;
-  /*  justify-content: center;
-   flex-direction: column;*/
-  /*height: 110/@r;
-  line-height: 110/@r;*/
-  border-bottom: 1px solid #d4d4d4;
-}
-.basic img,
-.education img,
-.workExperience img,
-.skillInformation img {
-  width: 7.28rem;
-  height: 1.1rem;
-  margin: 0.32rem 0;
+.basic img {
+  width: 5.36rem;
+  height: 1.16rem;
+  margin-top: 0.54rem;
 }
 #mesCodeLabel {
   width: 9.3rem;
   border-bottom: none;
+}
+#deForm {
+  width: 13.88rem;
+  margin: 0 auto;
+}
+#deForm > div {
+  width: 13.88rem;
+  float: left;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+#deForm label {
+  float: left;
+  display: flex;
+  align-items: center;
+}
+#deForm label i {
+  float: left;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 50%;
+  margin: 0 0.44rem 0 0.28rem;
+}
+#deForm .icon1 {
+  background: #00a2ea;
+}
+#deForm .icon2 {
+  background: #f22ac6;
+}
+#deForm .icon3 {
+  background: #00aeb4;
+}
+#deForm .icon4 {
+  background: #ffaf3f;
 }
 #deForm label span {
   margin-right: 2.32rem;

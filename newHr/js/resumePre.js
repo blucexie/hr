@@ -68,7 +68,7 @@ $(function () {
                     data:"{\"mobile\":\""+mobile+"\"}",
                     success: function (data) {
                         hideLoader();
-                        var jsonData = eval("data="+data['plaintext']);
+                        var jsonData = JSON.parse(data['plaintext']);
                         if (jsonData == undefined || jsonData.item == undefined){
                             layer.open({
                                 content: '网络异常，请稍后重试'
@@ -173,7 +173,6 @@ $(function () {
             dataType:"json",
             data:JSON.stringify(basicInfo),
             success: function (data){
-                console.log(data);
                 hideLoader();
                 var jsonData = JSON.parse(data['plaintext']);
                 if (jsonData == undefined || jsonData.item == undefined){

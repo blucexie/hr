@@ -81,7 +81,6 @@ function checkBalance(balance){
                     dataType: "json",
                     data: "{\"" + parmName + "\":\"" + name + "\"}",
                     success: function (data) {
-                        console.log(data)
                         var jsonData = eval("data=" + data['plaintext']);
                         var newArray = [];
                         newArray = jsonData.item[selectName];
@@ -96,3 +95,29 @@ function checkBalance(balance){
 
         });
     }
+
+/**
+* 检查返回值是否正常
+* @param jsonData
+*/
+function checkAjaxResult(jsonData) {
+    if (jsonData == undefined) {
+        return '网络异常，请稍后重试';
+    }
+    var itemObj;
+    if (typeof (jsonData.plaintext) == 'string') {
+        itemObj = JSON.parse(jsonData.plaintext).item;
+    } else {
+        itemObj = jsonData.plaintext;
+    }
+    if (itemObj == undefined) {
+        return '网络异常，请稍后重试';
+    }
+    var result = itemObj.result;
+    var resultInfo = itemObj.resultInfo;
+    if (result === 1001) {
+        return "";
+    } else {
+        return resultInfo;
+    }
+}

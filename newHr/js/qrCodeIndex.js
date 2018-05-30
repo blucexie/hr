@@ -19,7 +19,7 @@ $(function () {
             data:"{\"userCode\":\""+userCode+"\"}",
             success: function (data) {
               //  console.log(data);
-                var jsonData = eval("data="+data['plaintext']);
+                var jsonData = JSON.parse(data['plaintext']);
                 var enterpriseName = jsonData.item.enterpriseName;
                 $('.companyName').text(enterpriseName)
             }
@@ -139,7 +139,7 @@ $(function () {
                     data:"{\"mobile\":\""+mobile+"\"}",
                     success: function (data) {
                         console.log(data);
-                        var jsonData = eval("data="+data['plaintext']);
+                        var jsonData = JSON.parse(data['plaintext']);
                         var result = jsonData.item.result;
                         var msg = jsonData.item.msg;
                         if(result===2001){
@@ -185,7 +185,7 @@ $(function () {
                 "\"validateCode\":\""+validateCode+"\"}",
                 success: function (data) {
                     console.log(data);
-                    var jsonData = eval("data="+data['plaintext']);
+                    var jsonData = JSON.parse(data['plaintext']);
                     var result = jsonData.item.result;
                     var msg = jsonData.item.msg;
                     if(result===1001){

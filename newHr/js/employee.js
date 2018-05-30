@@ -40,7 +40,24 @@ $(function () {
                 });
         });
     };
+    window.workRe = function (dom) {
 
+        dom.addEventListener('click', function () {
+            var bankId = showBankDom.dataset['id'];
+            var bankSelect = new IosSelect(1,
+                [data2],
+                {
+
+                    itemHeight: 50,
+                    itemShowCount: 3,
+                    oneLevelId: bankId,
+                    callback: function (selectOneObj) {
+                        dom.value = selectOneObj.value;
+
+                    }
+                });
+        });
+    };
     if($('#graduatingStudents').is(':checked')){
         $('.isDimission').hide();
         $('.work').hide();
@@ -48,18 +65,44 @@ $(function () {
         $('.upWorkExperience').hide();
     };
     $('.graduatingStudents').click(function () {
-        $('.work').hide();
-        $('.workExperience').hide();
-        $('.upWorkExperience').hide();
-        $('.isDimission').hide();
-        $('.upW').hide();
+        $('.workExperience img').attr('src','images/workexpre.png')
     });
     $('.previousStudents').click(function () {
-        $('.work').show();
-        $('.workExperience').show();
-        $('.upWorkExperience').show();
-        $('.isDimission').show();
+        $('.workExperience img').attr('src','images/workBg.png')
     });
+    /* 工作年限选择 */
+    var dataWorkingLife = [
+        {'id': '10001','value': '应届毕业生'},
+        {'id': '10002','value': '1年'},
+        {'id': '10003','value': '2年'},
+        {'id': '10004','value': '3年'},
+        {'id': '10005','value': '4年'},
+        {'id': '10006','value': '5年'},
+        {'id': '10007','value': '6年'},
+        {'id': '10008','value': '7年'},
+        {'id': '10009','value': '8年'},
+        {'id': '10010','value': '9年'},
+        {'id': '10011','value': '10年'},
+        {'id': '10012','value': '10年以上'}
+    ];
+
+    window.workingLife = function (dom) {
+        dom.addEventListener('click', function () {
+            var bankId = showBankDom.dataset['id'];
+            var bankSelect = new IosSelect(1,
+                [dataWorkingLife],
+                {
+                    itemHeight: 50,
+                    itemShowCount: 3,
+                    oneLevelId: bankId,
+                    callback: function (selectOneObj) {
+                        dom.value = selectOneObj.value;
+                    }
+                });
+        });
+    };
+
+    workingLife(document.querySelector('#workingLife'));
 
     //初始化信息条数
     var eduLength =1;
@@ -73,6 +116,8 @@ $(function () {
         resumeArray = JSON.parse(resumeStr);
         $('#jobInterview').val(resumeArray.resumeJob);
         $('#salary').val(resumeArray.resumeExpectSalary);
+        $('#nowSalary').val(resumeArray.currentSalary);
+        $('#workingLife').val(resumeArray.workingLife);
         if(resumeArray.resumeIsDissmion ==1){
             $('#yDimission').attr('checked',true);
             $('#nDimission').removeAttr("checked")
@@ -107,10 +152,10 @@ $(function () {
             var endClass = 'EndTime';
             var eduClass = 'eduS';
             var $school = ('<form class="educationTable" action="">' +
-            '<p class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
-            '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
+            '<p class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"><img src="images/deleteIcon.png" alt="">删除</em></p>'+
+            '<div class="schoolMsg"><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
             '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+(eduClass+(i+2))+'  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历"></div>'+
-            '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+            '<div><span class="specialty">专业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
             '<div><span>入学时间</span><input onfocus="this.blur();" class='+(starClass+(i+2))+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
             '<div><span>毕业时间</span><input onfocus="this.blur();" class='+(endClass+(i+2))+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
@@ -158,9 +203,9 @@ $(function () {
                 $('.skillTitle').css('display','block');
             }
             for(var i = 0;i<skillLength-1;i++){
-                var $skill = ('<form class="skill" action="">' +
-                '<p class="skillTitleS clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>'+
-                '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
+                var $skill = ('<form class="skill clearfix" action="">' +
+                '<p class="skillTitleS clearfix"><span>职业证书</span><em class="deleteBtnJ"><img src="images/deleteIcon.png" alt="">删除</em></p>'+
+                '<div><i class="blueBg"></i><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
                 $('.upSkill').before($skill);
             }
@@ -183,16 +228,17 @@ $(function () {
                 var entclass = 'entryTime';
                 var outclass = 'outTime';
                 var leaveClass = 'leaveCause';
-                var $work = ('<form class="work">'+
-                '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
-                '<div class="firmMsg"><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
-                '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
-                '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写岗位工资"  placeholder="请输入岗位工资，如10000"  onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*"  maxlength="7"></div>' +
-                '<div><span>开始时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择开始时间" placeholder="请选择开始时间"></div>' +
-                '<div> <span>结束时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择结束时间" placeholder="请选择结束时间"></div>' +
-                '<div> <span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
-                '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
-                '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" data-attribute="请输入证明人电话" placeholder="请输入证明人电话" maxlength="11"></div></form>');
+                var relationship = 'relationship';
+                var $work = ('<form class="work clearfix">'+
+                '<p class="workTitleS clearfix"><span>工作经历</span> <em class="deleteBtnW"><img src="images/deleteIcon.png">删除</em></p>'+
+                '<div class="firmMsg"><i class="yellowBg"></i><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
+                '<div><i class="blueBg"></i><span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+                '<div><i class="greenBg"></i><span>入职时间</span><input  onfocus="this.blur();" class='+(entclass+(i+2))+'  type="text" name="workStartTime" data-attribute="请选择入职时间" placeholder="请选择入职时间"></div>' +
+                '<div><i class="orangeBg"></i><span>离职时间</span><input onfocus="this.blur();"  class='+(outclass+(i+2))+'  type="text" name="workEndTime" data-attribute="请选择离职时间" placeholder="请选择离职时间"></div>' +
+                '<div><i class="darkGreenBg"></i><span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
+                '<div><i class="yellowBg"></i><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" maxlength="20"></div>' +
+                '<div> <i class="blueBg"></i><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div>'+
+                '<div><i class="orangeBg"></i><span class="relation">关系</span><input onfocus="this.blur();"  class='+(relationship+(i+2))+' type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
 
                 $('.upWorkExperience').before($work);
 
@@ -220,11 +266,12 @@ $(function () {
                 });
 
                 workFn1($('.'+leaveClass+(i+2))[0]);
+                workRe($('.'+relationship+(i+2))[0]);
+                
             }
             for(var i = 0;i<workJson.length;i++){
                 $('.work:eq('+i+') .firm').val(workJson[i].workEnterpriseName);
                 $('.work:eq('+i+') .job').val(workJson[i].verifyJob);
-                $('.work:eq('+i+') .workBalance').val(workJson[i].workBalance);
                 var sT = workJson[i].workStartTime.split(""),
                     arrST =sT.splice(4,0,'-'),
                     workStartTime = sT.join('');
@@ -236,48 +283,19 @@ $(function () {
                 $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
                 $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
                 $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
+                $(".work:eq('+i+') input[name='relationship']").val(workJson[i].relationship);
 
             }
         }
 
 
     }
-
-
-
     var basicStr = sessionStorage.basicInfo;
     if(typeof(basicStr)!="undefined"){
         var basicArr = JSON.parse(basicStr);
 
     }
 
-  
-
-
-
-
-
-    /*收起基本信息*/
-
-    var onOffB = true;
-
-    $('.upBasic').click(function () {
-        var sJob = $('#jobInterview').val();
-        if(onOffB){
-            $('#deForm').css('display','none');
-            var $name = $('<div class="upB"><span class="upName">职位</span><span class="upNames">'+sJob+'</span></div>');
-            ($('.basic')).after($name);
-            $('.upBasic p').text('展开基本信息');
-            $('.upBasic img').removeAttr("src").attr("src","images/downArrows.png");
-            onOffB = false;
-        }else{
-            $('#deForm').css('display','block');
-            $('.upB').css('display','none');
-            $('.upBasic p').text('收起基本信息');
-            $('.upBasic img').removeAttr("src").attr("src","images/upArrows.png");
-            onOffB = true;
-        }
-    });
     /*增加教育信息*/
 
     var educationSchoolName ;
@@ -288,19 +306,14 @@ $(function () {
 
     autoFinish($( ".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
 
-  
-
        //专业模糊查询
       var educationMajor;
        $(document).on('input propertychange', '.specialty', function (e) {
         educationMajor = $(this).val();
         autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
        });
-
        autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
        
-
-
     /*底部滑动select*/
 
       var data = [
@@ -350,13 +363,13 @@ $(function () {
             starClass+=eduLength;
             endClass+=eduLength;
             eduClass+=eduLength;
-            var $school = ('<form class="educationTable" action="">' +
-            '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息</span><button type="button" class="deleteBtn">删除此条记录</button></p>'+
-            '<div  class="schoolMsg"><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onkeyup="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
-            '<div><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
-            '<div><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
-            '<div><span>入学时间</span><input onfocus="this.blur();" class='+starClass+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
-            '<div><span>毕业时间</span><input onfocus="this.blur();" class='+endClass+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
+            var $school = ('<form class="educationTable clearfix" action="">' +
+            '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"> <img src="images/deleteIcon.png" alt="">删除</em></p>'+
+            '<div  class="schoolMsg"><i class="purpleBg"></i><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
+            '<div><i class="yellowBg"></i><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
+            '<div><i class="greenBg"></i><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+            '<div><i class="orangeBg"></i><span>入学时间</span><input onfocus="this.blur();" class='+starClass+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
+            '<div><i class="blueBg"></i><span>毕业时间</span><input onfocus="this.blur();" class='+endClass+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
             $('.upEducation').before($school);
             new datePicker().init({
@@ -384,49 +397,54 @@ $(function () {
 
             eduFn($('.'+eduClass)[0]);
 
-           // var schoolNameArray = $(".schoolName");
-          //  for (var i = 0; i < schoolNameArray.length; i++) {
-                autoFinish($(".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
-                autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
-           // }
+            autoFinish($(".schoolName"),educationSchoolName,'educationArray','educationSchoolName','school');
+            autoFinish($('.specialty'),educationMajor,'majorArray','educationMajor','major');
 
     });
     $('body').on('click','.deleteBtn', function () {
-      
-        eduLength--;
-        if(eduLength<3){
-            $('.addEducation').show();
-        }
-        if(eduLength<1){
-            layer.open({
-                content: '必须保留一条记录'
-                ,btn: '确定',
-                yes: function(index){
-                    layer.close(index);
-                
+        var that = this;
+        layer.open({
+            content: '确定删除吗'
+            ,btn: ['删除', '不删除']
+            ,yes: function(index){
+                eduLength--;
+                if(eduLength<3){
+                    $('.addEducation').show();
                 }
-            });
-            eduLength=1;
-            return false;
-        }
-
-        $(this).parents('.educationTable').remove();
-
-        var eduFormInf = $('.educationTable');
-        eduFormInf.each(function(index,element){
-            var educationStartTime = $(eduFormInf[index]).find("input[name='educationStartTime']");
-            var educationEndTime = $(eduFormInf[index]).find("input[name='educationEndTime']");
-            var educationGrade = $(eduFormInf[index]).find("input[name='educationGrade']");
-            if(index==0){
-                $(educationStartTime).attr('class','StartTime ');
-                $(educationEndTime).attr('class','EndTime');
-                $(educationGrade).attr('class','eduS');
-            }else{
-                $(educationStartTime).attr('class','StartTime'+(index+1));
-                $(educationEndTime).attr('class','EndTime'+(index+1));
-                $(educationGrade).attr('class','eduS'+(index+1));
+                if(eduLength<1){
+                    layer.open({
+                        content: '必须保留一条记录'
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                        }
+                    });
+                    eduLength=1;
+                    return false;
+                }
+        
+                $(that).parents('.educationTable').remove();
+        
+                var eduFormInf = $('.educationTable');
+                eduFormInf.each(function(index,element){
+                    var educationStartTime = $(eduFormInf[index]).find("input[name='educationStartTime']");
+                    var educationEndTime = $(eduFormInf[index]).find("input[name='educationEndTime']");
+                    var educationGrade = $(eduFormInf[index]).find("input[name='educationGrade']");
+                    if(index==0){
+                        $(educationStartTime).attr('class','StartTime ');
+                        $(educationEndTime).attr('class','EndTime');
+                        $(educationGrade).attr('class','eduS');
+                    }else{
+                        $(educationStartTime).attr('class','StartTime'+(index+1));
+                        $(educationEndTime).attr('class','EndTime'+(index+1));
+                        $(educationGrade).attr('class','eduS'+(index+1));
+                    }
+                });
+                layer.close(index);
             }
+            
         });
+    
     });
 
      var onOffE = true;
@@ -442,7 +460,7 @@ $(function () {
             $('.educationTable').css('display','none');
             var $epE = "";
             for(var i = 0;i<schoolArr.length;i++){
-                $epE+='<p class="clearfix"><span class="ed">教育信息</span><span class="schName">'+schoolArr[i]+'</span></p>';
+                $epE+='<p class="clearfix"><span class="ed">学校名称</span><span class="schName">'+schoolArr[i]+'</span></p>';
             }
             var $epF = ('<div class="upE">'+$epE+'</div>');
             $('.education').after($epF);
@@ -470,9 +488,9 @@ $(function () {
             $('.addSkill').hide();
         }
 
-        var skill = ('<form class="skill" action="">' +
-        '<p class="skillTitleS clearfix"><i></i><span>职业证书</span><button type="button" class="deleteBtnJ">删除此条记录</button></p>'+
-        '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
+        var skill = ('<form class="skill clearfix" action="">' +
+        '<p class="skillTitleS clearfix"><span>职业证书</span> <em class="deleteBtnJ"><img src="images/deleteIcon.png" alt="">删除</em></p>'+
+        '<div><i class="blueBg"></i><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
         $('.upSkill').before(skill);
 
@@ -505,25 +523,19 @@ $(function () {
         }
     });
     $('body').on('click','.deleteBtnJ', function () {
-       
-        skillLength--;
-        if(skillLength<3){
-            $('.addSkill').show();
-        }
-       /*  if(skillLength<1){
-            layer.open({
-                content: '必须保留一条记录'
-                ,btn: '确定',
-                yes: function(index){
-                    layer.close(index);
-                
+        var that = this;
+        layer.open({
+            content: '确定删除吗'
+            ,btn: ['删除', '不删除']
+            ,yes: function(index){
+                skillLength--;
+                if(skillLength<3){
+                    $('.addSkill').show();
                 }
-            });
-            skillLength=1;
-            return false;
-        } */
-        $(this).parents('.skill').remove();
-       
+                $(that).parents('.skill').remove();
+                layer.close(index);
+            }
+        });
     });
     /*增加工作信息*/
 
@@ -552,7 +564,6 @@ $(function () {
             var bankSelect = new IosSelect(1,
                 [data1],
                 {
-
                     itemHeight: 50,
                     itemShowCount: 3,
                     oneLevelId: bankId,
@@ -566,7 +577,36 @@ $(function () {
 
     workFn1(document.querySelector('.leaveCause'));
 
-    //var jIndex = 1;
+    /* 证明人关系 */
+    var data2 = [
+        {'id': '10001', 'value': '普通同事'},
+        {'id': '10002', 'value': '上级领导'},
+        {'id': '10003', 'value': '下级'},
+        {'id': '10003', 'value': 'HR'}
+
+    ];
+
+    window.workRe = function (dom) {
+
+        dom.addEventListener('click', function () {
+            var bankId = showBankDom.dataset['id'];
+            var bankSelect = new IosSelect(1,
+                [data2],
+                {
+
+                    itemHeight: 50,
+                    itemShowCount: 3,
+                    oneLevelId: bankId,
+                    callback: function (selectOneObj) {
+                        dom.value = selectOneObj.value;
+
+                    }
+                });
+        });
+    };
+
+    workRe(document.querySelector('.relationship'));
+
     $('.addWork').click(function () {
         $('.workTitle').css('display','block');
         workLength++;
@@ -580,20 +620,21 @@ $(function () {
             var entclass = 'entryTime';
             var outclass = 'outTime';
             var leaveClass = 'leaveCause';
+            var relationship = 'relationship';
             entclass+=workLength;
             outclass+=workLength;
             leaveClass+=workLength;
-            var $work = ('<form data-value='+workLength+' class="work">' +
-            '<p class="workTitleS clearfix"><i></i><span>工作经历</span><button type="button" class="deleteBtnW">删除此条记录</button></p>'+
-            '<div class="firmMsg"><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
-            '<div> <span>工作岗位</span><input class="job"  type="text" name="verifyJob"  data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
-            '<div> <span>岗位工资</span><input class="workBalance"  type="tel" name="workBalance"  data-attribute="请填写岗位工资" placeholder="请输入岗位工资，如10000" onkeyup="value=value.replace(/[^\\d]/g,\'\') " pattern="[0-9]*" maxlength="6"></div>' +
-            '<div><span>开始时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择开始时间"></div>' +
-            '<div> <span>结束时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择结束时间"></div>' +
-            '<div> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
-            '<div><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName" placeholder="请输入证明人姓名" onkeyup="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
-            '<div><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div></form>');
-
+            relationship+=workLength;
+            var $work = ('<form data-value='+workLength+' class="work clearfix">' +
+            '<p class="workTitleS clearfix"><span>工作经历</span><em class="deleteBtnW"><img src="images/deleteIcon.png" alt="">删除</em></p>'+
+            '<div class="firmMsg"><i class="yellowBg"></i><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
+            '<div><i class="blueBg"></i> <span>工作岗位</span><input class="job"  type="text" name="verifyJob"  data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+            '<div><i class="greenBg"></i><span>入职时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择入职时间"></div>' +
+            '<div><i class="orangeBg"></i> <span>离职时间</span><input onfocus="this.blur();" class='+outclass+'  type="text" name="workEndTime" placeholder="请选择离职时间"></div>' +
+            '<div><i class="darkGreenBg"></i> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
+            '<div><i class="yellowBg"></i><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName" placeholder="请输入证明人姓名" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" maxlength="20"></div>' +
+            '<div> <i class="blueBg"></i><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div>'+
+            '<div><i class="orangeBg"></i><span class="relation">关系</span><input onfocus="this.blur();" class='+relationship+'  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
             $('.upWorkExperience').before($work);
 
             new datePicker().init({
@@ -619,47 +660,56 @@ $(function () {
                 }
             });
         workFn1($('.'+leaveClass)[0]);
+        workRe($('.'+relationship)[0]);
 
         autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
-        
-
 
     });
     $('body').on('click','.deleteBtnW', function () {
-       
-        workLength--;
-        if(workLength<3){
-            $('.addWork').show();
-        }
-        if(workLength<1){
-            layer.open({
-                content: '必须保留一条记录'
-                ,btn: '确定',
-                yes: function(index){
-                    layer.close(index);
-                
+        var that = this;
+        layer.open({
+            content: '确定删除吗'
+            ,btn: ['删除', '不删除']
+            ,yes: function(index){
+                workLength--;
+                if(workLength<3){
+                    $('.addWork').show();
                 }
-            });
-            workLength=1;
-            return false;
-        }
-        $(this).parents('.work').remove();
-       
-        var workFormInf = $('.work');
-        workFormInf.each(function(index,element){
-            var workStartTime = $(workFormInf[index]).find("input[name='workStartTime']");
-            var workEndTime = $(workFormInf[index]).find("input[name='workEndTime']");
-            var resumeDissmionReason = $(workFormInf[index]).find("input[name='resumeDissmionReason']");
-            if(index==0){
-                $(workStartTime).attr('class','entryTime workTime');
-                $(workEndTime).attr('class','outTime');
-                $(resumeDissmionReason).attr('class','leaveCause');
-            }else{
-                $(workStartTime).attr('class','entryTime'+(index+1)+ ' workTime');
-                $(workEndTime).attr('class','outTime'+(index+1));
-                $(resumeDissmionReason).attr('class','leaveCause'+(index+1));
+                if(workLength<1){
+                    layer.open({
+                        content: '必须保留一条记录'
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                        }
+                    });
+                    workLength=1;
+                    return false;
+                }
+                $(that).parents('.work').remove();
+               
+                var workFormInf = $('.work');
+                workFormInf.each(function(index,element){
+                    var workStartTime = $(workFormInf[index]).find("input[name='workStartTime']");
+                    var workEndTime = $(workFormInf[index]).find("input[name='workEndTime']");
+                    var resumeDissmionReason = $(workFormInf[index]).find("input[name='resumeDissmionReason']");
+                    var relationship = $(workFormInf[index]).find("input[name='relationship']");
+                    if(index==0){
+                        $(workStartTime).attr('class','entryTime workTime');
+                        $(workEndTime).attr('class','outTime');
+                        $(resumeDissmionReason).attr('class','leaveCause');
+                        $(relationship).attr('class','relationship');
+                    }else{
+                        $(workStartTime).attr('class','entryTime'+(index+1)+ ' workTime');
+                        $(workEndTime).attr('class','outTime'+(index+1));
+                        $(resumeDissmionReason).attr('class','leaveCause'+(index+1));
+                        $(relationship).attr('class','relationship'+(index+1));
+                    }
+                });
+                layer.close(index);
             }
         });
+    
     });
     var onOffW = true;
     /*收起工作信息*/
@@ -810,9 +860,7 @@ $(function () {
 
 
     $('#submit').click(function () {
-
         var basicInfo = {};
-
         var basicPass = true;
         var inputObject;
             $('.basicForm input').each(function () {
@@ -842,10 +890,23 @@ $(function () {
                 itemPass = isValidPhone(itemVal);
             }else if(itemName == 'validateCode'){
                 itemPass = checkCode(itemVal);
-            }else if(itemName == 'resumeExpectSalary'){
-                if(itemVal>1700000){
+            }else if(itemName == 'currentSalary'){
+                if(itemVal>170000){
                     layer.open({
-                        content: "期望薪资需小于1700000"
+                        content: "目前薪资需小于170000"
+                        ,btn: '确定',
+                        yes: function(index){
+                            layer.close(index);
+                            $("#nowSalary").focus();
+                        }
+                    });
+                    basicPass = false;
+                    return false;
+                }
+            }else if(itemName == 'resumeExpectSalary'){
+                if(itemVal>170000){
+                    layer.open({
+                        content: "期望薪资需小于170000"
                         ,btn: '确定',
                         yes: function(index){
                             layer.close(index);
@@ -886,8 +947,6 @@ $(function () {
 
         //处理教育经历
         var educationInfo = [];
-       /*  var eduBeginTime = [];
-        var eduOverTime = []; */
         var formObject;
         $('.educationTable').each(function () {
             formObject = $(this);
@@ -949,31 +1008,7 @@ $(function () {
                 $(this).removeClass('errorShow');
                 educationItem[$(this).attr('name')] = $(this).val();
             });
-            /* 校验教育时间交叉 */
-           
-         /*    $(this).find('input[name="educationStartTime"]').each(function () {
-                eduBeginTime.push($(this).val())
-            })
-            $(this).find('input[name="educationEndTime"]').each(function () {
-                eduOverTime.push($(this).val())
-             })
-            eduBeginTime = eduBeginTime.sort();
-            eduOverTime = eduOverTime.sort();
-            for (i = 1; i < eduBeginTime.length; i++) {
-                if (eduBeginTime[i] < eduOverTime[i - 1]) {
-                    layer.open({
-                        content: "教育时间不能有交叉"
-                        ,btn: '确定',
-                        yes: function(index){
-                            layer.close(index);
-                        }
-
-                    });
-                    basicPass = false;
-                    return false;
-                }
-            } */
-           
+         
             $(this).find('textarea').each(function () {
                 if( $(this).val()== ''){
                     inputObject = $(this);
@@ -1020,11 +1055,8 @@ $(function () {
         if (!basicPass) return;
 
 
-
         //处理工作经历
         var workInfo =[];
-        /* var workBeginTime = [];
-        var workOverTime = []; */
         $('.work').each(function () {
             basicPass = true;
             var formEmpty = true;
@@ -1065,7 +1097,7 @@ $(function () {
                 if (itemName == 'workEndTime'){
                     if(workItem['workStartTime']>=itemVal){
                         layer.open({
-                            content: '结束时间需大于开始时间'
+                            content: '离职时间需大于入职时间'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
@@ -1077,33 +1109,7 @@ $(function () {
                         return false;
                     }else if(itemVal>nowTime){
                         layer.open({
-                            content: '结束时间需小于当前时间'
-                            ,btn: '确定',
-                            yes: function(index){
-                                layer.close(index);
-                                inputObject.focus();
-                            }
-                        });
-                        $(this).addClass('errorShow');
-                        basicPass = false;
-                        return false;
-                    }
-                }else if (itemName == 'workBalance'){
-                    if(!checkBalance(itemVal)){
-                        layer.open({
-                            content: '岗位工资需为纯数字'
-                            ,btn: '确定',
-                            yes: function(index){
-                                layer.close(index);
-                                inputObject.focus();
-                            }
-                        });
-                        $(this).addClass('errorShow');
-                        basicPass = false;
-                        return false;
-                    }else if(itemVal>1700000){
-                        layer.open({
-                            content: '岗位工资需小于1700000'
+                            content: '离职时间需小于当前时间'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
@@ -1117,7 +1123,7 @@ $(function () {
                 }else if (itemName == 'workStartTime'){
                     if(itemVal>nowTime){
                         layer.open({
-                            content: '开始时间需小于当前时间'
+                            content: '入职时间需小于当前时间'
                             ,btn: '确定',
                             yes: function(index){
                                 layer.close(index);
@@ -1177,31 +1183,6 @@ $(function () {
                 workItem[$(this).attr('name')] = $(this).val();
             });
 
-            /* 校验工作时间交叉 */
-
-           /*  $(this).find('input[name="workStartTime"]').each(function () {
-                workBeginTime.push($(this).val())
-            })
-            $(this).find('input[name="workEndTime"]').each(function () {
-                workOverTime.push($(this).val())
-            })
-            workBeginTime = workBeginTime.sort();
-            workOverTime = workOverTime.sort();
-            for (i = 1; i < workBeginTime.length; i++) {
-                if (workBeginTime[i] < workOverTime[i - 1]) {
-                    layer.open({
-                        content: "工作时间不能有交叉",
-                        btn: '确定',
-                        yes: function (index) {
-                            layer.close(index);
-                        }
-
-                    });
-                    basicPass = false;
-                    return false;
-                }
-            }
- */
             if (!basicPass) return false;
 
             $(this).find('textarea').each(function () {
@@ -1249,16 +1230,16 @@ $(function () {
                 return false;
             }
         }
-        if($('#graduatingStudents').is(':checked')){
+       /*  if($('#graduatingStudents').is(':checked')){
             workInfo="";
+        } */
+        if(workInfo.length===0){
+            workInfo= "";
         }
         if (!basicPass) return;
 
-
             /*技能*/
-
             var  skillInfo = [];
-
             $('.skill').each(function(){
                 basicPass = true;
                 $(this).find('input').each(function () {
@@ -1289,23 +1270,6 @@ $(function () {
                 
             })
             if (!basicPass) return;
-            /* var skill = document.getElementsByClassName('skill');
-            for(var i = 0;i<skill.length;i++){
-                var skFn = function () {
-                    var sInps = skill[i].getElementsByTagName('input');
-                    skillInfo.push({
-                        skillName:sInps[0].value
-                        //skillCertificateCode:sInps[1].value
-                    })
-                };
-                skFn();
-            } */
-           /*  var $skInputs = $('.skill input');
-            for(var i = 0;i<$skInputs.length;i++){
-                if($skInputs[i].value==""){
-                    skillInfo="";
-                }
-            } */
 
             /*获取签名字符串*/
             var resumeSignURL;
@@ -1361,9 +1325,7 @@ $(function () {
                         resumeSignTime:myDate.split("/").join("")
                     }
                 }]
-            };
-           /* $('.finalCheck').show();*/
-
+            };        
             layer.open({
                 content: '确定提交？提交后只能通过HR修改资料'
                 ,btn: ['确定', '取消']
@@ -1374,27 +1336,19 @@ $(function () {
                         type: "POST",
                         timeout:5000,
                         dataType:"json",
+                        contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                         data:JSON.stringify(dataJson),
-                        success: function (data) {
+                        success: function (jsonData) {
                             hideLoader();
-                            var jsonData = eval("data="+data["plaintext"]);
-                            if (jsonData == undefined || jsonData.item == undefined){
+                            var resultInfo = checkAjaxResult(jsonData);
+                            if (resultInfo != ""){
                                 layer.open({
-                                    content: '网络异常，请稍后重试'
+                                    content: resultInfo
                                     ,btn: '确定'
                                 });
                                 return;
                             }
-                            var result = jsonData.item.result;
-                            var resultInfo = jsonData.item.resultInfo;
-                            if(result===1001){
-                                window.location.replace("succeed.html");
-                            }else {
-                                layer.open({
-                                    content: resultInfo,
-                                    btn: '确定'
-                                });
-                            }
+                            window.location.replace("succeed.html");
                         },
                         error: function (XMLHttpRequest, textStatus) {
                             layer.open({
@@ -1407,7 +1361,6 @@ $(function () {
                     layer.close(index);
                 }
             });
-
     });
 
 
