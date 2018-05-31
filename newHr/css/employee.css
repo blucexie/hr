@@ -32,7 +32,6 @@ textarea {
 input {
   border-radius: 0;
   caret-color: #574e5f;
-  -webkit-appearance: none;
   background: none;
   outline: none;
   border: none;
@@ -144,6 +143,21 @@ input {
   border-radius: 50%;
   margin: 0 0.28rem 0 0.44rem;
 }
+.upE i,
+.upS i,
+.upW i {
+  float: left;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 50%;
+  margin: 0 0.28rem 0 0.44rem;
+}
+.upE p,
+.upS p,
+.upW p {
+  display: flex;
+  align-items: center;
+}
 #deForm .msCode {
   margin-right: 0.4rem;
 }
@@ -191,7 +205,7 @@ input {
   height: 2rem;
 }
 .identity span {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 .isDimission label {
   width: 2rem;
@@ -310,7 +324,7 @@ input {
 .deleteBtn img,
 .deleteBtnW img,
 .deleteBtnJ img {
-  width: 0.56rem;
+  width: 1.8rem;
   height: 0.56rem;
   margin-right: 0.16rem;
 }
@@ -324,10 +338,9 @@ input {
 .work1 {
   border-top: none;
 }
-.educationTable .edu,
-.educationTable .career {
-  margin-right: 2.2rem !important;
-}
+/* .educationTable .edu,.educationTable .career{
+  margin-right: 110/@r !important;
+} */
 .upEducation,
 .upSkill {
   line-height: 2.04rem;
@@ -352,7 +365,7 @@ input {
   width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
-  margin-left: 0.6rem;
+  /*  margin-left: 30/@r; */
   margin-right: 1.08rem;
 }
 .upE .schName {
@@ -413,9 +426,9 @@ textarea {
   font-family: Arial;
   resize: none;
 }
-.work .relation {
-  margin-right: 2.2rem;
-}
+/* .work .relation{
+  margin-right: 110/@r;
+} */
 /*收起时工作经历*/
 .upW,
 .upS {
@@ -432,7 +445,7 @@ textarea {
   width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
-  margin-left: 0.6rem;
+  /*  margin-left: 30/@r; */
   margin-right: 1.08rem;
 }
 .upW .wkName,

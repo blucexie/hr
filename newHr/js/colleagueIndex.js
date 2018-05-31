@@ -1,26 +1,37 @@
 $(function () {
     //控制输入框只能输入一位并且是数字
     $(".inputCont-one").focus();
-    onload = function () {
         var txts = on.getElementsByTagName("input");
         for (var i = 0; i < txts.length; i++) {
             var t = txts[i];
             t.index = i;
             t.setAttribute("readonly", true);
-            t.onkeyup = function () {
+            t.onkeyup = function (e) {
                 if (this.value = this.value.replace(/\D/g, '')) {
                     var next = this.index + 1;
                     if (next > txts.length - 1) return;
+                    txts[next-1].setAttribute("readonly", true);
                     txts[next].removeAttribute("readonly");
                     txts[next].focus();
                 } else {
                     $(this).focus();
                 }
+                 if (e.key == 'Backspace') {
+                     var text = this.value;
+                     if(text===0) return;
+                     if (!text) {
+                         var prev = this.index - 1;
+                         if(prev==-1) return false;
+                         txts[prev].removeAttribute("readonly");
+                         txts[prev].focus(); 
+                     }
+                 }
             }
         }
         txts[0].removeAttribute("readonly");
-    }
 
+
+  
 /*短信验证*/
     $('.btn').click(function () {
         var code="";
@@ -54,7 +65,7 @@ $(function () {
                 var jobEndTime = jsonData.item.jobEndTime;/*离职时间*/
                 var colleagueCode = jsonData.item.colleagueCode;/*同事编码*/
                 var colleagueName = jsonData.item.colleagueName;/*同事名字*/
-                var result = jsonData.item.result;/*返回结果*/
+                var result = jsonData.result;/*返回结果*/
                 var resultInfo = jsonData.item.resultInfo;/*返回结果*/
                 try{
                     sessionStorage.clear();

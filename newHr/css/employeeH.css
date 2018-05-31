@@ -202,7 +202,7 @@ input {
   color: #bfbfbf;
 }*/
 .formValidation form label span {
-  margin-right: 2.32rem;
+  margin-right: 1rem;
 }
 .inpId {
   margin-right: 0.4rem !important;
@@ -264,7 +264,7 @@ input {
   margin-right: 1rem;
 }
 .identity span {
-  margin-right: 2rem;
+  margin-right: 1rem;
 }
 .identity {
   height: 2rem;
@@ -332,6 +332,21 @@ input {
   height: 0.16rem;
   border-radius: 50%;
   margin: 0 0.44rem 0 0.28rem;
+}
+.upE i,
+.upS i,
+.upW i {
+  float: left;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 50%;
+  margin: 0 0.28rem 0 0.44rem;
+}
+.upE p,
+.upS p,
+.upW p {
+  display: flex;
+  align-items: center;
 }
 /*基本信息收起时*/
 .upB {
@@ -406,7 +421,7 @@ input {
 .educationTable .deleteBtn img,
 .deleteBtnW img,
 .deleteBtnJ img {
-  width: 0.56rem;
+  width: 1.8rem;
   height: 0.56rem;
   margin-right: 0.16rem;
 }
@@ -423,10 +438,9 @@ input {
 .work1 {
   border-top: none;
 }
-.educationTable .edu,
-.educationTable .career {
-  margin-right: 2.2rem !important;
-}
+/* .educationTable .edu,.educationTable .career {
+  margin-right: 110/@r !important;
+} */
 .upEducation,
 .upSkill {
   line-height: 2.04rem;
@@ -451,7 +465,7 @@ input {
   width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
-  margin-left: 0.6rem;
+  /* margin-left: 30/@r; */
   margin-right: 1.08rem;
 }
 .upE .schName {
@@ -492,9 +506,9 @@ input {
 .work .certifierTel {
   margin-right: 0.4rem;
 }
-.work .relation {
-  margin-right: 2.2rem;
-}
+/* .work .relation{
+  margin-right: 110/@r;
+} */
 .schoolMsg,
 .firmMsg {
   height: 2.2rem !important;
@@ -527,7 +541,7 @@ textarea {
   width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
-  margin-left: 0.6rem;
+  /*   margin-left: 30/@r; */
   margin-right: 1.08rem;
 }
 .upW .wkName,

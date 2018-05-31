@@ -112,10 +112,10 @@ $(function () {
                     var endClass = 'EndTime';
                     var eduClass = 'eduS';
                     var $school = ('<form class="educationTable clearfix" action="">' +
-                        '<p data-value=' + eduLength + ' class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"> <img src="images/deleteIcon.png" alt="">删除</em></p>' +
+                        '<p data-value=' + eduLength + ' class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"> <img src="images/deleteIcon.png" alt=""></em></p>' +
                         '<div  class="schoolMsg"><i class="purpleBg"></i><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
-                        '<div><i class="yellowBg"></i><span class="edu">学历</span><input onfocus="this.blur();" class=' + eduClass + '   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
-                        '<div><i class="greenBg"></i><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+                        '<div><i class="yellowBg"></i><span class="edu">学&emsp;&emsp;历</span><input onfocus="this.blur();" class=' + eduClass + '   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
+                        '<div><i class="greenBg"></i><span class="career">专&emsp;&emsp;业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
                         '<div><i class="orangeBg"></i><span>入学时间</span><input onfocus="this.blur();" class=' + starClass + '  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>' +
                         '<div><i class="blueBg"></i><span>毕业时间</span><input onfocus="this.blur();" class=' + endClass + '  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
@@ -170,7 +170,7 @@ $(function () {
                     }
                     for(var i = 0;i<skillLength-1;i++){
                         var $skill = ('<form class="skill clearfix" action="">' +
-                '<p class="skillTitleS clearfix"><span>职业证书</span><em class="deleteBtnJ"><img src="images/deleteIcon.png" alt="">删除</em></p>'+
+                '<p class="skillTitleS clearfix"><span>职业证书</span><em class="deleteBtnJ"><img src="images/deleteIcon.png" alt=""></em></p>'+
                 '<div><i class="blueBg"></i><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
                         $('.upSkill').before($skill);
@@ -191,7 +191,7 @@ $(function () {
                         var leaveClass = 'leaveCause';
                         var relationship = 'relationship';
                         var $work = ('<form class="work clearfix">' +
-                            '<p class="workTitleS clearfix"><span>工作经历</span> <em class="deleteBtnW"><img src="images/deleteIcon.png">删除</em></p>' +
+                            '<p class="workTitleS clearfix"><span>工作经历</span> <em class="deleteBtnW"><img src="images/deleteIcon.png"></em></p>' +
                             '<div class="firmMsg"><i class="yellowBg"></i><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
                             '<div><i class="blueBg"></i><span>工作岗位</span><input class="job"  type="text" name="verifyJob" data-attribute="请填写工作岗位" placeholder="请输入工作岗位" maxlength="20" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
                             '<div><i class="greenBg"></i><span>入职时间</span><input  onfocus="this.blur();" class=' + (entclass + (i + 2)) + '  type="text" name="workStartTime" data-attribute="请选择入职时间" placeholder="请选择入职时间"></div>' +
@@ -199,7 +199,7 @@ $(function () {
                             '<div><i class="darkGreenBg"></i><span>离职原因</span><input onfocus="this.blur();" class=' + (leaveClass + (i + 2)) + '  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
                             '<div><i class="yellowBg"></i><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" maxlength="20"></div>' +
                             '<div> <i class="blueBg"></i><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div>'+
-                            '<div><i class="orangeBg"></i><span class="relation">关系</span><input onfocus="this.blur();" class=' + (relationship + (i + 2)) + '  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
+                            '<div><i class="orangeBg"></i><span class="relation">关&emsp;&emsp;系</span><input onfocus="this.blur();" class=' + (relationship + (i + 2)) + '  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
                              $('.upWorkExperience').before($work);
 
                         new datePicker().init({
@@ -348,10 +348,10 @@ $(function () {
             endClass+=eduLength;
             eduClass+=eduLength;
             var $school = ('<form class="educationTable clearfix" action="">' +
-            '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"> <img src="images/deleteIcon.png" alt="">删除</em></p>'+
+            '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"> <img src="images/deleteIcon.png" alt=""></em></p>'+
             '<div  class="schoolMsg"><i class="purpleBg"></i><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
-            '<div><i class="yellowBg"></i><span class="edu">学历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
-            '<div><i class="greenBg"></i><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+            '<div><i class="yellowBg"></i><span class="edu">学&emsp;&emsp;历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
+            '<div><i class="greenBg"></i><span class="career">专&emsp;&emsp;业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
             '<div><i class="orangeBg"></i><span>入学时间</span><input onfocus="this.blur();" class='+starClass+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
             '<div><i class="blueBg"></i><span>毕业时间</span><input onfocus="this.blur();" class='+endClass+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
 
@@ -443,7 +443,8 @@ $(function () {
             $('.educationTable').css('display','none');
             var $epE = "";
             for(var i = 0;i<schoolArr.length;i++){
-                $epE+='<p class="clearfix"><span class="ed">学校名称</span><span class="schName">'+schoolArr[i]+'</span></p>';
+                $epE+='<p class="educate clearfix" style="display: block;"><span>教育信息</span></p>'+
+                '<p class="clearfix"><i class="blueBg"></i><span class="ed">学校名称</span><span class="schName">'+schoolArr[i]+'</span></p>';
             }
             var $epF = ('<div class="upE">'+$epE+'</div>');
             $('.education').after($epF);
@@ -489,7 +490,7 @@ $(function () {
             $('.lineSpacingS').css('display','none');
             var $skP="";
             for(var j = 0;j<certificateArr.length;j++){
-                $skP+='<p class="clearfix"><span class="sk">技能信息'+(j+1)+'</span><span class="skName">'+certificateArr[j]+'</span></p>'
+                $skP+='<p class="clearfix"><i class="purpleBg"></i><span class="sk">技能信息'+(j+1)+'</span><span class="skName">'+certificateArr[j]+'</span></p>'
             }
             var $skE = ('<div class="upS">'+$skP+'</div>');
             $('.skillInformation').after($skE);
@@ -601,7 +602,7 @@ $(function () {
             leaveClass+=workLength;
             relationship+=workLength;
             var $work = ('<form class="work">'+
-            '<p class="workTitleS clearfix"><i></i><span>工作经历</span><em class="deleteBtnW"><img src="images/deleteIcon.png" alt="">删除</em></p>'+
+            '<p class="workTitleS clearfix"><i></i><span>工作经历</span><em class="deleteBtnW"><img src="images/deleteIcon.png" alt=""></em></p>'+
             '<div class="firmMsg"><i class="yellowBg"></i><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
             '<div><i class="blueBg"></i><span>工作岗位</span><input class="job"  type="text" name="verifyJob" placeholder="请输入工作岗位" maxlength="20" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
             '<div><i class="greenBg"></i><span>入职时间</span><input  onfocus="this.blur();" class='+entclass+'  type="text" name="workStartTime" placeholder="请选择入职时间"></div>' +
@@ -609,7 +610,7 @@ $(function () {
             '<div><i class="darkGreenBg"></i> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
             '<div><i class="yellowBg"></i><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName" placeholder="请输入证明人姓名" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" maxlength="20"></div>' +
             '<div> <i class="blueBg"></i><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div>'+
-            '<div><i class="orangeBg"></i><span class="relation">关系</span><input onfocus="this.blur();" class='+relationship+'  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系"  ></div></form>');
+            '<div><i class="orangeBg"></i><span class="relation">关&emsp;&emsp;系</span><input onfocus="this.blur();" class='+relationship+'  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系"  ></div></form>');
 
             $('.upWorkExperience').before($work);
 
@@ -700,7 +701,8 @@ $(function () {
             $('.work').css('display','none');
             var $wkP="";
             for(var j = 0;j<firmArr.length;j++){
-                $wkP+='<p class="clearfix"><span class="wk">工作经历</span><span class="wkName">'+firmArr[j]+'</span></p>'
+                $wkP+='<p class="workTitleS clearfix"><span>工作经历</span></p>'+
+                '<p class="clearfix"><i class="darkGreenBg"></i><span class="wk">工作经历</span><span class="wkName">'+firmArr[j]+'</span></p>'
             }
             var $wkE = ('<div class="upW">'+$wkP+'</div>');
             $('.workExperience').after($wkE);

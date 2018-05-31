@@ -2,27 +2,36 @@
  * Created by blucexie on 2017/9/25.
  */
 $(function () {
-//控制输入框只能输入一位并且是数字
+   //控制输入框只能输入一位并且是数字
     $(".inputCont-one").focus();
-    onload = function () {
-        var txts = on.getElementsByTagName("input");
-        for (var i = 0; i < txts.length; i++) {
-            var t = txts[i];
-            t.index = i;
-            t.setAttribute("readonly", true);
-            t.onkeyup = function () {
-                if (this.value = this.value.replace(/\D/g, '')) {
-                    var next = this.index + 1;
-                    if (next > txts.length - 1) return;
-                    txts[next].removeAttribute("readonly");
-                    txts[next].focus();
-                } else {
-                    $(this).focus();
+    var txts = on.getElementsByTagName("input");
+    for (var i = 0; i < txts.length; i++) {
+        var t = txts[i];
+        t.index = i;
+        t.setAttribute("readonly", true);
+        t.onkeyup = function (e) {
+            if (this.value = this.value.replace(/\D/g, '')) {
+                var next = this.index + 1;
+                if (next > txts.length - 1) return;
+                txts[next-1].setAttribute("readonly", true);
+                txts[next].removeAttribute("readonly");
+                txts[next].focus();
+            } else {
+                $(this).focus();
+            }
+            if (e.key == 'Backspace') {
+                var text = this.value;
+                if(text===0) return;
+                if (!text) {
+                    var prev = this.index - 1;
+                    if(prev==-1) return false;
+                    txts[prev].removeAttribute("readonly");
+                    txts[prev].focus(); 
                 }
             }
         }
-        txts[0].removeAttribute("readonly");
     }
+    txts[0].removeAttribute("readonly");
     /*短信验证*/
     $('.btn').click(function () {
         var code="";
