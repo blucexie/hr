@@ -335,6 +335,25 @@ body {
   border-bottom: 0.02rem dashed #eeeeee;
   border-right: 0.02rem dashed #eeeeee;
 }
+.npay{
+  width: 100% !important;
+  text-align: center;
+  line-height: 1.36rem;
+}
+.npay>div{
+  display: inline-block;
+  font-size: 0.52rem;
+  color: #333;
+  position: relative;
+  transform: translateY(-2px);
+}
+.npay>div>img{
+  width: 0.54rem;
+  height: 0.48rem;
+  margin-right: 0.28rem;
+  position: relative;
+  transform: translateY(1px);
+}
 .basic-left li:last-child{
   border-bottom: none;
 }
@@ -755,14 +774,12 @@ body {
   text-align: center;
 }
 .footer p span {
-  display: inline-block;
-  min-width: 4rem;
-  border-bottom: 1px solid #999;
-  text-align: center;
-  padding: 0 0.4rem;
-  text-indent: 0;
-  vertical-align: 0.1rem;
+    text-align: center;
+    padding: 0 0.1rem;
+    text-indent: 0;
+    text-decoration: underline;
 }
+
 .footer p {
   font-size: 0.52rem;
   color: #999;

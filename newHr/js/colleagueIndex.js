@@ -7,19 +7,36 @@ $(function () {
             var t = txts[i];
             t.index = i;
             t.setAttribute("readonly", true);
-            t.onkeyup = function () {
+            t.onkeyup = function (e) {
                 if (this.value = this.value.replace(/\D/g, '')) {
                     var next = this.index + 1;
                     if (next > txts.length - 1) return;
                     txts[next].removeAttribute("readonly");
                     txts[next].focus();
-                } else {
+                } 
+                else if (e.key == 'Backspace') {
+                    var text = this.value;
+                    if (!text) {
+                        var prev = this.index - 1;
+                        txts[prev].focus();
+                        for (var i = 0; i < txts.prev; i++) {
+                            txts[i].prev.setAttribute("readonly", true);
+                        }
+                    }
+                }
+                else {
                     $(this).focus();
                 }
             }
         }
         txts[0].removeAttribute("readonly");
     }
+    var txts = on.getElementsByTagName("input");
+   
+
+ 
+
+
 
 /*短信验证*/
     $('.btn').click(function () {
