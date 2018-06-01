@@ -802,6 +802,7 @@ $(function () {
             var imgT = $('<img>').attr('src', img);
             $('.nameSpace').append(imgT);
         }
+        $('#saveBtn').attr('disabled',true);
     }
     $('#saveBtn').click(function () {
         saveSignature()

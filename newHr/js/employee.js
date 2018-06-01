@@ -815,7 +815,6 @@ $(function () {
         $('#signature').empty();
         var dataUrl = $('.js-signature').eq(1).jqSignature('getDataURL');
         localStorage.setItem('img', dataUrl);
-        console.log(dataUrl)
         $('.htmleaf-container').css('display','none');
         $('.zhezhao').css('display','none');
         $('body').css('overflow','auto');
@@ -825,6 +824,7 @@ $(function () {
             var imgT = $('<img>').attr('src', img);
             $('.nameSpace').append(imgT);
         }
+        $('#saveBtn').attr('disabled',true);
     }
     $('#saveBtn').click(function () {
         saveSignature()
