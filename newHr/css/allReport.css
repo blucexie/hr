@@ -770,3 +770,7 @@ body {
 .wartIcon {
   margin: 0.3rem 0.2rem 0.3rem 0 !important;
 }
+.noWork > P {
+  font-size: 0.52rem;
+  color: #333;
+}

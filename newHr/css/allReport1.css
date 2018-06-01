@@ -2,8 +2,7 @@
   margin: 0;
   padding: 0;
 }
-ul,
-li {
+ul,li {
   list-style: none;
 }
 a {
@@ -11,6 +10,7 @@ a {
 }
 body {
   font-family: "Microsoft YaHei";
+  background-color: #fbfdfd;
 }
 .clearfix:after {
   content: "";
@@ -21,7 +21,7 @@ body {
   border: none !important;
 }
 .basic-reactive{
-  border-bottom: 0.02rem solid #e1e0e0;
+  border-bottom: 0.02rem solid #eeeeee;
 }
 .right-active{
   border-right: none !important;
@@ -39,15 +39,22 @@ body {
   float: right;
   margin-top: 0.1rem;
 }
+.Pub-order-infor-l{
+  width: 4rem !important;
+}
+.fifteen{
+  width: 15rem !important;
+}
+.fifteen-right{
+  width: 10.62rem !important;
+}
 /* 一、header部分 */
 /* 1、基本信息 */
 #header {
-  /* background-color:yellow; */
-  border-bottom: 1px solid #f0f1f5;
   overflow: hidden;
 }
 .header_l{
-  width: 9rem;
+  width: 9.2rem;
   font-size: 0.48rem;
   color: #999;
   margin-left:0.6rem;
@@ -68,6 +75,9 @@ body {
   margin-top: 0.6rem;
   overflow: hidden;
 }
+.header_l ul:last-child{
+  margin-top: 0;
+}
 .header_l ul li{
   margin-bottom: 0.48rem;
   float: left;
@@ -84,6 +94,16 @@ body {
 .header_r img{
   width: 3.08rem;
   height: 3.8rem;
+  box-shadow: 0.04rem 0.04rem 0.2rem 0.04rem rgba(39, 142, 146, 0.2);
+}
+.headerWave{
+  width: 100%;
+  height: 1.84rem;
+  float: left;
+}
+.headerWave img{
+  width: 100%;
+  height: 100%;
 }
 
 /* 2、百分比图部分 */
@@ -92,11 +112,12 @@ body {
   border-bottom: 1px solid #f8f8f8;
 }
 .verification-results > p:nth-of-type(1) {
-  border-top: 1px solid #e7e7e7;
+  border-top: 0.28rem solid #f8f8f8;
   padding-top: 0.6rem;
   margin-top: 0.2rem;
 }
 .verification-results > div:nth-of-type(1) {
+  border-top: 0.4rem solid #f0f1f5;
   height: 1.72rem;
   line-height: 1.72rem;
   font-size: 0.72rem;
@@ -117,7 +138,7 @@ body {
   color: #ffffff;
 }
 .proportion {
-  border-bottom: 1px solid #e7e7e7;
+  border-bottom: 1px solid #eeeeee;
 }
 .verification-results p,
 .eduExplain p,
@@ -156,9 +177,9 @@ body {
 }
 .verified-result > div h5 {
   width: 2.76rem;
-  font-size: 0.28rem;
+  font-size: 0.3rem;
   line-height: 0.28rem;
-  padding: 0.1rem 0;
+  padding: 0.15rem 0;
   font-weight: none;
   color: #fff;
   text-align: center;
@@ -224,7 +245,7 @@ body {
 .badness-header,
 .workAbility-header,
 .wage-header {
-  border-bottom: 1px solid #e7e7e7;
+  border-top: 0.4rem solid #eeeeee;
   height: 1.72rem;
   line-height: 1.72rem;
   font-size: 0.72rem;
@@ -295,7 +316,6 @@ body {
 .basic-basic{
   position: relative;
   overflow: hidden;
-  /* border-bottom: 1px dashed #e1e0e0; */
 }
 .basic-left {
   float: left;
@@ -305,15 +325,34 @@ body {
   width: 2.72rem;
   height: 2.38rem;
   top: 50%;
-  right: 0.05rem;
+  right: 0.25rem;
   transform: translateY(-1.19rem)
 }
 
 .basic-left li{
-  width: 12.14rem;
+  width: 11.74rem;
   overflow: hidden;
-  border-bottom: 0.02rem dashed #e1e0e0;
-  border-right: 0.02rem dashed #e1e0e0;
+  border-bottom: 0.02rem dashed #eeeeee;
+  border-right: 0.02rem dashed #eeeeee;
+}
+.npay,.nWork{
+  width: 100% !important;
+  text-align: center;
+  line-height: 1.36rem;
+}
+.npay>div,.nWork>div{
+  display: inline-block;
+  font-size: 0.52rem;
+  color: #333;
+  position: relative;
+  transform: translateY(-2px);
+}
+.npay>div>img,.nWork>div>img{
+  width: 0.54rem;
+  height: 0.48rem;
+  margin-right: 0.28rem;
+  position: relative;
+  transform: translateY(1px);
 }
 .basic-left li:last-child{
   border-bottom: none;
@@ -335,9 +374,9 @@ body {
 }
 .basic-left .li_r{
   float: left;
-  width: 7.91rem;
+  width: 7.51rem;
   padding-left: 0.625rem;
-  border-left: 0.02rem dashed #e1e0e0;
+  border-left: 0.02rem dashed #eeeeee;
 } 
 .basic-left li .li_r span{
   display: block;
@@ -377,7 +416,7 @@ body {
   height: 4.24rem;
   margin-top: 0.72rem;
   margin-left: 0.4rem;
-  border: 1px  dashed #d4d4d4;
+  border: 1px  dashed #eeeeee;
 }
 .identityCardPhoto img {
   width: 3.58rem;
@@ -390,7 +429,7 @@ body {
 .workAbilityTable,
 .skillTable,
 .wageTable {
-  border-bottom: 1px dotted #d4d4d4;
+  border-bottom: 1px dashed #eeeeee;
 }
 .eduTable h3,
 .workTable h3,
@@ -424,7 +463,6 @@ body {
 }
 .eduTable-left .schoolTitle {
   float: left;
-  /*margin-right: 14/@r;*/
 }
 
 .eduTable-left {
@@ -436,14 +474,11 @@ body {
   height: 0.42rem;
 }
 .eduTable-left p {
-  /* line-height: 1.2rem; */
   height: 1.36rem;
   line-height: 1.36rem;
   display: block;
   width: 11.26rem;
-  border-bottom: 1px dashed #e1e0e0;
-  /* font-size: 0; */
-  /* border-bottom: 0.03rem dashed red; */
+  border-bottom: 1px dashed #eeeeee;
 }
 .eduTable-left p img,
 .workTable-left p img,
@@ -475,7 +510,7 @@ body {
 .workAbilityExplain,
 .wageExplain {
   padding-left: 0.56rem;
-  border-top: 1px solid #e7e7e7;
+  border-top: 1px solid #eeeeee;
   margin-top: -1px;
 }
 .eduExplain span,
@@ -578,6 +613,9 @@ body {
   border: 1px solid #00adb4;
   padding: 0.24rem 0;
 }
+
+
+
 /*同事*/
 .colleagueTable-left {
   position: relative;
@@ -607,7 +645,7 @@ body {
 .skillTable-noResult {
   padding-left: 0.56rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #eeeeee;
 }
 .skillTable .certificationTitle {
   float: left;
@@ -739,14 +777,12 @@ body {
   text-align: center;
 }
 .footer p span {
-  display: inline-block;
-  min-width: 4rem;
-  border-bottom: 1px solid #999;
-  text-align: center;
-  padding: 0 0.4rem;
-  text-indent: 0;
-  vertical-align: 0.1rem;
+    text-align: center;
+    padding: 0 0.1rem;
+    text-indent: 0;
+    text-decoration: underline;
 }
+
 .footer p {
   font-size: 0.52rem;
   color: #999;
@@ -757,33 +793,38 @@ body {
 .footer p:nth-of-type(2) {
   margin-top: 0.4rem;
 }
+/* 一致 */
 .accordance {
-  color: #01cda1!important;
-}
-.inconformity {
-  color: #fa0606!important;
-}
-.waitColor {
-  color: #d98103!important;
-}
-.discordFontColor {
-  color: #fc6363!important;
-}
-.unfindColor{
-  color: #fccb07 !important;
+  color: #27d4af!important;
 }
 .accordanceBg {
   background-color: #27d4af;
 }
-.waitColoBg {
-  background-color: #f6a129;
+/* 不一致 */
+.inconformity {
+  color: #fe4646!important;
 }
 .inconformitBg {
   background-color: #fe4646;
 }
+/* 未查得 */
+.unfindColor{
+  color: #fccb07 !important;
+}
+
 .unfindBg{
   background: #fccb07;
 }
+/* 等待反馈/核验中 */
+.waitColor {
+  color: #d98103!important;
+}
+
+.waitColoBg {
+  background-color: #d98103;
+}
+
+
 #main {
   float: left;
   width: 6rem;

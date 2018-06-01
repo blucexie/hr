@@ -127,10 +127,7 @@ $(function () {
         if(resumeArray.isNewGraduate ==1){
             $('#graduatingStudents').attr('checked',true);
             $('#previousStudents').removeAttr("checked");
-            $('.work').hide();
-            $('.workExperience').hide();
-            $('.upWorkExperience').hide();
-            $('.isDimission').hide();
+            $('.workExperience img').attr('src','images/workexpre.png')
         }else if(resumeArray.isNewGraduate ==0){
             $('#previousStudents').attr('checked',true);
             $('#graduatingStudents').removeAttr("checked")
@@ -227,7 +224,7 @@ $(function () {
                 var entclass = 'entryTime';
                 var outclass = 'outTime';
                 var leaveClass = 'leaveCause';
-                var relationship = 'relationship';
+                var colleagueRelationship = 'colleagueRelationship';
                 var $work = ('<form class="work clearfix">'+
                 '<p class="workTitleS clearfix"><span>工作经历</span> <em class="deleteBtnW"><img src="images/deleteIcon.png"></em></p>'+
                 '<div class="firmMsg"><i class="yellowBg"></i><span>公司名称</span> <textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
@@ -237,7 +234,7 @@ $(function () {
                 '<div><i class="darkGreenBg"></i><span>离职原因</span><input onfocus="this.blur();" class='+(leaveClass+(i+2))+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
                 '<div><i class="yellowBg"></i><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName"  data-attribute="请输入证明人姓名" placeholder="请输入证明人姓名" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" maxlength="20"></div>' +
                 '<div> <i class="blueBg"></i><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div>'+
-                '<div><i class="orangeBg"></i><span class="relation">关&emsp;&emsp;系</span><input onfocus="this.blur();"  class='+(relationship+(i+2))+' type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
+                '<div><i class="orangeBg"></i><span class="relation">关&emsp;&emsp;系</span><input onfocus="this.blur();"  class='+(colleagueRelationship+(i+2))+' type="text" name="colleagueRelationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
 
                 $('.upWorkExperience').before($work);
 
@@ -265,7 +262,7 @@ $(function () {
                 });
 
                 workFn1($('.'+leaveClass+(i+2))[0]);
-                workRe($('.'+relationship+(i+2))[0]);
+                workRe($('.'+colleagueRelationship+(i+2))[0]);
                 
             }
             for(var i = 0;i<workJson.length;i++){
@@ -282,7 +279,7 @@ $(function () {
                 $(".work:eq("+i+") input[name='resumeDissmionReason']").val(workJson[i].resumeDissmionReason);
                 $('.work:eq('+i+') .referenceName').val(workJson[i].colleagueName);
                 $('.work:eq('+i+') .referenceTel').val(workJson[i].colleagueMobile);
-                $(".work:eq('+i+') input[name='relationship']").val(workJson[i].relationship);
+                $(".work:eq('+i+') input[name='colleagueRelationship']").val(workJson[i].colleagueRelationship);
 
             }
         }
@@ -605,7 +602,7 @@ $(function () {
         });
     };
 
-    workRe(document.querySelector('.relationship'));
+    workRe(document.querySelector('.colleagueRelationship'));
 
     $('.addWork').click(function () {
         $('.workTitle').css('display','block');
@@ -620,11 +617,11 @@ $(function () {
             var entclass = 'entryTime';
             var outclass = 'outTime';
             var leaveClass = 'leaveCause';
-            var relationship = 'relationship';
+            var colleagueRelationship = 'colleagueRelationship';
             entclass+=workLength;
             outclass+=workLength;
             leaveClass+=workLength;
-            relationship+=workLength;
+            colleagueRelationship+=workLength;
             var $work = ('<form data-value='+workLength+' class="work clearfix">' +
             '<p class="workTitleS clearfix"><span>工作经历</span><em class="deleteBtnW"><img src="images/deleteIcon.png" alt=""></em></p>'+
             '<div class="firmMsg"><i class="yellowBg"></i><span>公司名称</span><textarea class="firm" name="workEnterpriseName"  cols="30" rows="2"  data-attribute="请填写公司名称" placeholder="请正确填写公司名称，请勿填写简称" maxlength="45" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></textarea></div>' +
@@ -634,7 +631,7 @@ $(function () {
             '<div><i class="darkGreenBg"></i> <span>离职原因</span><input onfocus="this.blur();" class='+leaveClass+'  type="text" name="resumeDissmionReason" placeholder="请选择离职原因"></div>' +
             '<div><i class="yellowBg"></i><span class="certifierName">证明人姓名</span><input class="referenceName"  type="text" name="colleagueName" placeholder="请输入证明人姓名" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" maxlength="20"></div>' +
             '<div> <i class="blueBg"></i><span class="certifierTel">证明人电话</span><input class="referenceTel"  type="text" name="colleagueMobile" placeholder="请输入证明人电话" maxlength="11"></div>'+
-            '<div><i class="orangeBg"></i><span class="relation">关&emsp;&emsp;系</span><input onfocus="this.blur();" class='+relationship+'  type="text" name="relationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
+            '<div><i class="orangeBg"></i><span class="relation">关&emsp;&emsp;系</span><input onfocus="this.blur();" class='+colleagueRelationship+'  type="text" name="colleagueRelationship"  data-attribute="请选择关系" placeholder="请选择关系" ></div></form>');
             $('.upWorkExperience').before($work);
 
             new datePicker().init({
@@ -660,7 +657,7 @@ $(function () {
                 }
             });
         workFn1($('.'+leaveClass)[0]);
-        workRe($('.'+relationship)[0]);
+        workRe($('.'+colleagueRelationship)[0]);
 
         autoFinish($('.firm'),workEnterpriseName,'companyArray','workEnterpriseName','company');
 
@@ -693,17 +690,17 @@ $(function () {
                     var workStartTime = $(workFormInf[index]).find("input[name='workStartTime']");
                     var workEndTime = $(workFormInf[index]).find("input[name='workEndTime']");
                     var resumeDissmionReason = $(workFormInf[index]).find("input[name='resumeDissmionReason']");
-                    var relationship = $(workFormInf[index]).find("input[name='relationship']");
+                    var colleagueRelationship = $(workFormInf[index]).find("input[name='colleagueRelationship']");
                     if(index==0){
                         $(workStartTime).attr('class','entryTime workTime');
                         $(workEndTime).attr('class','outTime');
                         $(resumeDissmionReason).attr('class','leaveCause');
-                        $(relationship).attr('class','relationship');
+                        $(colleagueRelationship).attr('class','colleagueRelationship');
                     }else{
                         $(workStartTime).attr('class','entryTime'+(index+1)+ ' workTime');
                         $(workEndTime).attr('class','outTime'+(index+1));
                         $(resumeDissmionReason).attr('class','leaveCause'+(index+1));
-                        $(relationship).attr('class','relationship'+(index+1));
+                        $(colleagueRelationship).attr('class','colleagueRelationship'+(index+1));
                     }
                 });
                 layer.close(index);
@@ -818,7 +815,7 @@ $(function () {
         $('#signature').empty();
         var dataUrl = $('.js-signature').eq(1).jqSignature('getDataURL');
         localStorage.setItem('img', dataUrl);
-
+        console.log(dataUrl)
         $('.htmleaf-container').css('display','none');
         $('.zhezhao').css('display','none');
         $('body').css('overflow','auto');
