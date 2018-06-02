@@ -121,7 +121,7 @@ input {
   position: fixed;
   left: 0;
   top: 0;
-  background: url("../../newHr/images/zhezhao.png") no-repeat;
+  background: url("../images/zhezhao.png") no-repeat;
   background-size: 100% 100%;
 }
 .mask-bai {
@@ -147,7 +147,7 @@ input {
 .ling-wei {
   width: 21px;
   height: 21px;
-  background: url(../../newHr/images/weixuanzhong.png) no-repeat;
+  background: url(../images/weixuanzhong.png) no-repeat;
   background-size: 100% 100%;
   float: left;
   margin: 15px 0px;
@@ -156,7 +156,7 @@ input {
 .ling-xuan {
   width: 21px;
   height: 21px;
-  background: url(../../newHr/images/xuanzhong.png) no-repeat;
+  background: url(../images/xuanzhong.png) no-repeat;
   background-size: 100% 100%;
   float: left;
   margin: 15px 0px;
@@ -186,7 +186,7 @@ input {
 .mask-cancel {
   width: 35px;
   height: 35px;
-  background: url(../../newHr/images/mask-cancel.png) no-repeat;
+  background: url(../images/mask-cancel.png) no-repeat;
   background-size: 100% 100%;
   margin: 0 auto;
   margin-top: 31px;

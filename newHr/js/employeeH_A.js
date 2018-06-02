@@ -460,6 +460,7 @@ $(function () {
     /*增加技能信息*/
 
     $('.addSkill').click(function () {
+        $('.skillTitle').css('display','block');
            skillLength++;
            if(skillLength>3){
                return
@@ -467,8 +468,9 @@ $(function () {
            if(skillLength==3){
             $('.addSkill').hide();
         }
-            var skill = ('<div class="lineSpacingS"></div><form class="skill" action="">' +
-            '<div><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
+        var $skill = ('<form class="skill clearfix" action="">' +
+        '<p class="skillTitleS clearfix"><span>职业证书</span><em class="deleteBtnJ"><img src="images/deleteIcon.png" alt=""></em></p>'+
+        '<div><i class="blueBg"></i><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
             $('.upSkill').before(skill);
 

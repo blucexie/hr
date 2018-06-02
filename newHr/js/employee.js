@@ -1264,6 +1264,9 @@ $(function () {
                             return false;
                         }
                     }
+                    skillInfo.push({
+                        skillName:itemVal
+                    })
                 })
                 
             })
