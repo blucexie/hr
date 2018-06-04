@@ -1,0 +1,872 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  ul,li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  body {
+    font-family: "Microsoft YaHei";
+    background-color: #fbfdfd;
+  }
+  .clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .basic-active{
+    border: none !important;
+  }
+  .basic-reactive{
+    border-bottom: 0.02rem solid #eeeeee;
+  }
+  .right-active{
+    border-right: none !important;
+    border-left: none !important;
+  }
+  .cc{
+    color: #ccc !important;
+  }
+  .fa{
+    color: #fe4646 !important;
+  }
+  .gt{
+    width: 0.1rem;
+    height: 0.48rem;
+    float: right;
+    margin-top: 0.1rem;
+  }
+  .Pub-order-infor-l{
+    width: 4rem !important;
+  }
+  .fifteen{
+    width: 15rem !important;
+  }
+  .fifteen-right{
+    width: 10.62rem !important;
+  }
+  /* 一、header部分 */
+  /* 1、基本信息 */
+  #header {
+    overflow: hidden;
+  }
+  .header_l{
+    width: 9.2rem;
+    font-size: 0.48rem;
+    color: #999;
+    margin-left:0.6rem;
+    float: left;
+    /* background-color: pink; */
+  }
+  .header_l h3{
+    margin-top: 0.88rem;
+    font-size: 0.88rem;
+    color: #333;
+  }
+  .header_l p{
+    font-size: 0.6rem;
+    color: #333;
+    margin-top: 0.6rem;
+  }
+  .header_l ul{
+    margin-top: 0.6rem;
+    overflow: hidden;
+  }
+  .header_l ul:last-child{
+    margin-top: 0;
+  }
+  .header_l ul li{
+    margin-bottom: 0.48rem;
+    float: left;
+    margin-right: 0.5rem;
+  }
+  .header_r{
+    float: right;
+    height: 3.8rem;
+    width: 3.08rem;
+    margin-top: 2rem;
+    margin-right: 0.6rem;
+    background-color: pink;
+  }
+  .header_r img{
+    width: 3.08rem;
+    height: 3.8rem;
+    box-shadow: 0.04rem 0.04rem 0.2rem 0.04rem rgba(39, 142, 146, 0.2);
+  }
+  .headerWave{
+    width: 100%;
+    height: 1.84rem;
+    float: left;
+  }
+  .headerWave img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* 2、百分比图部分 */
+  .verification-results {
+    position: relative;
+    border-bottom: 1px solid #f8f8f8;
+  }
+  .verification-results > p:nth-of-type(1) {
+    border-top: 0.28rem solid #f8f8f8;
+    padding-top: 0.6rem;
+    margin-top: 0.2rem;
+  }
+  .verification-results > div:nth-of-type(1) {
+    border-top: 0.4rem solid #f0f1f5;
+    height: 1.72rem;
+    line-height: 1.72rem;
+    font-size: 0.72rem;
+    padding: 0 0.6rem;
+    color: #fff;
+    background-color: #00adb4;
+  }
+  .verification-results div img {
+    float: left;
+    width: 6.74rem;
+    height: 1.12rem;
+    margin: 0.56rem 0;
+  }
+  .verification-results .result {
+    float: right;
+    height: 0.84rem;
+    font-size: 0.56rem;
+    color: #ffffff;
+  }
+  .proportion {
+    border-bottom: 1px solid #eeeeee;
+  }
+  .verification-results p,
+  .eduExplain p,
+  .wageExplain p,
+  .colleagueExplain p,
+  .workExplain p,
+  .workAbilityExplain p,
+  .skillExplain p {
+    font-size: 0.44rem;
+    color: #999;
+    margin-bottom: 0.52rem;
+    line-height: 0.88rem;
+    padding-right: 0.4rem;
+  }
+  .verification-results p {
+    padding-left: 0.6rem;
+  }
+  .verified-result {
+    margin-left: 0.38rem;
+    padding-top: 0.5rem;
+  }
+  .verified-result > div {
+    float: left;
+    width: 4.52rem;
+    height: 2.8rem;
+    text-align: center;
+    margin-right: 0.32rem;
+    margin-bottom: 0.52rem;
+    box-shadow: 0.04rem 0.04rem 0.2rem 0.04rem rgba(39, 142, 146, 0.2);
+  }
+  .verified-result > div > img {
+    width: 1rem;
+    height: 0.92rem;
+    float: none;
+    margin: 0.2rem 0 0 0;
+  }
+  .verified-result > div h5 {
+    width: 2.76rem;
+    font-size: 0.3rem;
+    line-height: 0.28rem;
+    padding: 0.15rem 0;
+    font-weight: none;
+    color: #fff;
+    text-align: center;
+    border-top-left-radius: 0.12rem;
+    border-bottom-right-radius: 0.28rem;
+  }
+  .verified-result > div p {
+    font-size: 0.48rem;
+    color: #444;
+    margin-bottom: 0;
+    margin-top: -0.16rem;
+    padding: 0;
+    text-align: center;
+  }
+  .verification-results p > img,
+  .eduExplain p > img,
+  .wageExplain p > img,
+  .colleagueExplain p > img,
+  .workAbilityExplain p > img,
+  .workExplain p > img,
+  .skillExplain p > img {
+    width: 0.24rem;
+    margin-right: 0.3rem;
+  }
+  .no-verification h4,
+  .eduExplain h4,
+  .wageExplain h4,
+  .colleagueExplain h4,
+  .workExplain h4,
+  .workAbilityExplain h4,
+  .skillExplain h4 {
+    font-size: 0.52rem;
+    color: #999;
+  }
+  .eduExplain h4,
+  .wageExplain h4,
+  .colleagueExplain h4,
+  .workExplain h4,
+  .skillExplain h4,
+  .workAbilityExplain h4 {
+    margin: 0.8rem 0 0.6rem 0;
+  }
+  .no-verification p {
+    line-height: 1.2rem;
+    font-size: 0;
+  }
+  .no-verification p span {
+    color: #ccc!important;
+  }
+  .no-verification h4 {
+    margin-top: 0.4rem;
+    display: block;
+    margin-left: 0.6rem;
+  }
+  
+  
+  /* 第一部分 */
+  .basic-header,
+  .education-header,
+  .work-header,
+  .colleague-header,
+  .skill-header,
+  .badness-header,
+  .workAbility-header,
+  .wage-header {
+    border-top: 0.4rem solid #eeeeee;
+    height: 1.72rem;
+    line-height: 1.72rem;
+    font-size: 0.72rem;
+    color: #fff;
+    background-color: #00adb4;
+  }
+  .basic-header > div,
+  .education-header > div,
+  .work-header > div,
+  .colleague-header > div,
+  .skill-header > div,
+  .badness-header > div,
+  .workAbility-header > div,
+  .wage-header > div {
+    text-align: center;
+    color: #fff;
+    font-size: 0.68rem;
+    position: relative;
+  }
+  .school_title,.company_title,.skill_title{
+    font-size: 0.56rem;
+    text-align: center;
+    color: #048d93;
+    background-color: #bdeff1;
+    height: 1.72rem;
+    line-height: 1.72rem;
+  }
+  .basic-header > div img:nth-of-type(1),
+  .education-header > div img:nth-of-type(1),
+  .work-header > div img:nth-of-type(1),
+  .colleague-header > div img:nth-of-type(1),
+  .skill-header > div img:nth-of-type(1),
+  .badness-header > div img:nth-of-type(1),
+  .workAbility-header > div img:nth-of-type(1),
+  .wage-header > div img:nth-of-type(1) {
+    width: 1.24rem;
+  }
+  .basic-header > div img:nth-of-type(2),
+  .education-header > div img:nth-of-type(2),
+  .work-header > div img:nth-of-type(2),
+  .colleague-header > div img:nth-of-type(2),
+  .skill-header > div img:nth-of-type(2),
+  .badness-header > div img:nth-of-type(2),
+  .workAbility-header > div img:nth-of-type(2),
+  .wage-header > div img:nth-of-type(2) {
+    width: 1.18rem;
+    margin-top: -0.6rem;
+    margin-left: -0.2rem;
+  }
+  .basic-header > div > span,
+  .education-header > div > span,
+  .work-header > div > span,
+  .colleague-header > div > span,
+  .skill-header > div > span,
+  .badness-header > div > span,
+  .workAbility-header > div > span,
+  .wage-header > div > span {
+    color: #fff;
+    font-size: 0.56rem;
+    position: absolute;
+    left: 0.6rem;
+  }
+  .new{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .basic-basic{
+    position: relative;
+    overflow: hidden;
+  }
+  .basic-left {
+    float: left;
+  }
+  .accord{
+    position: absolute;
+    width: 2.72rem;
+    height: 2.38rem;
+    top: 50%;
+    right: 0.25rem;
+    transform: translateY(-1.19rem)
+  }
+  
+  .basic-left li{
+    width: 11.74rem;
+    overflow: hidden;
+    border-bottom: 0.02rem dashed #eeeeee;
+    border-right: 0.02rem dashed #eeeeee;
+  }
+  .npay,.nWork{
+    width: 100% !important;
+    text-align: center;
+    line-height: 1.36rem;
+  }
+  .npay>div,.nWork>div{
+    display: inline-block;
+    font-size: 0.52rem;
+    color: #333;
+    position: relative;
+    transform: translateY(-2px);
+  }
+  .npay>div>img,.nWork>div>img{
+    width: 0.54rem;
+    height: 0.48rem;
+    margin-right: 0.28rem;
+    position: relative;
+    transform: translateY(1px);
+  }
+  .basic-left li:last-child{
+    border-bottom: none;
+  }
+  
+  .basic-left .li_l{
+    height: 1.36rem;
+    line-height: 1.36rem;
+    float: left;
+    padding-left: 0.625rem;
+    float: left;
+    width: 2.91rem;
+    font-size: 0.52rem;
+    color: #999;
+  }
+  .basic-left li .li_l span{
+    font-size: 0.52rem;
+    color: #999;
+  }
+  .basic-left .li_r{
+    float: left;
+    width: 7.51rem;
+    padding-left: 0.625rem;
+    border-left: 0.02rem dashed #eeeeee;
+  } 
+  .basic-left li .li_r span{
+    display: block;
+    padding-right: 0.6rem;
+    font-size: 0.52rem;
+    color: #333;
+    margin-top: 0.35rem;
+    margin-bottom: 0.3rem;
+  } 
+  
+  .basic-left .accord {
+    position: absolute;
+    top: 30%;
+    right:0.5rem;
+  }
+  .basic-right img {
+    width: 2.72rem;
+    height: 2.38rem;
+    margin-top: 5rem;
+    margin-right: 0.7rem;
+  }
+  .identityCard {
+    float: left;
+    width: 100%;
+    height: 5.4rem;
+    line-height: 5.4rem;
+  }
+  .identityCard > span {
+    float: left;
+    width: 3.8rem;
+    font-size: 0.52rem;
+    color: #999;
+  }
+  .identityCardPhoto {
+    float: left;
+    width: 3.58rem;
+    height: 4.24rem;
+    margin-top: 0.72rem;
+    margin-left: 0.4rem;
+    border: 1px  dashed #eeeeee;
+  }
+  .identityCardPhoto img {
+    width: 3.58rem;
+    height: 4.24rem;
+  }
+  /*教育*/
+  .eduTable,
+  .workTable,
+  .colleagueTable,
+  .workAbilityTable,
+  .skillTable,
+  .wageTable {
+    border-bottom: 1px dashed #eeeeee;
+  }
+  .eduTable h3,
+  .workTable h3,
+  .colleagueTable h3,
+  .skillTable h3,
+  .wageTable h3 {
+    margin-top: 0.52rem;
+    margin-bottom: 0.52rem;
+    font-size: 0.56rem;
+    color: #222;
+    font-weight: normal;
+  }
+  .eduTable h3 i,
+  .workTable h3 i,
+  .colleagueTable h3 i,
+  .wageTable h3 i,
+  .skillTable h3 i {
+    display: inline-block;
+    background: #00adb4 ;
+    width: 0.26rem;
+    height: 0.26rem;
+    margin-right: 0.26rem;
+    vertical-align: 2px;
+  }
+  .eduTable h3 span,
+  .workTable h3 span,
+  .colleagueTable h3 span,
+  .wageTable h3 span {
+    float: right;
+    margin-right: 0.6rem !important;
+  }
+  .eduTable-left .schoolTitle {
+    float: left;
+  }
+  
+  .eduTable-left {
+    position: relative;
+    /* float: left;*/
+  }
+  .eduTable-left .queryStyle {
+    width: 0.26rem;
+    height: 0.42rem;
+  }
+  .eduTable-left p {
+    height: 1.36rem;
+    line-height: 1.36rem;
+    display: block;
+    width: 11.26rem;
+    border-bottom: 1px dashed #eeeeee;
+  }
+  .eduTable-left p img,
+  .workTable-left p img,
+  .colleagueTable-left p img {
+    float: right;
+    width: 0.1rem;
+    height: 0.48rem;
+    margin-top: 0.4rem;
+    margin-right: 0.6rem;
+  }
+  .eduTable-right p {
+    line-height: 1.36rem;
+  }
+  .eduTable-left .accord {
+    position: absolute;
+    top: 30%;
+    margin-top: -1.2rem;
+    left: 10.6rem;
+  }
+  
+  .accord img {
+    width: 2.72rem;
+    height: 2.38rem;
+  }
+  .eduExplain,
+  .workExplain,
+  .colleagueExplain,
+  .skillExplain,
+  .workAbilityExplain,
+  .wageExplain {
+    padding-left: 0.56rem;
+    border-top: 1px solid #eeeeee;
+    margin-top: -1px;
+  }
+  .eduExplain span,
+  .workExplain span,
+  .colleagueExplain span,
+  .skillExplain span {
+    float: left;
+    margin-top: 0.28rem;
+  }
+  .workExplain div,
+  .colleagueExplain div,
+  .skillExplain div {
+    display: inline-block;
+    width: 10rem;
+    height: 1.76rem;
+    color: #fa0606;
+  }
+  .eduExplain div p,
+  .workExplain div p,
+  .colleagueExplain div p,
+  .skillExplain div p {
+    font-size: 0.36rem;
+    line-height: 1.8;
+    color: #999;
+    margin-top: 0.2rem;
+  }
+  .pay{
+    width: 15rem !important;
+  }
+  .pay-left{
+    width: 4.16rem !important;
+  }
+  .pay-right{
+    width: 6.66rem !important;
+    border-right: none !important;
+  }
+  /*工作*/
+  .workTable-left {
+    position: relative;
+  }
+  .workTable-left p {
+    line-height: 1.2rem;
+    font-size: 0;
+  }
+  .workTable-left p img {
+    float: right;
+    margin-top: 0.4rem;
+    margin-right: 0.6rem;
+  }
+  .workTable-left .accord {
+    position: absolute;
+    top: 50%;
+    margin-top: -1.2rem;
+    left: 10.6rem;
+  }
+  .workTable-left .accord img {
+    width: 2.72rem;
+    height: 2.38rem;
+  }
+  .workTable-left .companyTitle {
+    float: left;
+  }
+  .workTable-left .companyName {
+    float: left;
+    width: 8.4rem;
+  }
+  .workAbilityTable p {
+    line-height: 1.2rem;
+    display: flex;
+    align-items: center;
+  }
+  .workAbilityTable p span:nth-of-type(2) {
+    display: flex;
+    align-items: center;
+  }
+  .workAbilityTable p span:nth-of-type(2) img {
+    width: 0.62rem;
+    height: 0.58rem;
+    margin-right: 0.28rem;
+  }
+  .workAbilityTable p span:nth-of-type(3) {
+    display: inline-block;
+    font-size: 0.52rem;
+    color: #f7b319;
+    margin-left: 0.6rem;
+    padding: 0.08rem 0;
+  }
+  .workAbilityTable .workLabel span:nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+  }
+  .workAbilityTable .workLabel span:nth-of-type(2),
+  .workAbilityTable .workLabel span:nth-of-type(3) {
+    float: left;
+    width: 2.72rem;
+    font-size: 0.48rem;
+    line-height: 0.48rem;
+    text-align: center;
+    color: #00adb4;
+    border: 1px solid #00adb4;
+    padding: 0.24rem 0;
+  }
+  
+  
+  
+  /*同事*/
+  .colleagueTable-left {
+    position: relative;
+    line-height: 1.2rem;
+  }
+  .colleagueTable-left .companyTitle {
+    float: left;
+  }
+  .colleagueTable-left .companyName {
+    float: left;
+    width: 8.4rem;
+  }
+  .colleagueTable-left .accord {
+    position: absolute;
+    top: 50%;
+    margin-top: -1.2rem;
+    left: 10.6rem;
+  }
+  .colleagueTable-left p {
+    line-height: 1.2rem;
+    font-size: 0;
+  }
+  .skillTable p {
+    line-height: 1.2rem;
+    font-size: 0;
+  }
+  .skillTable-noResult {
+    padding-left: 0.56rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #eeeeee;
+  }
+  .skillTable .certificationTitle {
+    float: left;
+  }
+  .skillTable .certification-unit {
+    float: left;
+    width: 8.4rem !important;
+  }
+  .badnessTable div p,
+  .skillTable-noResult div p {
+    font-size: 0.56rem;
+    color: #574e5f;
+    padding-left: 2rem;
+    padding-top: 0.4rem;
+  }
+  .badnessTable p {
+    font-size: 0.56rem;
+    color: #574e5f;
+    text-align: center;
+    margin-top: 0.8rem;
+  }
+  .explain {
+    margin-top: 0.6rem;
+  }
+  .explain p {
+    height: 1.08rem;
+    padding-left: 0.56rem;
+    margin-bottom: 0.2rem;
+  }
+  .explain p:last-child{
+    margin-bottom: 0.52rem;
+  }
+  .explain p:nth-of-type(1) img {
+    width: 0.1rem;
+    height: 0.48rem;
+  }
+  .explain p:nth-of-type(2) img {
+    width: 0.22rem;
+    height: 0.42rem;
+  }
+  .explain p label {
+    display: inline-block;
+    width: 4rem;
+    font-size: 0.36rem;
+    margin-right: 0.92rem;
+  }
+  .explain p span {
+    font-size: 0.4rem;
+    color: #999;
+  }
+  /*核验记录*/
+  .check-record {
+    border-bottom: 1px solid #ebf0f2;
+  }
+  .check-record .record-header {
+    height: 1.96rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 0;
+  }
+  .check-record img {
+    width: 6.12rem;
+    height: 1.12rem;
+  }
+  .check-record h2 {
+    font-size: 0.64rem;
+    font-weight: 400;
+    text-align: center;
+    margin: 0.52rem 0;
+  }
+  .check-record div {
+    padding-left: 0.64rem;
+    border-top: 1px solid #eee;
+  }
+  .check-record div span {
+    float: left;
+    font-size: 0.48rem;
+    margin: 0.68rem 0;
+  }
+  .check-record div span:nth-of-type(1) {
+    width: 2.88rem;
+    margin-right: 0.84rem;
+    color: #999;
+  }
+  .check-record div span:nth-of-type(2) {
+    font-size: 0.44rem;
+    margin-right: 0.7rem;
+    color: #999;
+  }
+  .check-record div span:nth-of-type(3) {
+    width: 4.08rem;
+  }
+  .check-record div button {
+    float: left;
+    width: 2.32rem;
+    height: 0.84rem;
+    line-height: 0.84rem;
+    border: 1px solid #00adb4;
+    border-radius: 0.12rem;
+    background: #fff;
+    color: #00adb4;
+    font-size: 0.48rem;
+    text-align: center;
+    margin: 0.58rem 0;
+  }
+  /*footer*/
+  .footer {
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  .footer h3 {
+    font-size: 0.6rem;
+    color: #666;
+    text-align: center;
+    margin: 0.72rem 0;
+    font-weight: 400;
+  }
+  .footer input {
+    border-radius: 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #999;
+    color: #333;
+    font-size: 0.56rem;
+    background: none;
+    line-height: normal;
+    text-align: center;
+  }
+  .footer p span {
+      text-align: center;
+      padding: 0 0.1rem;
+      text-indent: 0;
+      text-decoration: underline;
+  }
+  
+  .footer p {
+    font-size: 0.52rem;
+    color: #999;
+    line-height: 1.9;
+    padding: 0 0.6rem;
+    text-indent: 2em;
+  }
+  .footer p:nth-of-type(2) {
+    margin-top: 0.4rem;
+  }
+  /* 一致 */
+  .accordance {
+    color: #27d4af!important;
+  }
+  .accordanceBg {
+    background-color: #27d4af;
+  }
+  /* 不一致 */
+  .inconformity {
+    color: #fe4646!important;
+  }
+  .inconformitBg {
+    background-color: #fe4646;
+  }
+  /* 未查得 */
+  .unfindColor{
+    color: #fccb07 !important;
+  }
+  
+  .unfindBg{
+    background: #fccb07;
+  }
+  /* 等待反馈/核验中 */
+  .waitColor {
+    color: #d98103!important;
+  }
+  
+  .waitColoBg {
+    background-color: #d98103;
+  }
+  
+  
+  #main {
+    float: left;
+    width: 6rem;
+    height: 6rem;
+    margin-left: 1rem;
+    margin-right: 2.8rem;
+  }
+  .proportionExplain {
+    float: left;
+    margin-top: 1.2rem;
+  }
+  .proportionExplain > div span {
+    font-size: 0.4rem;
+    color: #666;
+  }
+  .proportionExplain > div span:nth-of-type(1) {
+    float: left;
+    width: 0.36rem;
+    height: 0.36rem;
+  }
+  .proportionExplain > div span {
+    float: left;
+    margin: 0.2rem 0;
+  }
+  .agreementIcon {
+    background: #27d4af;
+  }
+  .atypismIcon {
+    background: #fe4646;
+  }
+  .noIcon {
+    background: #fccb07;
+  }
+  .wartIcon {
+    background: #d98103;
+  }
+  .greyIcon{
+    background: #a6a7a8;
+  }
+  .agreementIcon,
+  .atypismIcon,
+  .noIcon,
+  .wartIcon {
+    margin: 0.3rem 0.2rem 0.3rem 0 !important;
+  }
+  

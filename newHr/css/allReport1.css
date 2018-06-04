@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
 }
-ul,li {
+ul,
+li {
   list-style: none;
 }
 a {
@@ -17,35 +18,35 @@ body {
   display: block;
   clear: both;
 }
-.basic-active{
+.basic-active {
   border: none !important;
 }
-.basic-reactive{
+.basic-reactive {
   border-bottom: 0.02rem solid #eeeeee;
 }
-.right-active{
+.right-active {
   border-right: none !important;
   border-left: none !important;
 }
-.cc{
+.cc {
   color: #ccc !important;
 }
-.fa{
+.fa {
   color: #fe4646 !important;
 }
-.gt{
+.gt {
   width: 0.1rem;
   height: 0.48rem;
   float: right;
   margin-top: 0.1rem;
 }
-.Pub-order-infor-l{
+.Pub-order-infor-l {
   width: 4rem !important;
 }
-.fifteen{
+.fifteen {
   width: 15rem !important;
 }
-.fifteen-right{
+.fifteen-right {
   width: 10.62rem !important;
 }
 /* 一、header部分 */
@@ -53,37 +54,37 @@ body {
 #header {
   overflow: hidden;
 }
-.header_l{
+.header_l {
   width: 9.2rem;
   font-size: 0.48rem;
   color: #999;
-  margin-left:0.6rem;
+  margin-left: 0.6rem;
   float: left;
   /* background-color: pink; */
 }
-.header_l h3{
+.header_l h3 {
   margin-top: 0.88rem;
   font-size: 0.88rem;
   color: #333;
 }
-.header_l p{
+.header_l p {
   font-size: 0.6rem;
   color: #333;
   margin-top: 0.6rem;
 }
-.header_l ul{
+.header_l ul {
   margin-top: 0.6rem;
   overflow: hidden;
 }
-.header_l ul:last-child{
+.header_l ul:last-child {
   margin-top: 0;
 }
-.header_l ul li{
+.header_l ul li {
   margin-bottom: 0.48rem;
   float: left;
   margin-right: 0.5rem;
 }
-.header_r{
+.header_r {
   float: right;
   height: 3.8rem;
   width: 3.08rem;
@@ -91,21 +92,20 @@ body {
   margin-right: 0.6rem;
   background-color: pink;
 }
-.header_r img{
+.header_r img {
   width: 3.08rem;
   height: 3.8rem;
   box-shadow: 0.04rem 0.04rem 0.2rem 0.04rem rgba(39, 142, 146, 0.2);
 }
-.headerWave{
+.headerWave {
   width: 100%;
   height: 1.84rem;
   float: left;
 }
-.headerWave img{
+.headerWave img {
   width: 100%;
   height: 100%;
 }
-
 /* 2、百分比图部分 */
 .verification-results {
   position: relative;
@@ -234,8 +234,6 @@ body {
   display: block;
   margin-left: 0.6rem;
 }
-
-
 /* 第一部分 */
 .basic-header,
 .education-header,
@@ -265,7 +263,9 @@ body {
   font-size: 0.68rem;
   position: relative;
 }
-.school_title,.company_title,.skill_title{
+.school_title,
+.company_title,
+.skill_title {
   font-size: 0.56rem;
   text-align: center;
   color: #048d93;
@@ -308,89 +308,88 @@ body {
   position: absolute;
   left: 0.6rem;
 }
-.new{
+.new {
   position: absolute;
   top: 0;
   right: 0;
 }
-.basic-basic{
+.basic-basic {
   position: relative;
   overflow: hidden;
 }
 .basic-left {
   float: left;
 }
-.accord{
+.accord {
   position: absolute;
   width: 2.72rem;
   height: 2.38rem;
   top: 50%;
   right: 0.25rem;
-  transform: translateY(-1.19rem)
+  transform: translateY(-1.19rem);
 }
-
-.basic-left li{
+.basic-left li {
   width: 11.74rem;
   overflow: hidden;
   border-bottom: 0.02rem dashed #eeeeee;
   border-right: 0.02rem dashed #eeeeee;
 }
-.npay,.nWork{
+.npay,
+.nWork {
   width: 100% !important;
   text-align: center;
   line-height: 1.36rem;
 }
-.npay>div,.nWork>div{
+.npay > div,
+.nWork > div {
   display: inline-block;
   font-size: 0.52rem;
   color: #333;
   position: relative;
   transform: translateY(-2px);
 }
-.npay>div>img,.nWork>div>img{
+.npay > div > img,
+.nWork > div > img {
   width: 0.54rem;
   height: 0.48rem;
   margin-right: 0.28rem;
   position: relative;
   transform: translateY(1px);
 }
-.basic-left li:last-child{
+.basic-left li:last-child {
   border-bottom: none;
 }
-
-.basic-left .li_l{
+.basic-left .li_l {
   height: 1.36rem;
   line-height: 1.36rem;
-  float: left;
   padding-left: 0.625rem;
   float: left;
   width: 2.91rem;
   font-size: 0.52rem;
   color: #999;
 }
-.basic-left li .li_l span{
+.basic-left li .li_l span {
   font-size: 0.52rem;
   color: #999;
 }
-.basic-left .li_r{
+.basic-left .li_r {
   float: left;
   width: 7.51rem;
   padding-left: 0.625rem;
   border-left: 0.02rem dashed #eeeeee;
-} 
-.basic-left li .li_r span{
+}
+.basic-left li .li_r span {
   display: block;
   padding-right: 0.6rem;
   font-size: 0.52rem;
   color: #333;
   margin-top: 0.35rem;
   margin-bottom: 0.3rem;
-} 
-
+}
 .basic-left .accord {
   position: absolute;
   top: 30%;
-  right:0.5rem;
+  right: 0.5rem;
 }
 .basic-right img {
   width: 2.72rem;
@@ -464,7 +463,6 @@ body {
 .eduTable-left .schoolTitle {
   float: left;
 }
-
 .eduTable-left {
   position: relative;
   /* float: left;*/
@@ -498,7 +496,6 @@ body {
   margin-top: -1.2rem;
   left: 10.6rem;
 }
-
 .accord img {
   width: 2.72rem;
   height: 2.38rem;
@@ -537,13 +534,13 @@ body {
   color: #999;
   margin-top: 0.2rem;
 }
-.pay{
+.pay {
   width: 15rem !important;
 }
-.pay-left{
+.pay-left {
   width: 4.16rem !important;
 }
-.pay-right{
+.pay-right {
   width: 6.66rem !important;
   border-right: none !important;
 }
@@ -613,9 +610,6 @@ body {
   border: 1px solid #00adb4;
   padding: 0.24rem 0;
 }
-
-
-
 /*同事*/
 .colleagueTable-left {
   position: relative;
@@ -675,7 +669,7 @@ body {
   padding-left: 0.56rem;
   margin-bottom: 0.2rem;
 }
-.explain p:last-child{
+.explain p:last-child {
   margin-bottom: 0.52rem;
 }
 .explain p:nth-of-type(1) img {
@@ -771,18 +765,16 @@ body {
   border-bottom: 1px solid #999;
   color: #333;
   font-size: 0.56rem;
-  -webkit-appearance: none;
   background: none;
   line-height: normal;
   text-align: center;
 }
 .footer p span {
-    text-align: center;
-    padding: 0 0.1rem;
-    text-indent: 0;
-    text-decoration: underline;
+  text-align: center;
+  padding: 0 0.1rem;
+  text-indent: 0;
+  text-decoration: underline;
 }
-
 .footer p {
   font-size: 0.52rem;
   color: #999;
@@ -808,23 +800,19 @@ body {
   background-color: #fe4646;
 }
 /* 未查得 */
-.unfindColor{
+.unfindColor {
   color: #fccb07 !important;
 }
-
-.unfindBg{
+.unfindBg {
   background: #fccb07;
 }
 /* 等待反馈/核验中 */
 .waitColor {
   color: #d98103!important;
 }
-
 .waitColoBg {
   background-color: #d98103;
 }
-
-
 #main {
   float: left;
   width: 6rem;
@@ -860,6 +848,9 @@ body {
 }
 .wartIcon {
   background: #d98103;
+}
+.greyIcon {
+  background: #a6a7a8;
 }
 .agreementIcon,
 .atypismIcon,

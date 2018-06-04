@@ -764,6 +764,9 @@ body {
 .wartIcon {
   background: #fccb07;
 }
+.greyIcon {
+  background: #a6a7a8;
+}
 .agreementIcon,
 .atypismIcon,
 .noIcon,

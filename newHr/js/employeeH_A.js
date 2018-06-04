@@ -472,7 +472,7 @@ $(function () {
         '<p class="skillTitleS clearfix"><span>职业证书</span><em class="deleteBtnJ"><img src="images/deleteIcon.png" alt=""></em></p>'+
         '<div><i class="blueBg"></i><span>证书名称</span><input class="certificateName"  type="text" name="certificateName" placeholder="请输入证书名称" maxlength="30"></div></form>');
 
-            $('.upSkill').before(skill);
+            $('.upSkill').before($skill);
 
     });
     /*收起技能信息*/

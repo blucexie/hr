@@ -13,6 +13,33 @@ $(function () {
 }
 var authenCode = getQueryString();
 
+   /* 证明人关系 */
+   var data2 = [
+    {'id': '10001', 'value': '普通同事'},
+    {'id': '10002', 'value': '上级领导'},
+    {'id': '10003', 'value': '下级'},
+    {'id': '10003', 'value': 'HR'}
+
+    ];
+
+    window.workRe = function (dom) {
+
+        dom.addEventListener('click', function () {
+            var bankSelect = new IosSelect(1,
+                [data2],
+                {
+
+                    itemHeight: 50,
+                    itemShowCount: 3,
+                    callback: function (selectOneObj) {
+                        dom.value = selectOneObj.value;
+
+                    }
+                });
+        });
+    };
+
+workRe(document.querySelector('.colleagueRelationship'));
  $.ajax({
     url:'https://apix.funinhr.com/api/agree/colleague/verify/before',
     type: "POST",
@@ -50,6 +77,7 @@ var authenCode = getQueryString();
         var colleagueResult=1;
 
             var colleagueIdcard = $("#inpId").val();
+            var colleagueRelationship = $('.colleagueRelationship').val();
             if (colleagueIdcard.length !=18) {
                 layer.open({
                     content: '请输入有效的证件号',
@@ -68,6 +96,7 @@ var authenCode = getQueryString();
             "colleagueCode":colleagueCode,
             "colleagueIdcard":colleagueIdcard,
             "colleagueResult":colleagueResult,
+            "colleagueRelationship":colleagueRelationship,
             "authenCode":code,
             "colleagueResultInfo":{
                 "colleagueName":"1",
@@ -99,11 +128,6 @@ var authenCode = getQueryString();
                 },
                 error: function (XMLHttpRequest, textStatus) {
                     window.location.replace("netless.html");
-                    /* layer.open({
-                        content: '网络异常，请稍后重试'
-                        ,btn: '确定'
-                    });
-                    hideLoader();*/
                 }
             });
     });
@@ -250,11 +274,6 @@ var authenCode = getQueryString();
             },
             error: function () {
                 window.location.replace("netless.html");
-                /*  layer.open({
-                        content: '网络异常，请稍后重试'
-                        ,btn: '确定'
-                    });
-                    hideLoader();*/
             }
         });
     });
