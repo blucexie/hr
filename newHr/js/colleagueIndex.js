@@ -13,7 +13,18 @@ $(function () {
                     txts[next-1].setAttribute("readonly", true);
                     txts[next].removeAttribute("readonly");
                     txts[next].focus();
-                } else {
+                } 
+                else if (e.key == 'Backspace') {
+                    var text = this.value;
+                    if (!text) {
+                        var prev = this.index - 1;
+                        txts[prev].focus();
+                        for (var i = 0; i < txts.prev; i++) {
+                            txts[i].prev.setAttribute("readonly", true);
+                        }
+                    }
+                }
+                else {
                     $(this).focus();
                 }
                  if (e.key == 'Backspace') {
