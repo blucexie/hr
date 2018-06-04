@@ -79,7 +79,12 @@ $(function () {
                             var eduJson = JSON.parse(backData.item.resumeEducationArray);
                           
                             eduLength = eduJson.length;
-            
+                            if(eduLength>1){
+                                $('.educate').css('display','block');
+                            }
+                            if(eduLength==3){
+                                $('.addEducation').hide();
+                            }
                             for(var i = 0;i<eduLength-1;i++){
                                 /*学历底部滑动select*/
             
@@ -87,13 +92,13 @@ $(function () {
                                 var endClass = 'EndTime';
                                 var eduClass = 'eduS';
                                 var $school = ('<form class="educationTable clearfix" action="">' +
-                                '<p data-value='+eduLength+' class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"> <img src="images/deleteIcon.png" alt=""></em></p>'+
-                                '<div  class="schoolMsg"><i class="purpleBg"></i><span>学校名称</span><textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
-                                '<div><i class="yellowBg"></i><span class="edu">学&emsp;&emsp;历</span><input onfocus="this.blur();" class='+eduClass+'   type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请选择学历"></div>' +
-                                '<div><i class="greenBg"></i><span class="career">专业</span><input  class="specialty"   type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称"  maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
-                                '<div><i class="orangeBg"></i><span>入学时间</span><input onfocus="this.blur();" class='+starClass+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
-                                '<div><i class="blueBg"></i><span>毕业时间</span><input onfocus="this.blur();" class='+endClass+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
-                    
+                                    '<p class="educateS clearfix"><i></i><span>教育信息</span> <em class="deleteBtn"><img src="images/deleteIcon.png" alt=""></em></p>'+
+                                    '<div class="schoolMsg"><i class="purpleBg"></i><span>学校名称</span> <textarea class="schoolName" name="educationSchoolName"  cols="30" rows="2" data-attribute="请填写学校名称" placeholder="请输入学校名称" onchange="this.value=this.value.replace(/[^\\u4e00-\\u9fa5]/g,\'\')" maxlength="30"></textarea></div>' +
+                                    '<div><i class="yellowBg"></i><span class="edu">学&emsp;&emsp;历</span><input onfocus="this.blur();" class='+(eduClass+(i+2))+'  type="text" name="educationGrade" data-attribute="请选择学历" placeholder="请输入学历"></div>'+
+                                    '<div><i class="greenBg"></i><span class="specialty">专&emsp;&emsp;业</span><input class="specialty"  type="text" name="educationMajor" data-attribute="请填写专业" placeholder="请输入专业名称" maxlength="18" onchange="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')" onpaste="value=value.replace(/[^\\a-\\z\\A-\\Z\\u4E00-\\u9FA5]/g,\'\')"></div>' +
+                                    '<div><i class="orangeBg"></i><span>入学时间</span><input onfocus="this.blur();" class='+(starClass+(i+2))+'  type="text" name="educationStartTime" data-attribute="请选择入学时间" placeholder="请选择入学时间"></div>'+
+                                    '<div><i class="blueBg"></i><span>毕业时间</span><input onfocus="this.blur();" class='+(endClass+(i+2))+'  type="text" name="educationEndTime" data-attribute="请选择毕业时间" placeholder="请选择毕业时间"></div></form>');
+                                
                                 $('.upEducation').before($school);
             
                                 new datePicker().init({
@@ -143,6 +148,9 @@ $(function () {
                                 skillLength = skillJson.length;
                                 if(skillLength>1){
                                     $('.skillTitle').css('display','block');
+                                }
+                                if(skillLength==3){
+                                    $('.addSkill').hide();
                                 }
                                 for(var i = 0;i<skillLength-1;i++){
                                     var $skill = ('<form class="skill clearfix" action="">' +
