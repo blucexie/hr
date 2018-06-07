@@ -162,6 +162,15 @@ table tr td,table tr th{
     width: 6px;
     margin-right: 6px;
 }
+.noWork p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.noWork img{
+    width: 27px;
+    height: 24px;
+}
 .button-style button{
     width: 90px;
     height: 30px;
@@ -228,3 +237,45 @@ table tr td,table tr th{
 .evaluationResults ul{
     padding: 0;
 }
+.stateDescription>div{
+    border: 1px solid #000;
+    padding: 40px 0;
+}
+.stateDescription h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.stateDescription>div>p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.stateDescription>div>p >span{
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    margin-right: 40px;
+    color: #f6a129
+}
+.contentDescription>div{
+    border: 1px solid #000;
+    padding: 40px 20px;
+}
+.contentDescription>h1{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.contentDescription>div>p {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.8;
+    padding: 0 0.6rem;
+    text-indent: 2em;
+  }
+  .contentDescription>div> p>span {
+    text-align: center;
+    padding: 0 0.1rem;
+    text-indent: 0;
+    text-decoration: underline;
+  }

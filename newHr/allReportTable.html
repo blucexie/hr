@@ -120,9 +120,9 @@
                 </tr>
                 <tr>
                     <td>预测薪资</td>
-                    <td>预测薪资</td>
-                    <td>已完成</td>
-                    <td>情况属实</td>
+                    <td>无</td>
+                    <td></td>
+                    <td>无法预测</td>
                 </tr>
                 <tr>
                     <td>工作经历核验</td>
@@ -144,6 +144,12 @@
                 </tr>
                 <tr>
                     <td>北京科技有限公司</td>
+                    <td>已完成</td>
+                    <td>情况属实</td>
+                </tr>
+                <tr >
+                    <td>职业资格证书</td>
+                    <td>英语八级</td>
                     <td>已完成</td>
                     <td>情况属实</td>
                 </tr>
@@ -292,8 +298,8 @@
                 <th class="cell4">说明</th>
             </tr>
             <tr>
-                <td class="cell1">公司名称</td>
-                <td >北京大学</td>
+                <td class="cell1">候选人填写薪资</td>
+                <td >2000</td>
                 <td>
                     <img src="images/allRight.png" alt="">
                 </td>
@@ -302,13 +308,6 @@
                     <!-- <p><img src="images/diamond-icon.png" alt="">预测结果可能受候选人试用期薪资、五险一金缴纳情况等因素影响，可能存在偏差</p> -->
                 </td>
             </tr>
-            <!-- <tr>
-                <td class="cell1">候选人填写薪资</td>
-                <td >20000</td>
-                <td>
-                    <img src="images/allError.png" alt="">
-                </td>
-            </tr> -->
             <tr>
                 <td class="cell1">预测薪资范围</td>
                 <td >19000-20000</td>
@@ -354,6 +353,32 @@
                 </td>
             </tr>
         </table >
+
+        <table class="work" border="1" >
+            <tr>
+                <th colspan="4">工作经历核验</th>
+            </tr>
+            <tr >
+                <th class="cell1">调查内容</th>
+                <th class="cell2">调查结果</th>
+                <th class="cell3">真实性</th>
+                <th class="cell4">说明</th>
+            </tr>
+            <tr>
+                <td class="cell1 noWork" colspan="3">
+                   <p>
+                    <img src="images/markIcon.png" alt="">&nbsp;
+                    候选人未提供工作经历无法核验
+                   </p>
+                </td>
+                <td class="explain" rowspan="3">
+                    <p><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
+                    <p><img src="images/diamond-icon.png" alt="">公司名称为简称时无法核验</p>
+                </td>
+            </tr>
+            
+        </table >
+
         <table class="work" border="1" >
             <tr>
                 <th colspan="4">工作能力核验</th>
@@ -440,6 +465,30 @@
             </td>
         </tr>
     </table >
+    <table class="colleague" border="1" >
+        <tr>
+            <th colspan="4">同事证明核验</th>
+        </tr>
+        <tr >
+            <th class="cell1">调查内容</th>
+            <th class="cell2">调查结果</th>
+            <th class="cell3">真实性</th>
+            <th class="cell4">说明</th>
+        </tr>
+        <tr>
+            <td class="cell1 noWork" colspan="3">
+               <p>
+                <img src="images/markIcon.png" alt="">&nbsp;
+                候选人未提供工作经历无法核验
+               </p>
+            </td>
+            <td class="explain" rowspan="3">
+                <p><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
+                <p><img src="images/diamond-icon.png" alt="">公司名称为简称时无法核验</p>
+            </td>
+        </tr>
+        
+    </table >
         <table class="public" border="1" >
             <tr>
                 <th colspan="4">公共治安信息核验</th>
@@ -460,8 +509,87 @@
             </tr>
 
         </table >
+        <table class="skill" border="1" >
+            <tr>
+                <th colspan="4">职业资格核验</th>
+            </tr>
+            <tr >
+                <th class="cell1">调查内容</th>
+                <th class="cell2">调查结果</th>
+                <th class="cell3">真实性</th>
+                <th class="cell4">说明</th>
+            </tr>
+            <tr>
+                <td class="cell1">证书编号</td>
+                <td >113216155</td>
+                <td>
+                    
+                </td>
+                <td class="explain" rowspan="4">
+                    <p><img src="images/diamond-icon.png" alt="">查询中国大陆地区社会公共治安信息，数据范围包括前科、在逃、吸毒、涉毒</p>
+                    <p><img src="images/diamond-icon.png" alt="">如有疑问，请与候选人联系，提供相应的证明材料</p>
+                </td>
+            </tr>
+            <tr>
+                <td class="cell1">证书名称</td>
+                <td >会计证</td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td class="cell1">获证时间</td>
+                <td >2107.04</td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td class="cell1">获证单位</td>
+                <td >百度</td>
+                <td>
+                </td>
+            </tr>
+        </table >
+        <div class="stateDescription">
+            <h1>职信状态核验说明</h1>
+            <div>
+                <p>
+                   <span>
+                    <img src="images/allRight.png" alt="">
+                   </span>
+                    表示核验结果完全符合
+                </p>
+                <p>
+                    <span>
+                        <img src="images/allError.png" alt="">
+                    </span>
+                    表示不一致项
+                </p>
+                <p>
+                    <span>
+                        <img src="images/allQuery.png" alt="">
+                    </span>
+                    表示未查得对应数据
+                </p>
+                <p>
+                    <span>核验中</span>
+                    表示正在核验结果
+                </p>
+                <p>
+                    <span>正在等待同事反馈</span>
+                    表示正在等待同事反馈结果
+                </p>
+            </div>
+        </div>
+        <div class="contentDescription">
+            <h1>职信内容说明</h1>
+            <div>
+                <p>应
+                    <span>北京风影职信科技有限公司</span>（以下简称“公司”）的委托,以降低招聘风险为目标,按照应聘候选人提供的信息,通过大数据及专业核验流程, 北京风影职信科技有限公司为公司提供应聘候选人
+                    <span>陈秋君</span>的职信报告。以上核验信息均通过符合法律法规的途径获得,报告内容不代表风影职信及其任何员工的主观意见。</p>
+                <p>本报告不得用于法律诉讼依据，仅供招聘决策参考之用。在任何情况下，对由于使用本报告所造成的损失，本公司不承担任何责任。且未经本公司许可，本报告内容不得向任何第三方透露。</p>
 
-      
+            </div>
+        </div>
     </div>
     <script>
         var myChart = echarts.init(document.getElementById('main'));
