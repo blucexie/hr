@@ -62,21 +62,22 @@
                 </tr>
                 <tr >
                     <td>
-                        <div class="evaluationRatio">
-                            <div id="main" ></div>
-                            <div class="colorBox">
-                                <div class="colorBoxT clearfix">
-                                    <i></i>
-                                    <span>一致</span>
-                                    <i></i>
-                                    <span>不一致</span>
-                                </div>
-                                <div class=" colorBoxB clearfix">
-                                    <i></i>
-                                    <span>未查得对应数据</span>
-                                    <i></i>
-                                    <span>正在等待同事反馈</span>
-                                </div>
+                        <div class="evaluationRatio clearfix">
+                            <div class="main1Warp">
+                                <div id="main1" ></div>
+                                <p>一致</p>
+                            </div>
+                            <div class="main1Warp">
+                                <div id="main2" ></div>
+                                <p>不一致</p>
+                            </div>
+                            <div class="main1Warp">
+                                <div id="main3" ></div>
+                                <p>未查得对应数据</p>
+                            </div>
+                            <div class="main1Warp">
+                                <div id="main4" ></div>
+                                <p>正在等待同事反馈</p>
                             </div>
                         </div>
                         <div class="line"></div>
@@ -560,6 +561,7 @@
                 </p>
                 <p>
                     <span>
+                        <img src="images/allError.png" alt="">/
                         <img src="images/allError.png" alt="">
                     </span>
                     表示不一致项
@@ -592,7 +594,7 @@
         </div>
     </div>
     <script>
-        var myChart = echarts.init(document.getElementById('main'));
+        var myChart1 = echarts.init(document.getElementById('main1'));
         option = {
 
             backgroundColor: "#fff",
@@ -608,8 +610,8 @@
                     type: 'pie',
                     silent: true,
                     avoidLabelOverlap: false,
-                    center: ['25%', '25%'],
-                    radius: ['15%', '25%'],
+                    center: ['50%', '45%'],
+                    radius: ['35%', '45%'],
                     label: {
                         normal: {
                             position: 'center'
@@ -652,146 +654,68 @@
                             }
                         }
                     }, ]
-                },
-                {
+                }
+            ]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChart1.setOption(option);
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        option = {
+
+            backgroundColor: "#fff",
+            color: ['#ffd285', '#ff733f', '#ec4863'],
+            grid: {
+                left: '1%',
+                right: '35%',
+                top: '16%',
+                bottom: '6%',
+                containLabel: true
+            },
+            series: [{
                     type: 'pie',
                     silent: true,
                     avoidLabelOverlap: false,
-                    center: ['75%', '25%'],
-                    radius: ['15%', '25%'],
+                    center: ['50%', '45%'],
+                    radius: ['35%', '45%'],
                     label: {
                         normal: {
                             position: 'center'
                         }
                     },
                     data: [{
-                        value: 100,
-                       //  name: '明厨亮灶实施',
+                        value: 1,
+                          // name: '优秀',
                         itemStyle: {
                             normal: {
-                                color: '#fe5656'
-
-
+                                color: '#27d4af'
                             }
                         },
+
                         label: {
                             normal: {
                                 formatter: '{d} %',
-                                position: 'center',
                                 textStyle: {
-                                    color: '#05c83c',
+                                    color: '#f1ca11',
                                     fontSize: 14
                                 }
                             }
                         }
                     }, {
-                        value: 435,
-                        // name: '明厨亮灶实施',
+                        value: 1,
+                        // name: '优秀',
                         itemStyle: {
                             normal: {
-                                color: '#f7f7f7'
+                                color: '#f7f7f7',
+                                position: 'outside'
                             }
                         },
                         label: {
                             normal: {
                                 textStyle: {
-                                    color: '#000',
+                                    color: '#f1ca11',
+                                    position: 'outside'
                                 },
-                                // formatter: '\n明厨亮灶实施'
-                            }
-                        }
-                    }, ]
-                }, {
-                    type: 'pie',
-                    silent: true,
-                    avoidLabelOverlap: false,
-                    center: ['25%', '75%'],
-                    radius: ['15%', '25%'],
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data: [{
-                        value: 100,
-                      //  name: '色标管理未开展',
-                        itemStyle: {
-                            normal: {
-                                color: '#f6a129'
-                            }
-                        },
-                        label: {
-                            normal: {
-                                formatter: '{d} %',
-                                textStyle: {
-                                    color: '#0fcff5',
-                                    fontSize: 14
-
-                                }
-
-                            }
-                        }
-                    }, {
-                        value: 435,
-                      //  name: '色标管理未开展',
-                        itemStyle: {
-                            normal: {
-                                color: '#f7f7f7'
-                            }
-                        },
-                        label: {
-                            normal: {
-                                textStyle: {
-                                    color: '#0fcff5',
-                                },
-                               //  formatter: '\n色标管理未开展'
-                            }
-                        }
-                    }, ]
-                }, {
-                    type: 'pie',
-                    silent: true,
-                    avoidLabelOverlap: false,
-                    center: ['75%', '75%'],
-                    radius: ['15%', '25%'],
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data: [{
-                        value: 100,
-                     //   name: '色标管理未开展',
-                        itemStyle: {
-                            normal: {
-                                color: '#fed221'
-                            }
-                        },
-                        label: {
-                            normal: {
-                                formatter: '{d} %',
-                                textStyle: {
-                                    color: '#0fcff5',
-                                    fontSize: 14
-
-                                }
-
-                            }
-                        }
-                    }, {
-                        value: 435,
-                       //  name: '色标管理未开展',
-                        itemStyle: {
-                            normal: {
-                                color: '#f7f7f7'
-                            }
-                        },
-                        label: {
-                            normal: {
-                                textStyle: {
-                                    color: '#0fcff5',
-                                },
-                              //   formatter: '\n色标管理未开展'
+                              //  formatter: '优秀'
                             }
                         }
                     }, ]
@@ -799,7 +723,137 @@
             ]
         }
         // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
+        myChart2.setOption(option);
+        var myChart3 = echarts.init(document.getElementById('main3'));
+        option = {
+
+            backgroundColor: "#fff",
+            color: ['#ffd285', '#ff733f', '#ec4863'],
+            grid: {
+                left: '1%',
+                right: '35%',
+                top: '16%',
+                bottom: '6%',
+                containLabel: true
+            },
+            series: [{
+                    type: 'pie',
+                    silent: true,
+                    avoidLabelOverlap: false,
+                    center: ['50%', '45%'],
+                    radius: ['35%', '45%'],
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data: [{
+                        value: 1,
+                          // name: '优秀',
+                        itemStyle: {
+                            normal: {
+                                color: '#27d4af'
+                            }
+                        },
+
+                        label: {
+                            normal: {
+                                formatter: '{d} %',
+                                textStyle: {
+                                    color: '#f1ca11',
+                                    fontSize: 14
+                                }
+                            }
+                        }
+                    }, {
+                        value: 1,
+                        // name: '优秀',
+                        itemStyle: {
+                            normal: {
+                                color: '#f7f7f7',
+                                position: 'outside'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#f1ca11',
+                                    position: 'outside'
+                                },
+                              //  formatter: '优秀'
+                            }
+                        }
+                    }, ]
+                }
+            ]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChart3.setOption(option);
+        var myChart4 = echarts.init(document.getElementById('main4'));
+        option = {
+
+            backgroundColor: "#fff",
+            color: ['#ffd285', '#ff733f', '#ec4863'],
+            grid: {
+                left: '1%',
+                right: '35%',
+                top: '16%',
+                bottom: '6%',
+                containLabel: true
+            },
+            series: [{
+                    type: 'pie',
+                    silent: true,
+                    avoidLabelOverlap: false,
+                    center: ['50%', '45%'],
+                    radius: ['35%', '45%'],
+                    label: {
+                        normal: {
+                            position: 'center'
+                        }
+                    },
+                    data: [{
+                        value: 1,
+                          // name: '优秀',
+                        itemStyle: {
+                            normal: {
+                                color: '#27d4af'
+                            }
+                        },
+
+                        label: {
+                            normal: {
+                                formatter: '{d} %',
+                                textStyle: {
+                                    color: '#f1ca11',
+                                    fontSize: 14
+                                }
+                            }
+                        }
+                    }, {
+                        value: 1,
+                        // name: '优秀',
+                        itemStyle: {
+                            normal: {
+                                color: '#f7f7f7',
+                                position: 'outside'
+                            }
+                        },
+                        label: {
+                            normal: {
+                                textStyle: {
+                                    color: '#f1ca11',
+                                    position: 'outside'
+                                },
+                              //  formatter: '优秀'
+                            }
+                        }
+                    }, ]
+                }
+            ]
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChart4.setOption(option);
     </script>
 </body>
 </html>

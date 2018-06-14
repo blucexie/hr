@@ -181,9 +181,18 @@ table tr td,table tr th{
     border-radius: 20px;
     outline: none;
 }
-#main{
+.main1Warp{
+    float: left;
+    width: 175px;
+    height: 175px;
+}
+
+#main1,#main2,#main3,#main4{
+    width: 175px;
+    height: 120px;
+}
+.evaluationRatio{
     width: 350px;
-    height: 300px;
 }
 .evaluationRatio,.line,.evaluationResults{
     float: left;
