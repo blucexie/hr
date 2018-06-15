@@ -71,7 +71,6 @@ h2{
 }
 .cover ul{
     margin-top: 100px;
-    /* margin-bottom: 50px; */
 }
 .cover  ul li{
     list-style: none;
@@ -119,9 +118,6 @@ table tr{
 th {
 	text-align: center;
 }
-/* ul{
-   margin: 10px 0;
-} */
 .identityCardPhoto img{
     width: 80px;
 }
@@ -142,30 +138,21 @@ table tr td,table tr th{
     width: 244px;
 }
 
-.brief tr td:nth-last-child(1){
-    width: 244px;
-}
-.brief tr td:nth-last-child(2){
-    width: 105px;
-}
-
 .explain p{
     font-size: 13px;
     padding: 0 10px;
     line-height:24px;
     text-align: left;
 }
-.explain p:nth-of-type(1){
+.explain .firstP{
     margin-bottom: 10px;
 }
 .explain p>img{
     width: 6px;
     margin-right: 6px;
 }
-.noWork p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.noWork p img{
+    vertical-align: -6px;
 }
 .noWork img{
     width: 27px;
@@ -177,7 +164,7 @@ table tr td,table tr th{
     background: #24c9cf;
     font-size: 14px;
     color: #fff;
-    border: none;
+    border: 0;
     border-radius: 20px;
     outline: none;
 }
@@ -196,36 +183,6 @@ table tr td,table tr th{
 }
 .evaluationRatio,.line,.evaluationResults{
     float: left;
-}
-.colorBox div i{
-    float: left;
-    width: 20px;
-    height: 10px;
-    border-radius: 3px;
-    margin-right: 5px;
-}
-.colorBox div{
-   display: flex;
-   align-items: center;
-   margin-bottom: 20px;
-   margin-left: 40px;
-}
-.colorBox div span{
-    float: left;
-    margin-right:10px;
-}
-.colorBox .colorBoxT>i:nth-of-type(1){
-    background-color:#27d4af; 
-}
-.colorBox .colorBoxT>i:nth-of-type(2){
-    background-color:#fe5656; 
-    margin-left: 80px;
-}
-.colorBox .colorBoxB>i:nth-of-type(1){
-    background-color:#f6a129; 
-}
-.colorBox .colorBoxB>i:nth-of-type(2){
-    background-color:#fed221; 
 }
 
 .line{
@@ -256,8 +213,6 @@ table tr td,table tr th{
 }
 .stateDescription>div>p {
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
 }
 .stateDescription>div>p >span{
     display: inline-block;
@@ -279,12 +234,12 @@ table tr td,table tr th{
     font-size: 14px;
     color: #999;
     line-height: 1.8;
-    padding: 0 0.6rem;
+    padding: 0 10px;
     text-indent: 2em;
   }
   .contentDescription>div> p>span {
     text-align: center;
-    padding: 0 0.1rem;
+    padding: 0 2px;
     text-indent: 0;
     text-decoration: underline;
   }

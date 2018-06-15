@@ -98,6 +98,12 @@
                 </tr>
             </table >
             <table class="brief" border="1">
+                    <colgroup>
+                        <col width="153">
+                        <col width="191">
+                        <col width="108">
+                        <col width="247">
+                    </colgroup>
                 <tr>
                     <th colspan="4">核验版本内容</th>
                 </tr>
@@ -255,7 +261,7 @@
                 <img src="images/allRight.png" alt="">
             </td>
             <td class="explain" rowspan="5">
-                <p><img src="images/diamond-icon.png" alt="">只能核验2001年后毕业的中国大陆公立大专及以上学历，民办及国外学历暂时无法核验</p>
+                <p class="firstP"><img src="images/diamond-icon.png" alt="">只能核验2001年后毕业的中国大陆公立大专及以上学历，民办及国外学历暂时无法核验</p>
                 <p><img src="images/diamond-icon.png" alt="">候选人所学专业、入学时间暂时不支持核验</p>
             </td>
         </tr>
@@ -305,7 +311,7 @@
                     <img src="images/allRight.png" alt="">
                 </td>
                 <td class="explain" rowspan="3">
-                    <p><img src="images/diamond-icon.png" alt="">预测结果可能受候选人试用期薪资、五险一金缴纳情况及奖金、股票、期权、补助、偶然所得等因素影响，可能会存在偏差</p>
+                    <p class="firstP"><img src="images/diamond-icon.png" alt="">预测结果可能受候选人试用期薪资、五险一金缴纳情况及奖金、股票、期权、补助、偶然所得等因素影响，可能会存在偏差</p>
                     <!-- <p><img src="images/diamond-icon.png" alt="">预测结果可能受候选人试用期薪资、五险一金缴纳情况等因素影响，可能存在偏差</p> -->
                 </td>
             </tr>
@@ -335,7 +341,7 @@
                     <img src="images/allRight.png" alt="">
                 </td>
                 <td class="explain" rowspan="3">
-                    <p><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
+                    <p class="firstP"><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
                     <p><img src="images/diamond-icon.png" alt="">公司名称为简称时无法核验</p>
                 </td>
             </tr>
@@ -373,7 +379,7 @@
                    </p>
                 </td>
                 <td class="explain" rowspan="3">
-                    <p><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
+                    <p class="firstP"><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
                     <p><img src="images/diamond-icon.png" alt="">公司名称为简称时无法核验</p>
                 </td>
             </tr>
@@ -401,7 +407,7 @@
                 </td>
                 <td></td>
                 <td class="explain" rowspan="3">
-                    <p><img src="images/diamond-icon.png" alt="">1-3颗星为表现一般；4颗星为表现良好；5颗星为表现优秀</p>
+                    <p class="firstP"><img src="images/diamond-icon.png" alt="">1-3颗星为表现一般；4颗星为表现良好；5颗星为表现优秀</p>
                 </td>
             </tr>
             <tr>
@@ -440,7 +446,7 @@
                 <img src="images/allError.png" alt="">
             </td>
             <td class="explain" rowspan="4">
-                <p><img src="images/diamond-icon.png" alt="">核验结果仅反映候选人同事的主观评价</p>
+                <p class="firstP"><img src="images/diamond-icon.png" alt="">核验结果仅反映候选人同事的主观评价</p>
                 <p><img src="images/diamond-icon.png" alt="">同事证明核验结果与报告中工作经历核验结果可能存在不一致</p>
             </td>
         </tr>
@@ -484,7 +490,7 @@
                </p>
             </td>
             <td class="explain" rowspan="3">
-                <p><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
+                <p class="firstP"><img src="images/diamond-icon.png" alt="">必须提供公司完整名称才能核验，如：北京风影职信科技有限公司</p>
                 <p><img src="images/diamond-icon.png" alt="">公司名称为简称时无法核验</p>
             </td>
         </tr>
@@ -527,7 +533,7 @@
                     
                 </td>
                 <td class="explain" rowspan="4">
-                    <p><img src="images/diamond-icon.png" alt="">查询中国大陆地区社会公共治安信息，数据范围包括前科、在逃、吸毒、涉毒</p>
+                    <p class="firstP"><img src="images/diamond-icon.png" alt="">查询中国大陆地区社会公共治安信息，数据范围包括前科、在逃、吸毒、涉毒</p>
                     <p><img src="images/diamond-icon.png" alt="">如有疑问，请与候选人联系，提供相应的证明材料</p>
                 </td>
             </tr>
@@ -596,66 +602,67 @@
         var myChart1 = echarts.init(document.getElementById('main1'));
         option = {
 
-            backgroundColor: "#fff",
-            color: ['#ffd285', '#ff733f', '#ec4863'],
-            grid: {
-                left: '1%',
-                right: '35%',
-                top: '16%',
-                bottom: '6%',
-                containLabel: true
-            },
-            series: [{
-                    type: 'pie',
-                    silent: true,
-                    avoidLabelOverlap: false,
-                    center: ['50%', '45%'],
-                    radius: ['35%', '45%'],
-                    label: {
-                        normal: {
-                            position: 'center'
-                        }
-                    },
-                    data: [{
-                        value: 1,
-                          // name: '优秀',
-                        itemStyle: {
-                            normal: {
-                                color: '#27d4af'
-                            }
-                        },
-
-                        label: {
-                            normal: {
-                                formatter: '{d} %',
-                                textStyle: {
-                                    color: '#f1ca11',
-                                    fontSize: 14
-                                }
-                            }
-                        }
-                    }, {
-                        value: 1,
-                        // name: '优秀',
-                        itemStyle: {
-                            normal: {
-                                color: '#f7f7f7',
-                                position: 'outside'
-                            }
-                        },
-                        label: {
-                            normal: {
-                                textStyle: {
-                                    color: '#f1ca11',
-                                    position: 'outside'
-                                },
-                              //  formatter: '优秀'
-                            }
-                        }
-                    }, ]
+backgroundColor: "#fff",
+color: ['#ffd285', '#ff733f', '#ec4863'],
+grid: {
+    left: '1%',
+    right: '35%',
+    top: '16%',
+    bottom: '6%',
+    containLabel: true
+},
+series: [{
+        type: 'pie',
+        silent: true,
+        avoidLabelOverlap: false,
+        center: ['50%', '45%'],
+        radius: ['35%', '45%'],
+        label: {
+            normal: {
+                position: 'center'
+            }
+        },
+        data: [{
+            value: 1,
+              // name: '优秀',
+            itemStyle: {
+                normal: {
+                    color: '#27d4af'
                 }
-            ]
-        }
+            },
+
+            label: {
+                normal: {
+                    formatter: '{d} %',
+                    textStyle: {
+                        color: '#f1ca11',
+                        fontSize: 14
+                    }
+                }
+            }
+        }, {
+            value: 1,
+            // name: '优秀',
+            itemStyle: {
+                normal: {
+                    color: '#f7f7f7',
+                    position: 'outside'
+                }
+            },
+            label: {
+                normal: {
+                    textStyle: {
+                        color: '#f1ca11',
+                        position: 'outside'
+                    },
+                  //  formatter: '优秀'
+                }
+            }
+        }, ]
+    }
+]
+}
+        
         // 使用刚指定的配置项和数据显示图表。
         myChart1.setOption(option);
         var myChart2 = echarts.init(document.getElementById('main2'));
