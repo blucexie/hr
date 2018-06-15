@@ -288,3 +288,6 @@ table tr td,table tr th{
     text-indent: 0;
     text-decoration: underline;
   }
+  .arrError>img{
+      width: 35px;
+  }
