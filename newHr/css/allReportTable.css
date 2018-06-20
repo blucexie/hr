@@ -53,22 +53,12 @@ h2{
 .column h1,.column p{
     color: #00adb4;
 }
+.column p{
+    margin-bottom: 90px;
+}
 .cover .content{
     margin-top: 30px;
 }
-/* .verified span{
-    display: inline-block;
-    min-width: 100px;
-    font-size: 18px;
-    line-height: 18px;
-    text-align: center;
-    color: #fff;
-    background: #00adb4;
-    border-radius: 70px;
-    margin-top: 30px;
-    padding: 6px 10px;
-
-} */
 .cover ul{
     margin-top: 100px;
 }
@@ -113,7 +103,7 @@ table{
     margin-bottom: 20px;
 }
 table tr{
-    height: 46px;
+    height: 36px;
 }
 th {
 	text-align: center;
@@ -121,25 +111,32 @@ th {
 .identityCardPhoto img{
     width: 80px;
 }
+table tr td{
+    font-size: 12px;
+}
 table tr td,table tr th{
     border: 1px solid #333;
 }
 
 .cell1{
     width: 150px; 
+    font-size: 14px;
 }
 .cell2{
     width: 188px;
+    font-size: 14px;
 }
 .cell3{
     width: 105px;
+    font-size: 14px;
 }
 .cell4{
     width: 244px;
+    font-size: 14px;
 }
 
 .explain p{
-    font-size: 13px;
+    font-size: 10px;
     padding: 0 10px;
     line-height:24px;
     text-align: left;
@@ -210,6 +207,7 @@ table tr td,table tr th{
 .stateDescription h1{
     text-align: center;
     margin-bottom: 20px;
+    font-size: 26px;
 }
 .stateDescription>div>p {
     margin-bottom: 10px;
@@ -229,6 +227,7 @@ table tr td,table tr th{
     text-align: center;
     margin-bottom: 20px;
     margin-top: 20px;
+    font-size: 26px;
 }
 .contentDescription>div>p {
     font-size: 14px;
@@ -243,6 +242,3 @@ table tr td,table tr th{
     text-indent: 0;
     text-decoration: underline;
   }
-  /* .arrError>img{
-      width: 35px;
-  } */
