@@ -2,8 +2,7 @@
   margin: 0;
   padding: 0;
 }
-ul,
-li {
+ul,li {
   list-style: none;
 }
 a {
@@ -11,73 +10,119 @@ a {
 }
 body {
   font-family: "Microsoft YaHei";
+  background-color: #fbfdfd;
 }
 .clearfix:after {
   content: "";
   display: block;
   clear: both;
 }
+.basic-active {
+  border: none !important;
+}
+.basic-reactive {
+  border-bottom: 0.02rem solid #eeeeee;
+}
+.right-active {
+  border-right: none !important;
+  border-left: none !important;
+}
+.cc {
+  color: #ccc !important;
+}
+.fa {
+  color: #fe4646 !important;
+}
+.gt {
+  width: 0.1rem;
+  height: 0.48rem;
+  float: right;
+  margin-top: 0.1rem;
+}
+.Pub-order-infor-l {
+  width: 4rem !important;
+}
+.fifteen {
+  width: 15rem !important;
+}
+.fifteen-right {
+  width: 10.62rem !important;
+}
+/* 一、header部分 */
+/* 1、基本信息 */
 #header {
-  text-align: right;
-  border-bottom: 0.4rem solid #f0f1f5;
+  overflow: hidden;
 }
-.headerBg {
-  position: relative;
-  width: 14.8rem;
-  height: 7.88rem;
-  margin: 0.08rem auto 0;
-}
-.headerBg img {
-  width: 14.6rem;
-  height: 7.68rem;
-}
-#header p {
-  font-size: 0.6rem;
-  color: #574e5f;
-}
-#header p:nth-of-type(1) {
-  position: absolute;
-  top: 0.96rem;
-  left: 3.94rem;
-}
-#header p:nth-of-type(2) {
-  position: absolute;
-  left: 3.94rem;
-  top: 2.44rem;
-}
-#header p:nth-of-type(3) {
-  position: absolute;
-  padding-top: 0.8rem;
-  left: 3.94rem;
-  top: 3.24rem;
-}
-#header p:nth-of-type(4) {
-  position: absolute;
-  padding-top: 0.68rem;
-  left: 3.94rem;
-  top: 4.8rem;
-}
-.generateTime {
-  padding-right: 0.6rem;
-  padding-bottom: 0.36rem;
-  margin-top: -0.32rem;
-}
-.generateTime span {
-  font-size: 0.4rem;
+.header_l {
+  width: 9.2rem;
+  font-size: 0.48rem;
   color: #999;
+  margin-left: 0.6rem;
+  float: left;
+  /* background-color: pink; */
 }
+.header_l h3 {
+  margin-top: 0.88rem;
+  font-size: 0.88rem;
+  color: #333;
+}
+.header_l p {
+  font-size: 0.6rem;
+  color: #333;
+  margin-top: 0.6rem;
+}
+.header_l ul {
+  margin-top: 0.6rem;
+  overflow: hidden;
+}
+.header_l ul:last-child {
+  margin-top: 0;
+}
+.header_l ul li {
+  margin-bottom: 0.48rem;
+  float: left;
+  margin-right: 0.5rem;
+}
+.header_r {
+  float: right;
+  height: 3.8rem;
+  width: 3.08rem;
+  margin-top: 2rem;
+  margin-right: 0.6rem;
+  background-color: pink;
+}
+.header_r img {
+  width: 3.08rem;
+  height: 3.8rem;
+  box-shadow: 0.04rem 0.04rem 0.2rem 0.04rem rgba(39, 142, 146, 0.2);
+}
+.headerWave {
+  width: 100%;
+  height: 1.84rem;
+  float: left;
+}
+.headerWave img {
+  width: 100%;
+  height: 100%;
+}
+/* 2、百分比图部分 */
 .verification-results {
   position: relative;
-  border-bottom: 0.4rem solid #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
 }
 .verification-results > p:nth-of-type(1) {
-  border-top: 1px solid #e7e7e7;
+  border-top: 0.28rem solid #f8f8f8;
   padding-top: 0.6rem;
   margin-top: 0.2rem;
 }
 .verification-results > div:nth-of-type(1) {
-  border-bottom: 0.12rem solid #f8f8f8;
-  margin-bottom: 0.4rem;
+  border-top: 0.4rem solid #f0f1f5;
+  height: 1.72rem;
+  line-height: 1.72rem;
+  font-size: 0.72rem;
+  padding: 0 0.6rem;
+  color: #fff;
+  background-color: #00adb4;
 }
 .verification-results div img {
   float: left;
@@ -88,12 +133,11 @@ body {
 .verification-results .result {
   float: right;
   height: 0.84rem;
-  margin: 0.7rem 0.68rem 0.7rem 0;
   font-size: 0.56rem;
-  color: #feaf3f;
+  color: #ffffff;
 }
 .proportion {
-  border-bottom: 2px solid #f8f8f8;
+  border-bottom: 1px solid #eeeeee;
 }
 .verification-results p,
 .eduExplain p,
@@ -132,9 +176,9 @@ body {
 }
 .verified-result > div h5 {
   width: 2.76rem;
-  font-size: 0.28rem;
+  font-size: 0.3rem;
   line-height: 0.28rem;
-  padding: 0.1rem 0;
+  padding: 0.15rem 0;
   font-weight: none;
   color: #fff;
   text-align: center;
@@ -185,20 +229,11 @@ body {
   color: #ccc!important;
 }
 .no-verification h4 {
-  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+  display: block;
+  margin-left: 0.6rem;
 }
-.basic,
-.education,
-.work,
-.colleague,
-.workAbility,
-.skill,
-.badness,
-.explain,
-.predictedWage {
-  padding-bottom: 0.4rem;
-  border-bottom: 0.4rem solid #f0f1f5;
-}
+/* 第一部分 */
 .basic-header,
 .education-header,
 .work-header,
@@ -207,7 +242,12 @@ body {
 .badness-header,
 .workAbility-header,
 .wage-header {
-  border-bottom: 1px solid #e7e7e7;
+  border-top: 0.4rem solid #eeeeee;
+  height: 1.72rem;
+  line-height: 1.72rem;
+  font-size: 0.72rem;
+  color: #fff;
+  background-color: #00adb4;
 }
 .basic-header > div,
 .education-header > div,
@@ -217,10 +257,20 @@ body {
 .badness-header > div,
 .workAbility-header > div,
 .wage-header > div {
-  float: left;
-  display: flex;
-  align-items: center;
-  margin: 0.54rem 0 0.54rem 0.6rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.68rem;
+  position: relative;
+}
+.school_title,
+.company_title,
+.skill_title {
+  font-size: 0.56rem;
+  text-align: center;
+  color: #048d93;
+  background-color: #bdeff1;
+  height: 1.72rem;
+  line-height: 1.72rem;
 }
 .basic-header > div img:nth-of-type(1),
 .education-header > div img:nth-of-type(1),
@@ -252,62 +302,93 @@ body {
 .badness-header > div > span,
 .workAbility-header > div > span,
 .wage-header > div > span {
-  font-size: 0.6rem;
-  color: #555;
-  font-weight: bold;
-  margin-top: -0.2rem;
-  margin-left: 0.14rem;
-}
-.basic-header > span,
-.education-header > span,
-.work-header > span,
-.colleague-header > span,
-.skill-header > span,
-.badness-header > span,
-.workAbility-header > span,
-.wage-header > span {
-  float: right;
-  line-height: 0.96rem;
+  color: #fff;
   font-size: 0.56rem;
-  margin: 0.48rem 0.68rem 0.48rem 0;
+  position: absolute;
+  left: 0.6rem;
+}
+.new {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.basic-basic {
+  position: relative;
+  overflow: hidden;
 }
 .basic-left {
-  position: relative;
-  padding-left: 0.56rem;
+  float: left;
 }
-.basic-left p span:nth-of-type(1),
-.eduTable p span:nth-of-type(1),
-.eduExplain span:nth-of-type(1),
-.workTable p span:nth-of-type(1),
-.workExplain span,
-.colleagueTable p span:nth-of-type(1),
-.colleagueExplain span,
-.skillTable p span:nth-of-type(1),
-.skillExplain span,
-.workAbilityTable p span:nth-of-type(1),
-.badnessTable div span:nth-of-type(1),
-.skillTable-noResult div span:nth-of-type(1),
-.wageTable div span:nth-of-type(1) {
+.accord {
+  position: absolute;
+  width: 2.72rem;
+  height: 2.38rem;
+  top: 50%;
+  right: 0.25rem;
+  transform: translateY(-1.19rem);
+}
+.basic-left li {
+  width: 11.74rem;
+  overflow: hidden;
+  border-bottom: 0.02rem dashed #eeeeee;
+  border-right: 0.02rem dashed #eeeeee;
+}
+.npay,
+.nWork {
+  width: 100% !important;
+  text-align: center;
+  line-height: 1.36rem;
+}
+.npay > div,
+.nWork > div {
   display: inline-block;
-  width: 3.8rem;
+  font-size: 0.52rem;
+  color: #333;
+  position: relative;
+  transform: translateY(-2px);
+}
+.npay > div > img,
+.nWork > div > img {
+  width: 0.54rem;
+  height: 0.48rem;
+  margin-right: 0.28rem;
+  position: relative;
+  transform: translateY(1px);
+}
+.basic-left li:last-child {
+  border-bottom: none;
+}
+.basic-left .li_l {
+  height: 1.36rem;
+  line-height: 1.36rem;
+  padding-left: 0.625rem;
+  float: left;
+  width: 2.91rem;
   font-size: 0.52rem;
   color: #999;
-  padding: 0.08rem 0;
 }
-.basic-left p span:nth-of-type(2),
-.eduTable p span:nth-of-type(2),
-.workTable p span:nth-of-type(2),
-.colleagueTable p span:nth-of-type(2),
-.skillTable p span:nth-of-type(2),
-.badnessTable div p,
-.wageTable p span:nth-of-type(2) {
+.basic-left li .li_l span {
   font-size: 0.52rem;
-  color: #574e5f;
+  color: #999;
+}
+.basic-left .li_r {
+  float: left;
+  width: 7.51rem;
+  padding-left: 0.625rem;
+  border-left: 0.02rem dashed #eeeeee;
+}
+.basic-left li .li_r span {
+  display: block;
+  padding-right: 0.6rem;
+  font-size: 0.52rem;
+  color: #333;
+  margin-top: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 .basic-left .accord {
   position: absolute;
-  top: 60%;
-  left: 10.6rem;
+  top: 30%;
+  right: 0.5rem;
 }
 .basic-right img {
   width: 2.72rem;
@@ -333,7 +414,7 @@ body {
   height: 4.24rem;
   margin-top: 0.72rem;
   margin-left: 0.4rem;
-  border: 1px  dashed #d4d4d4;
+  border: 1px  dashed #eeeeee;
 }
 .identityCardPhoto img {
   width: 3.58rem;
@@ -346,9 +427,7 @@ body {
 .workAbilityTable,
 .skillTable,
 .wageTable {
-  padding-left: 0.56rem;
-  border-bottom: 1px dotted #d4d4d4;
-  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed #eeeeee;
 }
 .eduTable h3,
 .workTable h3,
@@ -382,11 +461,6 @@ body {
 }
 .eduTable-left .schoolTitle {
   float: left;
-  /*margin-right: 14/@r;*/
-}
-.eduTable-left .schoolName {
-  float: left;
-  width: 8.4rem !important;
 }
 .eduTable-left {
   position: relative;
@@ -397,8 +471,11 @@ body {
   height: 0.42rem;
 }
 .eduTable-left p {
-  line-height: 1.2rem;
-  font-size: 0;
+  height: 1.36rem;
+  line-height: 1.36rem;
+  display: block;
+  width: 11.26rem;
+  border-bottom: 1px dashed #eeeeee;
 }
 .eduTable-left p img,
 .workTable-left p img,
@@ -418,12 +495,6 @@ body {
   margin-top: -1.2rem;
   left: 10.6rem;
 }
-.eduTable hr {
-  height: 1px;
-  border: none;
-  border-top: 1px solid #e5e5e5;
-  margin: 0.52rem 0 0.6rem -0.6rem;
-}
 .accord img {
   width: 2.72rem;
   height: 2.38rem;
@@ -435,7 +506,7 @@ body {
 .workAbilityExplain,
 .wageExplain {
   padding-left: 0.56rem;
-  border-top: 1px solid #e7e7e7;
+  border-top: 1px solid #eeeeee;
   margin-top: -1px;
 }
 .eduExplain span,
@@ -461,6 +532,16 @@ body {
   line-height: 1.8;
   color: #999;
   margin-top: 0.2rem;
+}
+.pay {
+  width: 15rem !important;
+}
+.pay-left {
+  width: 4.16rem !important;
+}
+.pay-right {
+  width: 6.66rem !important;
+  border-right: none !important;
 }
 /*工作*/
 .workTable-left {
@@ -557,7 +638,7 @@ body {
 .skillTable-noResult {
   padding-left: 0.56rem;
   padding-bottom: 0.4rem;
-  border-bottom: 1px solid #d4d4d4;
+  border-bottom: 1px solid #eeeeee;
 }
 .skillTable .certificationTitle {
   float: left;
@@ -565,9 +646,6 @@ body {
 .skillTable .certification-unit {
   float: left;
   width: 8.4rem !important;
-}
-.badnessTable {
-  padding-bottom: 0.4rem;
 }
 .badnessTable div p,
 .skillTable-noResult div p {
@@ -590,6 +668,9 @@ body {
   padding-left: 0.56rem;
   margin-bottom: 0.2rem;
 }
+.explain p:last-child {
+  margin-bottom: 0.52rem;
+}
 .explain p:nth-of-type(1) img {
   width: 0.1rem;
   height: 0.48rem;
@@ -610,7 +691,7 @@ body {
 }
 /*核验记录*/
 .check-record {
-  border-bottom: 0.4rem solid #ebf0f2;
+  border-bottom: 1px solid #ebf0f2;
 }
 .check-record .record-header {
   height: 1.96rem;
@@ -656,7 +737,7 @@ body {
   width: 2.32rem;
   height: 0.84rem;
   line-height: 0.84rem;
-  border: 0.04rem solid #00adb4;
+  border: 1px solid #00adb4;
   border-radius: 0.12rem;
   background: #fff;
   color: #00adb4;
@@ -683,20 +764,17 @@ body {
   border-bottom: 1px solid #999;
   color: #333;
   font-size: 0.56rem;
-  -webkit-appearance: none;
   background: none;
   line-height: normal;
   text-align: center;
 }
 .footer p span {
-  display: inline-block;
-  min-width: 4rem;
-  border-bottom: 1px solid #999;
   text-align: center;
-  padding: 0 0.4rem;
+  padding: 0 0.1rem;
   text-indent: 0;
-  vertical-align: 0.1rem;
+  text-decoration: underline;
 }
+
 .footer p {
   font-size: 0.52rem;
   color: #999;
@@ -707,26 +785,33 @@ body {
 .footer p:nth-of-type(2) {
   margin-top: 0.4rem;
 }
+/* 一致 */
 .accordance {
-  color: #01cda1!important;
-}
-.inconformity {
-  color: #fa0606!important;
-}
-.waitColor {
-  color: #f6a129!important;
-}
-.discordFontColor {
-  color: #fc6363!important;
+  color: #27d4af!important;
 }
 .accordanceBg {
   background-color: #27d4af;
 }
-.waitColoBg {
-  background-color: #f6a129;
+/* 不一致 */
+.inconformity {
+  color: #fe4646!important;
 }
 .inconformitBg {
   background-color: #fe4646;
+}
+/* 未查得 */
+.unfindColor {
+  color: #fccb07 !important;
+}
+.unfindBg {
+  background: #fccb07;
+}
+/* 等待反馈/核验中 */
+.waitColor {
+  color: #d98103!important;
+}
+.waitColoBg {
+  background-color: #d98103;
 }
 #main {
   float: left;
@@ -759,10 +844,10 @@ body {
   background: #fe4646;
 }
 .noIcon {
-  background: #feb957;
+  background: #fccb07;
 }
 .wartIcon {
-  background: #fccb07;
+  background: #d98103;
 }
 .greyIcon {
   background: #a6a7a8;
@@ -772,8 +857,4 @@ body {
 .noIcon,
 .wartIcon {
   margin: 0.3rem 0.2rem 0.3rem 0 !important;
-}
-.noWork > P {
-  font-size: 0.52rem;
-  color: #333;
 }

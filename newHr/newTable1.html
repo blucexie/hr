@@ -15,6 +15,7 @@
         #registrationForm{
             text-align: center;
         }
+
     .tableX{
         width: 950px;
         margin: 0 auto;
@@ -46,23 +47,39 @@
     .table-footer-group{display:table-footer-group;} 
 
     .basicTitle,.educateTitle,.workTitle{
-        border:1px solid #000; 
         padding: 10px 0;
     }
     .t_cell{
         display:table-cell;
-        border:1px solid #000; 
-        border-top: none;
+        border-right: 1px solid #000; 
+        border-top: 1px solid #000;
         height: 40px;
         line-height: 40px;
+    }
+    .cell_border{
+        border-top: none;
+    }
+    .basic{
+        border: 1px solid #000000;
+    }
+    .basicContent{
+        overflow: hidden;
+        position: relative;
+    }
+    .basicContent>img{
+        width: 120px;
+        height: 146px;
+        position: absolute;
+        right: 9px;
+        top: 50%;
+        transform: translateY(-73px);
     }
     .basicRight{
         float: left;
         width: 141px;
-        height: 163px;
-        border: 1px solid #000;
-        border-top: none;
+        border-top: 1px solid #000;
     }
+
     .basic  .table:nth-of-type(1) .t_cell,
     .basic  .table:nth-of-type(4) .t_cell{
         width: 12.5%;
@@ -82,11 +99,14 @@
     
    
     /* 教育 */
+    .educate{
+        border-left: 1px solid #000000;
+    }
     .educateTitle{
-        border-top: none;
+        border-right:1px solid #000000;
     }
     .educate .table{
-        width: 950px;
+        width: 949px;
         display:table;
     }
     .educate .table .t_cell:nth-of-type(1){
@@ -102,28 +122,46 @@
         width: 20%;
     }
     /* 职业 */
+    .skill{
+        border-top: 1px solid #000000;
+        border-left:1px solid #000000;
+        vertical-align: middle;
+        width: 949px;
+        position: relative;
+    }
     .skill .table{
-        width: 522px;
+        width: 521px;
         display: table;
+        border-left: 1px solid #000000;
     }
-    .skill .skillLeft,.skill .skillRight{
-        float: left;
+    .skill span{
+        display: inline-block;
+        position: absolute;
+        left: 173px;
+        top: 50%;
+        transform: translateY(-9.5px)
     }
+    .skill .skillRight{
+        float: right;
+    }
+
     .skill .skillLeft{
-        width: 427px;
-        border: 1px solid #000;
-        border-top: none;
-        border-right: none;
-        height: 122px;
-        line-height: 122px;
+        width: 428px;
+        border-top: 1px solid #000;
+        height: 100%;
+        line-height: 100%;
     }
     /* 工作 */
+    .work{
+        border-left:1px solid #000000;  
+    }
     .workTitle{
-        border-top: none;
+        border-top: 1px solid #000000;
+        border-right:1px solid #000000; 
         width: 949px;
     }
     .work .table{
-        width: 950px;
+        width: 949px;
         display:table;
     }
     .work .table .t_cell:nth-of-type(1){
@@ -146,8 +184,7 @@
     }
     .declare {
             width: 949px;
-            border: 1px solid #666;
-            border-top: none;
+            border: 1px solid #000000;
             padding-top: 50px;
             margin: 0 auto;
             text-align: left;
@@ -179,9 +216,14 @@
         .notes .table{
             width: 950px;
             display: table;
+            border-left: 1px solid #000000;
+            border-bottom: 1px solid #000000;
         }
         .notes .table:nth-of-type(1){
-            border-top: 1px solid #000;
+            border-bottom:none;
+        }
+        .notes .table:nth-of-type(2){
+            border-bottom:none;
         }
         .notes .table .t_cell{
             width: 25%;
@@ -194,47 +236,48 @@
         <div class="tableX">  
                 <h2 class="table-caption">面试人员登记表</h2>  
                 <div class="basic clearfix">
-                        <div class="basicTitle">基本信息</div>
-                  <div class="basicLeft">
-                    <div class="table">
-                            <div class="t_cell">姓名</div>
-                            <div class="t_cell">刘德华</div>
-                            <div class="t_cell">性别</div>
-                            <div class="t_cell">男</div>
-                            <div class="t_cell">出生年月</div>
-                            <div class="t_cell">1990.01.01</div>
-                            <div class="t_cell">籍贯</div>
-                            <div class="t_cell">北京</div>
+                    <div class="basicTitle">基本信息</div>
+                    <div class="basicContent">
+                        <div class="basicLeft">
+                            <div class="table">
+                                <div class="t_cell">姓名</div>
+                                <div class="t_cell">刘德华</div>
+                                <div class="t_cell">性别</div>
+                                <div class="t_cell">男</div>
+                                <div class="t_cell">出生年月</div>
+                                <div class="t_cell">1990.01.01</div>
+                                <div class="t_cell">籍贯</div>
+                                <div class="t_cell">北京</div>
+                            </div>
+                            <div class="table">
+                                <div class="t_cell">联系方式</div>
+                                <div class="t_cell">13124771727</div>
+                                <div class="t_cell">身份证号码</div>
+                                <div class="t_cell">140223111101012311</div>
+                            </div>
+                            <div class="table">
+                                <div class="t_cell">毕业学校</div>
+                                <div class="t_cell">北京科技大学</div>
+                                <div class="t_cell">最高学历</div>
+                                <div class="t_cell">本科</div>
+                                <div class="t_cell">专业</div>
+                                <div class="t_cell">计算机</div>
+                            </div>
+                            <div class="table">
+                                <div class="t_cell">面试职位</div>
+                                <div class="t_cell">JAVA</div>
+                                <div class="t_cell">身份</div>
+                                <div class="t_cell">往届生</div>
+                                <div class="t_cell">期望薪资</div>
+                                <div class="t_cell">12</div>
+                                <div class="t_cell">是否离职</div>
+                                <div class="t_cell">否</div>
+                            </div>
                         </div>
-                        <div class="table">
-                            <div class="t_cell">联系方式</div>
-                            <div class="t_cell">13124771727</div>
-                            <div class="t_cell">身份证号码</div>
-                            <div class="t_cell">140223111101012311</div>
-                        </div>
-                        <div class="table">
-                            <div class="t_cell">毕业学校</div>
-                            <div class="t_cell">北京科技大学</div>
-                            <div class="t_cell">最高学历</div>
-                            <div class="t_cell">本科</div>
-                            <div class="t_cell">专业</div>
-                            <div class="t_cell">计算机</div>
-                        </div>
-                        <div class="table">
-                            <div class="t_cell">面试职位</div>
-                            <div class="t_cell">JAVA</div>
-                            <div class="t_cell">身份</div>
-                            <div class="t_cell">往届生</div>
-                            <div class="t_cell">期望薪资</div>
-                            <div class="t_cell">12</div>
-                            <div class="t_cell">是否离职</div>
-                            <div class="t_cell">否</div>
-                        </div>
+                        <div class="basicRight"></div>
+                        <img src="images/head.png" alt="">
                     </div>
-                    <div class="basicRight">
-                        <img src=" " alt="">
-                    </div>
-                  </div>
+                </div>
                   <div class="educate clearfix">
                         <div class="educateTitle">教育信息</div>
                         <div class="table">
@@ -257,12 +300,10 @@
                         </div>
                   </div>
                   <div class="skill clearfix">
-                    <div class="skillLeft">
-                            职业资格证书
-                        </div>
+                        <span>职业资格证书</span>  
                         <div class="skillRight">
                             <div class="table">
-                                <div class="t_cell">挖掘机证</div>
+                                <div class="t_cell cell_border">挖掘机证</div>
                                 
                             </div>
                             <div class="table">
@@ -271,7 +312,6 @@
                             </div>
                             <div class="table">
                                 <div class="t_cell">挖掘机证</div>
-                            
                             </div>
                         </div>
                   </div>
@@ -337,6 +377,5 @@
                 </div>
             </div>
     </div>
-    
 </body>
 </html>
