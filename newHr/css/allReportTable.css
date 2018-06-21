@@ -18,6 +18,9 @@ body{
     .noPrint {
       display: none;
     }
+    table,.contentDescription{
+        page-break-inside:avoid;
+    }
   }
 h2{
     font-size: 16px;
@@ -94,7 +97,8 @@ h2{
 .header h1{
     font-size: 26px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 table{
     width: 700px;
@@ -219,8 +223,8 @@ table tr td,table tr th{
     margin-right: 40px;
     color: #f6a129
 }
+
 .contentDescription>div{
-    border: 1px solid #000;
     padding: 40px 20px;
 }
 .contentDescription>h1{
