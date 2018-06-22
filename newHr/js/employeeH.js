@@ -165,7 +165,6 @@ $(function () {
                                 }
                             }
             
-                            if(backData.item.isNewGraduate !=="1"){
                                 /*工作*/
                                 var workJson = JSON.parse(backData.item.resumeWorkArray);
                                 workLength =workJson.length;
@@ -234,7 +233,6 @@ $(function () {
                                 if(workLength==3){
                                     $('.addWork').hide();
                                 }
-                            }
                         }
                     },
                     error: function (XMLHttpRequest, textStatus) {
