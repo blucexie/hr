@@ -6,6 +6,10 @@ ul,li{
 a{
   text-decoration: none;
 }
+span{
+  font-size: 30/@r;
+  color: #333;
+}
 body{
   font-family:"Microsoft YaHei";
   position: relative;
@@ -18,8 +22,8 @@ input:disabled, input[disabled],textarea:disabled{
 }
 
 input:focus{
-  color:#574e5f;
-  caret-color:#574e5f;
+  color:#666;
+  caret-color:#666;
 }
 textarea{
   border-radius: 0;
@@ -92,10 +96,6 @@ input{
   height: 12/@r;
   vertical-align: 4/@r;
 }
-/* .interval{
-  height: 22/@r;
-  background: #ebf0f2;
-} */
 /*····················*/
 .licensedContent{
   width: 694/@r;
@@ -158,13 +158,14 @@ input{
   margin-bottom: 35/@r;
 }
 .formValidation label,.educationTable div, .work div, .skill div{
-  width: 694/@r;
+  width: 662/@r;
   font-size: 30/@r;
   color: #573e5f;
   height: 100/@r;
   line-height: 100/@r;
   display: inline-block;
   border-bottom: 1px solid #e7e7e7;
+  margin-left: 16/@r;
 }
 .basic, .education,.workExperience,.skillInformation{
  text-align: center;
@@ -189,10 +190,6 @@ input{
   width: 9.3rem;
   border-bottom: none;
 }
-
-/*.basic span,.education span,.skillInformation span,.workExperience span{
-  color: #bfbfbf;
-}*/
 .formValidation form label span{
   margin-right: 50/@r;
 }
@@ -229,12 +226,14 @@ input{
   border: none;
   height: 80/@r;
   outline: none;
-  font-size: 30/@r;
+}
+input{
+  font-size: 28/@r;
   color: #666;
 }
 ::-webkit-input-placeholder{
   font-size: 28/@r;
-  opacity: 0.6;
+  color: #ccc;
 }
 .isDimission,.identity{
   line-height: 88/@r;
@@ -300,7 +299,8 @@ input{
   align-items: center;
 }
 #deForm div{
-  width: 694/@r;
+  width: 662/@r;
+  margin-left:16/@r;
 }
 #deForm label i,#deForm div i,
 .educationTable>div i,.skill>div i,.work>div i{
@@ -348,7 +348,7 @@ input{
 }
 .educate,.educateS,.workTitle,
 .workTitleS,.skillTitle,.skillTitleS{
-  margin-left: 30/@r;
+  margin-left: 10/@r;
   font-size: 32/@r;
   margin-top: 10/@r;
   height:80/@r;
@@ -385,30 +385,18 @@ input{
   margin-right: 8/@r;
 }
 .educationTable div span{
-  margin-right: 50/@r!important;
+  margin-right: 48/@r!important;
 }
-/* .educationTable .career, .educationTable .edu,.educationTable .specialty{
-  margin-right: 112/@r;
-} */
-/* .educationTable,.work,.skill{
-  border-top:22/@r solid #ebf0f2 ;
-} */
 .educationTable1,.work1{
   border-top:none;
 }
-/* .educationTable .edu,.educationTable .career {
-  margin-right: 110/@r !important;
-} */
-
 .upEducation,.upSkill{
   line-height: 102/@r;
- /* border-bottom: 1px solid #d4d4d4 ;*/
   font-size: 30/@r;
   color: #bfbfbf;
   text-align: center;
   padding-top: 40/@r;
 }
-
 .upEducation img, .upWorkExperience img,.upSkill img{
   width: 292/@r;
   height: 68/@r;
@@ -422,7 +410,6 @@ input{
   width: 150/@r;
   font-size: 32/@r;
   color: #574e5f;
-  /* margin-left: 30/@r; */
   margin-right: 54/@r;
 }
 .upE .schName{
@@ -441,9 +428,13 @@ input{
   text-align: center;
   padding-top: 40/@r;
 }
-.upEducation p, .upWorkExperience p,.upBasic p{
-  font-size: 32/@r;
+.upEducation p, .upWorkExperience p,.upBasic p,.upSkill p{
+  font-size: 30/@r;
   color: #bfbfbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20/@r;
 }
 .upBasic p{
   display: inline-block;
@@ -451,19 +442,21 @@ input{
 .upEducation p img, .upWorkExperience p img, .upBasic img,.upSkill p img{
   width: 24/@r;
   height: 13/@r;
+  margin-left: 6/@r;
 }
 .work div span,.skill div span{
-  margin-right: 50/@r;
+  margin-right: 48/@r;
 }
 .work .certifierName,.work .certifierTel{
   margin-right: 20/@r;
 }
-/* .work .relation{
-  margin-right: 110/@r;
-} */
+
 .schoolMsg,.firmMsg{
   height: 110/@r!important;
   line-height:110/@r!important;
+}
+.schoolMsg>span,.firmMsg>span{
+  white-space: nowrap;
 }
 textarea{
   width: 450/@r;
@@ -488,7 +481,6 @@ textarea{
   width: 150/@r;
   font-size: 32/@r;
   color: #574e5f;
-/*   margin-left: 30/@r; */
   margin-right: 54/@r;
 }
 .upW .wkName,.upS .skName{
@@ -497,12 +489,6 @@ textarea{
   font-size: 30/@r;
   color: #666;
 }
-/* .cuttingLine{
-  height: 22/@r;
-  background: #f8f8f8;
-  border-top: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
-} */
 /*·········*/
 .declare{
   margin-top: 80/@r;
@@ -514,11 +500,11 @@ textarea{
   line-height: 58/@r;
 }
 .declare p:nth-of-type(2){
-  font-size: 32/@r;
+  font-size: 28/@r;
   padding-right: 40/@r;
 }
 .sDeclare{
-  font-size: 34/@r;
+  font-size: 28/@r;
 
 }
 .footer{
@@ -557,21 +543,21 @@ textarea{
 }
 
 #submit{
-  width: 430/@r;
-  height: 92/@r;
+  width: 410/@r;
+  height: 74/@r;
   background: #00adb4;
   font-size: 34/@r;
   color: #fff;
   border: none;
-  border-radius: 60/@r;
-  margin-bottom: 80/@r;
+  border-radius: 35/@r;
+  margin-bottom: 52/@r;
   outline: none;
 }
 
 /*签名*/
 .signature{
   margin-top: 88/@r;
-  margin-bottom: 100/@r;
+  margin-bottom: 62/@r;
 }
 .sName,.signatureData{
   float: left;

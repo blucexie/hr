@@ -22,12 +22,17 @@ textarea:disabled {
   -webkit-opacity: 1;
   opacity: 1;
 }
+span {
+  font-size: 0.6rem;
+  color: #333;
+}
 ::-webkit-input-placeholder {
-  color: #c0c0c0;
+  font-size: 0.56rem;
+  color: #ccc;
 }
 input:focus {
-  color: #574e5f;
-  caret-color: #574e5f;
+  color: #666;
+  caret-color: #666;
 }
 textarea {
   border-radius: 0;
@@ -42,7 +47,7 @@ input {
   border: none;
   line-height: normal;
   height: 1.6rem;
-  font-size: 0.6rem;
+  font-size: 0.56rem;
 }
 .clearfix:after {
   content: "";
@@ -152,7 +157,7 @@ input {
   text-align: center;
 }
 .basicForm label {
-  width: 13.88rem;
+  width: 13.24rem;
   font-size: 0.6rem;
   color: #573e5f;
   height: 2rem;
@@ -160,6 +165,7 @@ input {
   display: inline-block;
   border-bottom: 1px solid #e7e7e7;
   background: #fff;
+  margin-left: 0.32rem;
 }
 .basic img {
   width: 5.36rem;
@@ -173,6 +179,7 @@ input {
 #deForm {
   width: 13.88rem;
   margin: 0 auto;
+  background-color: #fff;
 }
 #deForm > div {
   width: 13.88rem;
@@ -250,8 +257,8 @@ input {
   margin: 1.08rem 0;
 }
 .nextStep button {
-  width: 8.56rem;
-  height: 1.76rem;
+  width: 8.2rem;
+  height: 1.48rem;
   background: #00adb4;
   font-size: 0.68rem;
   color: #fff;

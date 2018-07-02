@@ -780,7 +780,8 @@ $(function () {
        $('.htmleaf-container').css('display','block');
         $('.js-signature canvas').attr('width',600).css('width','600px');
         $('.zhezhao').css('display','block');
-        $('body').css('overflow','hidden')
+        $('body').css({'overflow':'hidden','height':'100%'});
+        $('html').css({'overflow':'hidden','height':'100%'});
     });
 
     if ($('.js-signature').length) {
@@ -803,7 +804,9 @@ $(function () {
         localStorage.setItem('img', dataUrl);
         $('.htmleaf-container').css('display','none');
         $('.zhezhao').css('display','none');
-        $('body').css('overflow','auto');
+        $('body').css({'overflow':'auto','height':'auto'});
+        $('html').css({'overflow':'auto','height':'auto'});
+        $(window).scrollTop ($('body').height());
         /*取值填充*/
         var img = localStorage.getItem('img');
         if(img){
@@ -822,7 +825,9 @@ $(function () {
     $('#closeBtn').click(function () {
         $('.htmleaf-container').css('display','none');
         $('.zhezhao').css('display','none');
-        $('body').css('overflow','auto');
+        $('body').css({'overflow':'auto','height':'auto'});
+        $('html').css({'overflow':'auto','height':'auto'});
+        $(window).scrollTop ($('body').height());
     });
 
 
@@ -1115,6 +1120,7 @@ $(function () {
                         return false;
                     }
                 }else if (itemName == 'colleagueName'){
+                    itemPass = checkUserFullName(itemVal);
                     if(itemVal==basicInfo['resumeName']){
                         layer.open({
                             content: '证明人姓名不能候选人姓名相同'
@@ -1124,6 +1130,20 @@ $(function () {
                                 inputObject.focus();
                             }
                         });
+                        $(this).addClass('errorShow');
+                        basicPass = false;
+                        return false;
+                    }else if(!itemPass){
+                        inputObject = $(this);
+                        layer.open({
+                            content: '证明人姓名最少为两位',
+                            btn: '确定',
+                            yes: function(index){
+                                layer.close(index);
+                                inputObject.focus();
+                            }
+                        });
+        
                         $(this).addClass('errorShow');
                         basicPass = false;
                         return false;
@@ -1222,24 +1242,42 @@ $(function () {
 
 
 
-        /*技能*/
-        var  skillInfo = [];
-        var skill = document.getElementsByClassName('skill');
-        for(var i = 0;i<skill.length;i++){
-            var skFn = function () {
-                var sInps = skill[i].getElementsByTagName('input');
-                skillInfo.push({
-                    skillName:sInps[0].value
-                })
-            };
-            skFn();
-        }
-        var $skInputs = $('.skill input');
-        for(var i = 0;i<$skInputs.length;i++){
-            if($skInputs[i].value==""){
-                skillInfo="";
-            }
-        }
+         /*技能*/
+         var  skillInfo = [];
+         $('.skill').each(function(){
+             basicPass = true;
+             $(this).find('input').each(function () {
+                 inputObject = $(this);
+                 if( $(this).val()== ''){
+                     skillInfo="";
+                 }else{
+                 var itemPass = true;
+                 var itemVal = $(this).val();
+                 var itemName = $(this).attr('name');
+                 if (itemName == 'certificateName' ){
+                     if(itemVal!=="" && itemVal.length<3 ){
+                         layer.open({
+                             content: '证书名称最少为3个字符'
+                             ,btn: '确定',
+                             yes: function(index){
+                                 layer.close(index);
+                                 inputObject.focus();
+                             }
+                         });
+                         $(this).addClass('errorShow');
+                         basicPass = false;
+                         return false;
+                     }
+                 }
+                 skillInfo.push({
+                     skillName:itemVal
+                 })
+             }
+                
+             })
+             
+         })
+         if (!basicPass) return;
 
         /*获取签名字符串*/
         var resumeSignURL;

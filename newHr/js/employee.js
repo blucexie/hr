@@ -3,7 +3,7 @@
  */
 
 $(function () {
-
+   
     window.eduFn = function (dom) {
 
         dom.addEventListener('click', function () {
@@ -790,11 +790,12 @@ $(function () {
     });
 
     /*签名区*/
-    $('.nameSpace').click(function () {
+    $('.nameSpace').click(function (e) {
         $('.htmleaf-container').css('display','block');
         $('.js-signature canvas').attr('width',600).css('width','600px');
         $('.zhezhao').css('display','block');
-        $('body').css('overflow','hidden')
+        $('body').css({'overflow':'hidden','height':'100%'});
+        $('html').css({'overflow':'hidden','height':'100%'});
     });
 
     if ($('.js-signature').length) {
@@ -817,7 +818,9 @@ $(function () {
         localStorage.setItem('img', dataUrl);
         $('.htmleaf-container').css('display','none');
         $('.zhezhao').css('display','none');
-        $('body').css('overflow','auto');
+        $('body').css({'overflow':'auto','height':'auto'});
+        $('html').css({'overflow':'auto','height':'auto'});
+        $(window).scrollTop ($('body').height());
         /*取值填充*/
         var img = localStorage.getItem('img');
         if(img){
@@ -837,6 +840,9 @@ $(function () {
         $('.htmleaf-container').css('display','none');
         $('.zhezhao').css('display','none');
         $('body').css('overflow','auto');
+        $('body').css({'overflow':'auto','height':'auto'});
+        $('html').css({'overflow':'auto','height':'auto'});
+        $(window).scrollTop ($('body').height());
     });
 
 
@@ -1133,6 +1139,7 @@ $(function () {
                         return false;
                     }
                 }else if (itemName == 'colleagueName'){
+                    itemPass = checkUserFullName(itemVal);
                     if(itemVal==basicAll['resumeName']){
                         layer.open({
                             content: '证明人姓名不能候选人姓名相同'
@@ -1142,6 +1149,20 @@ $(function () {
                                 inputObject.focus();
                             }
                         });
+                        $(this).addClass('errorShow');
+                        basicPass = false;
+                        return false;
+                    }else if(!itemPass){
+                        inputObject = $(this);
+                        layer.open({
+                            content: '证明人姓名最少为两位',
+                            btn: '确定',
+                            yes: function(index){
+                                layer.close(index);
+                                inputObject.focus();
+                            }
+                        });
+        
                         $(this).addClass('errorShow');
                         basicPass = false;
                         return false;
@@ -1228,9 +1249,6 @@ $(function () {
                 return false;
             }
         }
-       /*  if($('#graduatingStudents').is(':checked')){
-            workInfo="";
-        } */
         if(workInfo.length===0){
             workInfo= "";
         }
@@ -1244,11 +1262,10 @@ $(function () {
                     inputObject = $(this);
                     if( $(this).val()== ''){
                         skillInfo="";
-                    }
+                    }else{
                     var itemPass = true;
                     var itemVal = $(this).val();
                     var itemName = $(this).attr('name');
-
                     if (itemName == 'certificateName' ){
                         if(itemVal!=="" && itemVal.length<3 ){
                             layer.open({
@@ -1267,6 +1284,8 @@ $(function () {
                     skillInfo.push({
                         skillName:itemVal
                     })
+                }
+                   
                 })
                 
             })

@@ -9,6 +9,10 @@ li {
 a {
   text-decoration: none;
 }
+span {
+  font-size: 0.6rem;
+  color: #333;
+}
 body {
   font-family: "Microsoft YaHei";
   position: relative;
@@ -22,8 +26,8 @@ textarea:disabled {
   opacity: 1;
 }
 input:focus {
-  color: #574e5f;
-  caret-color: #574e5f;
+  color: #666;
+  caret-color: #666;
 }
 textarea {
   border-radius: 0;
@@ -95,10 +99,6 @@ input {
   height: 0.24rem;
   vertical-align: 0.08rem;
 }
-/* .interval{
-  height: 22/@r;
-  background: #ebf0f2;
-} */
 /*····················*/
 .licensedContent {
   width: 13.88rem;
@@ -161,13 +161,14 @@ input {
 .educationTable div,
 .work div,
 .skill div {
-  width: 13.88rem;
+  width: 13.24rem;
   font-size: 0.6rem;
   color: #573e5f;
   height: 2rem;
   line-height: 2rem;
   display: inline-block;
   border-bottom: 1px solid #e7e7e7;
+  margin-left: 0.32rem;
 }
 .basic,
 .education,
@@ -198,9 +199,6 @@ input {
   width: 9.3rem;
   border-bottom: none;
 }
-/*.basic span,.education span,.skillInformation span,.workExperience span{
-  color: #bfbfbf;
-}*/
 .formValidation form label span {
   margin-right: 1rem;
 }
@@ -240,12 +238,14 @@ input {
   border: none;
   height: 1.6rem;
   outline: none;
-  font-size: 0.6rem;
+}
+input {
+  font-size: 0.56rem;
   color: #666;
 }
 ::-webkit-input-placeholder {
   font-size: 0.56rem;
-  opacity: 0.6;
+  color: #ccc;
 }
 .isDimission,
 .identity {
@@ -320,7 +320,8 @@ input {
   align-items: center;
 }
 #deForm div {
-  width: 13.88rem;
+  width: 13.24rem;
+  margin-left: 0.32rem;
 }
 #deForm label i,
 #deForm div i,
@@ -382,7 +383,7 @@ input {
 .workTitleS,
 .skillTitle,
 .skillTitleS {
-  margin-left: 0.6rem;
+  margin-left: 0.2rem;
   font-size: 0.64rem;
   margin-top: 0.2rem;
   height: 1.6rem;
@@ -426,25 +427,15 @@ input {
   margin-right: 0.16rem;
 }
 .educationTable div span {
-  margin-right: 1rem !important;
+  margin-right: 0.96rem !important;
 }
-/* .educationTable .career, .educationTable .edu,.educationTable .specialty{
-  margin-right: 112/@r;
-} */
-/* .educationTable,.work,.skill{
-  border-top:22/@r solid #ebf0f2 ;
-} */
 .educationTable1,
 .work1 {
   border-top: none;
 }
-/* .educationTable .edu,.educationTable .career {
-  margin-right: 110/@r !important;
-} */
 .upEducation,
 .upSkill {
   line-height: 2.04rem;
-  /* border-bottom: 1px solid #d4d4d4 ;*/
   font-size: 0.6rem;
   color: #bfbfbf;
   text-align: center;
@@ -465,7 +456,6 @@ input {
   width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
-  /* margin-left: 30/@r; */
   margin-right: 1.08rem;
 }
 .upE .schName {
@@ -484,9 +474,14 @@ input {
 }
 .upEducation p,
 .upWorkExperience p,
-.upBasic p {
-  font-size: 0.64rem;
+.upBasic p,
+.upSkill p {
+  font-size: 0.6rem;
   color: #bfbfbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.4rem;
 }
 .upBasic p {
   display: inline-block;
@@ -497,22 +492,24 @@ input {
 .upSkill p img {
   width: 0.48rem;
   height: 0.26rem;
+  margin-left: 0.12rem;
 }
 .work div span,
 .skill div span {
-  margin-right: 1rem;
+  margin-right: 0.96rem;
 }
 .work .certifierName,
 .work .certifierTel {
   margin-right: 0.4rem;
 }
-/* .work .relation{
-  margin-right: 110/@r;
-} */
 .schoolMsg,
 .firmMsg {
   height: 2.2rem !important;
   line-height: 2.2rem !important;
+}
+.schoolMsg > span,
+.firmMsg > span {
+  white-space: nowrap;
 }
 textarea {
   width: 9rem;
@@ -541,7 +538,6 @@ textarea {
   width: 3rem;
   font-size: 0.64rem;
   color: #574e5f;
-  /*   margin-left: 30/@r; */
   margin-right: 1.08rem;
 }
 .upW .wkName,
@@ -551,12 +547,6 @@ textarea {
   font-size: 0.6rem;
   color: #666;
 }
-/* .cuttingLine{
-  height: 22/@r;
-  background: #f8f8f8;
-  border-top: 1px solid #d4d4d4;
-  border-bottom: 1px solid #d4d4d4;
-} */
 /*·········*/
 .declare {
   margin-top: 1.6rem;
@@ -568,11 +558,11 @@ textarea {
   line-height: 1.16rem;
 }
 .declare p:nth-of-type(2) {
-  font-size: 0.64rem;
+  font-size: 0.56rem;
   padding-right: 0.8rem;
 }
 .sDeclare {
-  font-size: 0.68rem;
+  font-size: 0.56rem;
 }
 .footer {
   margin-top: 1.32rem;
@@ -608,20 +598,20 @@ textarea {
   background-size: 0.58rem 0.58rem;
 }
 #submit {
-  width: 8.6rem;
-  height: 1.84rem;
+  width: 8.2rem;
+  height: 1.48rem;
   background: #00adb4;
   font-size: 0.68rem;
   color: #fff;
   border: none;
-  border-radius: 1.2rem;
-  margin-bottom: 1.6rem;
+  border-radius: 0.7rem;
+  margin-bottom: 1.04rem;
   outline: none;
 }
 /*签名*/
 .signature {
   margin-top: 1.76rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.24rem;
 }
 .sName,
 .signatureData {

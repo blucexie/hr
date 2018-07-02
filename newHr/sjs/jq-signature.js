@@ -82,6 +82,7 @@
       this._resetCanvas();
       // Set up mouse events
       this.$canvas.on('mousedown touchstart', $.proxy(function(e) {
+        e.preventDefault();
         this.drawing = true;
         this.lastPos = this.currentPos = this._getPosition(e);
       }, this));

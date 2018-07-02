@@ -6,6 +6,11 @@ ul,li{
 a{
   text-decoration: none;
 }
+span{
+  font-size: 30/@r;
+  color: #333;
+}
+
 body{
   font-family:"Microsoft YaHei";
   position: relative;
@@ -18,8 +23,8 @@ input:disabled, input[disabled],textarea:disabled{
 }
 
 input:focus{
-  color:#574e5f;
-  caret-color:#574e5f;
+  color:#666;
+  caret-color:#666;
 }
 textarea{
   border-radius: 0;
@@ -51,13 +56,14 @@ input{
   margin-bottom: 35/@r;
 }
 .formValidation label,.educationTable>div, .work>div, .skill>div{
-  width: 694/@r;
+  width: 662/@r;
   font-size: 30/@r;
   color: #573e5f;
   height: 100/@r;
   line-height: 100/@r;
   display: inline-block;
   border-bottom: 1px solid #e7e7e7;
+  margin-left: 16/@r;
 }
 .basic,.education,.workExperience,.skillInformation{
   text-align: center;
@@ -106,7 +112,8 @@ input{
   width: 240/@r;
 }
 #deForm>div{
-  width: 694/@r;
+  width: 662/@r;
+  margin-left: 16/@r;
 }
 #deForm>div,#deForm>label,
 .educationTable>div,.skill>div,.work>div {
@@ -153,12 +160,14 @@ input{
   border: none;
   height: 80/@r;
   outline: none;
-  font-size: 30/@r;
+}
+input{
+  font-size: 28/@r;
   color: #666;
 }
 ::-webkit-input-placeholder{
   font-size: 28/@r;
-  color: #c0c0c0;
+  color: #ccc;
 }
 .isDimission,.identity{
   line-height: 88/@r;
@@ -215,13 +224,6 @@ input{
   background: url("../images/radio.png")no-repeat;
   background-size: 26/@r 26/@r;
 }
-/* .upBasic{
-  line-height: 102/@r;
-  font-size: 30/@r;
-  color: #bfbfbf;
-  text-align: center;
-  padding-top: 20/@r;
-} */
 /*基本信息收起时*/
 .upB{
   line-height: 78/@r;
@@ -246,7 +248,7 @@ input{
   display: none;
 }
 .educate,.educateS,.workTitle,.workTitleS,.skillTitle,.skillTitleS{
-  margin-left: 30/@r;
+  margin-left: 10/@r;
   font-size: 32/@r;
   margin-top: 10/@r;
 }
@@ -285,19 +287,12 @@ input{
   margin-right: 50/@r!important;
 }
 
-/* .educationTable,.work,.skill{
-  border-top:12/@r solid #f8f8f8 ;
-} */
 .educationTable1,.work1{
   border-top:none;
 }
-/* .educationTable .edu,.educationTable .career{
-  margin-right: 110/@r !important;
-} */
 
 .upEducation,.upSkill{
   line-height: 102/@r;
- /* border-bottom: 1px solid #d4d4d4 ;*/
   font-size: 30/@r;
   color: #bfbfbf;
   text-align: center;
@@ -317,7 +312,6 @@ input{
   width: 150/@r;
   font-size: 32/@r;
   color: #574e5f;
- /*  margin-left: 30/@r; */
   margin-right: 54/@r;
 }
 .upE .schName{
@@ -336,9 +330,13 @@ input{
   text-align: center;
   padding-top: 40/@r;
 }
-.upEducation p, .upWorkExperience p,.upBasic p{
-  font-size: 32/@r;
+.upEducation p, .upWorkExperience p,.upBasic p,.upSkill p{
+  font-size: 30/@r;
   color: #bfbfbf;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20/@r;
 }
 .upBasic p{
   display: inline-block;
@@ -346,9 +344,10 @@ input{
 .upEducation p img, .upWorkExperience p img, .upBasic img,.upSkill p img{
   width: 24/@r;
   height: 13/@r;
+  margin-left: 6/@r;
 }
 .work div span,.skill div span{
-  margin-right: 50/@r;
+  margin-right: 48/@r;
 }
 .work .certifierName,.work .certifierTel{
   margin-right: 20/@r;
@@ -357,9 +356,8 @@ input{
   height: 100/@r!important;
   line-height:100/@r!important;
 }
-.schoolMsg>span{
-  width: 130/@r;
-  height: 100/@r;
+.schoolMsg>span,.firmMsg>span{
+  white-space: nowrap;
 }
 textarea{
   width: 450/@r;
@@ -372,9 +370,6 @@ textarea{
   font-family: Arial;
   resize:none;
 }
-/* .work .relation{
-  margin-right: 110/@r;
-} */
 /*收起时工作经历*/
 .upW,.upS{
   padding-top: 40/@r;
@@ -387,7 +382,6 @@ textarea{
   width: 150/@r;
   font-size: 32/@r;
   color: #574e5f;
- /*  margin-left: 30/@r; */
   margin-right: 54/@r;
 }
 .upW .wkName,.upS .skName{
@@ -396,11 +390,6 @@ textarea{
   font-size: 30/@r;
   color: #666;
 }
-/* .cuttingLine{
-  height: 22/@r;
-  background: #f8f8f8;
-  
-} */
 /*·········*/
 .declare{
   margin-top: 40/@r;
@@ -412,11 +401,11 @@ textarea{
   line-height: 58/@r;
 }
 .declare p:nth-of-type(2){
-  font-size: 32/@r;
+  font-size: 28/@r;
   padding-right: 40/@r;
 }
 .sDeclare{
-  font-size: 34/@r;
+  font-size: 28/@r;
 
 }
 .footer{
@@ -455,21 +444,21 @@ textarea{
 }
 
 #submit{
-  width: 430/@r;
-  height: 92/@r;
-  background: #00adb4;
+  width: 410/@r;
+  height: 74/@r;
+  background-color: #00adb4;
   font-size: 34/@r;
   color: #fff;
   border: none;
-  border-radius: 60/@r;
-  margin-bottom: 80/@r;
+  border-radius:35/@r;
+  margin-bottom: 52/@r;
   outline: none;
 }
 
 /*签名*/
 .signature{
   margin-top: 40/@r;
-  margin-bottom: 70/@r;
+  margin-bottom: 62/@r;
 }
 .sName,.signatureData{
   float: left;
